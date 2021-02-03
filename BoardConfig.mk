@@ -102,10 +102,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER)/bluetooth
 
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
-TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
-TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_mtk
-TARGET_HAS_LEGACY_LP_CAM := true
 
 # Digital Restrictions Management (DRM)
 MTK_WVDRM_SUPPORT := yes
@@ -113,7 +109,7 @@ MTK_WVDRM_L1_SUPPORT := yes
 
 # Global Flags
 TARGET_GLOBAL_CPPFLAGS += -DMTK_HARDWARE
-BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M -DCAMERA_VENDOR_L_COMPAT
+BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
 BOARD_GLOBAL_CLFAGS += -DMTK_HARDWARE -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
 # System Properties
@@ -160,8 +156,6 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/lib64/libdrmmtkutil.so|libshim_drm.so \
     /system/lib/libui_ext.so|libshim_ui.so \
     /system/lib64/libui_ext.so|libshim_ui.so \
-    /system/lib/libcam_utils.so|libshim_ui.so \
-    /system/lib64/libcam_utils.so|libshim_ui.so \
     /system/bin/amzn_dha_hmac|libshim_drm.so \
     /system/bin/amzn_dha_tool|libshim_drm.so \
     /system/lib/libwvm.so|libshim_wvm.so

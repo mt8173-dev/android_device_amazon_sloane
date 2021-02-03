@@ -17,12 +17,6 @@ DEVICE_PACKAGE_OVERLAYS += device/amazon/sloane/overlay
 PRODUCT_PACKAGES += \
     lights.mt8173
 
-# Camera
-PRODUCT_PACKAGES += \
-    Snap \
-    libcamera_parameters_mtk \
-    libcam.halsensor
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -107,7 +101,6 @@ PRODUCT_PACKAGES += \
     libshim_log \
     libshim_ui \
     libshim_parcel \
-    libshim_camera \
     libshim_drm \
     libshim_wvm
 
@@ -143,8 +136,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
