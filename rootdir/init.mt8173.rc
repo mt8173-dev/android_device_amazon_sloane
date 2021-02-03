@@ -1,0 +1,312 @@
+
+import init.mt8173usb.rc
+import init.no_ssd.rc
+import init.ssd.rc
+import init.project.rc
+
+on init
+# Change dynamic_boost permission
+    chown system system /sys/devices/platform/dynamic_boost/dynamic_boost
+    chmod 0750 /sys/devices/platform/dynamic_boost/dynamic_boost
+
+	# change owner for cmdq
+	chown system drmrpc /proc/mtk_cmdq
+
+on fs
+    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system noatime wait ro commit=1
+    exec /system/bin/ext4_resize
+    mount_all /fstab.mt8173
+    mount squashfs loop@/system/sqfs/container.sqfs /mnt/sqfs wait ro context=u:object_r:squashfs_file:s0
+
+on boot
+  start thermald
+  start thermal
+
+  # Enable adb over network
+  setprop service.adb.tcp.port 5555
+
+on post-fs-data
+  mkdir /data/nvram 2771 root system
+  start prog_idme
+  start rpmb_svc
+  start amzn_drmprov
+
+# -----------------------
+# Add by MTK
+    # emi
+    chmod 0660 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+    chown system media /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+
+    # MD32 boot
+    chown root system /dev/md32
+    chmod 0440 /dev/md32
+    chown root system /sys/class/misc/md32/md32_mobile_log
+    chmod 0660 /sys/class/misc/md32/md32_mobile_log
+    write /sys/class/misc/md32/md32_boot 1
+
+    # dhcp server
+    mkdir /data/misc/dhcp 0770 dhcp wifi
+    chown dhcp wifi /data/misc/dhcp
+
+    # dhcpv6 server 
+    mkdir /data/misc/wide-dhcpv6 0770 dhcp wifi
+    chown dhcp wifi /data/misc/wide-dhcpv6
+
+    #set mlock limit to infinate (for m4u operation)
+    setrlimit 8 -1 -1
+
+    # HDMI
+    chown media system /dev/hdmitx
+    chmod 0666 /dev/hdmitx
+    
+    # LOGO resolution for fast logo
+    chown media system /dev/block/mmcblk0p11
+    chmod 0660 /dev/block/mmcblk0p11
+
+    # change key_provisioning
+    mkdir /data/key_provisioning
+    chmod 0770 /data/key_provisioning
+    chown system system /data/key_provisioning
+    start kisd
+
+    # For enabling adb for the first boot
+    mkdir /data/hwval 0770 system system
+    chmod 0660 /data/hwval/adb_check.bin
+    chown system system /data/hwval/adb_check.bin
+
+    # Memtrack alignment between FOS devices
+    chown system system /d/ion/heaps/ion_mm_heap
+
+service kisd /system/bin/kisd
+
+on charger
+    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system ro wait
+    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/userdata /data noatime,nosuid,nodev,nodelalloc, errors=panic
+    # start kpoc_charger
+    start dump-ramdump
+
+service kpoc_charger /system/bin/kpoc_charger
+	user root
+	group root
+	class charger
+
+# IMG GPU init
+service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module  --start
+	class main
+	user root
+	group root
+	oneshot
+
+# Device specific Media server initilialization
+service media /system/bin/mediaserver
+    class main
+    user media
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc drm mediadrm media
+    ioprio rt 4
+
+service guiext-server /system/bin/guiext-server
+    class main
+    user system
+    group system graphics
+
+on property:init.svc.bootanim=running
+	write /proc/bootprof "BOOT_Animation:START"
+
+on property:init.svc.bootanim=stopped
+	write /proc/bootprof "BOOT_Animation:END"
+	start auto_shutdown
+
+service mobile_log_d /system/bin/mobile_log_d
+	class main
+
+service nvram_daemon /system/bin/nvram_daemon
+    	class main
+    	user root
+    	group system
+    	oneshot
+
+service NvRAMAgent /system/bin/nvram_agent_binder
+	class main
+	user system
+	group system
+
+service auto_shutdown /system/bin/sh /system/bin/auto_shutdown.sh
+	oneshot
+	disabled
+	seclabel u:r:shell:s0
+
+service dhcpcd_bt-pan /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
+    class main
+    user dhcp
+    group net_admin net_raw       
+    disabled
+    oneshot
+
+
+service dhcpcd_wlan0 /system/bin/dhcpcd -ABK -dd
+    class main
+    user dhcp
+    group net_admin net_raw 
+    disabled
+    oneshot
+
+service dhcpcd_p2p /system/bin/logwrapper /system/bin/dhcpcd -ABK -dd
+    class main
+    user dhcp
+    group net_admin net_raw 
+    disabled
+    oneshot
+
+service dhcpcd_eth0 /system/bin/dhcpcd -ABK -dd
+    class main
+    user dhcp
+    group net_admin net_raw 
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -n
+    class main
+    user dhcp
+    group net_admin net_raw 
+    disabled
+    oneshot
+
+service iprenew_p2p /system/bin/logwrapper /system/bin/dhcpcd -n
+    class main
+    user dhcp
+    group net_admin net_raw 
+    disabled
+    oneshot
+
+service dhcp6cDNS_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
+    disabled
+    oneshot
+
+service dhcp6c_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
+    disabled
+    oneshot
+
+on property:service.dhcp6c_wlan0.enable=0
+    stop dhcp6c_wlan0
+
+on property:service.dhcp6c_wlan0.enable=1
+    start dhcp6c_wlan0
+
+service dhcp6c_PD /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cPD.conf" -Df
+    disabled
+    oneshot
+
+service prog_idme /system/bin/sh /system/bin/prog_idme.sh
+    class late_start
+    disabled
+    user root
+    oneshot
+
+service amzn_drmprov /system/bin/amzn_drmprov_check
+    class main
+    disabled
+    user root
+    oneshot
+
+service thermald /system/bin/thermald
+    disabled
+    user system
+    group system
+
+service thermal /system/bin/thermal
+    disabled
+    user system
+    group system
+
+service thermal_qa /system/bin/ThermalBenchmarkAutomation.sh
+	class late_start
+	user root
+	group root
+	oneshot
+
+on property:vold.decrypt=trigger_restart_framework
+    start nvram_daemon
+    
+service hdmi /system/bin/hdmi
+	class main
+	user system
+  group system net_admin inet
+
+on property:debug.log.battery.enable=y
+	start battery_log
+
+on property:debug.log.temperature.enable=y
+	start temperature_log
+
+on property:debug.log.dmesg.enable=y
+	start dmesg_log
+
+on property:debug.log.logcat.enable=y
+	start logcat_log
+
+on property:debug.custom_debug.enable=y
+	start custom_debug
+
+on property:sys.boot_completed=1
+	start adb_usb
+
+service thermal_log /system/bin/thermal_log.sh
+	class late_start
+	user system
+	group system
+	oneshot
+	disabled
+
+service thermal_qa /system/bin/ThermalBenchmarkAutomation.sh
+	class late_start
+	user root
+	group root
+	oneshot
+	disabled
+
+service battery_log /system/bin/battery_log.sh
+	class main
+	user root
+	group system
+	oneshot
+	disabled
+
+service temperature_log	/system/bin/temperature_log.sh
+	class main
+	user root
+	group system
+	oneshot
+	disabled
+
+service dmesg_log /system/bin/dmesg_log.sh
+	class main
+	user root
+	group system
+	oneshot
+	disabled
+	seclabel u:r:init_shell:s0
+
+service logcat_log /system/bin/logcat_log.sh
+	class main
+	user root
+	group system
+	oneshot
+	disabled
+
+service dump-ramdump /system/bin/dump-ramdump.sh
+    class late_start
+    user root
+    group root
+    oneshot
+
+service rpmb_svc /system/bin/rpmb_svc
+	class main
+	user root
+	group system
+	disabled
+
+service adb_usb /system/bin/sh /system/bin/adb_usb.sh
+	class late_start
+	disabled
+	user root
+	oneshot

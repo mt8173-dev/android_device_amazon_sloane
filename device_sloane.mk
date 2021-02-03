@@ -1,25 +1,21 @@
-LOCAL_PATH := device/amazon/douglas
+LOCAL_PATH := device/amazon/sloane
 
 # Include all the languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Call the proprietary vendor makefile
-$(call inherit-product-if-exists, vendor/amazon/douglas/douglas-vendor.mk)
+$(call inherit-product-if-exists, vendor/amazon/sloane/sloane-vendor.mk)
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += device/amazon/douglas/overlay
-
-# Power HAL
-PRODUCT_PACKAGES += \
-    power.default
+DEVICE_PACKAGE_OVERLAYS += device/amazon/sloane/overlay
 
 # Lights HAL
 PRODUCT_PACKAGES += \
-    lights.mt8163
+    lights.mt8173
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -75,10 +71,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/amazon_touch.idc:system/usr/keylayout/amazon_touch.idc
 
-# Doze
-PRODUCT_PACKAGES += \
-    AmazonDoze
-
 # Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
@@ -117,17 +109,12 @@ PRODUCT_PACKAGES += \
     libshim_parcel \
     libshim_camera \
     libshim_drm \
-    libshim_audio \
     libshim_wvm
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
-
-# Headphones
-PRODUCT_PACKAGES += \
-    audiofix
 
 # Camera Init
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
@@ -144,16 +131,13 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.mt8163:root/fstab.mt8163 \
-    $(LOCAL_PATH)/rootdir/init.mt8163.rc:root/init.mt8163.rc \
-    $(LOCAL_PATH)/rootdir/init.mt8163.usb.rc:root/init.mt8163.usb.rc \
-    $(LOCAL_PATH)/rootdir/init.recovery.mt8163.rc:root/init.recovery.mt8163.rc \
+    $(LOCAL_PATH)/rootdir/fstab.mt8173:root/fstab.mt8173 \
+    $(LOCAL_PATH)/rootdir/init.mt8173.rc:root/init.mt8173.rc \
+    $(LOCAL_PATH)/rootdir/init.mt8173usb.rc:root/init.mt8173.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.recovery.mt8173.rc:root/init.recovery.mt8173.rc \
     $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
-    $(LOCAL_PATH)/rootdir/init.douglas.rc:root/init.douglas.rc \
-    $(LOCAL_PATH)/rootdir/init.wifi.rc:root/init.wifi.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.mt8163.rc:root/ueventd.mt8163.rc \
-    $(LOCAL_PATH)/rootdir/sbin/resize_ext4:root/sbin/resize_ext4 \
-    $(LOCAL_PATH)/rootdir/sbin/resize2fs_static:root/sbin/resize2fs_static
+    $(LOCAL_PATH)/rootdir/init.connectivity.rc:root/init.connectivity.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.mt8173.rc:root/ueventd.mt8173.rc
 
 # Permissions
 PRODUCT_COPY_FILES += \

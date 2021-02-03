@@ -1,14 +1,11 @@
-DEVICE_FOLDER := device/amazon/douglas
+DEVICE_FOLDER := device/amazon/sloane
 
 # inherit from the proprietary version
--include vendor/amazon/douglas/BoardConfigVendor.mk
+-include vendor/amazon/sloane/BoardConfigVendor.mk
 
 # Platform
-TARGET_BOARD_PLATFORM := mt8163
+TARGET_BOARD_PLATFORM := mt8173
 TARGET_NO_BOOTLOADER := true
-
-# GPU
-TARGET_BOARD_PLATFORM_GPU := mali-720mp2
 
 # Architecture
 TARGET_ARCH := arm64
@@ -23,7 +20,7 @@ TARGET_2ND_CPU_VARIANT := cortex-a15
 TARGET_CPU_SMP := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := mt8163
+TARGET_BOOTLOADER_BOARD_NAME := mt8173
 
 # Filesystems
 TARGET_USERIMAGES_USE_EXT4:= true
@@ -47,8 +44,8 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := douglas_defconfig
-TARGET_KERNEL_SOURCE := kernel/amazon/douglas
+TARGET_KERNEL_CONFIG := sloane_defconfig
+TARGET_KERNEL_SOURCE := kernel/amazon/sloane
 
 # 64 Bit Binder Userspace
 TARGET_USES_64_BIT_BINDER := true
@@ -151,12 +148,7 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SECCOMP_POLICY := \
     $(DEVICE_FOLDER)/seccomp-policy
 
-# Cyanogenmod H/W Hooks
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS := $(DEVICE_FOLDER)/cmhw
-
 # Shim Libraries
-TARGET_LDPRELOAD += libshim_audio.so
 LINKER_FORCED_SHIM_LIBS := \
     /system/lib/liblog.so|libshim_log.so \
     /system/lib64/liblog.so|libshim_log.so \
@@ -178,7 +170,7 @@ LINKER_FORCED_SHIM_LIBS := \
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_FOLDER)/include
 
 # Init Library
-TARGET_INIT_VENDOR_LIB := libinit_douglas
+TARGET_INIT_VENDOR_LIB := libinit_sloane
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
@@ -199,7 +191,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := douglas,KFDOWI
+TARGET_OTA_ASSERT_DEVICE := sloane,AFTVS
 
 # Block Based OTA
 BLOCK_BASED_OTA := false
