@@ -107,7 +107,8 @@ PRODUCT_PACKAGES += \
 
 # LeanBack
 PRODUCT_PACKAGES += \
-    LeanbackLauncher
+    LeanbackLauncher \
+    LeanBackIme
 
 # Camera Init
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
