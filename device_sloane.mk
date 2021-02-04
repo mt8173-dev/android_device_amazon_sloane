@@ -108,7 +108,8 @@ PRODUCT_PACKAGES += \
 # LeanBack
 PRODUCT_PACKAGES += \
     LeanbackLauncher \
-    LeanBackIme
+    LeanBackIme \
+    CMLeanbackCustomizer
     
 # OverScan
 PRODUCT_PACKAGES += \
