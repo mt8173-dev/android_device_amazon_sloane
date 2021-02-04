@@ -12,7 +12,7 @@ $(call inherit-product, device/amazon/sloane/device_sloane)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := sloane
-PRODUCT_NAME := cm_sloane
+PRODUCT_NAME := lineage_sloane
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Fire TV 2
 PRODUCT_MANUFACTURER := amzn
