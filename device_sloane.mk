@@ -105,6 +105,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+# LeanBack
+PRODUCT_PACKAGES += \
+    LeanbackLauncher
+
 # Camera Init
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
 
