@@ -111,6 +111,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     TvSettings
     
+# SetupWraith
+PRODUCT_PACKAGES += \
+    SetupWraith
+    
 # OverScan
 PRODUCT_PACKAGES += \
     OverScan
