@@ -109,6 +109,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LeanbackLauncher \
     LeanBackIme
+    
+# OverScan
+PRODUCT_PACKAGES += \
+    OverScan
 
 # Camera Init
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
