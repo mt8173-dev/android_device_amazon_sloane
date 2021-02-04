@@ -1,0 +1,14 @@
+[
+  {
+    "target_path": "kernel/amazon/sloane",
+    "repository":  "sloane-development/android_kernel_amazon_sloane",
+    "remote":      "github",
+    "revision":    "cm-14.1"
+  },
+  {
+    "target_path": "vendor/amazon/sloane",
+    "repository":  "sloane-development/android_vendor_amazon_sloane",
+    "remote":      "github",
+    "revision":    "cm-14.1"
+  }
+]
