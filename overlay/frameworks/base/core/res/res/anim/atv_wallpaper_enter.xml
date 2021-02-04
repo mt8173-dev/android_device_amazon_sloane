@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
-**
-** Copyright 2015 The Android Open Source Project
-**           2020 The LineageOS Project
+/*\
+** Copyright 2009, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -18,12 +16,9 @@
 ** limitations under the License.
 */
 -->
-<resources>
-    <!-- IDs for each color mode. The values must match the corresponding constants in
-         android.view.Display -->
-    <integer-array name="color_mode_ids">
-        <item>0</item>
-        <item>-1</item>
-        <item>-1</item>
-    </integer-array>
-</resources>
+
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+        android:interpolator="@interpolator/decelerate_quad">
+    <alpha android:fromAlpha="0.0" android:toAlpha="1.0"
+            android:duration="@android:integer/config_mediumAnimTime" />
+</set>

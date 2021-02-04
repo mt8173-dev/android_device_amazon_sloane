@@ -1,56 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/*
-** Copyright 2020, The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
+<!-- Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds. -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
+
+    <!-- Flag indicating that the media framework should allow changing
+         master volume stream and nothing else . -->
+    <bool name="config_useMasterVolume">true</bool>
+
+    <!-- Flag indicating that the media framework should support playing of sounds on volume
+         key usage.  This adds noticeable additional overhead to volume key processing, so
+         is disableable for products for which it is irrelevant. -->
+    <bool name="config_useVolumeKeySounds">false</bool>
+
+    <!-- Disable AUDIO_BECOMING_NOISY notifications. -->
+    <bool name="config_sendAudioBecomingNoisy">false</bool>
+
+    <!-- This device is data-only. -->
+    <bool name="config_voice_capable">false</bool>
 
     <!-- This device does not allow sms service. -->
     <bool name="config_sms_capable">false</bool>
 
-    <!-- Flag indicating whether the current device is "voice capable".
-         If true, this means that the device supports circuit-switched
-         (i.e. voice) phone calls over the telephony network, and is
-         allowed to display the in-call UI while a cellular voice call is
-         active.  This can be overridden to false for "data only" devices
-         which can't make voice calls and don't support any in-call UI.
-         Note: this flag is subtly different from the
-         PackageManager.FEATURE_TELEPHONY system feature, which is
-         available on *any* device with a telephony radio, even if the
-         device is data-only. -->
-     <bool name="config_voice_capable">false</bool>
+    <!-- Control the default UI mode type to use when there is no other type override
+         happening.  One of the following values (See Configuration.java):
+             1  UI_MODE_TYPE_NORMAL
+             4  UI_MODE_TYPE_TELEVISION
+             5  UI_MODE_TYPE_APPLIANCE
+         Any other values will have surprising consequences. -->
+    <integer name="config_defaultUiModeType">4</integer>
 
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         USB interfaces.  If the device doesn't want to support tething over USB this should
-         be empty.  An example would be "usb.*" -->
-    <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>"rndis0"</item>
-    </string-array>
+    <!-- Override long press on home: launch assist intent. -->
+    <integer name="config_longPressOnHomeBehavior">2</integer>
 
-    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
-         autodetected from the Configuration. -->
-    <bool name="config_showNavigationBar">true</bool>
-    
-    <!-- Maximum number of supported users -->
-    <bool name="config_enableMultiUserUI">true</bool>
-    <integer name="config_multiuserMaximumUsers">5</integer>
-    
+    <bool name="config_supportAutoRotation">false</bool>
+    <bool name="config_forceDefaultOrientation">true</bool>
+
+
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:
@@ -64,77 +62,72 @@
          * The device must be provisioned with HDCP keys (for protected content).
     -->
     <bool name="config_enableWifiDisplay">true</bool>
-    
-    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
-      it causes the device to wake up.
-      The default is false.
-    -->
-    <bool name="config_lidControlsSleep">true</bool>
-    <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
-         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
-    <bool name="config_automatic_brightness_available">true</bool>
 
-        <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
-         The N entries of this array define N + 1 control points as follows:
-         (1-based arrays)
-
-         Point 1:            (0, value[1]):             lux <= 0
-         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
-         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
-         ...
-         Point N+1: (level[N], value[N+1]):  level[N] < lux
-
-         The control points must be strictly increasing.  Each control point
-         corresponds to an entry in the brightness backlight values arrays.
-         For example, if LUX == level[1] (first element of the levels array)
-         then the brightness will be determined by value[2] (second element
-         of the brightness values array).
-
-         Spline interpolation is used to determine the auto-brightness
-         backlight values for LUX levels between these control points.
-
-         Must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLevels">
+    <string-array name="networkAttributes">
+        <item>wifi,1,1,1,-1,true</item>
+        <item>wifi_p2p,13,1,0,-1,true</item>
+        <item>ethernet,9,9,0,-1,true</item>
+    </string-array>
+    <integer-array name="config_protectedNetworks">
         <item>10</item>
-        <item>50</item>
-        <item>100</item>
-        <item>170</item>
-        <item>240</item>
-        <item>300</item>
-        <item>400</item>
-        <item>500</item>
-        <item>650</item>
-    </integer-array>
-
-        <!-- Array of output values for LCD backlight corresponding to the LUX values
-         in the config_autoBrightnessLevels array.  This array should have size one greater
-         than the size of the config_autoBrightnessLevels array.
-         The brightness values must be between 0 and 255 and be non-decreasing.
-         This must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLcdBacklightValues">
         <item>11</item>
-        <item>38</item>
-        <item>58</item>
-        <item>87</item>
-        <item>114</item>
-        <item>139</item>
-        <item>179</item>
-        <item>210</item>
-        <item>255</item>
-        <item>255</item>
+        <item>12</item>
+        <item>14</item>
+        <item>15</item>
+    </integer-array>
+    <string-array name="radioAttributes">
+        <item>1,1</item>
+        <item>7,1</item>
+    </string-array>
+    <integer-array name="config_data_usage_network_types">
+        <item>0</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>14</item>
     </integer-array>
 
-    <!-- Enable doze mode
-         ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <!-- Wifi Dual Band support -->
+    <bool name="config_wifi_dual_band_support">true</bool>
+    <!-- Wifi background scan support -->
+    <bool name="config_wifi_background_scan_support">true</bool>
 
-    <!-- Doze Mode -->
-    <integer name="config_screenBrightnessDoze">1</integer>
-    <bool name="config_dozeAfterScreenOff">true</bool>
+    <!-- non-tv specific overlays -->
+    <integer name="config_deviceHardwareKeys">0</integer>
+    <integer name="config_deviceHardwareWakeKeys">0</integer>
+    <bool name="config_voice_capable">false</bool>
+    <bool name="config_sms_capable">false</bool>
+    <bool name="config_hasPermanentDpad">true</bool>
+    <bool name="config_defaultInTouchMode">false</bool>
 
-    <!-- If supported, are dreams enabled? (by default) -->
-    <bool name="config_dreamsEnabledByDefault">true</bool>
+    <!-- Number of times to try again with the shorter interval, before backing
+    off until the normal polling interval. A value < 0 indicates infinite. -->
+    <integer name="config_ntpRetry">-1</integer>
 
-    <!-- Flag indicating which package name can access the persistent data partition -->
-    <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
+    <!-- Apps that are authorized to access shared accounts -->
+    <string name="config_appsAuthorizedForSharedAccounts">;com.android.tv.settings;</string>
+
+
+    <!-- Enable multi-user in order to get restricted profile support. -->
+    <!-- TODO: move this to a more generic place once we have verified it. -->
+    <bool name="config_enableMultiUserUI">true</bool>
+    <integer name="config_multiuserMaximumUsers">2</integer>
+
+    <!-- Device configuration adjusting the minfree tunable in the lowmemorykiller in the
+         kernel.  A high value will cause the lowmemorykiller to fire earlier, keeping more
+         memory in the file cache and preventing I/O thrashing, but allowing fewer processes
+         to stay in memory.  A low value will keep more processes in memory but may cause
+         thrashing if set too low.  Directly added to the default value chosen by
+         ActivityManager based on screen size and total memory for the largest lowmemorykiller
+         bucket, and scaled proportionally to the smaller buckets. 0 keeps the default.
+         Below will adj 6 minfree buckets (in MB) to: 32, 40, 48, 56, 64, 80 -->
+    <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">81920</integer>
+
+    <!-- If supported and enabled, are dreams activated when asleep and charging? (by default) -->
+    <bool name="config_dreamsActivatedOnSleepByDefault">true</bool>
+
 </resources>
