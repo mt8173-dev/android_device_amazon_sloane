@@ -17,6 +17,6 @@ PRODUCT_BRAND := google
 PRODUCT_MODEL := Fire TV 2
 PRODUCT_MANUFACTURER := amzn
 
-# Profuct Characteristics
+# Product Characteristics
 PRODUCT_CHARACTERISTICS := tv
 
