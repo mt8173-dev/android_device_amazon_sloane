@@ -186,3 +186,6 @@ TARGET_OTA_ASSERT_DEVICE := sloane,AFTVS
 
 # Block Based OTA
 BLOCK_BASED_OTA := false
+
+# Disable CM API check
+WITHOUT_CHECK_API := true
