@@ -86,10 +86,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
 # Graphics (MTK)
 PRODUCT_PACKAGES += \
     libgui_ext \

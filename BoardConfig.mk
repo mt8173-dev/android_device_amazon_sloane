@@ -181,10 +181,6 @@ TARGET_USES_MKE2FS := true
 # LPM
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
 
-# Offline charging
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BACKLIGHT_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := sloane,AFTVS
 
