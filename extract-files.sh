@@ -80,7 +80,7 @@ extract "$MY_DIR"/proprietary-files.txt "$SRC"
 "$MY_DIR"/setup-makefiles.sh
 
 # Force SW Decoding
-patch_sym _ZN12DpBlitStream10invalidateEv _ZN12DpBlitStream10ievalidateEv ${VENDOR_OUT}/lib/libMtkOmxVdecEx.so
+patch_sym _ZN12DpBlitStream10invalidateEv _ZN12DpBlitStream10ievalidateEv ${VENDOR_OUT}/lib/libMtkOmxVdec.so
 
 # Handle Missing GraphicBuffer Symbols
 patch_sym _ZN7android19GraphicBufferMapper4lockEPK13native_handleiRKNS_4RectEPPv _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPv ${VENDOR_OUT}/lib/hw/hwcomposer.mt8173.so
