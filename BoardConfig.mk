@@ -30,15 +30,18 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_BASE := 0x40078000
+BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := \
-	--base 0x40078000 \
+	--base 0x40000000 \
 	--pagesize 2048 \
-	--kernel_offset 0x00008000 \
-	--ramdisk_offset 0x03f88000 \
-	--second_offset 0x00e88000 \
-	--tags_offset 0x07f88000
+	--kernel_offset 0x00080000 \
+	--ramdisk_offset 0x01000000 \
+	--second_offset 0x00f00000 \
+	--tags_offset 0x00000100
+	
+# Second Image
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/mkbootimg.mk
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
