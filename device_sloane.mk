@@ -114,6 +114,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     OverScan
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    btremoted
+
 # Camera Init
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
 
