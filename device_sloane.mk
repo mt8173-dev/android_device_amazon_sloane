@@ -10,6 +10,9 @@ $(call inherit-product-if-exists, vendor/amazon/sloane/sloane-vendor.mk)
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
+# ATV SDK
+PRODUCT_IS_ATV_SDK := true
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/amazon/sloane/overlay
 
