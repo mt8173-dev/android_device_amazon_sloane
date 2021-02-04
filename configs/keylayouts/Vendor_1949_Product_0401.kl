@@ -1,5 +1,5 @@
-# Copyright (C) 2011 The Android Open Source Project
-# Copyright (C) 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright (C) 2014 The Android Open Source Project
+# Copyright (C) 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved. // ACOS_MOD_ONELINE {amazon_controllers}
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# Amazon/Lab126 Remote Control
-#
+# Amazon Fire TV remote
 
+# ACOS_MOD_BEGIN {amazon_controllers}
 # Navigation buttons
 key  96 DPAD_CENTER
 key 103 DPAD_UP
@@ -28,9 +27,11 @@ key 108 DPAD_DOWN
 key 139 MENU
 key 158 BACK
 key 172 HOME
+key 217 SEARCH
 
 # Media buttons
 key 164 MEDIA_PLAY_PAUSE
 key 168 MEDIA_REWIND
 key 208 MEDIA_FAST_FORWARD
 
+# ACOS_MOD_END {amazon_controllers}
