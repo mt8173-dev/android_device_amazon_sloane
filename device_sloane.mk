@@ -109,11 +109,19 @@ PRODUCT_PACKAGES += \
     
 # TvSettings
 PRODUCT_PACKAGES += \
-    TvSettings
+    TvSettings \
+    TV
     
 # SetupWraith
 PRODUCT_PACKAGES += \
     SetupWraith
+    
+# Remote Pairing Services
+PRODUCT_PACKAGES += \
+    AtvRemoteService \
+    GamepadPairingService \
+    GlobalKeyINterceptor \
+    RemoteControlService
     
 # OverScan
 PRODUCT_PACKAGES += \
