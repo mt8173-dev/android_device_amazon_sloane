@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="controller_names" translatable="false">
         <item>Amazon Fire TV Remote</item>
+        <item>Gelato P1</item>
         <item>AR</item>
         <item>ASUS Gamepad</item>
         <item>Nexus Remote</item>
