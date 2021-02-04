@@ -107,6 +107,10 @@ PRODUCT_PACKAGES += \
     LeanBackIme \
     CMLeanbackCustomizer
     
+# TvSettings
+PRODUCT_PACKAGES += \
+    TvSettings
+    
 # OverScan
 PRODUCT_PACKAGES += \
     OverScan
