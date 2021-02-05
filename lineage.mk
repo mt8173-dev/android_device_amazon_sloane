@@ -8,7 +8,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/amazon/sloane/device_sloane)
+$(call inherit-product, device/amazon/sloane/device_sloane.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := sloane
