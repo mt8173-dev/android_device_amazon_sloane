@@ -9,6 +9,7 @@
  * send out ot client per client request.
  */
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <ctype.h>
 #include <sys/poll.h>
@@ -26,6 +27,7 @@
 #include <limits.h>
 #include <cutils/mlog.h>
 #endif
+#include <unistd.h>
 
 //Writing to file to debug now requires SELinux enforcing
 //to be off. Use adb shell setenforce 0 if you want to
