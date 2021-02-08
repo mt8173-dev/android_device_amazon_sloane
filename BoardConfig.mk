@@ -32,13 +32,17 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_RAMDISK_OFFSET := 0x01000000
+BOARD_SECOND_OFFSET := 0x00f00000
+
 BOARD_MKBOOTIMG_ARGS := \
 	--base 0x40000000 \
 	--pagesize 2048 \
 	--kernel_offset 0x00080000 \
-	--ramdisk_offset 0x01000000 \
-	--second_offset 0x00f00000 \
-	--tags_offset 0x00000100
+	--ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
+	--second_offset $(BOARD_SECOND_OFFSET) \
+	--tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 	
 # Second Image
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/mkbootimg.mk
