@@ -120,7 +120,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AtvRemoteService \
     GamepadPairingService \
-    GlobalKeyINterceptor \
+    GlobalKeyInterceptor \
     RemoteControlService
     
 # OverScan
