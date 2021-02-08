@@ -38,7 +38,7 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-#define TARGET_PLATFORM "mt8163"
+#define TARGET_PLATFORM "mt8173"
 #define BOOT_MODE_PATH "/sys/devices/virtual/BOOT/BOOT/boot/boot_mode"
 #define CHUNK 1024
 
