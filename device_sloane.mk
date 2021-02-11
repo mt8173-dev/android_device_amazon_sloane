@@ -105,7 +105,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LeanbackLauncher \
     LeanBackIme \
-    CMLeanbackCustomizer
+    CMLeanbackCustomizer \
+    AppDrawer
     
 # TvSettings
 PRODUCT_PACKAGES += \
