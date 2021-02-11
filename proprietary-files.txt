@@ -297,6 +297,7 @@ lib/libamazoninputservice.so
 lib64/libamazoninputservice.so
 lib/libamazonwifiservice.so
 lib64/libamazonwifiservice.so
+priv-app/AtvRemoteService/lib/arm/libatv_uinputbridge.so|df747b2f3d5da18ed419018d8bb85b9f472b36db
 
 # VT
 lib/libamr_wrap.so
