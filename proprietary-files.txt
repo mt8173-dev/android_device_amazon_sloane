@@ -314,5 +314,4 @@ priv-app/AtvRemoteService/lib/arm/libatv_uinputbridge.so|df747b2f3d5da18ed419018
 lib/libamr_wrap.so
 
 # Sensors
-lib/libhwm.so
 lib64/libhwm.so
