@@ -31,7 +31,8 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     libtinycompress \
     libtinyxml \
-    libaudioroute
+    libaudioroute \
+	libaudiospdif
 
 # Blisrc
 PRODUCT_PACKAGES += \
