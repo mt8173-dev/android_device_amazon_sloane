@@ -29,6 +29,11 @@ lib/libvcodec_oal.so
 lib/libvcodec_utility.so
 lib/libvcodecdrv.so
 lib64/libvcodecdrv.so
+lib/libperfservicenative.so
+lib64/libperfservicenative.so
+lib64/libaed.so
+lib/libqservice.so
+lib64/libqservice.so
 vendor/bin/pvrdebug
 vendor/bin/pvrsrvctl
 vendor/lib/egl/libEGL_POWERVR_ROGUE.so
@@ -78,6 +83,8 @@ lib/libcustom_nvram.so
 lib64/libcustom_nvram.so
 lib/libnvram.so
 lib64/libnvram.so
+lib/libfile_op.so
+lib64/libfile_op.so
 lib/libnvram_daemon_callback.so
 lib64/libnvram_daemon_callback.so
 lib/libnvram_platform.so
@@ -114,6 +121,8 @@ lib64/libdrmmtkutil.so
 lib/libdrmplayreadydecryptor.so
 lib/libstlport.so
 lib64/libstlport.so
+lib/libtz_uree.so
+lib64/libtz_uree.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libplayreadydrmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
@@ -177,6 +186,8 @@ lib/libcvsd_mtk.so
 lib64/libcvsd_mtk.so
 lib/libmtk_drvb.so
 lib64/libmtk_drvb.so
+lib/libcommon_time_client.so
+lib64/libcommon_time_client.so
 lib/libwebrtc_audio_preprocessing.so
 lib64/libwebrtc_audio_preprocessing.so
 vendor/etc/audio_effects.conf
@@ -301,3 +312,7 @@ priv-app/AtvRemoteService/lib/arm/libatv_uinputbridge.so|df747b2f3d5da18ed419018
 
 # VT
 lib/libamr_wrap.so
+
+# Sensors
+lib/libhwm.so
+lib64/libhwm.so
