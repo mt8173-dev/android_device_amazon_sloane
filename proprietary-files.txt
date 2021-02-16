@@ -233,7 +233,6 @@ bin/thermal_log.sh
 bin/temperature_log.sh
 bin/meta_tst
 bin/mtee_logctrl
-bin/mobile_log_d
 etc/ping_logger.sh
 lib/libtrapz.so
 lib64/libtrapz.so

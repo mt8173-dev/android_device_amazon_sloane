@@ -117,9 +117,6 @@ on property:init.svc.bootanim=stopped
 	write /proc/bootprof "BOOT_Animation:END"
 	start auto_shutdown
 
-service mobile_log_d /system/bin/mobile_log_d
-	class main
-
 service nvram_daemon /system/bin/nvram_daemon
     	class main
     	user root
