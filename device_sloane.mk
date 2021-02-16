@@ -146,7 +146,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.mt8173:root/fstab.mt8173 \
     $(LOCAL_PATH)/rootdir/init.mt8173.rc:root/init.mt8173.rc \
-    $(LOCAL_PATH)/rootdir/init.mt8173usb.rc:root/init.mt8173.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.mt8173.usb.rc:root/init.mt8173.usb.rc \
     $(LOCAL_PATH)/rootdir/init.recovery.mt8173.rc:root/init.recovery.mt8173.rc \
     $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/rootdir/init.connectivity.rc:root/init.connectivity.rc \
