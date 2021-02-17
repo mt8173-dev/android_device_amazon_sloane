@@ -68,6 +68,7 @@ PRODUCT_PACKAGES += \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
+	lib_driver_cmd_mt66xx \
     wpa_supplicant.conf
 	
 # Wi-Fi Configs
