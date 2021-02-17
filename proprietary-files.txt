@@ -152,12 +152,6 @@ lib64/hw/thermal.mt8173.so
 lib/libthermalservice.so
 lib64/libthermalservice.so
 
-# Prebuilt Modules
-lib/modules/drop_monitor.ko
-lib/modules/gspca_main.ko
-lib/modules/ozwpan.ko
-lib/modules/scsi_tgt.ko
-
 # Audio
 bin/audiocmdservice_atci
 etc/mixer_paths.xml
