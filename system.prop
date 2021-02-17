@@ -23,6 +23,7 @@ ro.mtk_passpoint_r1_support=1
 
 # Wi-Fi Direct
 wifi.direct.interface=p2p0
+wlan.interface.p2p.group=p2p-p2p0-0
 
 # Wireless Display
 persist.debug.wfd.enable=1
