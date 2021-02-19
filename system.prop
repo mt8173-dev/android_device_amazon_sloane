@@ -116,8 +116,8 @@ media.aac_51_output_enabled=true
 # Preload Zygote
 ro.zygote.preload.enable=0
 
-# Enable Nav Bar
-qemu.hw.mainkeys=0
+# Disable Nav Bar
+qemu.hw.mainkeys=1
 
 # Kernel ZIO
 ro.kernel.zio=38,108,105,16
