@@ -1,7 +1,7 @@
 #!/bin/sh
 
 rootdirectory="$PWD"
-dirs="bionic frameworks/av frameworks/base frameworks/native system/core packages/apps/Settings"
+dirs="bionic frameworks/av frameworks/base frameworks/native system/core packages/apps/Settings system/bt"
 
 for dir in $dirs ; do
 	cd $rootdirectory
