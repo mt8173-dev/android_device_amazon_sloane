@@ -205,8 +205,6 @@ lib/libbwc.so
 lib64/libbwc.so
 lib/libdeviceinfoservice.so
 lib64/libdeviceinfoservice.so
-lib/libnbaio.so
-lib64/libnbaio.so
 lib/libspeech_enh_lib.so
 lib64/libspeech_enh_lib.so
 lib/libwlfAmzn.so
