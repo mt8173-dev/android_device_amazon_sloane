@@ -2,6 +2,7 @@ import init.mt8173.usb.rc
 import init.no_ssd.rc
 import init.ssd.rc
 import init.project.rc
+import init.connectivity.rc
 
 on init
     # Change dynamic_boost permission
