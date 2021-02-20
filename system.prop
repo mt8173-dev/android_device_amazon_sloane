@@ -148,7 +148,7 @@ ro.recovery.wl.maxstore=524288
 persist.wifi.rssi.thresholds=-84,-73,-64,-60
 
 # Bluetooth
-ro.btstack=bluedroid
+ro.btstack=default
 ro.mtk_bt_support=1
 ro.bluetooth.remote.autoconnect=true
 
