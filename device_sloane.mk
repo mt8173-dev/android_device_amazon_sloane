@@ -62,6 +62,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/amazon_touch.idc:system/usr/keylayout/amazon_touch.idc
 
+# Kernel Modules
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/insmod/init.insmod.cfg:system/etc/init.insmod.cfg
+
 # Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
@@ -158,7 +162,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.recovery.mt8173.rc:root/init.recovery.mt8173.rc \
     $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/rootdir/init.connectivity.rc:root/init.connectivity.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.mt8173.rc:root/ueventd.mt8173.rc
+    $(LOCAL_PATH)/rootdir/ueventd.mt8173.rc:root/ueventd.mt8173.rc \
+	$(LOCAL_PATH)/rootdir/init.insmod.sh:system/etc/init.insmod.sh
 
 # Permissions
 PRODUCT_COPY_FILES += \

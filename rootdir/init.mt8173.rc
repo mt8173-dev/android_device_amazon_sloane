@@ -30,6 +30,9 @@ on fs
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+	
+	# Loading kernel modules in background
+    start insmod_sh
 
 on boot
   start thermald
@@ -129,6 +132,13 @@ on property:init.svc.bootanim=running
 on property:init.svc.bootanim=stopped
 	write /proc/bootprof "BOOT_Animation:END"
 	start auto_shutdown
+
+service insmod_sh /system/etc/init.insmod.sh
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
 
 service nvram_daemon /system/bin/nvram_daemon
     	class main
