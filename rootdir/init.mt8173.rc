@@ -260,6 +260,12 @@ on property:debug.custom_debug.enable=y
 
 on property:sys.boot_completed=1
 	start adb_usb
+	
+on property:persist.ssusb.mode=1
+    write /sys/devices/bus.8/11270000.SSUSB/mode 1
+
+on property:persist.ssusb.mode=0
+    write /sys/devices/bus.8/11270000.SSUSB/mode 0
 
 service thermal_log /system/bin/thermal_log.sh
 	class late_start

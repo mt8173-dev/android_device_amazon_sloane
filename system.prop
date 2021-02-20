@@ -71,6 +71,11 @@ ro.sys.usb.storage.type=mtp,adb
 ro.sys.usb.charging.only=no
 persist.sys.usb.debugging=y
 
+# Override default USB mode
+# 1 --> Keyboard/Mouse
+# 0 --> ADB (default)
+persist.ssusb.mode=0
+
 # Wakelock
 persist.sys.hold.wakelock=y
 
