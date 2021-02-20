@@ -75,6 +75,9 @@ etc/firmware/mt7662_firmware_e3_tvbox.bin
 etc/firmware/mt7662_patch_e3_hdr.bin
 etc/wifi_gain.sh
 etc/wifi_log_levels.sh
+xbin/iwpriv
+xbin/iwlist
+xbin/iwconfig
 
 # NVRAM
 bin/nvram_agent_binder
