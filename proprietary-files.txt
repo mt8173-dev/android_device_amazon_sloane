@@ -232,8 +232,6 @@ xbin/trapz
 bin/hdmi
 lib/hw/hdmi_cec.default.so
 lib64/hw/hdmi_cec.default.so
-lib/hw/tv_input.default.so
-lib64/hw/tv_input.default.so
 lib/libfoundation-gfx-native-tv.so
 lib/libhdmiservice.so
 lib64/libhdmiservice.so

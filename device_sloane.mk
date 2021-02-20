@@ -135,7 +135,11 @@ PRODUCT_PACKAGES += \
     GamepadPairingService \
     GlobalKeyInterceptor \
     RemoteControlService
-    
+
+# TV Input
+PRODUCT_PACKAGES += \
+	tv_input.default
+
 # OverScan
 PRODUCT_PACKAGES += \
     OverScan
