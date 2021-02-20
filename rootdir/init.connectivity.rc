@@ -1,57 +1,41 @@
-# required settings in init.rc for mt662x
-# This file is supposed to be built into
-# out/target/product/$(project)/root/init.connectivity.rc, and be imported by
-# init.$(hardware).rc. So it can take effect during system boot time.
-
-on post-fs
-
 on post-fs-data
-
-# mainly do mkdir/insmod in this section
-
-#
-# Connectivity related device nodes & configuration (begin)
-#
-
-
-# STP, WMT, GPS, FM and BT Driver
+    # STP, WMT, GPS, FM and BT Driver
     insmod /system/lib/modules/btmtk_usb.ko
-# WiFi
+
+    # WiFi
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
 
+    # Supplicant
     mkdir /data/misc/wpa_supplicant 0770 wifi wifi
 	mkdir /data/misc/p2p_supplicant 0770 wifi wifi
-	chown wifi wifi /data/misc/wifi
     chown wifi wifi /data/misc/wifi/wpa_supplicant.conf
     chown wifi wifi /data/misc/wifi/p2p_supplicant.conf
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     chmod 0660 /data/misc/wifi/p2p_supplicant.conf
 
-# wpa_supplicant control socket for android wifi.c
-
+    # DHCP
     mkdir /data/misc/dhcp 0771 dhcp dhcp
     mkdir /data/wifi 0771 wifi wifi
     chown dhcp dhcp /data/misc/dhcp
+    mkdir /data/misc/dhcp 0770 dhcp wifi
+    chown dhcp wifi /data/misc/dhcp
 
+    # WLAN Interface
     setprop wifi.interface "wlan0"
     setprop wifi.direct.multicast 1
 	
-# dhcp server 
-    mkdir /data/misc/dhcp 0770 dhcp wifi
-    chown dhcp wifi /data/misc/dhcp
-# bluetooth
+    # Bluetooth
     mkdir /data/@btmtk 0770 bluetooth net_bt
     chown bluetooth bluetooth /dev/hid-keyboard
     chmod 0660 /dev/hid-keyboard
 
-    
-#
-# Connectivity related device nodes & configuration (end)
-#
-
 on boot
-#wifi
+on property:wlan.driver.status=ok
+    chown system system /sys/kernel/debug/mtwifi/wlan0/fwpath
+	write /sys/kernel/debug/mtwifi/wlan0/nvram "1"
+
 service p2p_supplicant /system/bin/wpa_supplicant \
 	-iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
 	-I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
@@ -100,13 +84,11 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-
 service iprenew_p2p /system/bin/dhcpcd -n
 	class main
 	disabled
 	oneshot
 
-# Add Bluetooth stack service    
 service mtkbt /system/bin/mtkbt
 	socket bt.int.adp dgram 660 bluetooth net_bt
 	socket bt.a2dp.stream dgram 660 bluetooth net_bt
@@ -119,10 +101,3 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -A -BK
     class main
     disabled
     oneshot
-
-#
-# Connectivity related services (End)
-#
-
-
-
