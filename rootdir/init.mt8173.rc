@@ -99,8 +99,9 @@ on post-fs-data
     chown system system /d/ion/heaps/ion_mm_heap
     chmod 0666 /d/ion/heaps/ion_mm_heap
 
-
 service kisd /system/bin/kisd
+    user root
+	group system drmrpc
 
 on charger
     # Execute normal boot
