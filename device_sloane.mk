@@ -140,6 +140,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     OverScan
 
+# Remove unused packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     btremoted
