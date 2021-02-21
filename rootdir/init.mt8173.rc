@@ -87,6 +87,11 @@ on post-fs-data
     chown system system /data/key_provisioning
     start kisd
 
+    # PersistBackup
+    mkdir /persistbackup
+    chmod 0771 /persistbackup
+    chown system system /persistbackup
+
     # For enabling adb for the first boot
     mkdir /data/hwval 0770 system system
     chmod 0660 /data/hwval/adb_check.bin
