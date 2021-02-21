@@ -166,6 +166,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.mt8173.usb.rc:root/init.mt8173.usb.rc \
     $(LOCAL_PATH)/rootdir/init.recovery.mt8173.rc:root/init.recovery.mt8173.rc \
     $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
+    $(LOCAL_PATH)/rootdir/init.trace.rc:root/init.trace.rc \
     $(LOCAL_PATH)/rootdir/init.connectivity.rc:root/init.connectivity.rc \
     $(LOCAL_PATH)/rootdir/ueventd.mt8173.rc:root/ueventd.mt8173.rc \
 	$(LOCAL_PATH)/rootdir/init.insmod.sh:system/etc/init.insmod.sh \
