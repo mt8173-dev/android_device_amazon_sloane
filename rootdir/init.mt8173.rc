@@ -17,9 +17,6 @@ on fs
     mount_all /fstab.mt8173
     exec /system/bin/ext4_resize
 
-    # SQFS
-    mount squashfs loop@/system/sqfs/container.sqfs /mnt/sqfs wait ro context=u:object_r:squashfs_file:s0
-	
 	# Legacy partition path support
     symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name /dev/block/platform/mtk-msdc.0/by-name
 	
