@@ -147,6 +147,13 @@ service auto_shutdown /system/bin/sh /system/bin/auto_shutdown.sh
 	disabled
 	seclabel u:r:shell:s0
 
+service audio-daemon /system/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 root system
+    user root
+    disabled
+    oneshot
+
 service dhcpcd_bt-pan /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
     class main
     user dhcp
