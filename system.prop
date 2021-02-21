@@ -103,6 +103,7 @@ ro.mtk_hdmi_hdcp_support=1
 # FM Radio
 fmradio.driver.enable=0
 ril.radiooff.poweroffMD=0
+persist.radio.combo.chipid=-1
 
 # Audio
 ro.camera.sound.forced=0
