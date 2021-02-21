@@ -123,8 +123,6 @@ lib64/liburee_meta_drmkeyinstall_v2.so
 lib/libdrmmtkutil.so
 lib64/libdrmmtkutil.so
 lib/libdrmplayreadydecryptor.so
-lib/libstlport.so
-lib64/libstlport.so
 lib/libtz_uree.so
 lib64/libtz_uree.so
 vendor/lib/drm/libdrmwvmplugin.so
