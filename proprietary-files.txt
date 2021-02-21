@@ -97,7 +97,7 @@ lib64/libnvram_sec.so
 lib/libnvramagentclient.so
 lib64/libnvramagentclient.so
 
-# DRM (Crypto)
+# DRM (Crypto) - Pinned blobs from karnak-user-6.0-NS6314-2315
 bin/amzn_dha_hmac
 bin/amzn_dha_tool
 bin/amzn_drmprov_check
@@ -111,6 +111,7 @@ lib64/hw/amzn_drmprov.mt8173.so
 lib/hw/keystore.mt8173.so
 lib64/hw/keystore.mt8173.so
 lib/drm/libdrmplayreadyplugin.so
+lib/libplayready.so|578aded81b2dc716d54ed933e60a44cf9ff43f31
 lib/lib_uree_mtk_crypto.so
 lib64/lib_uree_mtk_crypto.so
 lib/lib_uree_mtk_modular_drm.so
@@ -127,14 +128,14 @@ lib64/libstlport.so
 lib/libtz_uree.so
 lib64/libtz_uree.so
 vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/mediadrm/libplayreadydrmplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/mediadrm/libmockdrmcryptoplugin.so
+vendor/lib/mediadrm/libplayreadydrmplugin.so|7e2c2228adb73c8ed241c8a2675026dff11c1b6a
+vendor/lib/mediadrm/libwvdrmengine.so|271de7687df970a9ceadbdc3fa02f32547e730e4
+vendor/lib/mediadrm/libmockdrmcryptoplugin.so|b05d577854717d70503566d701e95ded7f7442a3
 vendor/lib64/mediadrm/libmockdrmcryptoplugin.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib/mediadrm/libdrmclearkeyplugin.so|0eaf1cf7c66a4385d9785b6c9b32444fb384e929
 vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/liboemcrypto.so
+vendor/lib/liboemcrypto.so|33ed5f4a5424dd12bce863de96cfd5e627df8487
 vendor/lib64/liboemcrypto.so
 vendor/lib/libwvdrm_L1.so
 
