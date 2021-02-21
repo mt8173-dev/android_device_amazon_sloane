@@ -103,7 +103,8 @@ PRODUCT_PACKAGES += \
     libshim_ui \
     libshim_parcel \
     libshim_drm \
-    libshim_wvm
+    libshim_wvm \
+	libshim_audio
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
