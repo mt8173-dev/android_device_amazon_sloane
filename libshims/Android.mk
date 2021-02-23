@@ -48,8 +48,8 @@ LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := audio/audio_shim.cpp
-LOCAL_SHARED_LIBRARIES := libmedia
+LOCAL_SRC_FILES := audio/audio_shim.cpp audio/media_shim.cpp
+LOCAL_SHARED_LIBRARIES := libmedia libutils
 LOCAL_MODULE := libshim_audio
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
