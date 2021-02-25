@@ -96,12 +96,13 @@ PRODUCT_PACKAGES += \
 
 # Shim Libraries
 PRODUCT_PACKAGES += \
-    libshim_log \
-    libshim_ui \
-    libshim_parcel \
-    libshim_drm \
-    libshim_wvm \
-	libshim_audio
+	libshim_log \
+	libshim_ui \
+	libshim_parcel \
+	libshim_drm \
+	libshim_wvm \
+	libshim_audio \
+	libshim_stagefright
 
 # STLPort
 PRODUCT_COPY_FILES += \

@@ -157,22 +157,23 @@ BOARD_SECCOMP_POLICY := \
 
 # Shim Libraries
 LINKER_FORCED_SHIM_LIBS := \
-    /system/lib/liblog.so|libshim_log.so \
-    /system/lib64/liblog.so|libshim_log.so \
-    /system/lib/libMtkOmxVdecEx.so|libshim_ui.so \
-    /system/lib/libMtkOmxVenc.so|libshim_ui.so \
-    /system/lib/libasp.so|libshim_parcel.so \
-    /system/lib64/libasp.so|libshim_parcel.so \
-    /system/lib/libdrmmtkutil.so|libshim_drm.so \
-    /system/lib64/libdrmmtkutil.so|libshim_drm.so \
-    /system/lib/libui_ext.so|libshim_ui.so \
-    /system/lib64/libui_ext.so|libshim_ui.so \
-    /system/bin/amzn_dha_hmac|libshim_drm.so \
-    /system/bin/amzn_dha_tool|libshim_drm.so \
-    /system/lib/libwvm.so|libshim_wvm.so \
-    /system/bin/audiocmdservice_atci|libshim_audio.so \
-    /system/lib/hw/audio.primary.mt8173.so|libshim_audio.so \
-    /system/lib64/hw/audio.primary.mt8173.so|libshim_audio.so
+	/system/lib/liblog.so|libshim_log.so \
+	/system/lib64/liblog.so|libshim_log.so \
+	/system/lib/libMtkOmxVdecEx.so|libshim_ui.so \
+	/system/lib/libMtkOmxVenc.so|libshim_ui.so \
+	/system/lib/libasp.so|libshim_parcel.so \
+	/system/lib64/libasp.so|libshim_parcel.so \
+	/system/lib/libdrmmtkutil.so|libshim_drm.so \
+	/system/lib64/libdrmmtkutil.so|libshim_drm.so \
+	/system/lib/libui_ext.so|libshim_ui.so \
+	/system/lib64/libui_ext.so|libshim_ui.so \
+	/system/bin/amzn_dha_hmac|libshim_drm.so \
+	/system/bin/amzn_dha_tool|libshim_drm.so \
+	/system/lib/libwvm.so|libshim_wvm.so \
+	/system/bin/audiocmdservice_atci|libshim_audio.so \
+	/system/lib/hw/audio.primary.mt8173.so|libshim_audio.so \
+	/system/lib64/hw/audio.primary.mt8173.so|libshim_audio.so \
+	/system/vendor/lib/libstagefright_soft_ddpdec.so|libshim_stagefright.so
 
 # Device-Specific Headers
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_FOLDER)/include
