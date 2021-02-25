@@ -1,0 +1,29 @@
+From 2df9b879241badb82acffa130b469d7ededcd6c2 Mon Sep 17 00:00:00 2001
+From: jmpfbmx <jmpf.bmx@gmail.com>
+Date: Thu, 25 Feb 2021 12:13:39 +0100
+Subject: [PATCH] omx: Force dolby decoders
+
+ * We need to use dolby decoders for make audio works at sloane.
+---
+ media/libstagefright/omx/SoftOMXPlugin.cpp | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/media/libstagefright/omx/SoftOMXPlugin.cpp b/media/libstagefright/omx/SoftOMXPlugin.cpp
+index adb737002a..5718b4a134 100644
+--- a/media/libstagefright/omx/SoftOMXPlugin.cpp
++++ b/media/libstagefright/omx/SoftOMXPlugin.cpp
+@@ -81,11 +81,9 @@ static const struct {
+ #ifdef QTI_FLAC_DECODER
+     { "OMX.qti.audio.decoder.flac", "flacdec", "audio_decoder.flac" },
+ #endif
+-#ifdef DOLBY_ENABLE
+     { "OMX.dolby.ac3.decoder", "ddpdec", "audio_decoder.ac3" },
+     { "OMX.dolby.eac3.decoder", "ddpdec", "audio_decoder.eac3" },
+     { "OMX.dolby.eac3_joc.decoder", "ddpdec", "audio_decoder.eac3_joc" },
+-#endif // DOLBY_END
+ };
+ 
+ static const size_t kNumComponents =
+-- 
+2.17.1
+
