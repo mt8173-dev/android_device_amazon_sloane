@@ -164,8 +164,6 @@ lib/hw/audio.primary.mt8173.so
 lib64/hw/audio.primary.mt8173.so
 lib/hw/audio.sco.default.so
 lib64/hw/audio.sco.default.so
-lib/hw/audio.usb.default.so
-lib64/hw/audio.usb.default.so
 lib/libaudiocompensationfilter.so
 lib64/libaudiocompensationfilter.so
 lib/libaudiocomponentengine.so
