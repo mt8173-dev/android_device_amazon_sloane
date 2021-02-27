@@ -17,7 +17,8 @@ LOCAL_OVERRIDES_PACKAGES := \
 	Eleven \
 	TelephonyProvider \
 	TeleService \
-	Telecomm
+	Telecomm \
+	Contacts
 
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
