@@ -9,4 +9,7 @@
 #define BTA_GATT_INCLUDED TRUE
 #define SMP_INCLUDED TRUE
 
+// To sync with CONN TIMEOUT of pepper
+#define BTM_BLE_CONN_TIMEOUT_DEF 1000
+
 #endif
