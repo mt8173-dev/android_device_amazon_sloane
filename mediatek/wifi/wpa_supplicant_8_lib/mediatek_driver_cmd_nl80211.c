@@ -25,9 +25,7 @@
 #include "mediatek_driver_nl80211.h"
 #include "driver_i.h"
 
-#ifdef CONFIG_MTK_P2P_SIGMA
 #include "p2p/p2p_i.h"
-#endif
 
 #include "eloop.h"
 #define PRIV_CMD_SIZE 512
@@ -54,15 +52,15 @@ static void wpa_driver_send_hang_msg(struct wpa_driver_nl80211_data *drv)
 
 static int testmode_sta_statistics_handler(struct nl_msg *msg, void *arg)
 {
-    struct nlattr *tb[NL80211_ATTR_MAX + 1];
+    struct nlattr *tb[NL80211_ATTR_MAX + 1] = {};
     struct genlmsghdr *gnlh = nlmsg_data(nlmsg_hdr(msg));
-    struct nlattr *sinfo[NL80211_TESTMODE_STA_STATISTICS_NUM];
+    struct nlattr *sinfo[NL80211_TESTMODE_STA_STATISTICS_NUM] = {};
     struct wpa_driver_sta_statistics_s *sta_statistics = (struct wpa_driver_sta_statistics_s *)arg;
     unsigned char i = 0;
     static struct nla_policy policy[NL80211_TESTMODE_STA_STATISTICS_NUM] = {
         [NL80211_TESTMODE_STA_STATISTICS_VERSION]               = { .type = NLA_U8 },
         [NL80211_TESTMODE_STA_STATISTICS_MAC]                   = { .type = NLA_UNSPEC },
-        [NL80211_TESTMODE_STA_STATISTICS_LINK_SCORE]            = { .type = NLA_U8 },
+        [NL80211_TESTMODE_STA_STATISTICS_LINK_SCORE]            = { .type = NLA_U32 },
         [NL80211_TESTMODE_STA_STATISTICS_FLAG]                  = { .type = NLA_U32 },
         [NL80211_TESTMODE_STA_STATISTICS_PER]                   = { .type = NLA_U8 },
         [NL80211_TESTMODE_STA_STATISTICS_RSSI]                  = { .type = NLA_U8 },
@@ -73,11 +71,51 @@ static int testmode_sta_statistics_handler(struct nl_msg *msg, void *arg)
         [NL80211_TESTMODE_STA_STATISTICS_AVG_AIR_TIME]          = { .type = NLA_U32 },
         [NL80211_TESTMODE_STA_STATISTICS_TOTAL_CNT]             = { .type = NLA_U32 },
         [NL80211_TESTMODE_STA_STATISTICS_THRESHOLD_CNT]         = { .type = NLA_U32 },
+
         [NL80211_TESTMODE_STA_STATISTICS_AVG_PROCESS_TIME]      = { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_MAX_PROCESS_TIME]		= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_AVG_HIF_PROCESS_TIME]		= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_MAX_HIF_PROCESS_TIME]		= { .type = NLA_U32 },
+
         [NL80211_TESTMODE_STA_STATISTICS_TC_EMPTY_CNT_ARRAY]    = { .type = NLA_UNSPEC },
         [NL80211_TESTMODE_STA_STATISTICS_TC_QUE_LEN_ARRAY]      = { .type = NLA_UNSPEC },
         [NL80211_TESTMODE_STA_STATISTICS_TC_AVG_QUE_LEN_ARRAY]  = { .type = NLA_UNSPEC },
         [NL80211_TESTMODE_STA_STATISTICS_TC_CUR_QUE_LEN_ARRAY]  = { .type = NLA_UNSPEC },
+        /*
+         * how many packages TX during statistics interval
+         */
+        [NL80211_TESTMODE_STA_STATISTICS_ENQUEUE]		= { .type = NLA_U32 },
+        /*
+         * how many packages this sta TX during statistics interval
+         */
+        [NL80211_TESTMODE_STA_STATISTICS_STA_ENQUEUE]		= { .type = NLA_U32 },
+
+        /*
+         * how many packages dequeue during statistics interval
+         */
+        [NL80211_TESTMODE_STA_STATISTICS_DEQUEUE]		= { .type = NLA_U32 },
+
+        /*
+         * how many packages this sta dequeue during statistics interval
+         */
+        [NL80211_TESTMODE_STA_STATISTICS_STA_DEQUEUE]		= { .type = NLA_U32 },
+
+        /*
+         * how many TC[0-3] resource back from firmware during
+         * statistics interval
+         */
+        [NL80211_TESTMODE_STA_STATISTICS_RB_ARRAY]		= { .type = NLA_UNSPEC },
+        [NL80211_TESTMODE_STA_STATISTICS_NO_TC_ARRAY]		= { .type = NLA_UNSPEC },
+        [NL80211_TESTMODE_STA_STATISTICS_TC_USED_ARRAY]		= { .type = NLA_UNSPEC },
+        [NL80211_TESTMODE_STA_STATISTICS_TC_WANTED_ARRAY]		= { .type = NLA_UNSPEC },
+
+        [NL80211_TESTMODE_STA_STATISTICS_IRQ_ISR_CNT]		= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_IRQ_ISR_PASS_CNT]	= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_IRQ_TASK_CNT]		= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_IRQ_AB_CNT]		= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_IRQ_SW_CNT]		= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_IRQ_TX_CNT]		= { .type = NLA_U32 },
+        [NL80211_TESTMODE_STA_STATISTICS_IRQ_RX_CNT]		= { .type = NLA_U32 },
         [NL80211_TESTMODE_STA_STATISTICS_RESERVED_ARRAY]        = { .type = NLA_UNSPEC }
     };
 
@@ -89,241 +127,191 @@ static int testmode_sta_statistics_handler(struct nl_msg *msg, void *arg)
         return NL_SKIP;
 
     for (i=1; i < NL80211_TESTMODE_STA_STATISTICS_NUM; i++) {
-        if (sinfo[i]) {
-            switch(i) {
-                case NL80211_TESTMODE_STA_STATISTICS_VERSION:
-                    sta_statistics->version = nla_get_u8(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_MAC:
-                    nla_memcpy(sta_statistics->addr, sinfo[i], ETH_ALEN);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_LINK_SCORE:
-                    sta_statistics->link_score = nla_get_u8(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_FLAG:
-                    sta_statistics->flag = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_PER:
-                    sta_statistics->per = nla_get_u8(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_RSSI:
-                    sta_statistics->rssi = (((int)nla_get_u8(sinfo[i]) - 220) / 2);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_PHY_MODE:
-                    sta_statistics->phy_mode = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_TX_RATE:
-                    sta_statistics->tx_rate = (((double)nla_get_u16(sinfo[i])) / 2);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_FAIL_CNT:
-                    sta_statistics->tx_fail_cnt = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_TIMEOUT_CNT:
-                    sta_statistics->tx_timeout_cnt = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_AVG_AIR_TIME:
-                    sta_statistics->tx_avg_air_time = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_TOTAL_CNT:
-                    sta_statistics->tx_total_cnt = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_THRESHOLD_CNT:
-                    sta_statistics->tx_exc_threshold_cnt = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_AVG_PROCESS_TIME:
-                    sta_statistics->tx_avg_process_time = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_TC_EMPTY_CNT_ARRAY:
-                    nla_memcpy(sta_statistics->tc_buf_full_cnt, sinfo[i], sizeof(sta_statistics->tc_buf_full_cnt));
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_TC_QUE_LEN_ARRAY:
-                    nla_memcpy(sta_statistics->tc_que_len, sinfo[i], sizeof(sta_statistics->tc_que_len));
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_TC_AVG_QUE_LEN_ARRAY:
-                    nla_memcpy(sta_statistics->tc_avg_que_len, sinfo[i], sizeof(sta_statistics->tc_avg_que_len));
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_TC_CUR_QUE_LEN_ARRAY:
-                    nla_memcpy(sta_statistics->tc_cur_que_len, sinfo[i], sizeof(sta_statistics->tc_cur_que_len));
-                    break;
-                case NL80211_TESTMODE_STA_STATISTICS_RESERVED_ARRAY:
-                    nla_memcpy(sta_statistics->reserved, sinfo[i], sizeof(sta_statistics->reserved));
-                    break;
-                default:
-                    break;
-            }
+
+        if (!sinfo[i])
+            continue;
+
+        switch(i) {
+        case NL80211_TESTMODE_STA_STATISTICS_VERSION:
+            sta_statistics->version = nla_get_u8(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_MAC:
+            nla_memcpy(sta_statistics->addr, sinfo[i], ETH_ALEN);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_LINK_SCORE:
+            sta_statistics->link_score = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_FLAG:
+            sta_statistics->flag = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_PER:
+            sta_statistics->per = nla_get_u8(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_RSSI:
+            sta_statistics->rssi = (((int)nla_get_u8(sinfo[i]) - 220) / 2);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_PHY_MODE:
+            sta_statistics->phy_mode = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TX_RATE:
+            sta_statistics->tx_rate = (((double)nla_get_u16(sinfo[i])) / 2);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_FAIL_CNT:
+            sta_statistics->tx_fail_cnt = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TIMEOUT_CNT:
+            sta_statistics->tx_timeout_cnt = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_AVG_AIR_TIME:
+            sta_statistics->tx_avg_air_time = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TOTAL_CNT:
+            sta_statistics->tx_total_cnt = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_THRESHOLD_CNT:
+            sta_statistics->tx_exc_threshold_cnt = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_AVG_PROCESS_TIME:
+            sta_statistics->tx_avg_process_time = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_MAX_PROCESS_TIME:
+            sta_statistics->tx_max_process_time = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_AVG_HIF_PROCESS_TIME:
+            sta_statistics->tx_avg_hif_process_time = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_MAX_HIF_PROCESS_TIME:
+            sta_statistics->tx_max_hif_process_time = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TC_EMPTY_CNT_ARRAY:
+            nla_memcpy(sta_statistics->tc_buf_full_cnt, sinfo[i], sizeof(sta_statistics->tc_buf_full_cnt));
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TC_QUE_LEN_ARRAY:
+            nla_memcpy(sta_statistics->tc_que_len, sinfo[i], sizeof(sta_statistics->tc_que_len));
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TC_AVG_QUE_LEN_ARRAY:
+            nla_memcpy(sta_statistics->tc_avg_que_len, sinfo[i], sizeof(sta_statistics->tc_avg_que_len));
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TC_CUR_QUE_LEN_ARRAY:
+            nla_memcpy(sta_statistics->tc_cur_que_len, sinfo[i], sizeof(sta_statistics->tc_cur_que_len));
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_ENQUEUE:
+            sta_statistics->enqueue_total_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_DEQUEUE:
+            sta_statistics->dequeue_total_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_STA_ENQUEUE:
+            sta_statistics->enqueue_sta_total_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_STA_DEQUEUE:
+            sta_statistics->dequeue_sta_total_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_IRQ_ISR_CNT:
+            sta_statistics->isr_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_IRQ_ISR_PASS_CNT:
+            sta_statistics->isr_pass_cnt = nla_get_u32(sinfo[i]);
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_IRQ_TASK_CNT:
+            sta_statistics->isr_task_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_IRQ_AB_CNT:
+            sta_statistics->isr_ab_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_IRQ_SW_CNT:
+            sta_statistics->isr_sw_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_IRQ_TX_CNT:
+            sta_statistics->isr_tx_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_IRQ_RX_CNT:
+            sta_statistics->isr_rx_cnt = nla_get_u32(sinfo[i]);
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_NO_TC_ARRAY:
+            nla_memcpy(sta_statistics->dequeue_no_tc_res, sinfo[i],
+                      sizeof(sta_statistics->dequeue_no_tc_res));
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_TC_USED_ARRAY:
+            nla_memcpy(sta_statistics->tc_used_res, sinfo[i],
+                      sizeof(sta_statistics->tc_used_res));
+            break;
+        case NL80211_TESTMODE_STA_STATISTICS_TC_WANTED_ARRAY:
+            nla_memcpy(sta_statistics->tc_wanted_res, sinfo[i],
+                      sizeof(sta_statistics->tc_wanted_res));
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_RB_ARRAY:
+            nla_memcpy(sta_statistics->tc_back_count, sinfo[i],
+                      sizeof(sta_statistics->tc_back_count));
+            break;
+
+        case NL80211_TESTMODE_STA_STATISTICS_RESERVED_ARRAY:
+             nla_memcpy(sta_statistics->reserved, sinfo[i], sizeof(sta_statistics->reserved));
+             break;
+        default:
+            break;
         }
     }
 
     return NL_SKIP;
 }
-
-#ifdef CONFIG_MEDIATEK_WIFI_BEAM
-// Peter: add for Beamplus application
-static int testmode_beamplus_go_ready_handler(struct nl_msg *msg, void *arg)
-{
-    struct nlattr *tb[NL80211_ATTR_MAX + 1];
-    struct genlmsghdr *gnlh = nlmsg_data(nlmsg_hdr(msg));
-    struct nlattr *sinfo[NL80211_TESTMODE_GO_READY_NUM];
-    u32 *go_ready = (u32 *)arg;
-    unsigned char i = 0;
-    static struct nla_policy policy[NL80211_TESTMODE_GO_READY_NUM] = {
-        [NL80211_TESTMODE_GO_READY_STATE]             = { .type = NLA_U32 },
-    };
-
-    nla_parse(tb, NL80211_ATTR_MAX, genlmsg_attrdata(gnlh, 0),
-        genlmsg_attrlen(gnlh, 0), NULL);
-
-    if (!tb[NL80211_ATTR_TESTDATA] ||
-        nla_parse_nested(sinfo, NL80211_TESTMODE_GO_READY_MAX, tb[NL80211_ATTR_TESTDATA], policy))
-        return NL_SKIP;
-
-    for (i=1; i < NL80211_TESTMODE_GO_READY_NUM; i++) {
-        if (sinfo[i]) {
-            switch(i) {
-                case NL80211_TESTMODE_GO_READY_STATE:
-                    *go_ready = nla_get_u32(sinfo[i]);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
-    return NL_SKIP;
-}
-// Peter: end of Beamplus application
-#endif
-
-#ifdef CONFIG_MTK_POOR_LINK_DETECT
-static int testmode_sta_link_detect_handler(struct nl_msg *msg, void *arg)
-{
-    struct nlattr *tb[NL80211_ATTR_MAX + 1];
-    struct genlmsghdr *gnlh = nlmsg_data(nlmsg_hdr(msg));
-    struct nlattr *sinfo[NL80211_TESTMODE_LINK_DETECT_NUM];
-    struct wpa_driver_sta_link_detect_s *sta_link_detect = (struct wpa_driver_sta_link_detect_s *)arg;
-    unsigned char i = 0;
-    s64 ack_cnt;
-    static struct nla_policy policy[NL80211_TESTMODE_LINK_DETECT_NUM] = {
-        [NL80211_TESTMODE_LINK_TX_FAIL_CNT]          = { .type = NLA_U64 },
-        [NL80211_TESTMODE_LINK_TX_RETRY_CNT]         = { .type = NLA_U64 },
-        [NL80211_TESTMODE_LINK_TX_MULTI_RETRY_CNT]   = { .type = NLA_U64 },
-        [NL80211_TESTMODE_LINK_ACK_FAIL_CNT]         = { .type = NLA_U64 },
-        [NL80211_TESTMODE_LINK_FCS_ERR_CNT]          = { .type = NLA_U64 },
-        [NL80211_TESTMODE_LINK_TX_CNT]               = { .type = NLA_U64 },
-        [NL80211_TESTMODE_LINK_TX_OK_CNT]            = { .type = NLA_U64 },
-        [NL80211_TESTMODE_LINK_TX_OS_CNT]            = { .type = NLA_U64 },
-    };
-
-    nla_parse(tb, NL80211_ATTR_MAX, genlmsg_attrdata(gnlh, 0),
-        genlmsg_attrlen(gnlh, 0), NULL);
-
-    if (!tb[NL80211_ATTR_TESTDATA] ||
-        nla_parse_nested(sinfo, NL80211_TESTMODE_LINK_DETECT_MAX, tb[NL80211_ATTR_TESTDATA], policy))
-        return NL_SKIP;
-
-    for (i=1; i < NL80211_TESTMODE_LINK_DETECT_NUM; i++) {
-        if (sinfo[i]) {
-            switch(i) {
-                case NL80211_TESTMODE_LINK_TX_FAIL_CNT:
-                    sta_link_detect->tx_fail_cnt =nla_get_u64(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_LINK_TX_RETRY_CNT:
-                    sta_link_detect->tx_retry_cnt = nla_get_u64(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_LINK_TX_MULTI_RETRY_CNT:
-                    sta_link_detect->tx_multi_retry_cnt = nla_get_u64(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_LINK_ACK_FAIL_CNT:
-                    ack_cnt = nla_get_u64(sinfo[i]);
-                    if (ack_cnt < 0)
-                        sta_link_detect->ack_fail_cnt = -ack_cnt;
-                    else
-                        sta_link_detect->ack_fail_cnt = ack_cnt;
-                    break;
-                case NL80211_TESTMODE_LINK_FCS_ERR_CNT:
-                    sta_link_detect->fcs_err_cnt = nla_get_u64(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_LINK_TX_CNT:
-                    sta_link_detect->tx_cnt = nla_get_u64(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_LINK_TX_OK_CNT:
-                    sta_link_detect->tx_ok_cnt = nla_get_u64(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_LINK_TX_OS_CNT:
-                    sta_link_detect->tx_os_cnt = nla_get_u64(sinfo[i]);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
-    return NL_SKIP;
-}
-#endif
 
 #ifdef CONFIG_MTK_LTE_COEX
 static int testmode_available_channel_handler(struct nl_msg *msg, void *arg)
 {
-    struct nlattr *tb[NL80211_ATTR_MAX + 1];
+    struct nlattr *tb[NL80211_ATTR_MAX + 1] = {};
     struct genlmsghdr *gnlh = nlmsg_data(nlmsg_hdr(msg));
-    struct nlattr *sinfo[NL80211_TESTMODE_AVAILABLE_CHAN_NUM];
-    struct wpa_driver_available_chan_s *available_chan = (struct wpa_driver_available_chan_s *)arg;
-    static struct nla_policy policy[NL80211_TESTMODE_AVAILABLE_CHAN_NUM] = {
-        [NL80211_TESTMODE_AVAILABLE_CHAN_2G_BASE_1]   = { .type = NLA_U32 },
-        [NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_34]  = { .type = NLA_U32 },
-        [NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_100] = { .type = NLA_U32 },
-        [NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_149] = { .type = NLA_U32 },
-        [NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_184] = { .type = NLA_U32 },
+    struct nlattr *tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_MAX + 1] = {};
+    struct wpa_driver_available_chan_s *available_chans = (struct wpa_driver_available_chan_s *)arg;
+    static struct nla_policy chan_policy[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_MAX + 1] = {
+        [NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_2G_BASE_1]   = { .type = NLA_U32 },
+        [NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_36]  = { .type = NLA_U32 },
+        [NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_52]  = { .type = NLA_U32 },
+        [NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_100] = { .type = NLA_U32 },
+        [NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_149] = { .type = NLA_U32 },
     };
-    unsigned char i = 0;
 
     nla_parse(tb, NL80211_ATTR_MAX, genlmsg_attrdata(gnlh, 0),
-        genlmsg_attrlen(gnlh, 0), NULL);
+            genlmsg_attrlen(gnlh, 0), NULL);
 
     if (!tb[NL80211_ATTR_TESTDATA] ||
-        nla_parse_nested(sinfo, NL80211_TESTMODE_AVAILABLE_CHAN_MAX, tb[NL80211_ATTR_TESTDATA], policy))
+        nla_parse_nested(tb_chan, NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_MAX, tb[NL80211_ATTR_TESTDATA], chan_policy))
         return NL_SKIP;
 
-    for (i=1; i < NL80211_TESTMODE_AVAILABLE_CHAN_NUM; i++) {
-        if (sinfo[i]) {
-            switch(i) {
-                case NL80211_TESTMODE_AVAILABLE_CHAN_2G_BASE_1:
-                    available_chan->ch_2g_base1 =nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_34:
-                    available_chan->ch_5g_base34 = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_100:
-                    available_chan->ch_5g_base100 = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_149:
-                    available_chan->ch_5g_base149 = nla_get_u32(sinfo[i]);
-                    break;
-                case NL80211_TESTMODE_AVAILABLE_CHAN_5G_BASE_184:
-                    available_chan->ch_5g_base184 = nla_get_u32(sinfo[i]);
-                    default:
-                break;
-            }
-        }
-    }
+    if (tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_2G_BASE_1])
+        available_chans->ch_2g_base1 = nla_get_u32(tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_2G_BASE_1]);
+
+    if (tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_36])
+        available_chans->ch_5g_base36 = nla_get_u32(tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_36]);
+
+    if (tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_52])
+        available_chans->ch_5g_base52 = nla_get_u32(tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_52]);
+
+    if (tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_100])
+        available_chans->ch_5g_base100 = nla_get_u32(tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_100]);
+
+    if (tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_149])
+        available_chans->ch_5g_base149 = nla_get_u32(tb_chan[NL80211_TESTMODE_AVAILABLE_CHAN_ATTR_5G_BASE_149]);
 
     return NL_SKIP;
 }
-
-static void wpa_driver_nl80211_scan_loading_timeout(void *eloop_ctx, void *timeout_ctx)
-{
-    struct wpa_driver_nl80211_data *drv = eloop_ctx;
-
-    wpa_printf(MSG_DEBUG, "Scan loading timeout - update channel list");
-    wpa_supplicant_event(drv->ctx, EVENT_CHANNEL_LIST_CHANGED, NULL);
-}
 #endif
 
-int wpa_driver_nl80211_testmode(void *priv, const u8 *data,
-                            size_t data_len)
+static int wpa_driver_nl80211_testmode(void *priv, const u8 *data, size_t data_len)
 {
-#ifdef CONFIG_MTK_TURNKEY_WLAN
     struct i802_bss *bss = priv;
     struct wpa_driver_nl80211_data *drv = bss->drv;
     struct nl_msg *msg, *cqm = NULL;
@@ -334,7 +322,7 @@ int wpa_driver_nl80211_testmode(void *priv, const u8 *data,
     if (!msg)
         return -1;
 
-    wpa_printf(MSG_DEBUG, "nl80211: Test Mode buflen = %d, ifindex=%d", data_len,drv->ifindex);
+    wpa_printf(MSG_EXCESSIVE, "nl80211 test mode: ifindex=%d", drv->ifindex);
 
     nl80211_cmd(drv, msg, 0, NL80211_CMD_TESTMODE);
 
@@ -351,49 +339,27 @@ int wpa_driver_nl80211_testmode(void *priv, const u8 *data,
         {
             struct wpa_driver_get_sta_statistics_params *sta_params =
                            (struct wpa_driver_get_sta_statistics_params *)data;
-
             return send_and_recv_msgs(drv, msg, testmode_sta_statistics_handler, sta_params->buf);
         }
-#ifdef CONFIG_MEDIATEK_WIFI_BEAM
-        case 0x12:
-        {
-            struct wpa_driver_set_beamplus_params *sta_params =
-                           (struct wpa_driver_set_beamplus_params *)data;
-
-            return send_and_recv_msgs(drv, msg, testmode_beamplus_go_ready_handler, &sta_params->value);
-        }
-#endif
-#ifdef CONFIG_MTK_POOR_LINK_DETECT
-        case 0x20:
-        {
-            struct wpa_driver_get_sta_link_detect_params *sta_params = (struct wpa_driver_get_sta_link_detect_params *)data;
-
-            return send_and_recv_msgs(drv, msg, testmode_sta_link_detect_handler, sta_params->buf);
-        }
-#endif
 #ifdef CONFIG_MTK_LTE_COEX
         case 0x30:
         {
             struct wpa_driver_get_available_channel_params *chan_params =
                            (struct wpa_driver_get_available_channel_params *)data;
-
             return send_and_recv_msgs(drv, msg, testmode_available_channel_handler, chan_params->buf);
         }
 #endif
         default:
         {
-            int ret = 0;
-            ret = send_and_recv_msgs(drv, msg, NULL, NULL);
-            wpa_printf(MSG_DEBUG, "ret = %d, nl=%d", ret, drv->global->nl);
+            int ret = send_and_recv_msgs(drv, msg, NULL, NULL);
+            wpa_printf(MSG_EXCESSIVE, "ret=%d, nl=%p", ret, drv->global->nl);
             return ret;
         }
     }
 
 nla_put_failure:
+    nlmsg_free(msg);
     return -ENOBUFS;
-#else
-    return 0;
-#endif
 }
 
 static int wpa_driver_nl80211_driver_sw_cmd(void *priv, int set, u32 *adr, u32 *dat)
@@ -444,7 +410,7 @@ static int wpa_driver_hotspot_block_list_update(void *priv, const u8 *bssid, int
 
 static int wpa_driver_sta_block(void *priv, char *cmd)
 {
-    u8 bssid[ETH_ALEN];
+    u8 bssid[ETH_ALEN] = {};
     int blocked = 1;
 
     /* Block client device */
@@ -459,7 +425,7 @@ static int wpa_driver_sta_block(void *priv, char *cmd)
 
 static int wpa_driver_sta_unblock(void *priv, char *cmd)
 {
-    u8 bssid[ETH_ALEN];
+    u8 bssid[ETH_ALEN] = {};
     int blocked = 0;
 
     /* Unblock client device */
@@ -471,7 +437,90 @@ static int wpa_driver_sta_unblock(void *priv, char *cmd)
     wpa_printf(MSG_DEBUG, "Unblock STA " MACSTR, MAC2STR(bssid));
     return wpa_driver_hotspot_block_list_update(priv, bssid, blocked);
 }
+
+static int wpa_driver_set_max_client(void *priv, char *cmd, char *buf, size_t buflen)
+{
+    char *str = NULL;
+    int len = 0;
+    int value = 0;
+    struct wpa_driver_hotspot_set_config_params params;
+
+    os_memset(&params, 0, sizeof(params));
+
+    value = atoi(cmd);
+
+    wpa_printf(MSG_DEBUG, "CTRL_IFACE set_max_connect value=%d\n", value);
+
+    params.hdr.index = NL80211_TESTMODE_HS_SET_CONFIG;
+    params.hdr.index = params.hdr.index | (0x01 << 24);
+    params.hdr.buflen = sizeof(struct wpa_driver_hotspot_set_config_params);
+
+    params.index = 1;
+    params.value = (u32)value;
+
+    return wpa_driver_nl80211_testmode(priv, (u8 *)&params,
+        sizeof(struct wpa_driver_hotspot_set_config_params));
+}
 #endif /* CONFIG_HOTSPOT_MGR_SUPPORT */
+
+#ifdef CONFIG_MTK_LTE_COEX
+int wpa_driver_get_lte_available_channels(void *priv, struct wpa_driver_available_chan_s *buf)
+{
+    struct wpa_driver_get_available_channel_params params;
+
+    os_memset(&params, 0, sizeof(params));
+
+    params.hdr.index = 0x30;
+    params.hdr.index = params.hdr.index | (0x01 << 24);
+    params.hdr.buflen = sizeof(struct wpa_driver_get_available_channel_params);
+    /* buffer for return structure */
+    params.buf = (u8 *)buf;
+    return wpa_driver_nl80211_testmode(priv, (u8 *)&params,
+        sizeof(struct wpa_driver_get_available_channel_params));
+}
+
+static u8 wpa_driver_do_mtk_acs(void *priv)
+{
+    struct wpa_driver_available_chan_s available_chans;
+    u8  ch[14];
+    int ch_num, i;
+    int wait_cnt = 0;
+
+    do {
+        os_memset(&available_chans, 0, sizeof(struct wpa_driver_available_chan_s));
+        wpa_driver_get_lte_available_channels(priv, &available_chans);
+
+        if (BIT(31) & available_chans.ch_2g_base1) {
+            wpa_printf(MSG_DEBUG, "2G Channel: 0x%08x", available_chans.ch_2g_base1);
+            break;
+        } else {
+            wpa_printf(MSG_DEBUG, "2G Channel: 0x%08x, waiting for scan complete",
+                available_chans.ch_2g_base1);
+            wait_cnt++;
+            if (wait_cnt > 5)
+                return 0;
+            os_sleep(0, 1000*350);
+        }
+    } while(1);
+
+    os_memset(ch, 0, sizeof(ch));
+    ch_num = 0;
+
+    for (i = 0; i < 14; i++) {
+        if (BIT(i) & available_chans.ch_2g_base1) {
+            ch[ch_num] = i + 1;
+            ch_num++;
+        } else
+            continue;
+    }
+
+    wpa_printf(MSG_DEBUG, "Driver report 2G available %d channel", ch_num);
+    for (i = 0; i < ch_num; i++)
+        wpa_printf(MSG_DEBUG,"Channel %d is fine", ch[i]);
+
+    return ch[0];
+}
+#endif /* CONFIG_MTK_LTE_COEX */
 
 #ifdef CONFIG_WAPI_SUPPORT
 int wpa_driver_nl80211_set_wapi_key(void *priv,
@@ -567,94 +616,13 @@ static int wpa_driver_nl80211_send_msg(void *priv, const u8 *msg_in, int msg_in_
 }
 #endif /* CONFIG_WAPI_SUPPORT */
 
-#if defined (CONFIG_MTK_P2P) || defined (CONFIG_MEDIATEK_WIFI_BEAM)
 static inline int wpa_drv_set_test_mode(struct wpa_supplicant *wpa_s,
     const u8 *buf, size_t buf_len)
 {
     return wpa_driver_nl80211_testmode(wpa_s->drv_priv, buf, buf_len);
 }
-#endif
-
-#ifdef CONFIG_MTK_P2P
-int wpas_wfd_data_update(struct wpa_supplicant *wpa_s, struct wfd_data_s *p_wfd_data)
-{
-    struct wpa_driver_wfd_data_s params;
-    os_memset(&params, 0, sizeof(params));
-
-    wpa_printf(MSG_DEBUG, "WFD: wpas_wfd_data_update wfd_en %u wfd_dev_info 0x%x wfd_ctrl_port %u wfd_state 0x%x",
-        p_wfd_data->WfdEnable, p_wfd_data->WfdDevInfo, p_wfd_data->WfdControlPort, p_wfd_data->WfdState);
 
 
-    params.hdr.index = 2;
-    params.hdr.index = params.hdr.index | (0x01 << 24);
-    params.hdr.buflen = sizeof(struct wfd_data_s);
-
-    params.WfdCmdType = p_wfd_data->WfdCmdType;
-    params.WfdEnable = p_wfd_data->WfdEnable;
-    params.WfdCoupleSinkStatus = p_wfd_data->WfdCoupleSinkStatus;
-    params.WfdDevInfo = p_wfd_data->WfdDevInfo;
-    params.WfdControlPort = p_wfd_data->WfdControlPort;
-    params.WfdMaximumTp = p_wfd_data->WfdMaximumTp;
-    params.WfdExtendCap = p_wfd_data->WfdExtendCap;
-    os_memcpy(params.WfdCoupleSinkAddress, p_wfd_data->WfdCoupleSinkAddress, ETH_ALEN);
-    os_memcpy(params.WfdAssociatedBssid, p_wfd_data->WfdAssociatedBssid, ETH_ALEN);
-    os_memcpy(params.WfdVideoIp, p_wfd_data->WfdVideoIp, sizeof(p_wfd_data->WfdVideoIp));
-    os_memcpy(params.WfdAudioIp, p_wfd_data->WfdAudioIp, sizeof(p_wfd_data->WfdAudioIp));
-    params.WfdVideoPort = p_wfd_data->WfdVideoPort;
-    params.WfdAudioPort = p_wfd_data->WfdAudioPort;
-    params.WfdFlag = p_wfd_data->WfdFlag;
-    params.WfdPolicy = p_wfd_data->WfdPolicy;
-    params.WfdState = p_wfd_data->WfdState;
-    params.WfdSessionInformationIELen = p_wfd_data->WfdSessionInformationIELen;
-    os_memcpy(params.WfdSessionInformationIE, p_wfd_data->WfdSessionInformationIE,
-        p_wfd_data->WfdSessionInformationIELen);
-    os_memcpy(params.WfdPrimarySinkMac, p_wfd_data->WfdPrimarySinkMac, ETH_ALEN);
-    os_memcpy(params.WfdSecondarySinkMac, p_wfd_data->WfdSecondarySinkMac, ETH_ALEN);
-    params.WfdAdvancedFlag = p_wfd_data->WfdAdvancedFlag;
-
-    params.WfdSessionAvailable = p_wfd_data->WfdSessionAvailable;
-    params.WfdSigmaMode = p_wfd_data->WfdSigmaMode;
-    os_memcpy(params.WfdLocalIp, p_wfd_data->WfdLocalIp, sizeof(p_wfd_data->WfdLocalIp));
-
-    return wpa_drv_set_test_mode(wpa_s, (u8 *)&params, sizeof(struct wpa_driver_wfd_data_s));
-}
-
-#endif
-
-#ifdef CONFIG_MEDIATEK_WIFI_BEAM
-u32 wpas_driver_get_beamplus_go_ready(struct wpa_supplicant *wpa_s)
-{
-    struct wpa_driver_set_beamplus_params params;
-
-    os_memset(&params, 0, sizeof(params));
-
-    params.hdr.index = 0x12;
-    params.hdr.index = params.hdr.index | (0x01 << 24);
-    params.hdr.buflen = sizeof(struct wpa_driver_set_beamplus_params);
-
-    params.value = 0;
-
-    wpa_drv_set_test_mode(wpa_s, (u8 *)&params, sizeof(struct wpa_driver_set_beamplus_params));
-    wpa_printf(MSG_DEBUG, "P2P: Beamplus polling GO ready value = %d",params.value);
-    return params.value;
-}
-
-int wpas_driver_set_beamplus(struct wpa_supplicant *wpa_s, u32 value)
-{
-    struct wpa_driver_set_beamplus_params params;
-
-    os_memset(&params, 0, sizeof(params));
-
-    params.hdr.index = 0x11;
-    params.hdr.index = params.hdr.index | (0x01 << 24);
-    params.hdr.buflen = sizeof(struct wpa_driver_set_beamplus_params);
-
-    params.value = (u32)value;
-
-    return wpa_drv_set_test_mode(wpa_s, (u8 *)&params,
-        sizeof(struct wpa_driver_set_beamplus_params));
-}
-#endif
 /**********************************************************************
 * OVERLAPPED functins, previous defination is in driver_nl80211.c,
 * it will be modified
@@ -678,7 +646,6 @@ static int wpa_driver_mediatek_set_country(void *priv, const char *alpha2_arg)
     os_strlcpy(replace_ifname, "wlan0", os_strlen("wlan0")+1);
 #endif
 
-    wpa_printf(MSG_DEBUG, "wpa_driver_nl80211_set_country");
     ioctl_sock = socket(PF_INET, SOCK_DGRAM, 0);
     if (ioctl_sock < 0) {
         wpa_printf(MSG_ERROR, "%s: socket(PF_INET,SOCK_DGRAM)", __func__);
@@ -697,7 +664,7 @@ static int wpa_driver_mediatek_set_country(void *priv, const char *alpha2_arg)
 #else
     os_strlcpy(iwr.ifr_name, drv->first_bss->ifname, IFNAMSIZ);
 #endif
-    sprintf(buf, "COUNTRY %s", alpha2_arg);
+    snprintf(buf, sizeof(buf), "COUNTRY %s", alpha2_arg);
     iwr.u.data.pointer = buf;
     iwr.u.data.length = strlen(buf);
     if ((ret = ioctl(ioctl_sock, 0x8B0C, &iwr)) < 0) {  // SIOCSIWPRIV
@@ -716,8 +683,10 @@ static int wpa_driver_mediatek_set_country(void *priv, const char *alpha2_arg)
 * update channel list in wpa_supplicant
 * if coutry code chanaged
 */
-static void wpa_driver_notify_country_change(void *ctx, char *cmd)
+static void wpa_driver_notify_country_change(struct wpa_global *global, char *cmd)
 {
+    struct wpa_supplicant *wpa_s;
+
     if (os_strncasecmp(cmd, "COUNTRY", 7) == 0) {
         union wpa_event_data event;
 
@@ -729,14 +698,97 @@ static void wpa_driver_notify_country_change(void *ctx, char *cmd)
                 event.channel_list_changed.alpha2[0] = cmd[8];
                 event.channel_list_changed.alpha2[1] = cmd[9];
             }
-        } else
+        } else {
             event.channel_list_changed.type = REGDOM_TYPE_UNKNOWN;
-        wpa_supplicant_event(ctx, EVENT_CHANNEL_LIST_CHANGED, &event);
+        }
+        // Notify all interfaces
+        for (wpa_s = global->ifaces; wpa_s; wpa_s = wpa_s->next) {
+            wpa_supplicant_event(wpa_s, EVENT_CHANNEL_LIST_CHANGED, &event);
+        }
     }
 }
+
+/**
+ * mtk_p2p_get_device - Fetch a peer entry
+ * @p2p: P2P module context from p2p_init()
+ * @addr: P2P Device Address of the peer
+ * Returns: Pointer to the device entry or %NULL if not found
+ */
+struct p2p_device *mtk_p2p_get_device(struct p2p_data *p2p, const u8 *addr)
+{
+    struct p2p_device *dev;
+
+    dl_list_for_each(dev, &p2p->devices, struct p2p_device, list) {
+        if (memcmp(dev->info.p2p_device_addr, addr, ETH_ALEN) == 0)
+            return dev;
+    }
+    return NULL;
+}
+/*
+ * we should use interface MAC address
+ * instead of device MAC when query
+ * STA statistics, as driver uses interface addr
+ * to do TX/RX
+ * In most cases, the interface addr and device addr
+ * should be the same
+ */
+u8 *wpas_p2p_get_sta_mac(struct wpa_supplicant *wpa_s, u8 *org_addr)
+{
+    struct p2p_data *p2p = wpa_s->global->p2p;
+    struct wpa_ssid *ssid = wpa_s->current_ssid;
+    struct p2p_device *dev = NULL;
+    int is_p2p_client = 0;
+
+    if (!p2p) {
+        wpa_printf(MSG_DEBUG, "interface %s not support p2p", wpa_s->ifname);
+        return NULL;
+    }
+
+    if (!ssid) {
+        wpa_printf(MSG_DEBUG, "P2P: ssid not connected");
+        return NULL;
+    }
+
+    dev = mtk_p2p_get_device(p2p, org_addr);
+
+    if (!dev) {
+        wpa_printf(MSG_DEBUG, "P2P: device " MACSTR "not found",
+                   MAC2STR(org_addr));
+        return NULL;
+    }
+
+    is_p2p_client = ssid->mode == WPAS_MODE_INFRA ? 1 : 0;
+
+    if (is_p2p_client) {
+        if (memcmp(dev->info.p2p_device_addr, wpa_s->bssid, ETH_ALEN) &&
+            !is_zero_ether_addr(wpa_s->bssid)) {
+            wpa_printf(MSG_DEBUG, "P2P: we are GC, Use interface_addr "
+                        MACSTR "instead of " MACSTR,
+                        MAC2STR(wpa_s->bssid),
+                        MAC2STR(org_addr));
+            return wpa_s->bssid;
+        }
+    }
+
+    /*
+     * we are GO, interface_addr should be filled
+     * when RX NL80211_CMD_NEW_STA event
+     * if it is defferent between device addr and interface addr
+     */
+    if (memcmp(dev->info.p2p_device_addr, dev->interface_addr, ETH_ALEN) &&
+        !is_zero_ether_addr(dev->interface_addr)) {
+        wpa_printf(MSG_DEBUG, "P2P: we are GO, Use interface_addr " MACSTR
+                 "instead of " MACSTR,
+                 MAC2STR(dev->interface_addr),
+                 MAC2STR(org_addr));
+        return dev->interface_addr;
+    }
+    return NULL;
+}
+
 /* Move GET_STA_STATISTICS to "DRIVER GET_STA_STATISTICS", implement in 3rd part lib */
 /* [ALPS00618361] [WFD Quality Enhancement] */
-int wpas_get_sta_statistics(struct wpa_supplicant *wpa_s, char *sta_addr, u8 *buf)
+int wpas_get_sta_statistics(struct wpa_supplicant *wpa_s, u8 *sta_addr, u8 *buf)
 {
     struct wpa_driver_get_sta_statistics_params params;
 
@@ -887,7 +939,7 @@ static int print_sta_statistics(struct wpa_supplicant *wpa_s, struct wpa_driver_
             pos += ret;
         }
     }
-    ret = os_snprintf(pos, end - pos, "\n", sta_stats->reserved[i]);
+    ret = os_snprintf(pos, end - pos, "\n");
     if (ret < 0 || ret >= end - pos)
         return 0;
     pos += ret;
@@ -909,7 +961,7 @@ static int print_sta_statistics(struct wpa_supplicant *wpa_s, struct wpa_driver_
             pos += ret;
         }
     }
-    ret = os_snprintf(pos, end - pos, "\n", sta_stats->reserved[i]);
+    ret = os_snprintf(pos, end - pos, "\n");
     if (ret < 0 || ret >= end - pos)
         return 0;
     pos += ret;
@@ -922,54 +974,83 @@ static int print_sta_statistics(struct wpa_supplicant *wpa_s, struct wpa_driver_
     return pos - buf;
 }
 
-#ifdef CONFIG_MTK_POOR_LINK_DETECT
-int wpas_get_sta_link_detect(struct wpa_supplicant *wpa_s, u8 *buf)
-{
-    struct wpa_driver_get_sta_link_detect_params params;
-
-    os_memset(&params, 0, sizeof(params));
-    wpa_printf(MSG_DEBUG, "get_sta_link_detect");
-    params.hdr.index = NL80211_TESTMODE_LINK_DETECT;
-    params.hdr.index = params.hdr.index | (0x01 << 24);
-    params.hdr.buflen = sizeof(struct wpa_driver_get_sta_link_detect_params);
-
-    /* buffer for return structure */
-    params.buf = buf;
-
-    return wpa_driver_nl80211_testmode(wpa_s->drv_priv, (u8 *)&params,
-        sizeof(struct wpa_driver_get_sta_link_detect_params));
-}
-#endif
-
-/*
-#ifdef CONFIG_MTK_LTE_COEX
-int wpas_get_available_channel(struct wpa_supplicant *wpa_s, u8 *buf)
-{
-    struct wpa_driver_get_available_channel_params params;
-
-    os_memset(&params, 0, sizeof(params));
-    wpa_printf(MSG_DEBUG, "wpas_get_available_channel");
-    params.hdr.index = 0x30;
-    params.hdr.index = params.hdr.index | (0x01 << 24);
-    params.hdr.buflen = sizeof(struct wpa_driver_get_available_channel_params);
-
-    // buffer for return structure //
-    params.buf = buf;
-
-    return wpa_drv_set_test_mode(wpa_s, (u8 *)&params,
-        sizeof(struct wpa_driver_get_available_channel_params));
-}
-#endif
-*/
-
 /*  [ALPS00618361] [WFD Quality Enhancement] [changelist 1686130] */
+static void format_sta_statistics(struct wpa_driver_sta_statistics_s *s)
+{
+	wpa_printf(MSG_DEBUG, "NWFD: Basic info* AVG:%4d:EN:%4d:DE:%4d:SEN:%4d:SDE:%4d:HIF:%4d",
+		s->tx_avg_process_time,
+		s->enqueue_total_cnt,
+		s->dequeue_total_cnt,
+		s->enqueue_sta_total_cnt,
+		s->dequeue_sta_total_cnt,
+		s->tx_total_cnt);
+
+	wpa_printf(MSG_DEBUG, "NWFD: Time info* TTL:%4d:AVG:%4d:MAX:%4d:HIFAVG:%4d:HIFMAX:%4d",
+		s->tx_total_cnt,
+		s->tx_avg_process_time,
+		s->tx_max_process_time,
+		s->tx_avg_hif_process_time,
+		s->tx_max_hif_process_time);
+
+	wpa_printf(MSG_DEBUG, "NWFD: No TC RES* Score:%4d:EN:%4d#%4d#%4d#%4d:DE:%4d#%4d#%4d#%4d",
+		s->link_score,
+		s->tc_buf_full_cnt[TC0_INDEX],
+		s->tc_buf_full_cnt[TC1_INDEX],
+		s->tc_buf_full_cnt[TC2_INDEX],
+		s->tc_buf_full_cnt[TC3_INDEX],
+		s->dequeue_no_tc_res[TC0_INDEX],
+		s->dequeue_no_tc_res[TC1_INDEX],
+		s->dequeue_no_tc_res[TC2_INDEX],
+		s->dequeue_no_tc_res[TC3_INDEX]);
+
+	wpa_printf(MSG_DEBUG, "NWFD: Irq info* T:%4d:P:%4d:TT:%4d:A:%4d:S:%4d:R:%4d:T:%4d",
+		s->isr_cnt,
+		s->isr_pass_cnt,
+		s->isr_task_cnt,
+		s->isr_ab_cnt,
+		s->isr_sw_cnt,
+		s->isr_rx_cnt,
+		s->isr_tx_cnt);
+
+	/*
+	 * TC resouce information: format:
+	 * 1. how many TC resource wanted during statistics intervals
+	 * 2. how many TC resource acquire successfully
+	 * 3. how many TC resource back during statistics intervals
+	 */
+	wpa_printf(MSG_DEBUG, "NWFD: TC Res info[W:U:B]* Score:%4d:"
+		"#%5d:%5d:%5d#"
+		"#%5d:%5d:%5d#"
+		"#%5d:%5d:%5d#"
+		"#%5d:%5d:%5d#",
+		s->link_score,
+		s->tc_wanted_res[TC0_INDEX],
+		s->tc_used_res[TC0_INDEX],
+		s->tc_back_count[TC0_INDEX],
+
+		s->tc_wanted_res[TC1_INDEX],
+		s->tc_used_res[TC1_INDEX],
+		s->tc_back_count[TC1_INDEX],
+
+		s->tc_wanted_res[TC2_INDEX],
+		s->tc_used_res[TC2_INDEX],
+		s->tc_back_count[TC2_INDEX],
+
+		s->tc_wanted_res[TC3_INDEX],
+		s->tc_used_res[TC3_INDEX],
+		s->tc_back_count[TC3_INDEX]);
+}
+
 int wpa_driver_get_sta_statistics(struct wpa_supplicant *wpa_s, char *addr,
                                 char *buf, size_t buflen)
 {
     char *str = NULL;
     int len = 0;
     u8 sta_addr[ETH_ALEN];
+    u8 *mac = NULL;
     struct wpa_driver_sta_statistics_s sta_statistics;
+
+    memset(&sta_statistics, 0 ,sizeof(sta_statistics));
 
     if (hwaddr_aton(addr, sta_addr)) {
         wpa_printf(MSG_DEBUG, "CTRL_IFACE GET_STA_STATISTICS: invalid "
@@ -977,74 +1058,18 @@ int wpa_driver_get_sta_statistics(struct wpa_supplicant *wpa_s, char *addr,
         return -1;
     }
 
-    if (wpas_get_sta_statistics(wpa_s, sta_addr, (u8 *)&sta_statistics) < 0) {
+    mac = wpas_p2p_get_sta_mac(wpa_s, sta_addr);
+
+    if (wpas_get_sta_statistics(wpa_s, mac ? mac : sta_addr,
+        (u8 *)&sta_statistics) < 0) {
         wpa_printf(MSG_DEBUG, "CTRL_IFACE GET_STA_STATISTICS: command failed");
         return -1;
     }
     len = print_sta_statistics(wpa_s, &sta_statistics, 0x00, buf, buflen);
 
+    format_sta_statistics(&sta_statistics);
     return len;
 }
-
-#ifdef CONFIG_MTK_POOR_LINK_DETECT
-static int wpa_driver_get_sta_link_detect(struct wpa_supplicant *wpa_s, char *buf, size_t buflen)
-{
-    int ret;
-    char *pos, *end;
-    struct wpa_driver_sta_link_detect_s sta_link_detect;
-
-    // wpa_printf(MSG_DEBUG, "Get sta(%s) statistics", addr);
-
-    pos = buf;
-    end = buf + buflen;
-    if (wpas_get_sta_link_detect(wpa_s, (u8 *)&sta_link_detect) < 0) {
-        wpa_printf(MSG_DEBUG, "CTRL_IFACE GET_STA_LINK_DETECT: command failed");
-        return -1;
-    }
-
-    ret = os_snprintf(pos, end - pos, "rFailedCount=%llu\n", sta_link_detect.tx_fail_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-
-    ret = os_snprintf(pos, end - pos, "rRetryCount=%llu\n", sta_link_detect.tx_retry_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-
-    ret = os_snprintf(pos, end - pos, "rMultipleRetryCount=%llu\n", sta_link_detect.tx_multi_retry_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-    ret = os_snprintf(pos, end - pos, "rACKFailureCount=%llu\n", sta_link_detect.ack_fail_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-
-    ret = os_snprintf(pos, end - pos, "rFCSErrorCount=%llu\n", sta_link_detect.fcs_err_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-
-    ret = os_snprintf(pos, end - pos, "tx_total=%llu\n", sta_link_detect.tx_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-
-    ret = os_snprintf(pos, end - pos, "tx_ok=%llu\n", sta_link_detect.tx_ok_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-
-    ret = os_snprintf(pos, end - pos, "tx_os=%llu\n", sta_link_detect.tx_os_cnt);
-    if (ret < 0 || ret >= end - pos)
-        return (pos - buf);
-    pos += ret;
-
-    return (pos - buf);
-
-}
-#endif
 
 #ifdef CONFIG_MTK_P2P_SIGMA
 static int wpas_p2p_sigma_test_mode(struct wpa_supplicant *wpa_s, int index, int value)
@@ -1078,23 +1103,27 @@ static int p2p_ctrl_iface_set_opps(struct wpa_supplicant *wpa_s, char *cmd, char
     CTWin = atoi(cmd);
 
     str = os_strchr(cmd, ' ');
-    *str ++ = '\0';
+    if (str) {
+        *str ++ = '\0';
 
-    if (hwaddr_aton(str, addr))
-        return -1;
+        if (hwaddr_aton(str, addr))
+            return -1;
+    }
 
     str = os_strchr(str, ' ');
-    *str ++ = '\0';
+    if (str) {
+        *str ++ = '\0';
 
-    ssid = wpa_config_parse_string(str, &ssid_len);
-    if (ssid) {
-        wpa_printf(MSG_DEBUG, "CTRL_IFACE set_opps CTWin=%d "MACSTR" SSID(%d)%s\n",
-            CTWin, MAC2STR(addr), ssid_len, ssid);
-        os_free(ssid);
-    }
-    else {
-        wpa_printf(MSG_DEBUG, "CTRL_IFACE set_opps CTWin=%d "MACSTR" SSID(%d)\n",
-            CTWin, MAC2STR(addr), ssid_len);
+        ssid = wpa_config_parse_string(str, &ssid_len);
+        if (ssid) {
+            wpa_printf(MSG_DEBUG, "CTRL_IFACE set_opps CTWin=%d "MACSTR" SSID(%ld)%s\n",
+                CTWin, MAC2STR(addr), ssid_len, ssid);
+            os_free(ssid);
+        }
+        else {
+            wpa_printf(MSG_DEBUG, "CTRL_IFACE set_opps CTWin=%d "MACSTR" SSID(%ld)\n",
+                CTWin, MAC2STR(addr), ssid_len);
+        }
     }
 
     wpas_p2p_sigma_test_mode(wpa_s, 107, (int)CTWin);
@@ -1123,6 +1152,7 @@ static int p2p_ctrl_iface_set_power_save(struct wpa_supplicant *wpa_s, char *cmd
     return len;
 
 }
+
 static int p2p_ctrl_iface_set_sleep(struct wpa_supplicant *wpa_s, char *cmd, char *buf, size_t buflen)
 {
     char *str = NULL;
@@ -1135,17 +1165,19 @@ static int p2p_ctrl_iface_set_sleep(struct wpa_supplicant *wpa_s, char *cmd, cha
         return -1;
 
     str = os_strchr(cmd, ' ');
-    *str ++ = '\0';
+    if (str) {
+        *str ++ = '\0';
 
-    ssid = wpa_config_parse_string(str, &ssid_len);
-    if (ssid) {
-        wpa_printf(MSG_DEBUG, "CTRL_IFACE set_sleep "MACSTR" SSID(%d)%s\n",
-            MAC2STR(addr), ssid_len, ssid);
-        os_free(ssid);
-    }
-    else {
-        wpa_printf(MSG_DEBUG, "CTRL_IFACE set_sleep "MACSTR" SSID(%d)\n",
-            MAC2STR(addr), ssid_len);
+        ssid = wpa_config_parse_string(str, &ssid_len);
+        if (ssid) {
+            wpa_printf(MSG_DEBUG, "CTRL_IFACE set_sleep "MACSTR" SSID(%ld)%s\n",
+                MAC2STR(addr), ssid_len, ssid);
+            os_free(ssid);
+        }
+        else {
+            wpa_printf(MSG_DEBUG, "CTRL_IFACE set_sleep "MACSTR" SSID(%ld)\n",
+                MAC2STR(addr), ssid_len);
+        }
     }
 
     wpas_p2p_sigma_test_mode(wpa_s, 106, 0);
@@ -1155,9 +1187,191 @@ static int p2p_ctrl_iface_set_sleep(struct wpa_supplicant *wpa_s, char *cmd, cha
     return len;
 
 }
-#endif
+#endif /* CONFIG_MTK_P2P_SIGMA */
+
+/* utils for parse cmdline:
+ * cmd: paramters in cmd line
+ * argv: paramter vector
+ * len: cmd lenght
+ * example:
+ * cmd = "driver P2P_SET_NOA 1 2 3"
+ * argv[0] = "driver"
+ * argv[1] = "P2P_SET_NOA"
+ * argv[2] = "1"
+ * argv[3] = "2"
+ * argv[4] = "3"
+ */
+
+int tokenize_space(char *cmd, char *argv[], int len)
+{
+    char *pos;
+    char *start;
+    int argc = 0;
+
+    start = pos = cmd;
+    for (;;) {
+        argv[argc] = pos;
+        argc++;
+        while (*pos != '\n' && *pos != ' ' && *pos != '\0') {
+            pos++;
+            if (pos - start >= len)
+                break;
+        }
+
+        if (*pos == '\0')
+            break;
+
+        if (*pos == '\n' || *pos == ' ') {
+            *pos++ = '\0';
+            if (pos - start >= len)
+                break;
+        }
+    }
+
+    return argc;
+}
+
+static int p2p_ctrl_iface_set_noa(struct wpa_supplicant *wpa_s, char *cmd, char *buf, size_t buflen)
+{
+    struct wpa_driver_p2p_noa_params {
+        struct wpa_driver_test_mode_info hdr;
+        u32 idx;
+        u32 value; /* should not be used in this case */
+        u32 count;
+        u32 interval;
+        u32 duration;
+    };
+    char *argv[64];
+    int argc;
+    struct wpa_driver_p2p_noa_params noa_param;
+
+    os_memset(&noa_param, 0, sizeof(noa_param));
+
+    /* P2P_SET_NOA 255 100 3 */
+    /*
+     * argv format:
+     * argv[0] = "P2P_SET_NOA"
+     * argv[1] = "255"
+     * argv[2] = "100"
+     * argv[3] = "3"
+     */
+    argc = tokenize_space(cmd, argv, os_strlen(cmd));
+
+    if (argc != 4) {
+        wpa_printf(MSG_DEBUG, "P2P: NOA: invalid cmd format");
+        return -1;
+    }
+
+    /* fill in the params structure */
+    noa_param.hdr.index = 1;
+    noa_param.hdr.index = noa_param.hdr.index | (0x01 << 24);
+    noa_param.hdr.buflen = sizeof(struct wpa_driver_p2p_noa_params);
+
+    noa_param.idx = 4;
+    noa_param.count = (u32)atoi(argv[1]);
+    noa_param.interval= (u32)atoi(argv[2]);
+    noa_param.duration= (u32)atoi(argv[3]);
+
+    wpa_printf(MSG_DEBUG, "P2P: set noa: %d %d %d",
+               noa_param.count,
+               noa_param.interval,
+               noa_param.duration);
+
+    return wpa_driver_nl80211_testmode(wpa_s->drv_priv, (u8 *)&noa_param,
+                  sizeof(struct wpa_driver_p2p_noa_params));
+}
+
+static int p2p_ctrl_iface_set_ps(struct wpa_supplicant *wpa_s, char *cmd, char *buf, size_t buflen)
+{
+    char *argv[64];
+    int argc;
+    int enable;
+    s32 ctw;
+    struct wpa_driver_p2p_sigma_params opps_param;
+
+    os_memset(&opps_param, 0, sizeof(opps_param));
+
+    /* P2P_SET_PS 2 1 3
+     * argv format:
+     * argv[0] = "P2P_SET_PS"
+     * argv[1] = "2"
+     * argv[2] = "1"
+     * argv[3] = "3"
+     */
+    argc = tokenize_space(cmd, argv, os_strlen(cmd));
+
+    if (argc != 4) {
+        wpa_printf(MSG_DEBUG, "P2P: Opps: invalid cmd format");
+        return -1;
+    }
+
+    /* fill in the params structure */
+    opps_param.hdr.index = 1;
+    opps_param.hdr.index = opps_param.hdr.index | (0x01 << 24);
+    opps_param.hdr.buflen = sizeof(struct wpa_driver_p2p_sigma_params);
+
+    opps_param.idx = 107;
+
+    enable = atoi(argv[2]);
+    ctw = atoi(argv[3]);
+
+    /* BIT 7 control OPPS on / off */
+    if (enable)
+        ctw |= BIT(7);
+
+    opps_param.value = ctw;
+
+    wpa_printf(MSG_DEBUG, "P2P: set opps: 0x%x",
+               opps_param.value);
+
+    return wpa_driver_nl80211_testmode(wpa_s->drv_priv, (u8 *)&opps_param,
+             sizeof(struct wpa_driver_p2p_sigma_params));
+}
 
 #ifdef CONFIG_MTK_WFD_SINK
+static int wpas_wfd_data_update(struct wpa_supplicant *wpa_s, struct wfd_data_s *p_wfd_data)
+{
+    struct wpa_driver_wfd_data_s params;
+    os_memset(&params, 0, sizeof(params));
+
+    wpa_printf(MSG_DEBUG, "WFD: wpas_wfd_data_update wfd_en %u wfd_dev_info 0x%x wfd_ctrl_port %u wfd_state 0x%x",
+        p_wfd_data->WfdEnable, p_wfd_data->WfdDevInfo, p_wfd_data->WfdControlPort, p_wfd_data->WfdState);
+
+
+    params.hdr.index = 2;
+    params.hdr.index = params.hdr.index | (0x01 << 24);
+    params.hdr.buflen = sizeof(struct wfd_data_s);
+
+    params.WfdCmdType = p_wfd_data->WfdCmdType;
+    params.WfdEnable = p_wfd_data->WfdEnable;
+    params.WfdCoupleSinkStatus = p_wfd_data->WfdCoupleSinkStatus;
+    params.WfdDevInfo = p_wfd_data->WfdDevInfo;
+    params.WfdControlPort = p_wfd_data->WfdControlPort;
+    params.WfdMaximumTp = p_wfd_data->WfdMaximumTp;
+    params.WfdExtendCap = p_wfd_data->WfdExtendCap;
+    os_memcpy(params.WfdCoupleSinkAddress, p_wfd_data->WfdCoupleSinkAddress, ETH_ALEN);
+    os_memcpy(params.WfdAssociatedBssid, p_wfd_data->WfdAssociatedBssid, ETH_ALEN);
+    os_memcpy(params.WfdVideoIp, p_wfd_data->WfdVideoIp, sizeof(p_wfd_data->WfdVideoIp));
+    os_memcpy(params.WfdAudioIp, p_wfd_data->WfdAudioIp, sizeof(p_wfd_data->WfdAudioIp));
+    params.WfdVideoPort = p_wfd_data->WfdVideoPort;
+    params.WfdAudioPort = p_wfd_data->WfdAudioPort;
+    params.WfdFlag = p_wfd_data->WfdFlag;
+    params.WfdPolicy = p_wfd_data->WfdPolicy;
+    params.WfdState = p_wfd_data->WfdState;
+    params.WfdSessionInformationIELen = p_wfd_data->WfdSessionInformationIELen;
+    os_memcpy(params.WfdSessionInformationIE, p_wfd_data->WfdSessionInformationIE,
+        p_wfd_data->WfdSessionInformationIELen);
+    os_memcpy(params.WfdPrimarySinkMac, p_wfd_data->WfdPrimarySinkMac, ETH_ALEN);
+    os_memcpy(params.WfdSecondarySinkMac, p_wfd_data->WfdSecondarySinkMac, ETH_ALEN);
+    params.WfdAdvancedFlag = p_wfd_data->WfdAdvancedFlag;
+
+    params.WfdSessionAvailable = p_wfd_data->WfdSessionAvailable;
+    params.WfdSigmaMode = p_wfd_data->WfdSigmaMode;
+    os_memcpy(params.WfdLocalIp, p_wfd_data->WfdLocalIp, sizeof(p_wfd_data->WfdLocalIp));
+
+    return wpa_drv_set_test_mode(wpa_s, (u8 *)&params, sizeof(struct wpa_driver_wfd_data_s));
+}
+
 static int p2p_get_capability(struct wpa_supplicant *wpa_s, char *cmd, char *buf, size_t buflen)
 {
     int ret = 0;
@@ -1223,7 +1437,7 @@ static int priv_p2p_freq_to_channel(unsigned int freq, u8 *op_class, u8 *channel
         *channel = (freq - 5000) / 5;
         return 0;
     }
-#ifdef CONFIG_MTK_P2P_5G
+
     if (freq >= 5260 && freq <= 5320) {
         *op_class = 118; /* 5 GHz, channels 52..64 */
         *channel = (freq - 5000) / 5;
@@ -1235,7 +1449,7 @@ static int priv_p2p_freq_to_channel(unsigned int freq, u8 *op_class, u8 *channel
         *channel = (freq - 5000) / 5;
         return 0;
     }
-#endif
+
     if (freq >= 5745 && freq <= 5805) {
         if ((freq - 5000) % 5)
             return -1;
@@ -1244,20 +1458,20 @@ static int priv_p2p_freq_to_channel(unsigned int freq, u8 *op_class, u8 *channel
         *channel = (freq - 5000) / 5;
         return 0;
     }
-#ifdef CONFIG_MTK_P2P_5G
+
     if (freq >= 5825 && freq <= 5845) {
         *op_class = 125; /* 5 GHz, channels 149,153,157,161,165,169 */
         *channel = (freq - 5000) / 5;
         return 0;
     }
-#endif
+
     return -1;
 }
 
 static int p2p_wfd_sink_config_scc(struct wpa_supplicant *wpa_s, int scc, unsigned int oper_freq)
 {
     int ret = 0;
-    u8 op_reg_class, op_channel;
+    u8 op_reg_class = 0, op_channel = 0;
     unsigned int r;
     struct wpa_supplicant *iface;
     struct p2p_data *p2p = wpa_s->global->p2p;
@@ -1384,11 +1598,11 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
     int ret = -1;
 
     if (drv == NULL) {
-        wpa_printf(MSG_ERROR, "%s: drv is NULL. Exiting", __func__);
+        wpa_printf(MSG_ERROR, "%s: drv is NULL, exit", __func__);
         return -1;
     }
     if (drv->ctx == NULL) {
-        wpa_printf(MSG_ERROR, "%s: drv->ctx is NULL. Exiting", __func__);
+        wpa_printf(MSG_ERROR, "%s: drv->ctx is NULL, exit", __func__);
         return -1;
     }
 
@@ -1398,12 +1612,12 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
     else {
         wpa_s = (struct wpa_supplicant *)(drv->ctx);
         if (wpa_s->conf == NULL) {
-            wpa_printf(MSG_ERROR, "%s: wpa_s->conf is NULL. Exiting", __func__);
+            wpa_printf(MSG_ERROR, "%s: wpa_s->conf is NULL, exit", __func__);
             return -1;
         }
     }
 
-    wpa_printf(MSG_DEBUG, "iface %s recv cmd %s", bss->ifname, cmd);
+    wpa_printf(MSG_EXCESSIVE, "%s: %s recv cmd %s", __func__, bss->ifname, cmd);
     handled = 1;
 
     if (os_strncasecmp(cmd, "POWERMODE ", 10) == 0) {
@@ -1412,31 +1626,27 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
         wpa_printf(MSG_DEBUG, "POWERMODE=%d", state);
     }  else if (os_strncasecmp(cmd, "GET_STA_STATISTICS ", 19) == 0) {
         ret = wpa_driver_get_sta_statistics(wpa_s, cmd + 19, buf, buf_len);
-#ifdef CONFIG_MTK_POOR_LINK_DETECT
-    }  else if (os_strncasecmp(cmd, "GET_STA_LINK_DETECT", 19) == 0) {
-        ret = wpa_driver_get_sta_link_detect(wpa_s, buf, buf_len);
-#endif
     }  else if (os_strncmp(cmd, "MACADDR", os_strlen("MACADDR")) == 0) {
         u8 macaddr[ETH_ALEN] = {};
         os_memcpy(&macaddr, wpa_s->own_addr, ETH_ALEN);
         ret = snprintf(buf, buf_len, "Macaddr = " MACSTR "\n", MAC2STR(macaddr));
         wpa_printf(MSG_DEBUG, "%s", buf);
-    } else if(os_strncasecmp(cmd, "COUNTRY", os_strlen("COUNTRY"))==0) {
+    } else if(os_strncasecmp(cmd, "COUNTRY", os_strlen("COUNTRY")) == 0) {
         if (os_strlen(cmd) != os_strlen("COUNTRY") + 3) {
             wpa_printf(MSG_DEBUG, "Ignore COUNTRY cmd %s", cmd);
             ret = 0;
         } else {
-            wpa_printf(MSG_INFO, "set country: %s", cmd+8);
-            // ret = wpa_drv_set_country(wpa_s, cmd+8);
-            ret = wpa_driver_mediatek_set_country(priv, cmd+8);
+            wpa_printf(MSG_INFO, "Set country: %s", cmd + 8);
+            // ret = wpa_drv_set_country(wpa_s, cmd + 8);
+            ret = wpa_driver_mediatek_set_country(priv, cmd + 8);
             if (ret == 0) {
                 wpa_printf(MSG_DEBUG, "Update channel list after country code changed");
-                wpa_driver_notify_country_change(wpa_s, cmd);
+                wpa_driver_notify_country_change(wpa_s->global, cmd);
             }
         }
     } else if (os_strcasecmp(cmd, "start") == 0) {
-        if (ret = linux_set_iface_flags(drv->global->ioctl_sock,
-            drv->first_bss->ifname, 1)) {
+        if ((ret = linux_set_iface_flags(drv->global->ioctl_sock,
+            drv->first_bss->ifname, 1))) {
             wpa_printf(MSG_INFO, "nl80211: Could not set interface UP, ret=%d \n", ret);
         } else {
             wpa_msg(drv->ctx, MSG_INFO, "CTRL-EVENT-DRIVER-STATE STARTED");
@@ -1450,38 +1660,20 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
             wpa_printf(MSG_INFO, "nl80211: not associated, no need to deauthenticate \n");
         }
 
-        if (ret = linux_set_iface_flags(drv->global->ioctl_sock,
-            drv->first_bss->ifname, 0)) {
+        if ((ret = linux_set_iface_flags(drv->global->ioctl_sock,
+            drv->first_bss->ifname, 0))) {
             wpa_printf(MSG_INFO, "nl80211: Could not set interface Down, ret=%d \n", ret);
         } else {
             wpa_msg(drv->ctx, MSG_INFO, "CTRL-EVENT-DRIVER-STATE STOPPED");
         }
     } else if (os_strncasecmp(cmd, "getpower", 8) == 0) {
-        u32 mode;
+        u32 mode = 0;
         // ret = wpa_driver_wext_driver_get_power(drv, &mode);
         if (ret == 0) {
             ret = snprintf(buf, buf_len, "powermode = %u\n", mode);
             wpa_printf(MSG_DEBUG, "%s", buf);
             if (ret < (int)buf_len)
                 return ret;
-        }
-    } else if (os_strncasecmp(cmd, "get-rts-threshold", 17) == 0) {
-        u32 thd;
-        // ret = wpa_driver_wext_driver_get_rts(drv, &thd);
-        if (ret == 0) {
-            ret = snprintf(buf, buf_len, "rts-threshold = %u\n", thd);
-            wpa_printf(MSG_DEBUG, "%s", buf);
-            if (ret < (int)buf_len)
-                return ret;
-        }
-    } else if (os_strncasecmp(cmd, "set-rts-threshold", 17) == 0) {
-        u32 thd = 0;
-        char *cp = cmd + 17;
-        char *endp;
-        if (*cp != '\0') {
-            thd = (u32)strtol(cp, &endp, 0);
-            // if (endp != cp)
-                // ret = wpa_driver_wext_driver_set_rts(drv, thd);
         }
     } else if (os_strncasecmp(cmd, "rxfilter-add", 12) == 0) {
         u32 sw_cmd = 0x9F000000;
@@ -1527,29 +1719,6 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
         ret = 0; /* mt5921 linux driver not implement yet */
     } else if (os_strncasecmp(cmd, "btcoexmode", 10) == 0) {
         ret = 0; /* mt5921 linux driver not implement yet */
-    } else if (os_strncasecmp(cmd, "smt-rate", 8) == 0 ) {
-        u32 sw_cmd = 0xFFFF0123;
-        u32 idx = 0;
-        char *cp = cmd + 8;
-        char *endp;
-
-        if (*cp != '\0') {
-            idx = (u32)strtol(cp, &endp, 0);
-            if (endp != cp) {
-                wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-                ret = 0;
-            }
-        }
-    } else if (os_strncasecmp(cmd, "smt-test-on", 11) == 0 ) {
-        u32 sw_cmd = 0xFFFF1234;
-        u32 idx = 0;
-        wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-        ret = 0;
-    } else if (os_strncasecmp(cmd, "smt-test-off", 12) == 0 ) {
-        u32 sw_cmd = 0xFFFF1235;
-        u32 idx = 0;
-        wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-        ret = 0;
 #ifdef CONFIG_HOTSPOT_MGR_SUPPORT
     } else if (os_strncmp(cmd, "STA-BLOCK ", 10) == 0) {
         if (wpa_driver_sta_block(priv, cmd + 10)) {
@@ -1563,7 +1732,15 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
         } else {
             ret = 0;
         }
+    } else if (os_strncasecmp(cmd, "set_max_client ", 15) == 0) {
+        wpa_driver_set_max_client(priv, cmd + 15, buf, buf_len);
 #endif /* CONFIG_HOTSPOT_MGR_SUPPORT */
+#ifdef CONFIG_MTK_LTE_COEX
+    } else if (os_strncmp(cmd, "MTK-ACS", 7) == 0) {
+        u8 ch = wpa_driver_do_mtk_acs(priv);
+        os_memcpy(buf, &ch, sizeof(u8));
+        ret = sizeof(u8);
+#endif /* CONFIG_MTK_LTE_COEX */
 #ifdef CONFIG_WAPI_SUPPORT
     } else if (os_strncasecmp(cmd, "set-wapi-key", 12) == 0) {
         struct wapi_key_param_type {
@@ -1652,13 +1829,11 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
             handled = 0; /* DRIVER MIRACAST used as private cmd*/
             break;
         }
-
-#endif
-#ifdef CONFIG_MTK_SCC_MCC
     } else if (os_strncasecmp(cmd, "p2p_use_mcc=", os_strlen("p2p_use_mcc=")) == 0) {
         unsigned char use_mcc = atoi(cmd + os_strlen("p2p_use_mcc="));
         wpa_printf(MSG_DEBUG, "p2p_use_mcc %d", use_mcc);
-        wpa_s->global->p2p->p2p_use_mcc = use_mcc;
+        // MCC/SCC should be determined by GO negotation
+        // wpa_s->global->p2p->p2p_use_mcc = use_mcc;
         if (use_mcc) {
             wpa_printf(MSG_DEBUG, "SCC_MCC, config MCC");
             p2p_wfd_sink_config_scc(wpa_s, 0, 0);
@@ -1673,6 +1848,9 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
             } else
                 p2p_wfd_sink_config_scc(wpa_s, 0, 0);
         }
+    } else if (os_strncmp(cmd, "wfd_data_update", os_strlen("wfd_data_update")) == 0) {
+        wpa_printf(MSG_DEBUG, "CONFIG_MTK_P2P: Update wfd_data");
+        ret = wpas_wfd_data_update(wpa_s, (struct wfd_data_s *)buf);
 #endif
 #ifdef CONFIG_MTK_P2P_SIGMA
     } else if (os_strncasecmp(cmd, "mcc", 3) == 0) {
@@ -1711,7 +1889,7 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
                 }
             }
 
-            wpa_printf(MSG_DEBUG, "mcc = %d wpa_s drv_flags 0x%x", mcc, wpa_s->drv_flags);
+            wpa_printf(MSG_DEBUG, "mcc = %d wpa_s drv_flags 0x%lx", mcc, wpa_s->drv_flags);
             ret = 0;
         }
     } else if (os_strncmp(cmd, "p2p_set_opps ", 13) == 0) {
@@ -1723,111 +1901,92 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
     } else if (os_strncmp(cmd, "p2p_set_sleep", 13) == 0) {
         char cmd2[] = {"ff:ff:ff:ff:ff:ff \"\""};
         ret = p2p_ctrl_iface_set_sleep(wpa_s, cmd2, buf, buf_len);
-#endif
-#ifdef CONFIG_MTK_P2P
-    } else if (os_strncmp(cmd, "wfd_data_update", os_strlen("wfd_data_update")) == 0) {
-        wpa_printf(MSG_DEBUG, "CONFIG_MTK_P2P: Update wfd_data");
-        ret = wpas_wfd_data_update(wpa_s, (struct wfd_data_s *)buf);
-#endif
-#ifdef CONFIG_MEDIATEK_WIFI_BEAM
-    } else if (os_strncmp(cmd, "get_beamplus_go_ready",
-                os_strlen("get_beamplus_go_ready")) == 0) {
-        if (buf) {
-            *(int *)buf = wpas_driver_get_beamplus_go_ready(wpa_s);
-            wpa_printf(MSG_DEBUG, "wpas_driver_get_beamplus_go_ready %d", *(int *)buf);
-        }
-    } else if (os_strncmp(cmd, "set_beamplus",
-                os_strlen("set_beamplus")) == 0) {
-        if (buf) {
-            int value = *(int *)buf;
-            wpa_printf(MSG_DEBUG, "wpas_driver_set_beamplus %d", value);
-            wpas_driver_set_beamplus(wpa_s, value);
-        }
-#endif
-#ifdef CONFIG_MTK_STAGE_SCAN
-    } else if (os_strncasecmp(cmd, "set_band_dual", 13) == 0) {
-        u32 sw_cmd = 0xFFFF1250;
-        u32 idx = 0;
-        if (user_force_band == 0) {  // STAGE_SCAN be enabled only if no force band is selected
-            wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-            wpa_printf(MSG_DEBUG, "[STAGE_SCAN] Set Band = DUAL (sw_cmd: 0x%08X)", sw_cmd);
-        }
-        ret = 0;
-    } else if (os_strncasecmp(cmd, "set_band_2g4", 12) == 0) {
-        u32 sw_cmd = 0xFFFF1251;
-        u32 idx = 0;
-        if (user_force_band == 0) {  // STAGE_SCAN be enabled only if no force band is selected
-            wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-            wpa_printf(MSG_DEBUG, "[STAGE_SCAN] Set Band = 2G4 (sw_cmd: 0x%08X)", sw_cmd);
-        }
-        ret = 0;
-    } else if (os_strncasecmp(cmd, "set_band_5g", 11) == 0) {
-        u32 sw_cmd = 0xFFFF1252;
-        u32 idx = 0;
-        if (user_force_band == 0) {  // STAGE_SCAN be enabled only if no force band is selected
-            wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-            wpa_printf(MSG_DEBUG, "[STAGE_SCAN] Set Band = 5G (sw_cmd: 0x%08X)", sw_cmd);
-        }
-        ret = 0;
-#if 0
-    } else if (os_strncasecmp(cmd, "SETBAND", 7) == 0) {
-        u32 sw_cmd = 0xFFFF1250;
-        u32 idx = 0;
-        char *value;
-        int band = 0;
-
+    } else if (os_strncasecmp(cmd, "sigma_mode", 10) == 0) {
+        int sigma = 0;
+        char *value = NULL;
         value = os_strchr(cmd, ' ');
         if (value == NULL)
             return -1;
         *value++ = '\0';
-
-        band = atoi(value);
-        switch (band) {
-            case 1:
-                sw_cmd = 0xFFFF1252;
-                wpa_printf(MSG_DEBUG, "[STAGE_SCAN] WIFI_FREQUENCY_BAND_5GHZ (sw_cmd: 0x%08X)", sw_cmd);
-                user_force_band = 1;
-                wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-                break;
-            case 2:
-                sw_cmd = 0xFFFF1251;
-                wpa_printf(MSG_DEBUG, "[STAGE_SCAN] WIFI_FREQUENCY_BAND_2GHZ (sw_cmd: 0x%08X)", sw_cmd);
-                user_force_band = 2;
-                wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-                break;
-            default:
-                sw_cmd = 0xFFFF1250;
-                wpa_printf(MSG_DEBUG, "[STAGE_SCAN] WIFI_FREQUENCY_BAND_AUTO (sw_cmd: 0x%08X)", sw_cmd);
-                user_force_band = 0;
-                wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-        }
-
+        sigma = atoi(value);
+        wpa_printf(MSG_DEBUG, "p2p: sigma: set mode %d", sigma);
+        // we should not have workaround for sigma programs
+        // wpa_s->global->p2p->sigma_mode = sigma;
         ret = 0;
-#endif
-    } else if (os_strncasecmp(cmd, "set_scan_loading", 16) == 0) {
-        u32 sw_cmd = 0xFFFF1253;
-        u32 idx = 0;
-
-        wpa_printf(MSG_DEBUG, "[STAGE_SCAN] Set scan loading");
-        wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
-
-        wpa_printf(MSG_DEBUG, "[STAGE_SCAN] Scan loading timeout= 1 second");
-        eloop_cancel_timeout(wpa_driver_nl80211_scan_loading_timeout, drv, drv->ctx);
-        eloop_register_timeout(10, 0, wpa_driver_nl80211_scan_loading_timeout,
-                   drv, drv->ctx);
-        ret = 0;
-#endif
+#endif /* CONFIG_MTK_P2P_SIGMA */
+    } else if (os_strncmp(cmd, "P2P_SET_NOA", os_strlen("P2P_SET_NOA")) == 0) {
+        ret = p2p_ctrl_iface_set_noa(wpa_s, cmd, buf, buf_len);
+    } else if (os_strncmp(cmd, "P2P_SET_PS", os_strlen("P2P_SET_PS")) == 0) {
+        ret = p2p_ctrl_iface_set_ps(wpa_s, cmd, buf, buf_len);
     } else if (os_strncasecmp(cmd, "SETSUSPENDMODE ", 15) == 0) {
         struct wpa_driver_suspendmode_params params;
         params.hdr.index = NL80211_TESTMODE_SUSPEND;
         params.hdr.index = params.hdr.index | (0x01 << 24);
         params.hdr.buflen = sizeof(params);
         params.suspend = *(cmd+15)-'0';
-        wpa_driver_nl80211_testmode(priv, &params, sizeof(params));
+        wpa_driver_nl80211_testmode(priv, (u8* )&params, sizeof(params));
         handled = 0; /* 6630 driver handled this command in driver, so give a chance to 6630 driver */
+    }else if(os_strncasecmp(cmd, "mtk_rx_packet_filter ", 21) == 0) {
+        char buf[9] = {0}, *errChar = NULL;
+        char *pos = NULL;
+        /* mtk_rx_packet_filter 00000000000000FE 0000000000000000 0000000000000000 */
+        struct wpa_driver_rx_filter_params params;
+        params.hdr.index = NL80211_TESTMODE_RXFILTER;
+        params.hdr.index = params.hdr.index | (0x01 << 24);
+        params.hdr.buflen = sizeof(params);
+
+        pos = cmd;
+        pos = pos + 21;
+        if (pos == NULL || strlen(cmd) != 71 ) {
+            wpa_printf(MSG_DEBUG, "[mtk_rx_packet_filter] Error! \n");
+            return -1;
+        }
+
+        os_memcpy(buf,pos,8);
+        buf[8] = '\0';
+        params.Ipv4FilterHigh = strtol(buf,&errChar,16);
+        wpa_printf(MSG_DEBUG, "[mtk_rx_packet_filter]params.Ipv4FilterHigh (0x%08x),errChar [%p]\n", params.Ipv4FilterHigh,errChar);
+
+        pos = pos + 8;
+        os_memcpy(buf,pos,8);
+        buf[8] = '\0';
+        params.Ipv4FilterLow = strtol(buf,&errChar,16);
+        wpa_printf(MSG_DEBUG, "[mtk_rx_packet_filter]params.Ipv4FilterLow (0x%08x),errChar [%p]\n", params.Ipv4FilterLow,errChar);
+
+        pos = pos + 9;
+        os_memcpy(buf,pos,8);
+        buf[8] = '\0';
+        params.Ipv6FilterHigh = strtol(buf,&errChar,16);
+        wpa_printf(MSG_DEBUG, "[mtk_rx_packet_filter]params.Ipv6FilterHigh (0x%08x),errChar [%p]\n", params.Ipv6FilterHigh,errChar);
+
+        pos = pos + 8;
+        os_memcpy(buf,pos,8);
+        buf[8] = '\0';
+        params.Ipv6FilterLow = strtol(buf,&errChar,16);
+        wpa_printf(MSG_DEBUG, "[mtk_rx_packet_filter]params.Ipv6FilterLow (0x%08x),errChar [%p]\n", params.Ipv6FilterLow,errChar);
+
+        pos = pos + 9;
+        os_memcpy(buf,pos,8);
+        buf[8] = '\0';
+        params.SnapFilterHigh = strtol(buf,&errChar,16);
+        wpa_printf(MSG_DEBUG, "[mtk_rx_packet_filter]params.SnapFilterHigh (0x%08x),errChar [%p]\n", params.SnapFilterHigh,errChar);
+
+        pos = pos + 8;
+        os_memcpy(buf,pos,8);
+        buf[8] = '\0';
+        params.SnapFilterLow = strtol(buf,&errChar,16);
+        wpa_printf(MSG_DEBUG, "[mtk_rx_packet_filter]params.SnapFilterLow (0x%08x),errChar [%p]\n", params.SnapFilterLow,errChar);
+
+        ret = wpa_driver_nl80211_testmode(priv, (u8 *)&params, sizeof(params));
     } else {
+        u8 buffer[100];
+        struct wpa_driver_test_mode_info *params = (struct wpa_driver_test_mode_info *)buffer;
+        params->index = NL80211_TESTMODE_STR_CMD | (0x01 << 24);
+        params->buflen = sizeof(*params) + strlen(cmd);
+        strncpy((char*)(params+1), cmd, sizeof(buffer)-sizeof(*params));
+        ret = wpa_driver_nl80211_testmode(priv, buffer, params->buflen);
         handled = 0;
-        wpa_printf(MSG_INFO, "Unsupported command");
+        wpa_printf(MSG_INFO, "Transparent command for driver nl80211, ret=%d", ret);
     }
 
     if (handled == 0) {
@@ -1837,11 +1996,12 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
         memset(&priv_cmd, 0, sizeof(priv_cmd));
         memset(buf, 0, buf_len);
         strncpy(ifr.ifr_name, bss->ifname, IFNAMSIZ);
+        ifr.ifr_name[IFNAMSIZ - 1] = '\0';
 
-        if (cmd_len > PRIV_CMD_SIZE) {
+        if (cmd_len >= PRIV_CMD_SIZE) {
             wpa_printf(MSG_INFO, "%s: cmd: %s overflow",
                       __func__, cmd);
-            cmd_len = PRIV_CMD_SIZE;
+            cmd_len = PRIV_CMD_SIZE - 1;
         }
 
         memcpy(priv_cmd.buf, cmd, cmd_len + 1);
@@ -1857,11 +2017,11 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
             ret = snprintf(buf, buf_len, "%s\n", "FAIL");
         } else {
 
-            wpa_printf(MSG_DEBUG, "%s: ret = %d used = %u total = %u",
+            wpa_printf(MSG_EXCESSIVE, "%s: ret = %d used = %u total = %u",
                     __func__, ret , priv_cmd.used_len, priv_cmd.total_len);
 
             drv_errors = 0;
-            ret = snprintf(buf, buf_len, "%s\n", "OK");
+            ret = 0;
             if ((os_strncasecmp(cmd, "WLS_BATCHING", 12) == 0))
                 ret = strlen(buf);
             /*
@@ -1883,11 +2043,13 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
 
 int wpa_driver_set_p2p_noa(void *priv, u8 count, int start, int duration)
 {
+    char buf[MAX_DRV_CMD_SIZE];
     struct i802_bss *bss = priv;
     struct wpa_driver_nl80211_data *drv = bss->drv;
 
-    wpa_printf(MSG_DEBUG, "iface %s P2P_SET_NOA %d %d %d, ignored", bss->ifname, count, start, duration);
-    return -1;
+    wpa_printf(MSG_DEBUG, "iface %s P2P_SET_NOA %d %d %d", bss->ifname, count, start, duration);
+    snprintf(buf, sizeof(buf), "P2P_SET_NOA %d %d %d", count, start, duration);
+    return wpa_driver_nl80211_driver_cmd(priv, buf, buf, strlen(buf)+1);
 }
 
 int wpa_driver_get_p2p_noa(void *priv, u8 *buf, size_t len)
@@ -1901,11 +2063,13 @@ int wpa_driver_get_p2p_noa(void *priv, u8 *buf, size_t len)
 
 int wpa_driver_set_p2p_ps(void *priv, int legacy_ps, int opp_ps, int ctwindow)
 {
+    char buf[MAX_DRV_CMD_SIZE];
     struct i802_bss *bss = priv;
     struct wpa_driver_nl80211_data *drv = bss->drv;
 
-    wpa_printf(MSG_DEBUG, "iface %s P2P_SET_PS, ignored", bss->ifname);
-    return -1;
+    wpa_printf(MSG_DEBUG, "iface %s P2P_SET_PS %d %d %d", bss->ifname, legacy_ps, opp_ps, ctwindow);
+    snprintf(buf, sizeof(buf), "P2P_SET_PS %d %d %d", legacy_ps, opp_ps, ctwindow);
+    return wpa_driver_nl80211_driver_cmd(priv, buf, buf, strlen(buf)+1);
 }
 
 int wpa_driver_set_ap_wps_p2p_ie(void *priv, const struct wpabuf *beacon,
