@@ -152,6 +152,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     btremoted
 
+# Bluetooth Configs
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
+	$(LOCAL_PATH)/configs/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
+	$(LOCAL_PATH)/configs/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf
+
 # Camera Init
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
 
