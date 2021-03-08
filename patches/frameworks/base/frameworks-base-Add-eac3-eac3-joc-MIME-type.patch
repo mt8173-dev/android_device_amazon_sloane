@@ -1,0 +1,58 @@
+From add1d7f82cafc5a76942e835f5f8201ba628b147 Mon Sep 17 00:00:00 2001
+From: jmpfbmx <jmpf.bmx@gmail.com>
+Date: Mon, 8 Mar 2021 15:43:25 +0100
+Subject: [PATCH] frameworks/base: Add eac3 && eac3-joc MIME type
+
+Co-Authored by: Yanning Bai <ybai@dolby.com>
+---
+ api/current.txt                              | 1 +
+ media/java/android/media/MediaCodecInfo.java | 8 ++++++++
+ media/java/android/media/MediaFormat.java    | 1 +
+ 3 files changed, 10 insertions(+)
+
+diff --git a/api/current.txt b/api/current.txt
+index 8655d899..37e3fb73 100644
+--- a/api/current.txt
++++ b/api/current.txt
+@@ -21011,6 +21011,7 @@ package android.media {
+     field public static final java.lang.String MIMETYPE_AUDIO_AMR_NB = "audio/3gpp";
+     field public static final java.lang.String MIMETYPE_AUDIO_AMR_WB = "audio/amr-wb";
+     field public static final java.lang.String MIMETYPE_AUDIO_EAC3 = "audio/eac3";
++    field public static final java.lang.String MIMETYPE_AUDIO_EAC3_JOC = "audio/eac3-joc"; 
+     field public static final java.lang.String MIMETYPE_AUDIO_FLAC = "audio/flac";
+     field public static final java.lang.String MIMETYPE_AUDIO_G711_ALAW = "audio/g711-alaw";
+     field public static final java.lang.String MIMETYPE_AUDIO_G711_MLAW = "audio/g711-mlaw";
+diff --git a/media/java/android/media/MediaCodecInfo.java b/media/java/android/media/MediaCodecInfo.java
+index feb986c6..36087267 100644
+--- a/media/java/android/media/MediaCodecInfo.java
++++ b/media/java/android/media/MediaCodecInfo.java
+@@ -1120,6 +1120,14 @@ public final class MediaCodecInfo {
+                 sampleRates = new int[] { 8000 };
+                 bitRates = Range.create(13000, 13000);
+                 maxChannels = 1;
++            } else if (mime.equalsIgnoreCase(MediaFormat.MIMETYPE_AUDIO_AC3)) {
++                maxChannels = 6;
++            } else if (mime.equalsIgnoreCase(MediaFormat.MIMETYPE_AUDIO_EAC3)) {
++                maxChannels = 16;
++            } else if (mime.equalsIgnoreCase(MediaFormat.MIMETYPE_AUDIO_EAC3_JOC)) {
++                sampleRates = new int[] { 48000 };
++                bitRates = Range.create(32000, 6144000);
++                maxChannels = 16;
+             } else {
+                 Log.w(TAG, "Unsupported mime " + mime);
+                 mParent.mError |= ERROR_UNSUPPORTED;
+diff --git a/media/java/android/media/MediaFormat.java b/media/java/android/media/MediaFormat.java
+index d74aa81a..0af96914 100644
+--- a/media/java/android/media/MediaFormat.java
++++ b/media/java/android/media/MediaFormat.java
+@@ -120,6 +120,7 @@ public final class MediaFormat {
+     public static final String MIMETYPE_AUDIO_MSGSM = "audio/gsm";
+     public static final String MIMETYPE_AUDIO_AC3 = "audio/ac3";
+     public static final String MIMETYPE_AUDIO_EAC3 = "audio/eac3";
++    public static final String MIMETYPE_AUDIO_EAC3_JOC = "audio/eac3-joc";
+     public static final String MIMETYPE_VIDEO_DOLBY_VISION = "video/dolby-vision";
+ 
+     /**
+-- 
+2.17.1
+
