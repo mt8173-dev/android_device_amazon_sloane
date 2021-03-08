@@ -60,6 +60,7 @@ vendor/lib64/libsrv_init.so
 
 # Connectivity
 bin/pppd
+bin/dhcpcd
 etc/Wireless/RT2870STA/MT76x2STA.dat
 etc/Wireless/RT2870STA/SingleSKU.dat
 etc/Wireless/RT2870STA/SingleSKU_AU.dat
