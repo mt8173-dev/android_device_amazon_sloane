@@ -7,6 +7,10 @@ on init
     # Amazon logd
     mkdir /dev/logd 0770 logd log
     mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
+	
+	# Wifi Log Levels (metrics)
+	chmod 0775 /system/etc/wifi_log_levels.sh
+	chown root root /system/etc/wifi_log_levels.sh
 
 on post-fs-data
     # Wi-Fi
