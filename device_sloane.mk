@@ -42,6 +42,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	android.hardware.usb@1.0-service
 
+# Power
+PRODUCT_PACKAGES += \
+	android.hardware.power@1.0-impl
+
 # Blisrc
 PRODUCT_PACKAGES += \
     libblisrc \
