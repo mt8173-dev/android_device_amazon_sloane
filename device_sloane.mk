@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
 	libnbaio \
 	libeffects
 
+# USB
+PRODUCT_PACKAGES += \
+	android.hardware.usb@1.0-service
+
 # Blisrc
 PRODUCT_PACKAGES += \
     libblisrc \
