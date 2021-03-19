@@ -203,3 +203,7 @@ BLOCK_BASED_OTA := false
 
 # Disable CM API check
 WITHOUT_CHECK_API := true
+
+# VINTF
+DEVICE_MANIFEST_FILE := $(DEVICE_FOLDER)/configs/vintf/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE_FOLDER)/configs/vintf/compatibility_matrix.xml
