@@ -172,6 +172,10 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
      $(LOCAL_PATH)/configs/thermal/thermal.policy.conf:system/etc/.tp/thermal.policy.conf
 
+# HIDL
+PRODUCT_PACKAGES += \
+	android.hidl.base@1.0
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.mt8173:root/fstab.mt8173 \
