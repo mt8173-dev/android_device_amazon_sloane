@@ -18,7 +18,8 @@ DEVICE_PACKAGE_OVERLAYS += device/amazon/sloane/overlay
 
 # Lights HAL
 PRODUCT_PACKAGES += \
-    lights.mt8173
+    lights.mt8173 \
+	android.hardware.light@2.0-impl-mediatek
 
 # Audio
 PRODUCT_PACKAGES += \
