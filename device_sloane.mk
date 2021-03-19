@@ -33,7 +33,8 @@ PRODUCT_PACKAGES += \
 	libtinyxml \
 	libaudioroute \
 	libaudiospdif \
-	libnbaio
+	libnbaio \
+	libeffects
 
 # Blisrc
 PRODUCT_PACKAGES += \
