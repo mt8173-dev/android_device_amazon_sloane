@@ -322,3 +322,7 @@ lib64/libhwm.so
 -lib64/libcam.client.so|ef78f3b4dadea869db3733a6c7e980ef13a58584
 -lib/libcam_utils.so|3c7435169db3e02ad61928e2e1a8fe05324b0270
 -lib64/libcam_utils.so|f2c7e698a4deadb0aafacdf8e8e7379cf290c3c6
+
+# STLPort
+lib/libstlport.so|0bb8e6d65f4229aa47edbd64836a8d69ae9760ed
+lib64/libstlport.so|263237da2ebb1757d204d548c0bf4e2012938f98
