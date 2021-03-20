@@ -17,7 +17,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE:= btremoted
 
-LOCAL_SHARED_LIBRARIES += libcutils
+LOCAL_SHARED_LIBRARIES += libcutils liblog
 
 LOCAL_CFLAGS := $(btremoted-def)
 
