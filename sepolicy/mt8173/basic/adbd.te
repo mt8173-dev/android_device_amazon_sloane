@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+# Data : WK18.07
+allow adbd render_device:chr_file rw_file_perms;

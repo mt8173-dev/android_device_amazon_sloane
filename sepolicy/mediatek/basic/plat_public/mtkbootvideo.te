@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+#mtkbootvideo oneshot service
+type mtkbootvideo, domain;

@@ -1,0 +1,13 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# Date: WK14.52
+# Purpose: Drm Key Install
+allow meta_tst tee_device:chr_file {read write open ioctl};
+allow meta_tst provision_file:dir {read write open ioctl add_name search remove_name};
+allow meta_tst provision_file:file {create read write open getattr unlink};
+#allow meta_tst kisd:unix_stream_socket {connectto};
+allow meta_tst shell_exec:file {execute read open execute_no_trans};
+allow meta_tst mtd_device:chr_file rw_file_perms;
+allow meta_tst mtd_device:dir search;

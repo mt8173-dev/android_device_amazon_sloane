@@ -1,0 +1,16 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+# Date : WK14.48
+# Operation : Migration
+# Purpose : HDMI output
+#allow surfaceflinger bwc_prop:property_service set;
+allow surfaceflinger sysfs:file write;
+allow surfaceflinger graphics_device:chr_file read;
+
+allow surfaceflinger dri_device:chr_file  { open read write ioctl };
+allow surfaceflinger render_device:chr_file  { open read write ioctl };
+
+# 20170608 for mt8176 bringup
+allow surfaceflinger hal_graphics_allocator_default:fifo_file { read write };
+

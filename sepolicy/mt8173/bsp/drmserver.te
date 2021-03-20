@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# mtee support
+allow drmserver tee_device:chr_file { read write open ioctl };
+
+# 20170608 for mt8176 bringup
+allow drmserver proc:file { read getattr open };
+

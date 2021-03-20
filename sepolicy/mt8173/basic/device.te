@@ -1,0 +1,4 @@
+
+type rpmb_block_device,dev_type;
+type render_device, dev_type, mlstrustedobject;
+

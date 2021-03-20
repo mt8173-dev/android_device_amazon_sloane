@@ -1,0 +1,6 @@
+
+# For mt8173 bootup
+allow init functionfs:dir mounton;
+allow init nvram_data_file:lnk_file read;
+allow init wmtWifi_device:chr_file write;
+allow init debugfs_tracing:dir write;

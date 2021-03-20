@@ -1,0 +1,1 @@
+type sys_rpmb_ready_prop, property_type;

@@ -1,0 +1,4 @@
+# add for chipsailing cs_fp_hw
+allow hwservicemanager cs_fp_hw:dir { search };
+allow hwservicemanager cs_fp_hw:file { open read write };
+allow hwservicemanager cs_fp_hw:process { getattr };

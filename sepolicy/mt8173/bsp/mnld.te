@@ -1,0 +1,6 @@
+
+# 20170608 for mt8176 bringup
+allow mnld system_data_file:lnk_file {read};
+
+#============factory reset ===========
+allow mnld storage_file:dir {search};

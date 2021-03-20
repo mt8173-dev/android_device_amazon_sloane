@@ -1,0 +1,4 @@
+
+# 20170608 for mt8176 bringup
+allow hal_graphics_composer_default render_device:chr_file rw_file_perms;
+allow hal_graphics_composer_default gpu_device:dir { search };
