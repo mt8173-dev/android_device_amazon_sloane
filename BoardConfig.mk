@@ -168,7 +168,7 @@ BOARD_SECCOMP_POLICY := \
     $(DEVICE_FOLDER)/seccomp-policy
 
 # Shim Libraries
-LINKER_FORCED_SHIM_LIBS := \
+TARGET_LD_SHIM_LIBS := \
 	/system/lib/liblog.so|libshim_log.so \
 	/system/lib64/liblog.so|libshim_log.so \
 	/system/lib/libMtkOmxVdecEx.so|libshim_ui.so \
