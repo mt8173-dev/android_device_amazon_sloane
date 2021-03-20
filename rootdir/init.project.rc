@@ -13,12 +13,6 @@ on init
 	chown root root /system/etc/wifi_log_levels.sh
 
 on post-fs-data
-	# Wi-Fi
-	mkdir /data/misc/wifi 0770 wifi wifi
-	mkdir /data/misc/wifi/sockets 0770 wifi wifi
-	mkdir /data/misc/wpa_supplicant 0770 wifi wifi
-	chown wifi wifi /data/misc/wifi
-
 	# Encrypt phone function
 	setprop vold.post_fs_data_done 1
 
