@@ -1,1 +1,0 @@
-allow aee_aed sysfs:file write;

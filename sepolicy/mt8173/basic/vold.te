@@ -1,7 +1,0 @@
-# ==============================================
-# MTK Policy Rule
-# ============
-
-# for supporting mlc nand
-allow vold mtd_device:chr_file { read write open };
-allow vold mtd_device:dir search;

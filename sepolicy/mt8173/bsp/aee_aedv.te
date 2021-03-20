@@ -1,7 +1,0 @@
-
-# 20170608 for mt8176 bringup
-allow aee_aedv rootfs:file { read getattr open };
-allow aee_aedv sysfs:file { read open };
-
-allow aee_aedv sysfs_leds:lnk_file read;
-allow aee_aedv system_data_file:file read;

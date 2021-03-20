@@ -1,6 +1,0 @@
-#Date:WK25.04
-#Purpse:mediadrmserver access mtee
-allow mediadrmserver tee_device:chr_file { read write open ioctl };
-
-#Purpose: allow mediadrmserver access kisd
-#allow mediadrmserver kisd:unix_stream_socket {connectto};

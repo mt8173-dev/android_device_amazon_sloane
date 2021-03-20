@@ -1,7 +1,0 @@
-
-# For mt8173 bootup 
-allow system_server surfaceflinger:fifo_file { read write };
-allow system_server dri_device:chr_file  { open read write ioctl };
-allow system_server render_device:chr_file  { open read write ioctl };
-
-allow system_server hal_graphics_allocator_default:fifo_file read;

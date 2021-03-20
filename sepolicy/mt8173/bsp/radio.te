@@ -1,4 +1,0 @@
-
-#============= radio ==============
-allow radio render_device:chr_file { open read write ioctl};
-allow radio dri_device:chr_file { open read write ioctl};

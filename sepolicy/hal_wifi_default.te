@@ -1,0 +1,6 @@
+#============= hal_wifi_default ==============
+# 2017/7/22: daniel_hk(danielhk@github.com)
+allow hal_wifi_default wmtWifi_device:chr_file { open write };
+
+# 2020/6/13: R0rt1z2(R0rt1z2@github.com)
+allow hal_wifi_supplicant_default xlog_exec:file { getattr };

@@ -1,7 +1,0 @@
-# For mt8173 bootup 
-allow platform_app surfaceflinger:fifo_file { read write };
-
-allow platform_app dri_device:chr_file {open read write ioctl };
-allow platform_app render_device:chr_file {open read write ioctl };
-allow platform_app debugfs_gpu_img:dir search;
-allow platform_app debugfs_ion:dir search;

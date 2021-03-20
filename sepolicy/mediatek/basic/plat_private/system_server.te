@@ -1,3 +1,0 @@
-# Date: W18.32
-# Operation : dontaudit writing to timerslack_ns
-dontaudit system_server appdomain:file w_file_perms;

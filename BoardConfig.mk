@@ -160,20 +160,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += \
-	$(DEVICE_FOLDER)/sepolicy/mediatek/basic/non_plat \
-	$(DEVICE_FOLDER)/sepolicy/mediatek/bsp/non_plat \
-	$(DEVICE_FOLDER)/sepolicy/mt8173/basic \
-	$(DEVICE_FOLDER)/sepolicy/mt8173/bsp \
-	$(DEVICE_FOLDER)/sepolicy
-
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
-	$(DEVICE_FOLDER)/sepolicy/mediatek/basic/plat_public \
-	$(DEVICE_FOLDER)/sepolicy/mediatek/bsp/plat_public
-
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
-	$(DEVICE_FOLDER)/sepolicy/mediatek/basic/plat_private \
-	$(DEVICE_FOLDER)/sepolicy/mediatek/bsp/plat_private
+BOARD_SEPOLICY_DIRS += $(DEVICE_FOLDER)/sepolicy
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \

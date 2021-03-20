@@ -1,8 +1,0 @@
-# Operation : O Migration
-# Purpose: Allow to access data in recovery mode for A/B update
-allow recovery sysfs_therm:dir {search getattr} ;
-allow recovery sysfs_therm:file {open read write getattr};
-allow recovery sysfs:dir getattr ;
-allow recovery graphics_config_prop:file {read open getattr};
-allow recovery dri_device:chr_file {read write open};
-allow recovery recovery:capability sys_rawio;

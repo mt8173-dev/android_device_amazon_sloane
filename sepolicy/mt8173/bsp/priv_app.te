@@ -1,9 +1,0 @@
-# For mt8173 bootup(launcher can not show icon)
-allow priv_app surfaceflinger:fifo_file {read write};
-
-#============= priv_app ==============
-allow priv_app render_device:chr_file {open read write ioctl };
-allow priv_app dri_device:chr_file {open read write ioctl};
-
-allow priv_app debugfs_gpu_img:dir search;
-allow priv_app debugfs_ion:dir search;

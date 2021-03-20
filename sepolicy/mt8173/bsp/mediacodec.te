@@ -1,5 +1,0 @@
-#Date:WK26.05
-#Purpse:8173 mediacodec access mtee
-allow mediacodec tee_device:chr_file { read write open ioctl };
-allow mediacodec surfaceflinger:fifo_file {read write};
-

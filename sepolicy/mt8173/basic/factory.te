@@ -1,2 +1,0 @@
-#Purpose: For gps test
-allow factory mnld_exec:file rx_file_perms;

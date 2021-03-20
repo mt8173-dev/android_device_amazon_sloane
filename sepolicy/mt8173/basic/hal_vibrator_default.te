@@ -1,4 +1,0 @@
-
-# 20170608 for mt8176 bringup
-allow hal_vibrator_default sysfs_leds:dir search;
-

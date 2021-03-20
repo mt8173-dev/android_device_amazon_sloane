@@ -1,9 +1,0 @@
-# ==============================================
-# MTK Policy Rule
-# ==============================================
-# Date : 2017/08/18
-# Operation : Migration
-# Purpose : let factory reset enter into recovery
-
-allow uncrypt para_block_device:blk_file {write open};
-
