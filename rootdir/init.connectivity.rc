@@ -15,11 +15,6 @@ on post-fs-data
 	chmod 0660 /data/misc/wifi/wpa_supplicant.conf
 	chmod 0660 /data/misc/wifi/p2p_supplicant.conf
 
-	# Wi-Fi node
-	mknod /dev/wmtWifi c 153 0
-	chmod 0660 /dev/wmtWifi
-	chown system system /dev/wmtWifi
-
 	# DHCP
 	mkdir /data/misc/dhcp 0771 dhcp dhcp
 	mkdir /data/wifi 0771 wifi wifi
