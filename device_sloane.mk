@@ -247,6 +247,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.service.acm.enable=0 \
     service.adb.root=1
 
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.renderer=opengl
+
 # DRM
 PRODUCT_PACKAGES += \
     libdrm \
