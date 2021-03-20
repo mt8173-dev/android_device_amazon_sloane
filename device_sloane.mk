@@ -252,7 +252,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.hwui.renderer=opengl \
 	debug.hwui.use_partial_updates=false \
 	debug.sf.disable_backpressure=1 \
-	debug.sf.latch_unsignaled=1
+	debug.sf.latch_unsignaled=1 \
+	persist.sys.display.clearMotion=1
 	
 # DRM
 PRODUCT_PACKAGES += \
