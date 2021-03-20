@@ -159,6 +159,7 @@ MALLOC_SVELTE := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
 # SELinux
+SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_SEPOLICY_DIRS += \
 	$(DEVICE_FOLDER)/sepolicy/mediatek/basic/non_plat \
 	$(DEVICE_FOLDER)/sepolicy/mediatek/bsp/non_plat \
