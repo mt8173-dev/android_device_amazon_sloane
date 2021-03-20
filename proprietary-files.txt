@@ -19,8 +19,8 @@ lib/libged.so
 lib64/libged.so
 lib/libgpu_aux.so
 lib64/libgpu_aux.so
-lib/libion_mtk.so
-lib64/libion_mtk.so
+-lib/libion_mtk.so
+-lib64/libion_mtk.so
 lib/libm4u.so
 lib64/libm4u.so
 lib/libpq_prot.so
@@ -85,8 +85,8 @@ bin/nvram_agent_binder
 bin/nvram_daemon
 lib/libcustom_nvram.so
 lib64/libcustom_nvram.so
-lib/libnvram.so
-lib64/libnvram.so
+-lib/libnvram.so
+-lib64/libnvram.so
 lib/libfile_op.so
 lib64/libfile_op.so
 lib/libnvram_daemon_callback.so
@@ -169,8 +169,8 @@ lib/libaudiocompensationfilter.so
 lib64/libaudiocompensationfilter.so
 lib/libaudiocomponentengine.so
 lib64/libaudiocomponentengine.so
-lib/libaudiocustparam.so
-lib64/libaudiocustparam.so
+-lib/libaudiocustparam.so
+-lib64/libaudiocustparam.so
 lib/libaudiodcrflt.so
 lib64/libaudiodcrflt.so
 lib/libaudiosetting.so
