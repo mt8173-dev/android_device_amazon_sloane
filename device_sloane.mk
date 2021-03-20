@@ -140,7 +140,6 @@ PRODUCT_PACKAGES += \
 	libshim_ui \
 	libshim_parcel \
 	libshim_drm \
-	libshim_wvm \
 	libshim_audio \
 	libshim_stagefright
 

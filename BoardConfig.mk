@@ -180,7 +180,6 @@ TARGET_LD_SHIM_LIBS := \
 	/system/lib64/libui_ext.so|libshim_ui.so \
 	/system/bin/amzn_dha_hmac|libshim_drm.so \
 	/system/bin/amzn_dha_tool|libshim_drm.so \
-	/system/lib/libwvm.so|libshim_wvm.so \
 	/system/bin/audiocmdservice_atci|libshim_audio.so \
 	/system/lib/hw/audio.primary.mt8173.so|libshim_audio.so \
 	/system/lib64/hw/audio.primary.mt8173.so|libshim_audio.so \
