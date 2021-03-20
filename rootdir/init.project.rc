@@ -1,83 +1,83 @@
 on init
-    # Storage
-    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
-    mkdir /storage/usbotg 0700 root root 
-    mkdir /mnt/sqfs 0771 system system
+	# Storage
+	mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+	mkdir /storage/usbotg 0700 root root 
+	mkdir /mnt/sqfs 0771 system system
 
-    # Amazon logd
-    mkdir /dev/logd 0770 logd log
-    mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
+	# Amazon logd
+	mkdir /dev/logd 0770 logd log
+	mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
 	
 	# Wifi Log Levels (metrics)
 	chmod 0775 /system/etc/wifi_log_levels.sh
 	chown root root /system/etc/wifi_log_levels.sh
 
 on post-fs-data
-    # Wi-Fi
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
-    chown wifi wifi /data/misc/wifi
+	# Wi-Fi
+	mkdir /data/misc/wifi 0770 wifi wifi
+	mkdir /data/misc/wifi/sockets 0770 wifi wifi
+	mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+	chown wifi wifi /data/misc/wifi
 
-    # Encrypt phone function
-    setprop vold.post_fs_data_done 1
+	# Encrypt phone function
+	setprop vold.post_fs_data_done 1
 
 on boot
-    # Export storages
-    export SECONDARY_STORAGE /storage/sdcard1
-    export SECONDARY_STORAGE_USB /storage/usbotg
+	# Export storages
+	export SECONDARY_STORAGE /storage/sdcard1
+	export SECONDARY_STORAGE_USB /storage/usbotg
 
 on property:wlan.interface.p2p.group=*
-    exec /system/bin/rmmod ozwpan
-    insmod /system/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
-    start ozwpan
+	exec /system/bin/rmmod ozwpan
+	insmod /system/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
+	start ozwpan
 
 service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
-    class late_start
-    disabled
+	class late_start
+	disabled
 
 service ethernet /system/bin/ethernet
-    class main
-    user root
-    group system
-    oneshot
+	class main
+	user root
+	group system
+	oneshot
 
 service ozwpan /system/bin/sh ozwpan.sh
-    class late_start
-    user root
-    group root
-    oneshot
+	class late_start
+	user root
+	group root
+	oneshot
 
 service ping_logger /system/etc/ping_logger.sh
-    disabled
-    oneshot
-    user root
+	disabled
+	oneshot
+	user root
 
 on property:debug.ping.logging=on
-    start ping_logger
+	start ping_logger
 
 on property:debug.ping.logging=off
-    stop ping_logger
+	stop ping_logger
 
 service wifi_log_levels /system/etc/wifi_log_levels.sh
-    class late_start
-    user root
-    group root
+	class late_start
+	user root
+	group root
 
 service wifi_gain /system/etc/wifi_gain.sh
-    disabled
-    oneshot
-    user root
+	disabled
+	oneshot
+	user root
 
 on property:debug.wifi.gain.modify.antenna=*
-    start wifi_gain
+	start wifi_gain
 
 service drmkey_backup /system/bin/amzn_drmprov_tool --backup
-    class main
-    user root
-    group system
-    oneshot
-    disabled
+	class main
+	user root
+	group system
+	oneshot
+	disabled
 
 on property:sys.amzn_drm.need_backup=1
-    start drmkey_backup
+	start drmkey_backup
