@@ -205,6 +205,11 @@ PRODUCT_PACKAGES += \
 # Enable StagefrightCodec 2.0
 PRODUCT_PACKAGES += libstagefright_ccodec
 
+# Sensors
+PRODUCT_PACKAGES += \
+	android.hardware.sensors@1.0-impl-mediatek \
+	android.hardware.sensors@1.0-service-mediatek
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/fstab.mt8173:root/fstab.mt8173 \
