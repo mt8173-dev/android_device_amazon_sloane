@@ -175,7 +175,9 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-	btremoted
+	btremoted \
+	libbt-vendor \
+	libbluetooth_mtk
 
 # Bluetooth Configs
 PRODUCT_COPY_FILES += \
