@@ -250,7 +250,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.hwui.renderer=opengl \
-	debug.hwui.use_partial_updates=false
+	debug.hwui.use_partial_updates=false \
+	debug.sf.disable_backpressure=1
 	
 # DRM
 PRODUCT_PACKAGES += \
