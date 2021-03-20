@@ -198,6 +198,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	android.hidl.base@1.0
 
+# Enable StagefrightCodec 2.0
+PRODUCT_PACKAGES += libstagefright_ccodec
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.mt8173:root/fstab.mt8173 \
