@@ -249,8 +249,9 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.renderer=opengl
-
+	debug.hwui.renderer=opengl \
+	debug.hwui.use_partial_updates=false
+	
 # DRM
 PRODUCT_PACKAGES += \
     libdrm \
