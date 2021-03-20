@@ -14,8 +14,8 @@ LOCAL_SRC_FILES := \
 	RefBaseDump.cpp
 
 LOCAL_C_INCLUDES := \
-	$(TOP)/$(DEVICE_PATH)/mediatek/graphics/ui_ext/inc \
-	$(TOP)/$(DEVICE_PATH)/mediatek/graphics/gralloc_extra/include \
+	$(TOP)/device/amazon/sloane/mediatek/graphics/ui_ext/inc \
+	$(TOP)/device/amazon/sloane/mediatek/graphics/gralloc_extra/include \
 	$(TOP)/external/libpng \
 	$(TOP)/external/zlib \
 	$(TOP)/external/skia/src/images \
