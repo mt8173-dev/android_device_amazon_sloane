@@ -1,0 +1,37 @@
+From c910d6ba7ea9e822fdf92830ea484c73b245cf1d Mon Sep 17 00:00:00 2001
+From: Kai Jones <joneskai626@gmail.com>
+Date: Fri, 3 Apr 2020 09:01:53 -0700
+Subject: [PATCH] mt8163:use legacy audio legacy_audio_stream_in for legacy hal
+ support
+
+Signed-off-by: Kai Jones <joneskai626@gmail.com>
+Change-Id: I84d4eb57208ebe0e2b31726763a75ddd0a1d294a
+(cherry picked from commit 281d2d1b1db7043212097490b6c221b0fae01341)
+---
+ include/hardware/audio.h | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/include/hardware/audio.h b/include/hardware/audio.h
+index 10a8789a..337a4307 100644
+--- a/include/hardware/audio.h
++++ b/include/hardware/audio.h
+@@ -558,6 +558,16 @@ struct audio_stream_in {
+ };
+ typedef struct audio_stream_in audio_stream_in_t;
+ 
++struct legacy_audio_stream_in {
++    struct audio_stream common;
++    int (*set_gain)(struct audio_stream_in *stream, float gain);
++    ssize_t (*read)(struct audio_stream_in *stream, void* buffer,
++                    size_t bytes);
++    uint32_t (*get_input_frames_lost)(struct audio_stream_in *stream);
++};
++typedef struct legacy_audio_stream_in legacy_audio_stream_in_t;
++
++
+ /**
+  * return the frame size (number of bytes per sample).
+  *
+-- 
+2.25.1
+

@@ -1,0 +1,29 @@
+From 3b1c99976fcea04493fad66ba756513f46d9b85b Mon Sep 17 00:00:00 2001
+From: Kai Jones <zaksenoj@icloud.com>
+Date: Sun, 1 Dec 2019 22:14:56 -0800
+Subject: [PATCH 2/7] mt8163:Acodec.cpp: update gralloc secure for drm content
+ Match with Fire OS 6.3.1.2 blobs
+
+Change-Id: Id336875df234fdbd16bd9cfb2e6762c6f0c6e2eb
+Signed-off-by: Kai Jones <zaksenoj@icloud.com>
+(cherry picked from commit a40dd1cc891bf28c5f66fc3625253a550725e56b)
+---
+ media/libstagefright/ACodec.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
+index b597739c5c..734b0fabc7 100644
+--- a/media/libstagefright/ACodec.cpp
++++ b/media/libstagefright/ACodec.cpp
+@@ -1141,7 +1141,7 @@ status_t ACodec::setupNativeWindowSizeFormatAndUsage(
+         usage |= GRALLOC_USAGE_PROTECTED;
+     }
+ 
+-#define GRALLOC_USAGE_SECURE 0x01000000;
++#define GRALLOC_USAGE_SECURE 0x1000000;
+     if (mFlags & kFlagIsSecure) {
+         usage |= GRALLOC_USAGE_SECURE;
+         ALOGW("ACODEC: use GRALLOC_USAGE_SECURE\n");
+-- 
+2.25.1
+

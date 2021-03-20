@@ -1,0 +1,28 @@
+From 00a328d3c36326ab5058db6e468f692c729404e4 Mon Sep 17 00:00:00 2001
+From: Kai Jones <zaksenoj@icloud.com>
+Date: Sun, 1 Dec 2019 22:44:43 -0800
+Subject: [PATCH 3/7] mt8163:libstagefright: fix build error on
+ libstagefrightcolorconversion.
+
+Change-Id: Ia464a2cb569be6c9872bbef9d9c189ce37c6387a
+Signed-off-by: Kai Jones <zaksenoj@icloud.com>
+(cherry picked from commit c718a1497cf02c7e8a8e80416721fa295d92e2dc)
+---
+ media/libstagefright/colorconversion/Android.bp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/media/libstagefright/colorconversion/Android.bp b/media/libstagefright/colorconversion/Android.bp
+index ff51a25d18..15f67b1789 100644
+--- a/media/libstagefright/colorconversion/Android.bp
++++ b/media/libstagefright/colorconversion/Android.bp
+@@ -7,7 +7,6 @@ cc_library_static {
+     ],
+ 
+     include_dirs: [
+-	"frameworks/av/media/libstagefright/colorconversion/inc",
+         "frameworks/native/include/media/openmax",
+     ],
+ 
+-- 
+2.25.1
+
