@@ -167,6 +167,7 @@ BOARD_SECCOMP_POLICY := \
     $(DEVICE_FOLDER)/seccomp-policy
 
 # Shim Libraries
+TARGET_LDPRELOAD := libshim_mutexdestroy.so
 TARGET_LD_SHIM_LIBS := \
 	/system/lib/liblog.so|libshim_log.so \
 	/system/lib64/liblog.so|libshim_log.so \

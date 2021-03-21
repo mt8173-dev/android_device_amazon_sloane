@@ -142,7 +142,8 @@ PRODUCT_PACKAGES += \
 	libshim_drm \
 	libshim_audio \
 	libshim_stagefright \
-	libshim_atomic
+	libshim_atomic \
+	libshim_mutexdestroy
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
