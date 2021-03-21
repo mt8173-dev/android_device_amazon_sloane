@@ -141,7 +141,8 @@ PRODUCT_PACKAGES += \
 	libshim_parcel \
 	libshim_drm \
 	libshim_audio \
-	libshim_stagefright
+	libshim_stagefright \
+	libshim_atomic
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \

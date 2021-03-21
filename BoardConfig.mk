@@ -183,7 +183,9 @@ TARGET_LD_SHIM_LIBS := \
 	/system/bin/audiocmdservice_atci|libshim_audio.so \
 	/system/lib/hw/audio.primary.mt8173.so|libshim_audio.so \
 	/system/lib64/hw/audio.primary.mt8173.so|libshim_audio.so \
-	/system/vendor/lib/libstagefright_soft_ddpdec.so|libshim_stagefright.so
+	/system/vendor/lib/libstagefright_soft_ddpdec.so|libshim_stagefright.so \
+	/system/lib/libsrv_um.so|libshim_atomic.so \
+	/system/lib64/libsrv_um.so|libshim_atomic.so
 
 # Device-Specific Headers
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_FOLDER)/include
