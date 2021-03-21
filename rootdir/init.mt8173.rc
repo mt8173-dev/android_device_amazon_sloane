@@ -15,7 +15,7 @@ on init
 on fs
 	# Mount and resyze everything
 	mount_all /fstab.mt8173
-	exec /system/bin/ext4_resize
+	exec /vendor/bin/ext4_resize
 
 	# Legacy partition path support
 	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name /dev/block/platform/mtk-msdc.0/by-name
@@ -101,7 +101,7 @@ on post-fs-data
 	chown system system /d/ion/heaps/ion_mm_heap
 	chmod 0666 /d/ion/heaps/ion_mm_heap
 
-service kisd /system/bin/kisd
+service kisd /vendor/bin/kisd
 	user root
 	group system drmrpc
 
@@ -111,13 +111,13 @@ on charger
 	mount ext4 /dev/block/platform/mtk-msdc.0/by-name/userdata /data noatime,nosuid,nodev,nodelalloc, errors=panic
 	start dump-ramdump
 
-service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module	--start
+service pvrsrvctl /vendor/bin/pvrsrvctl --no-module	--start
 	class main
 	user root
 	group root
 	oneshot
 
-service guiext-server /system/bin/guiext-server
+service guiext-server /vendor/bin/guiext-server
 	class main
 	user system
 	group system graphics
@@ -136,76 +136,76 @@ service insmod_sh /system/etc/init.insmod.sh
 	disabled
 	oneshot
 
-service nvram_daemon /system/bin/nvram_daemon
+service nvram_daemon /vendor/bin/nvram_daemon
 	class main
 	user root
 	group system
 	oneshot
 
-service NvRAMAgent /system/bin/nvram_agent_binder
+service NvRAMAgent /vendor/bin/nvram_agent_binder
 	class main
 	user system
 	group system
 
-service auto_shutdown /system/bin/sh /system/bin/auto_shutdown.sh
+service auto_shutdown /system/bin/sh /vendor/bin/auto_shutdown.sh
 	oneshot
 	disabled
 	seclabel u:r:shell:s0
 
-service audio-daemon /system/bin/audiocmdservice_atci
+service audio-daemon /vendor/bin/audiocmdservice_atci
 	class main
 	socket atci-audio stream 660 root system
 	user root
 	disabled
 	oneshot
 
-service dhcpcd_bt-pan /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
+service dhcpcd_bt-pan /vendor/bin/logwrapper /vendor/bin/dhcpcd -BK -dd
 	class main
 	user dhcp
 	group net_admin net_raw	
 	disabled
 	oneshot
 
-service dhcpcd_wlan0 /system/bin/dhcpcd -ABK -dd
+service dhcpcd_wlan0 /vendor/bin/dhcpcd -ABK -dd
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service dhcpcd_p2p /system/bin/logwrapper /system/bin/dhcpcd -ABK -dd
+service dhcpcd_p2p /vendor/bin/logwrapper /vendor/bin/dhcpcd -ABK -dd
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service dhcpcd_eth0 /system/bin/dhcpcd -ABK -dd
+service dhcpcd_eth0 /vendor/bin/dhcpcd -ABK -dd
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service iprenew_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -n
+service iprenew_wlan0 /vendor/bin/logwrapper /vendor/bin/dhcpcd -n
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service iprenew_p2p /system/bin/logwrapper /system/bin/dhcpcd -n
+service iprenew_p2p /vendor/bin/logwrapper /vendor/bin/dhcpcd -n
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service dhcp6cDNS_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
+service dhcp6cDNS_wlan0 /vendor/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
 	disabled
 	oneshot
 
-service dhcp6c_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
+service dhcp6c_wlan0 /vendor/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
 	disabled
 	oneshot
 
@@ -215,33 +215,33 @@ on property:service.dhcp6c_wlan0.enable=0
 on property:service.dhcp6c_wlan0.enable=1
 	start dhcp6c_wlan0
 
-service dhcp6c_PD /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cPD.conf" -Df
+service dhcp6c_PD /vendor/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cPD.conf" -Df
 	disabled
 	oneshot
 
-service prog_idme /system/bin/sh /system/bin/prog_idme.sh
+service prog_idme /system/bin/sh /vendor/bin/prog_idme.sh
 	class late_start
 	disabled
 	user root
 	oneshot
 
-service amzn_drmprov /system/bin/amzn_drmprov_check
+service amzn_drmprov /vendor/bin/amzn_drmprov_check
 	class main
 	disabled
 	user root
 	oneshot
 
-service thermald /system/bin/thermald
+service thermald /vendor/bin/thermald
 	disabled
 	user system
 	group system
 
-service thermal /system/bin/thermal
+service thermal /vendor/bin/thermal
 	disabled
 	user system
 	group system
 
-service thermal_qa /system/bin/ThermalBenchmarkAutomation.sh
+service thermal_qa /vendor/bin/ThermalBenchmarkAutomation.sh
 	class late_start
 	user root
 	group root
@@ -250,7 +250,7 @@ service thermal_qa /system/bin/ThermalBenchmarkAutomation.sh
 on property:vold.decrypt=trigger_restart_framework
 	start nvram_daemon
 	
-service hdmi /system/bin/hdmi
+service hdmi /vendor/bin/hdmi
 	class main
 	user system
 	group system net_admin inet
@@ -279,35 +279,35 @@ on property:persist.ssusb.mode=1
 on property:persist.ssusb.mode=0
 	write /sys/devices/bus.8/11270000.SSUSB/mode 0
 
-service thermal_log /system/bin/thermal_log.sh
+service thermal_log /vendor/bin/thermal_log.sh
 	class late_start
 	user system
 	group system
 	oneshot
 	disabled
 
-service thermal_qa /system/bin/ThermalBenchmarkAutomation.sh
+service thermal_qa /vendor/bin/ThermalBenchmarkAutomation.sh
 	class late_start
 	user root
 	group root
 	oneshot
 	disabled
 
-service battery_log /system/bin/battery_log.sh
+service battery_log /vendor/bin/battery_log.sh
 	class main
 	user root
 	group system
 	oneshot
 	disabled
 
-service temperature_log	/system/bin/temperature_log.sh
+service temperature_log	/vendor/bin/temperature_log.sh
 	class main
 	user root
 	group system
 	oneshot
 	disabled
 
-service dmesg_log /system/bin/dmesg_log.sh
+service dmesg_log /vendor/bin/dmesg_log.sh
 	class main
 	user root
 	group system
@@ -315,26 +315,26 @@ service dmesg_log /system/bin/dmesg_log.sh
 	disabled
 	seclabel u:r:init_shell:s0
 
-service logcat_log /system/bin/logcat_log.sh
+service logcat_log /vendor/bin/logcat_log.sh
 	class main
 	user root
 	group system
 	oneshot
 	disabled
 
-service dump-ramdump /system/bin/dump-ramdump.sh
+service dump-ramdump /vendor/bin/dump-ramdump.sh
 	class late_start
 	user root
 	group root
 	oneshot
 
-service rpmb_svc /system/bin/rpmb_svc
+service rpmb_svc /vendor/bin/rpmb_svc
 	class main
 	user root
 	group system
 	disabled
 
-service adb_usb /system/bin/sh /system/bin/adb_usb.sh
+service adb_usb /system/bin/sh /vendor/bin/adb_usb.sh
 	class late_start
 	disabled
 	user root

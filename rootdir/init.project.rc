@@ -22,15 +22,15 @@ on boot
 	export SECONDARY_STORAGE_USB /storage/usbotg
 
 on property:wlan.interface.p2p.group=*
-	exec /system/bin/rmmod ozwpan
+	exec /vendor/bin/rmmod ozwpan
 	insmod /system/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
 	start ozwpan
 
-service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+service fuse_usbotg /vendor/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
 	class late_start
 	disabled
 
-service ethernet /system/bin/ethernet
+service ethernet /vendor/bin/ethernet
 	class main
 	user root
 	group system
@@ -66,7 +66,7 @@ service wifi_gain /system/etc/wifi_gain.sh
 on property:debug.wifi.gain.modify.antenna=*
 	start wifi_gain
 
-service drmkey_backup /system/bin/amzn_drmprov_tool --backup
+service drmkey_backup /vendor/bin/amzn_drmprov_tool --backup
 	class main
 	user root
 	group system
