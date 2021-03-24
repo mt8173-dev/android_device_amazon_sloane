@@ -53,6 +53,7 @@ PRODUCT_PACKAGES += \
 	libnbaio \
 	libeffects \
 	android.hardware.audio@2.0-impl \
+	android.hardware.audio@2.0-service \
 	android.hardware.audio.effect@4.0-impl
 
 # USB
