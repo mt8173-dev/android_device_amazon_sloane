@@ -169,24 +169,24 @@ BOARD_SECCOMP_POLICY := \
 # Shim Libraries
 TARGET_LDPRELOAD := libshim_mutexdestroy.so
 TARGET_LD_SHIM_LIBS := \
-	/system/lib/liblog.so|libshim_log.so \
-	/system/lib64/liblog.so|libshim_log.so \
-	/system/lib/libMtkOmxVdecEx.so|libshim_ui.so \
-	/system/lib/libMtkOmxVenc.so|libshim_ui.so \
-	/system/lib/libasp.so|libshim_parcel.so \
-	/system/lib64/libasp.so|libshim_parcel.so \
-	/system/lib/libdrmmtkutil.so|libshim_drm.so \
-	/system/lib64/libdrmmtkutil.so|libshim_drm.so \
-	/system/lib/libui_ext.so|libshim_ui.so \
-	/system/lib64/libui_ext.so|libshim_ui.so \
-	/system/bin/amzn_dha_hmac|libshim_drm.so \
-	/system/bin/amzn_dha_tool|libshim_drm.so \
-	/system/bin/audiocmdservice_atci|libshim_audio.so \
-	/system/lib/hw/audio.primary.mt8173.so|libshim_audio.so \
-	/system/lib64/hw/audio.primary.mt8173.so|libshim_audio.so \
+	/system/vendor/lib/liblog.so|libshim_log.so \
+	/system/vendor/lib64/liblog.so|libshim_log.so \
+	/system/vendor/lib/libMtkOmxVdecEx.so|libshim_ui.so \
+	/system/vendor/lib/libMtkOmxVenc.so|libshim_ui.so \
+	/system/vendor/lib/libasp.so|libshim_parcel.so \
+	/system/vendor/lib64/libasp.so|libshim_parcel.so \
+	/system/vendor/lib/libdrmmtkutil.so|libshim_drm.so \
+	/system/vendor/lib64/libdrmmtkutil.so|libshim_drm.so \
+	/system/vendor/lib/libui_ext.so|libshim_ui.so \
+	/system/vendor/lib64/libui_ext.so|libshim_ui.so \
+	/system/vendor/bin/amzn_dha_hmac|libshim_drm.so \
+	/system/vendor/bin/amzn_dha_tool|libshim_drm.so \
+	/system/vendor/bin/audiocmdservice_atci|libshim_audio.so \
+	/system/vendor/lib/hw/audio.primary.mt8173.so|libshim_audio.so \
+	/system/vendor/lib64/hw/audio.primary.mt8173.so|libshim_audio.so \
 	/system/vendor/lib/libstagefright_soft_ddpdec.so|libshim_stagefright.so \
-	/system/lib/libsrv_um.so|libshim_atomic.so \
-	/system/lib64/libsrv_um.so|libshim_atomic.so
+	/system/vendor/lib/libsrv_um.so|libshim_atomic.so \
+	/system/vendor/lib64/libsrv_um.so|libshim_atomic.so
 
 # Device-Specific Headers
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_FOLDER)/include
