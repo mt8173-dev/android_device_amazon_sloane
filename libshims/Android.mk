@@ -66,6 +66,15 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
+LOCAL_SRC_FILES := callstack/callstack_shim.cpp
+LOCAL_SHARED_LIBRARIES := liblog libutilscallstack libutils
+LOCAL_MODULE := libshim_callstack
+LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
 LOCAL_SRC_FILES := bionic/pthread_mutex_destroy.cpp
 LOCAL_MODULE := libshim_mutexdestroy
 LOCAL_SHARED_LIBRARIES := libc

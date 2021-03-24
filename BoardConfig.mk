@@ -185,6 +185,8 @@ TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib/libstagefright_soft_ddpdec.so|libshim_stagefright.so \
 	/system/vendor/lib/libsrv_um.so|libshim_atomic.so \
 	/system/vendor/lib64/libsrv_um.so|libshim_atomic.so \
+	/system/vendor/lib/libsrv_um.so|libshim_callstack.so \
+	/system/vendor/lib64/libsrv_um.so|libshim_callstack.so \
 	/system/vendor/lib/hw/hwcomposer.mt8173.so|libshim_atomic.so \
 	/system/vendor/lib64/hw/hwcomposer.mt8173.so|libshim_atomic.so
 
