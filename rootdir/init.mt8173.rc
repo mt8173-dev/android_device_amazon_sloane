@@ -43,6 +43,9 @@ on boot
 	setprop service.adb.tcp.port 5555
 
 on post-fs-data
+	# Preload shim libraries
+	export LD_PRELOAD "libshim_mutexdestroy.so:libshim_log.so"
+
 	# NVRAM
 	mkdir /data/nvram 2771 root system
 	
