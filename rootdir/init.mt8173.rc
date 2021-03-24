@@ -30,6 +30,7 @@ on early-init
 	# DebugFS
 	mount debugfs debugfs /sys/kernel/debug
 	chmod 0755 /sys/kernel/debug
+	chown system system /sys/kernel/debug
 
 on boot
 	# Thermal Services
