@@ -45,7 +45,7 @@ on boot
 
 on post-fs-data
 	# Preload shim libraries
-	export LD_PRELOAD "libshim_mutexdestroy.so:libshim_log.so"
+	export LD_PRELOAD "libshim_mutexdestroy.so:libshim_log.so:libshim_atomic.so"
 
 	# NVRAM
 	mkdir /data/nvram 2771 root system
