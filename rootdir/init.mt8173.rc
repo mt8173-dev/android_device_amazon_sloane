@@ -106,7 +106,7 @@ on post-fs-data
 	chmod 0666 /d/ion/heaps/ion_mm_heap
 	
 	# Set nvram ready
-	exec /system/bin/setprop service.nvram_init ready
+	exec /system/bin/setprop service.nvram_init Ready
 
 service kisd /vendor/bin/kisd
 	user root
