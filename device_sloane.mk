@@ -80,6 +80,11 @@ PRODUCT_PACKAGES += \
 	libblisrc \
 	libblisrc32
 
+# Configstore
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.0-impl \
+    android.hardware.configstore@1.0-service
+
 # Media Codecs
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
