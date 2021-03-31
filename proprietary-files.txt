@@ -157,7 +157,7 @@ lib64/libthermalservice.so:vendor/lib64/libthermalservice.so
 
 # Audio
 bin/audiocmdservice_atci:vendor/bin/audiocmdservice_atci
-etc/mixer_paths.xml:vendor/etc/mixer_paths.xml
+etc/mixer_paths.xml
 etc/audio_effects.conf:vendor/etc/audio_effects.conf
 etc/audio_policy.conf:vendor/etc/audio_policy.conf
 vendor/etc/audio_effects.conf:vendor/vendor/etc/audio_effects.conf
