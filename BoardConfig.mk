@@ -185,7 +185,9 @@ TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib/libsrv_um.so|libshim_callstack.so \
 	/system/vendor/lib64/libsrv_um.so|libshim_callstack.so \
 	/system/vendor/lib/libcam.client.so|libshim_camera.so \
-	/system/vendor/lib64/libcam.client.so|libshim_camera.so
+	/system/vendor/lib64/libcam.client.so|libshim_camera.so \
+	/system/vendor/lib/hw/keystore.mt8173.so|libshim_log.so \
+	/system/vendor/lib64/hw/keystore.mt8173.so|libshim_log.so
 
 # Device-Specific Headers
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_FOLDER)/include
