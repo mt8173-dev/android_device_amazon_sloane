@@ -252,6 +252,13 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/permissions/tv_core_hardware.xml:system/etc/permissions/tv_core_hardware.xml \
 	$(LOCAL_PATH)/configs/permissions/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml
 
+# ATV SDK is not designed to have a camera by default
+# Exclude all non-default hardware features on ATV SDK.
+# All default supported features are defined via device/amazon/sloane/configs/permissions/tv_core_hardware.xml.
+PRODUCT_SUPPORTS_CAMERA ?= false
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/tv_sdk_excluded_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_sdk_excluded_core_hardware.xml
+
 # Default OMX service to non-Treble
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.media.treble_omx=false
