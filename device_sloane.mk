@@ -63,6 +63,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
+	power.mt8173 \
 	android.hardware.power@1.0-impl \
 	android.hardware.power@1.0-service
 
