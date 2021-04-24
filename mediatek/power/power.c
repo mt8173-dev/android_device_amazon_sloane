@@ -48,6 +48,7 @@ enum {
 #define HIGH_PERFORMANCE_PROP   "2"
 #define BIAS_POWER_PROP         "3"
 
+const static power_hint_t POWER_HINT_SET_PROFILE = (power_hint_t)0x00000111;
 static int current_power_profile = PROFILE_BALANCED;
 
 static int sysfs_write(const char *path, char *s)
