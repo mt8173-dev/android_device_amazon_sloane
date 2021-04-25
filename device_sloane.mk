@@ -192,6 +192,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	tv_input.default
 
+# CEC
+PRODUCT_PACKAGES += \
+    android.hardware.tv.cec@1.0-impl
+	android.hardware.tv.cec@1.0-service
+
 # OverScan
 PRODUCT_PACKAGES += \
 	OverScan
