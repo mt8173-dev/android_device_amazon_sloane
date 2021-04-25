@@ -190,7 +190,9 @@ PRODUCT_PACKAGES += \
 
 # TV Input
 PRODUCT_PACKAGES += \
-	tv_input.default
+	tv_input.default \
+	android.hardware.tv.input@1.0-impl \
+	android.hardware.tv.input@1.0-service
 
 # CEC
 PRODUCT_PACKAGES += \

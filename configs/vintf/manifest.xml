@@ -180,4 +180,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.tv.input</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITvInput</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </manifest>
