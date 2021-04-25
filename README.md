@@ -1,6 +1,6 @@
 # Amazon Fire TV 2 Android Device Tree
 
-The Amazon Fire TV 2 (codenamed "sloane") is a mid-range Android TV device from amazon announced in 2017.
+The Amazon Fire TV 2 (codenamed "sloane") is a mid-range Android TV device from amazon announced in 2015.
 
 Basic   | Spec Sheet
 -------:|:--------------------------------------------------
@@ -16,4 +16,4 @@ MicroSD | yes (up to 512 GB)
   <img src="https://i.imgur.com/FtBNvM0.jpg?1" alt="sloane"/>
 </p>
 
-This branch is for building LineageOS 14.1 (CM).
+This branch is for building LineageOS 16.0 (CM).
