@@ -191,6 +191,8 @@ TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib64/libsrv_um.so|libshim_callstack.so \
 	/system/vendor/lib/libcam.client.so|libshim_camera.so \
 	/system/vendor/lib64/libcam.client.so|libshim_camera.so \
+	/system/vendor/lib/libcam.client.so|libshim_ui.so \
+	/system/vendor/lib64/libcam.client.so|libshim_ui.so \
 	/system/vendor/lib/hw/keystore.mt8173.so|libshim_log.so \
 	/system/vendor/lib64/hw/keystore.mt8173.so|libshim_log.so
 
