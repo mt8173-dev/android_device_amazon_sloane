@@ -71,9 +71,9 @@ etc/Wireless/RT2870STA/SingleSKU_preload.dat:vendor/etc/Wireless/RT2870STA/Singl
 etc/dhcpcd/dhcpcd-run-hooks:vendor/etc/dhcpcd/dhcpcd-run-hooks
 etc/dhcpcd/dhcpcd-hooks/20-dns.conf:vendor/etc/dhcpcd/dhcpcd-hooks/20-dns.conf
 etc/dhcpcd/dhcpcd-hooks/95-configured:vendor/etc/dhcpcd/dhcpcd-hooks/95-configured
-etc/firmware/dvb-fe-xc5000-1.6.114.fw:vendor/etc/firmware/dvb-fe-xc5000-1.6.114.fw
-etc/firmware/mt7662_firmware_e3_tvbox.bin:vendor/etc/firmware/mt7662_firmware_e3_tvbox.bin
-etc/firmware/mt7662_patch_e3_hdr.bin:vendor/etc/firmware/mt7662_patch_e3_hdr.bin
+etc/firmware/dvb-fe-xc5000-1.6.114.fw
+etc/firmware/mt7662_firmware_e3_tvbox.bin
+etc/firmware/mt7662_patch_e3_hdr.bin
 etc/wifi_gain.sh:vendor/etc/wifi_gain.sh
 etc/wifi_log_levels.sh:vendor/etc/wifi_log_levels.sh
 xbin/iwpriv:vendor/xbin/iwpriv
