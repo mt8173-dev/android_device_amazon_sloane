@@ -73,7 +73,7 @@ etc/dhcpcd/dhcpcd-hooks/20-dns.conf:vendor/etc/dhcpcd/dhcpcd-hooks/20-dns.conf
 etc/dhcpcd/dhcpcd-hooks/95-configured:vendor/etc/dhcpcd/dhcpcd-hooks/95-configured
 etc/firmware/dvb-fe-xc5000-1.6.114.fw
 etc/firmware/mt7662_firmware_e3_tvbox.bin
-etc/firmware/mt7662_patch_e3_hdr.bin
+etc/firmware/mt7662_patch_e3_hdr.bin|84d556f936ef58fec4f4293a73ac8546daeebcc0
 etc/wifi_gain.sh:vendor/etc/wifi_gain.sh
 etc/wifi_log_levels.sh:vendor/etc/wifi_log_levels.sh
 xbin/iwpriv:vendor/xbin/iwpriv
