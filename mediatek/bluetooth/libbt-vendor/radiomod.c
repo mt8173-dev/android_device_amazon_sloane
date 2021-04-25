@@ -1094,6 +1094,7 @@ VOID *GORM_FW_Init_Thread(UNUSED_ATTR VOID *ptr)
       case 0x6739:
       case 0x6771:
       case 0x6775:
+      case 0x7662:
         fgConsys = TRUE;
         LOG_WAN("A-D die chip id: %04x\n", btinit->chip_id);
         btinit->cur_script = bt_init_preload_script_consys;
