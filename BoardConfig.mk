@@ -157,6 +157,9 @@ TARGET_BOOTANIMATION_HALF_RES := true
 # Enable Minikin Text Layout Engine
 USE_MINIKIN := true
 
+# Fonts
+EXCLUDE_SERIF_FONTS := true
+
 # Use dlmalloc Instead of Jemalloc for Mallocs
 MALLOC_SVELTE := true
 
