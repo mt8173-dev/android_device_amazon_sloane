@@ -158,8 +158,7 @@ PRODUCT_PACKAGES += \
 	libshim_stagefright \
 	libshim_atomic \
 	libshim_mutexdestroy \
-	libshim_callstack \
-	libshim_camera
+	libshim_callstack
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
