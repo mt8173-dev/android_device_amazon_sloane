@@ -43,6 +43,9 @@ on boot
 	# Enable adb over network
 	setprop service.adb.tcp.port 5555
 
+	# Fix permission for telephony
+	chmod 0644 /proc/cmdline
+
 on post-fs-data
 	# Preload shim libraries
 	export LD_PRELOAD "libshim_mutexdestroy.so:libshim_log.so:libshim_atomic.so"
