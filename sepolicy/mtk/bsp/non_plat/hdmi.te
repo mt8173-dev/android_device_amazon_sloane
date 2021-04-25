@@ -1,0 +1,11 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+#============= Key Manager HIDL Service ==============
+allow hdmi mtk_hal_keymanage:binder call;
+
+# Purpose : Allow hdmi to call vendor.mediatek.hardware.keymanage@1.0-service.
+hal_client_domain(hdmi, hal_keymaster)
+
+allow hdmi mtk_hal_keymanage_hwservice:hwservice_manager find;

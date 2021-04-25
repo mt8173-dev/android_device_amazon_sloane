@@ -1,0 +1,27 @@
+#===================untrusted_app=============================
+allow untrusted_app cameraserver:fifo_file read;
+#============= untrusted_app ==============
+allow untrusted_app cameraserver:fifo_file write;
+#============= mediaserver ==============
+allow mediaserver cameraserver:fifo_file read;
+#============= untrusted_app ==============
+allow untrusted_app cameraserver:fifo_file getattr;
+#============= mediaserver ==============
+allow mediaserver cameraserver:fifo_file write;
+#============= mediaserver ==============
+allow mediaserver cameraserver:fifo_file getattr;
+#============= mediacodec ==============
+allow mediacodec cameraserver:fifo_file read;
+#============= mediacodec ==============
+allow mediacodec cameraserver:fifo_file write;
+#============= mediacodec ==============
+allow mediacodec cameraserver:fifo_file getattr;
+
+allow mediacodec dri_device:chr_file  { open read write ioctl };
+allow mediacodec render_device:chr_file  { open read write ioctl };
+
+#============= cameraserver ==============
+allow cameraserver dri_device:chr_file { open read write ioctl};
+allow cameraserver render_device:chr_file { open read write ioctl};
+
+allow cameraserver debugfs_gpu_img:dir search;

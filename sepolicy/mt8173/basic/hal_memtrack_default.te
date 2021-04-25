@@ -1,0 +1,2 @@
+allow hal_memtrack_default debugfs_gpu_img:dir {search read open getattr};
+#allow hal_memtrack_default debugfs:file {open read getattr };

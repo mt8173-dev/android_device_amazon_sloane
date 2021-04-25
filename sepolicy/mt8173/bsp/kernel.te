@@ -1,0 +1,6 @@
+
+# For mt8173 bootup
+allow kernel nvram_data_file:lnk_file read;
+allow kernel mnt_user_file:dir search;
+allow kernel mnt_user_file:lnk_file read;
+allow kernel debugfs_gpu_img:dir search;

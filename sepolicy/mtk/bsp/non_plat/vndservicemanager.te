@@ -1,0 +1,3 @@
+allow vndservicemanager cs_fp_hw:dir search;
+allow vndservicemanager cs_fp_hw:file r_file_perms;
+allow vndservicemanager cs_fp_hw:process getattr;

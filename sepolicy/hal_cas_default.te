@@ -1,2 +1,0 @@
-# oreo
-allow hal_cas_default kernel:system { module_request };

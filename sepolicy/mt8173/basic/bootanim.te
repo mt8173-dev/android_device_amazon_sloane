@@ -1,0 +1,5 @@
+# For mt8173 bootup 
+allow bootanim surfaceflinger:fifo_file { read write };
+
+allow bootanim dri_device:chr_file  { open read write ioctl };
+allow bootanim render_device:chr_file  { open read write ioctl };

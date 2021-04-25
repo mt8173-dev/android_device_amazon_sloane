@@ -1,1 +1,2 @@
-vendor.mediatek.hardware.imsa::IImsa                                      u:object_r:mtkimsa_hwservice:s0
+vendor.goodix.hardware.fingerprint::IGoodixBiometricsFingerprint          u:object_r:cs_fp_hwservice:s0
+

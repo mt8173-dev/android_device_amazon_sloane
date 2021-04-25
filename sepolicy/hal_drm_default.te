@@ -1,2 +1,0 @@
-allow hal_drm_default kernel:system { module_request };
-allow hal_drm_default vndbinder_device:chr_file { read write open ioctl };
