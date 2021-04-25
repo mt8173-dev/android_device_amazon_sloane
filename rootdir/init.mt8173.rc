@@ -38,7 +38,7 @@ on boot
 	start thermal
 
 	# Loading kernel modules in background
-	start insmod_sh
+	exec /system/bin/sh /system/etc/init.insmod.sh
 
 	# Enable adb over network
 	setprop service.adb.tcp.port 5555
@@ -135,13 +135,6 @@ on property:init.svc.bootanim=running
 on property:init.svc.bootanim=stopped
 	write /proc/bootprof "BOOT_Animation:END"
 	start auto_shutdown
-
-service insmod_sh /system/etc/init.insmod.sh
-	class main
-	user root
-	group root system
-	disabled
-	oneshot
 
 service nvram_daemon /vendor/bin/nvram_daemon
 	class main
