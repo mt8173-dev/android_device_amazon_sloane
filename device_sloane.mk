@@ -180,6 +180,9 @@ PRODUCT_PACKAGES += \
 # SetupWraith
 PRODUCT_PACKAGES += \
 	SetupWraith
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/apps/prebuilts/SetupWraith/privapp_whitelist_com.google.android.tungsten.setupwraith.xml:system/etc/permissions/privapp_whitelist_com.google.android.tungsten.setupwraith.xml
 	
 # Remote Pairing Services
 PRODUCT_PACKAGES += \
