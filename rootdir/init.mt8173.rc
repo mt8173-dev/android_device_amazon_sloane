@@ -107,9 +107,6 @@ on post-fs-data
 	# Memtrack alignment between FOS devices
 	chown system system /d/ion/heaps/ion_mm_heap
 	chmod 0666 /d/ion/heaps/ion_mm_heap
-	
-	# Set nvram ready
-	exec /system/bin/setprop service.nvram_init Ready
 
 service kisd /vendor/bin/kisd
 	user root
