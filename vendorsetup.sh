@@ -1,0 +1,3 @@
+add_lunch_combo cm_sloane-eng
+add_lunch_combo cm_sloane-user
+add_lunch_combo cm_sloane-userdebug

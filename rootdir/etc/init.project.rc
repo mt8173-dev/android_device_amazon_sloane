@@ -1,0 +1,138 @@
+# MTK project .rc configure
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root 
+    mkdir /mnt/sqfs 0771 system system
+
+    # ACOS_MOD_BEGIN {amazon_logd}
+    mkdir /dev/logd 0770 logd log
+    mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
+    # ACOS_MOD_END {amazon_logd}
+
+on post-fs-data
+
+#
+# Connectivity related device nodes & configuration (begin)
+#
+
+
+# WiFi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
+
+#
+# Connectivity related device nodes & configuration (end)
+#
+
+# Encrypt phone function
+    setprop vold.post_fs_data_done 1
+
+on boot
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target has the SD card slot in a battery compartment, we need to specify SECONDARY_STORAGE (*** UN-Comment the following command ***)
+    #
+    export SECONDARY_STORAGE /storage/sdcard1
+    export SECONDARY_STORAGE_USB /storage/usbotg
+
+
+on property:wlan.interface.p2p.group=*
+    exec /system/bin/rmmod ozwpan
+    insmod /system/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
+    start ozwpan
+
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+#
+# Connectivity related services (Begin)
+#
+on property:wlan.driver.status=ok
+        chown system system /sys/kernel/debug/mtwifi/wlan0/fwpath
+	write /sys/kernel/debug/mtwifi/wlan0/nvram "1"
+
+service p2p_supplicant /system/bin/wpa_supplicant \
+	-iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
+	-I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
+	-ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
+	-I/system/etc/wifi/p2p_supplicant_overlay.conf \
+	-O/data/misc/wifi/sockets -g@android:wpa_wlan0
+	#   we will start as root and wpa_supplicant will switch to user wifi
+	#   after setting up the capabilities required for WEXT
+	#   user wifi
+	#   group wifi inet keystore
+	class main
+	socket wpa_wlan0 dgram 660 wifi wifi
+	disabled
+	oneshot
+
+service wpa_supplicant /system/bin/wpa_supplicant \
+	-iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin \
+	-I/system/etc/wifi/wpa_supplicant_overlay.conf \
+	-O/data/misc/wifi/sockets -g@android:wpa_wlan0
+	#   we will start as root and wpa_supplicant will switch to user wifi
+	#   after setting up the capabilities required for WEXT
+	#   user wifi
+	#   group wifi inet keystore
+	class main
+	socket wpa_wlan0 dgram 660 wifi wifi
+	disabled
+	oneshot
+
+service ethernet /system/bin/ethernet
+    class main
+    user root
+    group system
+    oneshot
+
+service ozwpan /system/bin/sh ozwpan.sh
+    class late_start
+    user root
+    group root
+    oneshot
+
+service ping_logger /system/etc/ping_logger.sh
+    disabled
+    oneshot
+    user root
+
+on property:debug.ping.logging=on
+    start ping_logger
+
+on property:debug.ping.logging=off
+    stop ping_logger
+
+# wifi_log_levels metrics service
+service wifi_log_levels /system/etc/wifi_log_levels.sh
+    class late_start
+    user root
+    group root
+
+service wifi_gain /system/etc/wifi_gain.sh
+    disabled
+    oneshot
+    user root
+
+on property:debug.wifi.gain.modify.antenna=*
+    start wifi_gain
+#
+# Connectivity related services (End)
+#
+
+service drmkey_backup /system/bin/amzn_drmprov_tool --backup
+    class main
+    user root
+    group system
+    oneshot
+    disabled
+
+on property:sys.amzn_drm.need_backup=1
+    start drmkey_backup

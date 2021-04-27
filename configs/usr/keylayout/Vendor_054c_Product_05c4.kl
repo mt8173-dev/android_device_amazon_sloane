@@ -1,0 +1,72 @@
+# Copyright (C) 2014 The Android Open Source Project
+# Copyright (C) 2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Sony Computer Entertainment Wireless Controller
+# (This is the Sony Playstation(R)4 Controller)
+
+# Button with square image maps to BUTTON_X, due to placement analogy.
+key 304   BUTTON_X
+
+# Button with cross image maps to BUTTON_A, due to placement analogy.
+key 305   BUTTON_A
+
+# Button with circle image maps to BUTTON_B, due to placement analogy.
+key 306   BUTTON_B
+
+# Button with triangle image maps to BUTTON_Y, due to placement analogy.
+key 307   BUTTON_Y
+
+key 308   BUTTON_L1
+key 309   BUTTON_R1
+
+# NOTE: BUTTON_L2 is non-standard, on RT you get an axis and button
+key 310   BUTTON_L2
+
+# NOTE: BUTTON_R2 is non-standard, on RT you get an axis and button
+key 311   BUTTON_R2
+
+# Button "Share" maps to BACK
+key 312 BACK
+
+# Button "Options" maps to BUTTON_START
+key 313   MENU
+
+# These two keycodes are for click (press from above) on analog sticks.
+key 314   BUTTON_THUMBL
+key 315   BUTTON_THUMBR
+
+# Pressing the Mouse Pad
+# NOTE: non-standard key, mapping to something meaningful
+key 317   BUTTON_SELECT
+
+# Button with PlayStation(R) logo maps to HOME
+key 316 HOME
+
+# Left Analog Stick
+axis 0x00 X flat 4096
+axis 0x01 Y flat 4096
+
+# Right Analog Stick
+axis 0x02 Z flat 4096
+axis 0x05 RZ flat 4096
+
+# NOTE: BUTTON_R2 is non-standard, on RT you get an axis and button
+axis 0x04 GAS
+
+# NOTE: BUTTON_L2 is non-standard, on LT you get an axis and button
+axis 0x03 BRAKE
+
+axis 0x10 HAT_X
+axis 0x11 HAT_Y
