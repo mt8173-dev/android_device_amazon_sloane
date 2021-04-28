@@ -56,7 +56,7 @@ PRODUCT_PACKAGES += \
 	android.hardware.audio@2.0-impl \
 	android.hardware.audio@2.0-service \
 	android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@2.0-service
+	android.hardware.audio.effect@2.0-service
 
 # USB
 PRODUCT_PACKAGES += \
@@ -85,8 +85,8 @@ PRODUCT_PACKAGES += \
 
 # Configstore
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-impl \
-    android.hardware.configstore@1.1-service
+	android.hardware.configstore@1.1-impl \
+	android.hardware.configstore@1.1-service
 
 # Media Codecs
 PRODUCT_COPY_FILES += \
@@ -199,7 +199,7 @@ PRODUCT_PACKAGES += \
 
 # CEC
 PRODUCT_PACKAGES += \
-    android.hardware.tv.cec@1.0-impl
+	android.hardware.tv.cec@1.0-impl
 	android.hardware.tv.cec@1.0-service
 
 # OverScan
@@ -273,7 +273,7 @@ PRODUCT_COPY_FILES += \
 # All default supported features are defined via device/amazon/sloane/configs/permissions/tv_core_hardware.xml.
 PRODUCT_SUPPORTS_CAMERA ?= false
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/tv_sdk_excluded_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_sdk_excluded_core_hardware.xml
+	$(LOCAL_PATH)/configs/permissions/tv_sdk_excluded_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_sdk_excluded_core_hardware.xml
 
 # Default OMX service to non-Treble
 PRODUCT_PROPERTY_OVERRIDES += \
