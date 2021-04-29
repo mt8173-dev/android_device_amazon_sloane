@@ -99,6 +99,11 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_tv.xml:system/etc/media_codecs_google_tv.xml
 
+# Seccomp
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/seccomp-policy/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
+	$(LOCAL_PATH)/seccomp-policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
 # Prebuilt Keylayouts
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/keylayouts/lightning-device.kl:system/usr/keylayout/lightning-device.kl \

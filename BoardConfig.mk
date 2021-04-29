@@ -184,10 +184,6 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
         $(DEVICE_PATH)/sepolicy/mtk/basic/plat_private \
         $(DEVICE_PATH)/sepolicy/mtk/bsp/plat_private
 
-# Media Extractors
-BOARD_SECCOMP_POLICY := \
-    $(DEVICE_FOLDER)/seccomp-policy
-
 # Shim Libraries
 TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib/libMtkOmxVdecEx.so|libshim_ui.so \
