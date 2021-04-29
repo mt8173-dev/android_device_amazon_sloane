@@ -61,13 +61,13 @@ vendor/lib64/libsrv_init.so
 # Connectivity
 bin/pppd:vendor/bin/pppd
 bin/dhcpcd:vendor/bin/dhcpcd
-etc/Wireless/RT2870STA/MT76x2STA.dat:vendor/etc/Wireless/RT2870STA/MT76x2STA.dat
-etc/Wireless/RT2870STA/SingleSKU.dat:vendor/etc/Wireless/RT2870STA/SingleSKU.dat
-etc/Wireless/RT2870STA/SingleSKU_AU.dat:vendor/etc/Wireless/RT2870STA/SingleSKU_AU.dat
-etc/Wireless/RT2870STA/SingleSKU_EU.dat:vendor/etc/Wireless/RT2870STA/SingleSKU_EU.dat
-etc/Wireless/RT2870STA/SingleSKU_JP.dat:vendor/etc/Wireless/RT2870STA/SingleSKU_JP.dat
-etc/Wireless/RT2870STA/SingleSKU_US.dat:vendor/etc/Wireless/RT2870STA/SingleSKU_US.dat
-etc/Wireless/RT2870STA/SingleSKU_preload.dat:vendor/etc/Wireless/RT2870STA/SingleSKU_preload.dat
+etc/Wireless/RT2870STA/MT76x2STA.dat
+etc/Wireless/RT2870STA/SingleSKU.dat
+etc/Wireless/RT2870STA/SingleSKU_AU.dat
+etc/Wireless/RT2870STA/SingleSKU_EU.dat
+etc/Wireless/RT2870STA/SingleSKU_JP.dat
+etc/Wireless/RT2870STA/SingleSKU_US.dat
+etc/Wireless/RT2870STA/SingleSKU_preload.dat
 etc/dhcpcd/dhcpcd-run-hooks:vendor/etc/dhcpcd/dhcpcd-run-hooks
 etc/dhcpcd/dhcpcd-hooks/20-dns.conf:vendor/etc/dhcpcd/dhcpcd-hooks/20-dns.conf
 etc/dhcpcd/dhcpcd-hooks/95-configured:vendor/etc/dhcpcd/dhcpcd-hooks/95-configured
