@@ -239,3 +239,6 @@ BOARD_USE_SOFT_GATEKEEPER := true
 # VINTF
 DEVICE_MANIFEST_FILE := $(DEVICE_FOLDER)/configs/vintf/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_FOLDER)/configs/vintf/compatibility_matrix.xml
+
+# FS
+ARGET_FS_CONFIG_GEN := $(DEVICE_FOLDER)/config.fs
