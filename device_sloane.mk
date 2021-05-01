@@ -323,6 +323,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.carrier=wifi-only \
 	persist.radio.noril=1
 
+# AudioFlinger
+PRODUCT_PROPERTY_OVERRIDES += ro.af.client_heap_size_kbyte=7168
+
 # Configure dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
