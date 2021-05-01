@@ -160,6 +160,7 @@ USE_MINIKIN := true
 
 # Fonts
 EXCLUDE_SERIF_FONTS := true
+USE_REDUCED_CJK_FONT_WEIGHTS := true
 
 # Use dlmalloc Instead of Jemalloc for Mallocs
 MALLOC_SVELTE := true
