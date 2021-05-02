@@ -204,7 +204,7 @@ PRODUCT_PACKAGES += \
 
 # CEC
 PRODUCT_PACKAGES += \
-	android.hardware.tv.cec@1.0-impl
+	android.hardware.tv.cec@1.0-impl \
 	android.hardware.tv.cec@1.0-service
 
 # OverScan
