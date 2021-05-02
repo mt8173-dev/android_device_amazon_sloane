@@ -46,7 +46,7 @@ service ozwpan /system/bin/sh ozwpan.sh
 	group root
 	oneshot
 
-service ping_logger /system/vendor/etc/ping_logger.sh
+service ping_logger /system/bin/sh /system/vendor/etc/ping_logger.sh
 	disabled
 	oneshot
 	user root
@@ -57,12 +57,12 @@ on property:debug.ping.logging=on
 on property:debug.ping.logging=off
 	stop ping_logger
 
-service wifi_log_levels /system/vendor/etc/wifi_log_levels.sh
+service wifi_log_levels /system/bin/sh /system/vendor/etc/wifi_log_levels.sh
 	class late_start
 	user root
 	group root
 
-service wifi_gain /system/vendor/etc/wifi_gain.sh
+service wifi_gain /system/bin/sh /system/vendor/etc/wifi_gain.sh
 	disabled
 	oneshot
 	user root
