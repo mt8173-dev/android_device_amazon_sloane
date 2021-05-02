@@ -68,6 +68,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := selinux/selinux_shim.cpp
 LOCAL_WHOLE_STATIC_LIBRARIES := libselinux
+LOCAL_SHARED_LIBRARIES := liblog libbase libcrypto
 LOCAL_MODULE := libshim_selinux
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
