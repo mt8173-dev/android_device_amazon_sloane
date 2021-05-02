@@ -17,5 +17,17 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),sloane)
+
 include $(call all-makefiles-under,$(LOCAL_PATH))
+
+NVDATA_SYMLINK := $(TARGET_OUT_VENDOR)/nvdata
+$(NVDATA_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "nvdata link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /data/nvram $@
+
+ALL_DEFAULT_INSTALLED_MODULES +=  \
+	$(NVDATA_SYMLINK)
+
 endif
