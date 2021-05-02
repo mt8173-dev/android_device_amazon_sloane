@@ -9,8 +9,8 @@ on init
 	mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
 	
 	# Wifi Log Levels (metrics)
-	chmod 0775 /system/etc/wifi_log_levels.sh
-	chown root root /system/etc/wifi_log_levels.sh
+	chmod 0775 /system/vendor/etc/wifi_log_levels.sh
+	chown root root /system/vendor/etc/wifi_log_levels.sh
 
 on post-fs-data
 	# Encrypt phone function
@@ -46,7 +46,7 @@ service ozwpan /system/bin/sh ozwpan.sh
 	group root
 	oneshot
 
-service ping_logger /system/etc/ping_logger.sh
+service ping_logger /system/vendor/etc/ping_logger.sh
 	disabled
 	oneshot
 	user root
@@ -57,12 +57,12 @@ on property:debug.ping.logging=on
 on property:debug.ping.logging=off
 	stop ping_logger
 
-service wifi_log_levels /system/etc/wifi_log_levels.sh
+service wifi_log_levels /system/vendor/etc/wifi_log_levels.sh
 	class late_start
 	user root
 	group root
 
-service wifi_gain /system/etc/wifi_gain.sh
+service wifi_gain /system/vendor/etc/wifi_gain.sh
 	disabled
 	oneshot
 	user root
