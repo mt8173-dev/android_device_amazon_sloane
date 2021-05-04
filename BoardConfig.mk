@@ -3,6 +3,9 @@ DEVICE_PATH := device/amazon/sloane
 # inherit from the proprietary version
 -include vendor/amazon/sloane/BoardConfig.mk
 
+# Headers
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+
 # Platform
 TARGET_BOARD_PLATFORM := mt8173
 TARGET_BOARD_PLATFORM_GPU := mali-720mp2
