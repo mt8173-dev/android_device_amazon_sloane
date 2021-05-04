@@ -120,6 +120,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+# Amazon's btremoted
+PRODUCT_PACKAGES += \
+    btremoted
+
 # Keylayout
 PRODUCT_COPY_FILES += \
      $(DEVICE_PATH)/configs/usr/idc/amazon_touch.idc:system/usr/idc/amazon_touch.idc \
