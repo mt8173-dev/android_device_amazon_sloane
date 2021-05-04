@@ -124,6 +124,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     btremoted
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.mt8173
+
 # Keylayout
 PRODUCT_COPY_FILES += \
      $(DEVICE_PATH)/configs/usr/idc/amazon_touch.idc:system/usr/idc/amazon_touch.idc \
