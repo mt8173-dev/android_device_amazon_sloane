@@ -166,11 +166,6 @@ PRODUCT_PACKAGES += \
 	libshim_callstack \
 	libshim_selinux
 
-# IPv6 tethering
-PRODUCT_PACKAGES += \
-	ebtables \
-	ethertypes
-
 # LeanBack
 PRODUCT_PACKAGES += \
 	LeanbackLauncher \
