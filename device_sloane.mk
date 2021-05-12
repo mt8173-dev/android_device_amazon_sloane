@@ -213,8 +213,7 @@ PRODUCT_PACKAGES += \
 	btremoted \
 	libbt-vendor \
 	libbluetooth_mtk \
-	android.hardware.bluetooth@1.0-impl-mediatek \
-	android.hardware.bluetooth@1.0-service-mediatek
+	android.hardware.bluetooth@1.0-impl-mediatek
 
 # Bluetooth Configs
 PRODUCT_COPY_FILES += \
