@@ -51,7 +51,6 @@ on property:wlan.interface.p2p.group=*
 	start ozwpan
 
 on property:wlan.driver.status=ok
-	chown system system /sys/kernel/debug/mtwifi/wlan0/fwpath
 	write /sys/kernel/debug/mtwifi/wlan0/nvram "1"
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
