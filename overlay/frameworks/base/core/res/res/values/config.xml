@@ -94,6 +94,8 @@
     <!-- Apps that are authorized to access shared accounts -->
     <string name="config_appsAuthorizedForSharedAccounts">;com.android.tv.settings;</string>
 
+    <!-- Package of the unbundled tv remote service which can connect to tv remote provider -->
+    <string translatable="false" name="config_tvRemoteServicePackage">com.google.android.tv.remote.service</string>
 
     <!-- Enable multi-user in order to get restricted profile support. -->
     <!-- TODO: move this to a more generic place once we have verified it. -->
