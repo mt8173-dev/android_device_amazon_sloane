@@ -113,4 +113,6 @@
     <!-- If supported and enabled, are dreams activated when asleep and charging? (by default) -->
     <bool name="config_dreamsActivatedOnSleepByDefault">true</bool>
 
+    <!-- Disable default bluetooth profiles -->
+    <bool name="config_bluetooth_default_profiles">false</bool>
 </resources>
