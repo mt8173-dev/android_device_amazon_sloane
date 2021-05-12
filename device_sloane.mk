@@ -136,7 +136,9 @@ PRODUCT_COPY_FILES += \
 
 # Network
 PRODUCT_PACKAGES += \
-	netd
+	netd \
+	android.system.net.netd@1.0 \
+	netutils-wrapper-1.0  
 
 # Graphics
 PRODUCT_PACKAGES += \
