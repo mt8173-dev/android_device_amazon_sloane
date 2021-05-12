@@ -196,6 +196,8 @@ lib/libbluetooth_mtk_pure.so:vendor/lib/libbluetooth_mtk_pure.so
 lib64/libbluetooth_mtk_pure.so:vendor/lib64/libbluetooth_mtk_pure.so
 lib/libbluetoothem_mtk.so:vendor/lib/libbluetoothem_mtk.so
 lib64/libbluetoothem_mtk.so:vendor/lib64/libbluetoothem_mtk.so
+lib/libbluetooth_hw_test.so:vendor/lib/libbluetooth_hw_test.so
+lib64/libbluetooth_hw_test.so:vendor/lib64/libbluetooth_hw_test.so
 
 # MISC
 bin/devicetype_service:vendor/bin/devicetype_service
