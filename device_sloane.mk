@@ -318,6 +318,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # AudioFlinger
 PRODUCT_PROPERTY_OVERRIDES += ro.af.client_heap_size_kbyte=7168
 
+# Enable Bluetooth Remote Pairing in Setupwraith
+PRODUCT_PROPERTY_OVERRIDES += \
+    atv.setup.bt_remote_pairing=true
+
 # Configure dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
