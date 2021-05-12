@@ -2,4 +2,4 @@
 mode: 0700
 user: bluetooth 
 group: bluetooth
-caps: CAP_SYS_NICE
+caps: SYS_NICE
