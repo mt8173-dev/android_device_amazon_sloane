@@ -17,7 +17,7 @@
 /dev/ttyGS0	0660	bluetooth	radio
 
 # WIFI
-/dev/wmtWifi	0666	system	system
+/dev/wmtWifi	0666	wifi	wifi
 
 # Thermal
 /sys/devices/virtual/thermal/thermal_zone* mode 	0660	system system
