@@ -19,6 +19,9 @@ LOCAL_PATH := device/amazon/sloane
 # Include all the languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# Include atv base
+$(call inherit-product, device/google/atv/products/atv_base.mk)
+
 # Call the proprietary vendor makefile
 $(call inherit-product-if-exists, vendor/amazon/sloane/sloane-vendor.mk)
 
@@ -174,7 +177,6 @@ PRODUCT_PACKAGES += \
 	
 # TvSettings
 PRODUCT_PACKAGES += \
-	TvSettings \
 	TV
 	
 # SetupWraith
@@ -193,7 +195,6 @@ PRODUCT_PACKAGES += \
 
 # TV Input
 PRODUCT_PACKAGES += \
-	tv_input.default \
 	android.hardware.tv.input@1.0-impl \
 	android.hardware.tv.input@1.0-service
 
@@ -225,6 +226,9 @@ PRODUCT_COPY_FILES += \
 
 # Camera Init
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
+
+# Camera
+PRODUCT_SUPPORTS_CAMERA := false
 
 # Audio Wakelock (So Music will not stop while turn off screen)
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/init/audioserver.rc:system/etc/init/audioserver.rc
@@ -263,15 +267,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
 	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
-	$(LOCAL_PATH)/configs/permissions/tv_core_hardware.xml:system/etc/permissions/tv_core_hardware.xml \
 	$(LOCAL_PATH)/configs/permissions/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml
-
-# ATV SDK is not designed to have a camera by default
-# Exclude all non-default hardware features on ATV SDK.
-# All default supported features are defined via device/amazon/sloane/configs/permissions/tv_core_hardware.xml.
-PRODUCT_SUPPORTS_CAMERA ?= false
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/permissions/tv_sdk_excluded_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_sdk_excluded_core_hardware.xml
 
 # Default OMX service to non-Treble
 PRODUCT_PROPERTY_OVERRIDES += \
