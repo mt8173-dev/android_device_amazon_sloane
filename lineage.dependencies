@@ -1,5 +1,11 @@
 [
   {
+    "target_path": "device/lineage/atv",
+    "repository":  "LineageOS/android_device_lineage_atv",
+    "remote":      "github",
+    "revision":    "lineage-16.0"
+  },
+  {
     "target_path": "kernel/amazon/sloane",
     "repository":  "sloane-development/android_kernel_amazon_sloane",
     "remote":      "github",
