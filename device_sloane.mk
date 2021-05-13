@@ -22,6 +22,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Include atv base
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
+# Include lineage atv
+$(call inherit-product, device/lineage/atv/lineage_atv.mk)
+
 # Call the proprietary vendor makefile
 $(call inherit-product-if-exists, vendor/amazon/sloane/sloane-vendor.mk)
 
@@ -169,16 +172,10 @@ PRODUCT_PACKAGES += \
 	libshim_callstack \
 	libshim_selinux
 
-# LeanBack
+# Keyboard
 PRODUCT_PACKAGES += \
-	LeanbackLauncher \
-	LeanBackIme \
-	CMLeanbackCustomizer
-	
-# TvSettings
-PRODUCT_PACKAGES += \
-	TV
-	
+	LeanBackIme
+
 # SetupWraith
 PRODUCT_PACKAGES += \
 	SetupWraith
@@ -314,10 +311,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # AudioFlinger
 PRODUCT_PROPERTY_OVERRIDES += ro.af.client_heap_size_kbyte=7168
-
-# Enable Bluetooth Remote Pairing in Setupwraith
-PRODUCT_PROPERTY_OVERRIDES += \
-    atv.setup.bt_remote_pairing=true
 
 # Configure dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
