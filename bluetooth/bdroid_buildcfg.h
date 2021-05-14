@@ -3,6 +3,8 @@
 
 #define BTM_DEF_LOCAL_NAME   "Amazon Fire TV 2"
 
+#define PROC_BTWRITE_TIMER_TIMEOUT_MS = 0
+
 #define BTA_AV_MAX_A2DP_MTU  1788
 #define BLE_VND_INCLUDED TRUE
 #define BLE_INCLUDED TRUE
