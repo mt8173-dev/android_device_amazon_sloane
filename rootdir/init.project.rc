@@ -57,7 +57,7 @@ on boot
 	export SECONDARY_STORAGE_USB /storage/usbotg
 
 on property:wlan.interface.p2p.group=*
-	exec /vendor/bin/rmmod ozwpan
+	exec /system/bin/rmmod ozwpan
 	insmod /vendor/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
 	start ozwpan
 
