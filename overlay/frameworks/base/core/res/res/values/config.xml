@@ -16,7 +16,6 @@
 
 <resources>
 	<!-- Set UI into TV Mode -->
-    <integer name="config_defaultUiModeType">4</integer>
     <bool name="config_lockUiMode">true</bool>
 
     <!-- Flag indicating that the media framework should support playing of sounds on volume
