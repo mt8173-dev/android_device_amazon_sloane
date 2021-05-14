@@ -47,7 +47,7 @@ on boot
 
 on property:wlan.interface.p2p.group=*
 	exec /vendor/bin/rmmod ozwpan
-	insmod /system/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
+	insmod /vendor/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
 	start ozwpan
 
 on property:wlan.driver.status=ok
