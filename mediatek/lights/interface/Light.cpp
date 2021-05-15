@@ -111,7 +111,7 @@ light_device_t* getLightDevice(const char* name) {
         ret = hwModule->methods->open(hwModule, name,
             reinterpret_cast<hw_device_t**>(&lightDevice));
         if (ret != 0) {
-            ALOGE("light_open %s %s failed: %d", LIGHTS_HARDWARE_MODULE_ID, name, ret);
+            ALOGW("light_open %s %s failed: %d", LIGHTS_HARDWARE_MODULE_ID, name, ret);
         }
     } else {
         ALOGE("hw_get_module %s %s failed: %d", LIGHTS_HARDWARE_MODULE_ID, name, ret);
