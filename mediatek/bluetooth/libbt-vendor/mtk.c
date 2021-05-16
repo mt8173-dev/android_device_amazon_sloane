@@ -240,6 +240,10 @@ int mtk_fw_cfg(void)
             /* Use MT6632 default value */
             memcpy(ucNvRamData, &stBtDefault_6632, sizeof(ap_nvram_btradio_struct));
             break;
+          case 0x7662:
+            /* Use MT7662 default value */
+            memcpy(ucNvRamData, &stBtDefault_7662, sizeof(ap_nvram_btradio_struct));
+            break;
           case 0x8163:
           case 0x8127:
           case 0x8167:
@@ -260,7 +264,6 @@ int mtk_fw_cfg(void)
           case 0x6739:
           case 0x6771:
           case 0x6775:
-          case 0x7662:
             /* Use A-D die default value */
             memcpy(ucNvRamData, &stBtDefault_consys, sizeof(ap_nvram_btradio_struct));
             break;

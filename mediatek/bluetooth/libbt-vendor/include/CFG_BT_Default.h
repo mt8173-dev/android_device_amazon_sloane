@@ -115,6 +115,9 @@ static ap_nvram_btradio_struct stBtDefault_6632 =
     {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}
 };
 
+static ap_nvram_btradio_struct stBtDefault_7662 =
+{
+};
 
 static ap_nvram_btradio_struct stBtDefault_consys =
 {
