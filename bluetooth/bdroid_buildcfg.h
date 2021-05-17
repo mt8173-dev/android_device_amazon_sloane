@@ -11,6 +11,10 @@
 #define BTA_GATT_INCLUDED TRUE
 #define SMP_INCLUDED TRUE
 
+// Turn off BLE_PRIVACY_SPT.  Remote reconnect fails on
+// often if this is enabled.
+#define BLE_PRIVACY_SPT FALSE
+
 // To sync with CONN TIMEOUT of pepper
 #define BTM_BLE_CONN_TIMEOUT_DEF 1000
 
