@@ -79,6 +79,10 @@ etc/wifi_log_levels.sh:vendor/etc/wifi_log_levels.sh
 xbin/iwpriv:vendor/xbin/iwpriv
 xbin/iwlist:vendor/xbin/iwlist
 xbin/iwconfig:vendor/xbin/iwconfig
+lib/libwifidiags.so:vendor/lib/libwifidiags.so
+lib64/libwifidiags.so:vendor/lib64/libwifidiags.so
+lib/libwifidiags_jniwrapper.so:vendor/lib/libwifidiags_jniwrapper.so
+lib64/libwifidiags_jniwrapper.so:vendor/lib64/libwifidiags_jniwrapper.so
 
 # NVRAM
 bin/nvram_agent_binder:vendor/bin/nvram_agent_binder
