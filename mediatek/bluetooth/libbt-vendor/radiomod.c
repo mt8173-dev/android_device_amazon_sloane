@@ -179,6 +179,16 @@ HCI_SEQ_T bt_init_preload_script_consys[] =
     {  0  },
 };
 
+HCI_SEQ_T bt_init_postload_script_7662[] =
+{
+    {  GORMcmd_HCC_Set_Local_BD_Addr       }, /*0xFC1A*/
+    {  GORMcmd_HCC_Set_Radio               }, /*0xFC79*/
+    {  GORMcmd_HCC_Set_TX_Power_Offset     }, /*0xFC93*/
+    {  GORMcmd_HCC_Set_Sleep_Timeout       }, /*0xFC7A*/
+    {  GORMcmd_HCC_Set_FW_SysLog           }, /*0xFCBE*/
+    {  0  },
+};
+
 /**************************************************************************
  *                          F U N C T I O N S                             *
 ***************************************************************************/
@@ -1086,7 +1096,7 @@ VOID *GORM_FW_Init_Thread(UNUSED_ATTR VOID *ptr)
         break;
       case 0x7662:
         btinit->cur_script = bt_init_preload_script_7662;
-        // btinit->cur_script = bt_init_postload_script_7662;
+        btinit->cur_script = bt_init_postload_script_7662;
         memcpy(ucDefaultAddr, stBtDefault_7662.addr, 6);
         break;
       case 0x8163:
