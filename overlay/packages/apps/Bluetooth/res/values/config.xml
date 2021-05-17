@@ -1,7 +1,7 @@
 <resources>
     <bool name="profile_supported_map">false</bool>
     <bool name="profile_supported_hdp">false</bool>
-    <bool name="profile_supported_hs_hfp">false</bool>
+    <bool name="profile_supported_hs_hfp">true</bool>
     <bool name="profile_supported_pan">false</bool>
     <bool name="profile_supported_opp">false</bool>
     <bool name="profile_supported_pbap">false</bool>
