@@ -15,6 +15,10 @@
 // often if this is enabled.
 #define BLE_PRIVACY_SPT FALSE
 
+// Disable HFP
+#define BTIF_HF_SERVICES (BTA_HSP_SERVICE_MASK)
+#define BTIF_HF_SERVICE_NAMES  { BTIF_HSAG_SERVICE_NAME, NULL }
+
 // To sync with CONN TIMEOUT of pepper
 #define BTM_BLE_CONN_TIMEOUT_DEF 1000
 
