@@ -18,7 +18,8 @@ LOCAL_OVERRIDES_PACKAGES := \
 	TelephonyProvider \
 	TeleService \
 	Telecomm \
-	Contacts
+	Contacts \
+	Settings
 
 LOCAL_SRC_FILES := /dev/null
 
