@@ -156,6 +156,7 @@ persist.wifi.rssi.thresholds=-84,-73,-64,-60
 ro.btstack=default
 ro.mtk_bt_support=1
 ro.bluetooth.remote.autoconnect=true
+ro.bt.bdaddr_path=/data/misc/bluedroid/bdaddr
 
 # Disable Backup
 ro.backup.disable=true
