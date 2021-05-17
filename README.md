@@ -13,7 +13,7 @@ Storage | 8 GB
 MicroSD | yes (up to 512 GB)
 
 <p align="center">
-  <img src="https://i.imgur.com/FtBNvM0.jpg?1" alt="sloane"/>
+  <img src="https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/384648-streamingmediaplayers-amazon-firetvgamingedition.png" alt="sloane"/>
 </p>
 
 This branch is for building LineageOS 16.0 (CM).
