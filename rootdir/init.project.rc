@@ -128,6 +128,12 @@ service ozwpan /system/bin/sh ozwpan.sh
 	group root
 	oneshot
 
+service baddr_loader /system/bin/sh baddr_loader.sh
+	class late_start
+	user root
+	group root
+	oneshot
+
 service ping_logger /system/bin/sh /system/vendor/etc/ping_logger.sh
 	disabled
 	oneshot

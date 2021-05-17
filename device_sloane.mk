@@ -256,7 +256,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/init.trace.rc:root/init.trace.rc \
 	$(LOCAL_PATH)/rootdir/ueventd.mt8173.rc:root/ueventd.mt8173.rc \
 	$(LOCAL_PATH)/rootdir/init.insmod.sh:system/etc/init.insmod.sh \
-	$(LOCAL_PATH)/rootdir/ozwpan.sh:root/ozwpan.sh
+	$(LOCAL_PATH)/rootdir/ozwpan.sh:root/ozwpan.sh \
+	$(LOCAL_PATH)/rootdir/baddr_loader.sh:root/baddr_loader.sh
 
 # Permissions
 PRODUCT_COPY_FILES += \
