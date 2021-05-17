@@ -64,11 +64,12 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 
-    <string-array translatable="false" name="networkAttributes">
-        <item>"ethernet,9,9,9,-1,true"</item>
-        <item>"wifi,1,1,1,-1,true"</item>
-        <item>"mobile_bluetooth,7,7,0,-1,true"</item>
+    <string-array name="networkAttributes">
+        <item>WIFI,1,1,1,-1,true</item>
+        <item>ethernet,9,9,1,-1,true</item>
+        <item>wifi_p2p,13,1,0,-1,true</item>
     </string-array>
+
     <integer-array name="config_protectedNetworks">
         <item>10</item>
         <item>11</item>
@@ -78,13 +79,30 @@
     </integer-array>
     <string-array name="radioAttributes">
         <item>1,1</item>
+        <item>0,1</item>
         <item>7,1</item>
+        <item>9,1</item>
     </string-array>
 
+    <string-array name="config_tether_usb_regexs">
+        <item>usb\\d</item>
+        <item>rndis\\d</item>
+    </string-array>
+
+    <string-array name="config_tether_wifi_regexs">
+        <item>wlan0</item>
+    </string-array>
+
+    <integer-array name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+    </integer-array>
+
     <!-- Wifi Dual Band support -->
-    <bool name="config_wifi_dual_band_support">true</bool>
+    <bool name="config_wifi_dual_band_support">false</bool>
     <!-- Wifi background scan support -->
-    <bool name="config_wifi_background_scan_support">true</bool>
+    <bool name="config_wifi_background_scan_support">false</bool>
 
     <!-- non-tv specific overlays -->
     <integer name="config_deviceHardwareKeys">0</integer>
@@ -124,5 +142,5 @@
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
 
     <!-- Disable default bluetooth profiles -->
-    <bool name="config_bluetooth_default_profiles">false</bool>
+    <bool name="config_bluetooth_default_profiles">true</bool>
 </resources>
