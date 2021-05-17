@@ -156,7 +156,6 @@ persist.wifi.rssi.thresholds=-84,-73,-64,-60
 ro.btstack=default
 ro.mtk_bt_support=1
 ro.bluetooth.remote.autoconnect=true
-ro.boot.btmacaddr=00:00:00:00:00:00
 
 # Disable Backup
 ro.backup.disable=true
