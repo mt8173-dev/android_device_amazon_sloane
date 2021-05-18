@@ -19,7 +19,8 @@ LOCAL_OVERRIDES_PACKAGES := \
 	TeleService \
 	Telecomm \
 	Contacts \
-	Settings
+	Settings \
+	AppDrawer
 
 LOCAL_SRC_FILES := /dev/null
 
