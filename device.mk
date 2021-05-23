@@ -99,6 +99,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
+    audio_policy.stub \
     libtinycompress
 
 PRODUCT_COPY_PACKAGES += \
