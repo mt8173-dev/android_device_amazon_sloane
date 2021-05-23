@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
     ueventd.mt8173.rc
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/init.fosflags.sh:system/etc/init.fosflags.sh
+    $(DEVICE_PATH)/rootdir/etc/init-fosflags.sh:system/etc/init.fosflags.sh
 
 # Permissions
 PRODUCT_COPY_FILES += \
