@@ -104,7 +104,8 @@ PRODUCT_PACKAGES += \
     audio.btle.default \
     libtinycompress \
     libtinymix \
-    libtinyxml
+    libtinyxml \
+    libalsautils
 
 PRODUCT_COPY_PACKAGES += \
     $(DEVICE_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
