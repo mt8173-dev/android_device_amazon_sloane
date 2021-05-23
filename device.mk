@@ -101,6 +101,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_policy.stub \
     audio.r_submix.default \
+    audio.btle.default \
     libtinycompress
 
 PRODUCT_COPY_PACKAGES += \
