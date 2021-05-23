@@ -1,0 +1,15 @@
+diff --git a/Settings/src/com/android/tv/settings/system/SecurityActivity.java b/Settings/src/com/android/tv/settings/system/SecurityActivity.java
+index 870a3f7..59c49cf 100644
+--- a/Settings/src/com/android/tv/settings/system/SecurityActivity.java
++++ b/Settings/src/com/android/tv/settings/system/SecurityActivity.java
+@@ -100,10 +100,6 @@ public class SecurityActivity extends BaseSettingsActivity implements ActionAdap
+                     verifierAction.setEnabled(mVerifierInstalled);
+                     mActions.add(verifierAction);
+                 }
+-                mActions.add(new Action.Builder().key(ACTION_RESTRICTED_PROFILE)
+-                        .title(getString(R.string.launcher_restricted_profile_app_name))
+-                        .description(RestrictedProfileActivity.getActionDescription(this))
+-                        .intent(new Intent(this, RestrictedProfileActivity.class)).build());
+                 break;
+             case SECURITY_UNKNOWN_SOURCES:
+                 mActions.add(ActionBehavior.ON.toAction(ActionBehavior.getOnKey(
