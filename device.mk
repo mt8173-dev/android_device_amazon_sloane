@@ -192,4 +192,4 @@ $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/amazon/sloane/tank-sloane.mk)
+$(call inherit-product-if-exists, vendor/amazon/sloane/sloane-vendor.mk)
