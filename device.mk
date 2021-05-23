@@ -102,7 +102,8 @@ PRODUCT_PACKAGES += \
     audio_policy.stub \
     audio.r_submix.default \
     audio.btle.default \
-    libtinycompress
+    libtinycompress \
+    libtinymix
 
 PRODUCT_COPY_PACKAGES += \
     $(DEVICE_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
