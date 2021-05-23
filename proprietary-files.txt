@@ -268,7 +268,7 @@ lib64/libamazonwifiservice.so
 lib64/libamazon_remotes.so
 lib64/libaudiocompensationfilter.so
 lib64/libaudiocomponentengine.so
-lib64/libaudiostream_jni.AMAZON.so
+lib64/libaudiostream_jni.AMAZON.so|e5ee2f738ddea229db3a9c4702a1c267fe9dbc32
 lib64/libaudiodcrflt.so
 lib64/libaudioeffect_jni.so
 lib64/libaudiopolicymanagerdefault.so
