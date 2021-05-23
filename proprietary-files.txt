@@ -50,7 +50,6 @@ bin/shutdownalertdialog.sh
 bin/recovery_reporter
 bin/rpmb_svc
 bin/thermald
-bin/watch_props
 bin/wpa_supplicant
 bin/wpa_cli
 bin/wipe_fos_flags
