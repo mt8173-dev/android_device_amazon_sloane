@@ -5,7 +5,7 @@ The Amazon Fire TV 2 (codenamed "sloane") is a mid-range Android TV device from 
 Basic   | Spec Sheet
 -------:|:--------------------------------------------------
 CPU     | QuadCore (4 x 1.3 GHz Cortex-A53)
-Chipseet| Mediatek MT8173
+Chipset | Mediatek MT8173
 GPU     | PowerVR GX6250
 Memory  | 2 GB RAM
 Android | 5.1 (FireOS 5.X)
