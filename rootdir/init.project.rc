@@ -43,6 +43,7 @@ on post-fs-data
 	chmod 0660 /data/vendor/wifi/wpa/p2p_supplicant.conf
 
 	# WLAN Interface
+	setprop sys.wlan.driver.version "4.2.1.33"
 	setprop wifi.interface "wlan0"
 	setprop wifi.direct.multicast 1
 	
