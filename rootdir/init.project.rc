@@ -47,6 +47,7 @@ on post-fs-data
 	setprop sys.wlan.firmware.version "62.E3.108-201507151958____"
 	setprop ro.wlan.vendor "mt"
 	setprop ro.hardware.wlan.vendor "mt"
+	setprop ro.wlan.chip "MT7662"
 	setprop wifi.interface "wlan0"
 	setprop wifi.direct.multicast 1
 	
