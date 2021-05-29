@@ -48,6 +48,7 @@ on post-fs-data
 	setprop ro.wlan.vendor "mt"
 	setprop ro.hardware.wlan.vendor "mt"
 	setprop ro.wlan.chip "MT7662"
+	setprop ro.hardware.wlan.chip "MT7662"
 	setprop wifi.interface "wlan0"
 	setprop wifi.direct.multicast 1
 	
