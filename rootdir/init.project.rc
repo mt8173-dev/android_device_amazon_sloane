@@ -46,6 +46,7 @@ on post-fs-data
 	setprop sys.wlan.driver.version "4.2.1.33"
 	setprop sys.wlan.firmware.version "62.E3.108-201507151958____"
 	setprop ro.wlan.vendor "mt"
+	setprop ro.hardware.wlan.vendor "mt"
 	setprop wifi.interface "wlan0"
 	setprop wifi.direct.multicast 1
 	
