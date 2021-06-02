@@ -163,9 +163,8 @@ lib64/libthermalservice.so:vendor/lib64/libthermalservice.so
 # Audio
 bin/audiocmdservice_atci:vendor/bin/audiocmdservice_atci
 etc/mixer_paths.xml
-etc/audio_effects.conf
+etc/audio_effects.xml|8a3537025e0f8bcf71793f25adb0bcf1b32019e6
 etc/audio_policy.conf:vendor/etc/audio_policy.conf
-vendor/etc/audio_effects.conf:vendor/vendor/etc/audio_effects.conf
 lib/hw/audio.primary.mt8173.so:vendor/lib/hw/audio.primary.mt8173.so
 lib64/hw/audio.primary.mt8173.so:vendor/lib64/hw/audio.primary.mt8173.so
 lib/hw/audio.sco.default.so:vendor/lib/hw/audio.sco.default.so
@@ -191,7 +190,7 @@ lib/libcommon_time_client.so:vendor/lib/libcommon_time_client.so
 lib64/libcommon_time_client.so:vendor/lib64/libcommon_time_client.so
 lib/libwebrtc_audio_preprocessing.so:vendor/lib/libwebrtc_audio_preprocessing.so
 lib64/libwebrtc_audio_preprocessing.so:vendor/lib64/libwebrtc_audio_preprocessing.so
-vendor/etc/audio_effects.conf
+vendor/etc/audio_effects.xml|c1fa96ffe9f0c2d9f9d6593c7427f74a4178d9a4
 vendor/etc/dolby/ds-default.xml
 vendor/lib/soundfx/libswdap.so
 
