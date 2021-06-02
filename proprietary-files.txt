@@ -59,7 +59,7 @@ vendor/lib64/libsrv_um.so
 vendor/lib64/libsrv_init.so
 
 # Connectivity
-bin/pppd:vendor/bin/pppd
+bin/pppd
 bin/dhcpcd
 etc/Wireless/RT2870STA/MT76x2STA.dat
 etc/Wireless/RT2870STA/SingleSKU.dat
@@ -74,6 +74,7 @@ etc/dhcpcd/dhcpcd-hooks/95-configured
 etc/firmware/dvb-fe-xc5000-1.6.114.fw
 etc/firmware/mt7662_firmware_e3_tvbox.bin
 etc/firmware/mt7662_patch_e3_hdr.bin|84d556f936ef58fec4f4293a73ac8546daeebcc0
+etc/ppp/ip-up-vpn
 etc/wifi_gain.sh:vendor/etc/wifi_gain.sh
 etc/wifi_log_levels.sh:vendor/etc/wifi_log_levels.sh
 xbin/iwpriv:vendor/xbin/iwpriv
