@@ -166,42 +166,42 @@ service audio-daemon /vendor/bin/audiocmdservice_atci
 	disabled
 	oneshot
 
-service dhcpcd_bt-pan /vendor/bin/logwrapper /vendor/bin/dhcpcd -BK -dd
+service dhcpcd_bt-pan /vendor/bin/logwrapper /system/bin/dhcpcd -BK -dd
 	class main
 	user dhcp
 	group net_admin net_raw	
 	disabled
 	oneshot
 
-service dhcpcd_wlan0 /vendor/bin/dhcpcd -ABK -dd
+service dhcpcd_wlan0 /system/bin/dhcpcd -ABK -dd
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service dhcpcd_p2p /vendor/bin/logwrapper /vendor/bin/dhcpcd -ABK -dd
+service dhcpcd_p2p /vendor/bin/logwrapper /system/bin/dhcpcd -ABK -dd
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service dhcpcd_eth0 /vendor/bin/dhcpcd -ABK -dd
+service dhcpcd_eth0 /system/bin/dhcpcd -ABK -dd
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service iprenew_wlan0 /vendor/bin/logwrapper /vendor/bin/dhcpcd -n
+service iprenew_wlan0 /vendor/bin/logwrapper /system/bin/dhcpcd -n
 	class main
 	user dhcp
 	group net_admin net_raw 
 	disabled
 	oneshot
 
-service iprenew_p2p /vendor/bin/logwrapper /vendor/bin/dhcpcd -n
+service iprenew_p2p /vendor/bin/logwrapper /system/bin/dhcpcd -n
 	class main
 	user dhcp
 	group net_admin net_raw 
