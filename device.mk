@@ -85,18 +85,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_PACKAGES += \
     $(DEVICE_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    bluetooth.default
-
-# Power
-PRODUCT_PACKAGES += \
-    power.default
-
-# network
-PRODUCT_PACKAGES += \
-    netd
-
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
