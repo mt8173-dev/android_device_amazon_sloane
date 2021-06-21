@@ -100,59 +100,19 @@ PRODUCT_PACKAGES += \
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-     $(DEVICE_PATH)/configs/usr/idc/amazon_touch.idc:system/usr/idc/amazon_touch.idc \
-     $(DEVICE_PATH)/configs/usr/idc/lightning-device.idc:system/usr/idc/lightning-device.idc \
-     $(DEVICE_PATH)/configs/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
-     $(DEVICE_PATH)/configs/usr/keychars/lightning-device.kcm:system/usr/keychars/lightning-device.kcm \
-     $(DEVICE_PATH)/configs/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/lightning-device.kl:system/usr/keylayout/lightning-device.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_0079_Product_0011.kl:system/usr/keylayout/Vendor_0079_Product_0011.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_0171_Product_0413.kl:system/usr/keylayout/Vendor_0171_Product_0413.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_045e_Product_0291.kl:system/usr/keylayout/Vendor_045e_Product_0291.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_b501.kl:system/usr/keylayout/Vendor_046d_Product_b501.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c219.kl:system/usr/keylayout/Vendor_046d_Product_c219.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_054c_Product_05c4.kl:system/usr/keylayout/Vendor_054c_Product_05c4.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_0583_Product_2060.kl:system/usr/keylayout/Vendor_0583_Product_2060.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_0b05_Product_4500.kl:system/usr/keylayout/Vendor_0b05_Product_4500.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1038_Product_1412.kl:system/usr/keylayout/Vendor_1038_Product_1412.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_12bd_Product_d015.kl:system/usr/keylayout/Vendor_12bd_Product_d015.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1532_Product_0900.kl:system/usr/keylayout/Vendor_1532_Product_0900.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1689_Product_fd00.kl:system/usr/keylayout/Vendor_1689_Product_fd00.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1689_Product_fd01.kl:system/usr/keylayout/Vendor_1689_Product_fd01.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1689_Product_fe00.kl:system/usr/keylayout/Vendor_1689_Product_fe00.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_18d1_Product_2c40.kl:system/usr/keylayout/Vendor_18d1_Product_2c40.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_0401.kl:system/usr/keylayout/Vendor_1949_Product_0401.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_0402.kl:system/usr/keylayout/Vendor_1949_Product_0402.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_0404.kl:system/usr/keylayout/Vendor_1949_Product_0404.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_0406.kl:system/usr/keylayout/Vendor_1949_Product_0406.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_0407.kl:system/usr/keylayout/Vendor_1949_Product_0407.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_0409.kl:system/usr/keylayout/Vendor_1949_Product_0409.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_040a.kl:system/usr/keylayout/Vendor_1949_Product_040a.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1949_Product_0415.kl:system/usr/keylayout/Vendor_1949_Product_0415.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1bad_Product_f016.kl:system/usr/keylayout/Vendor_1bad_Product_f016.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1bad_Product_f023.kl:system/usr/keylayout/Vendor_1bad_Product_f023.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1bad_Product_f027.kl:system/usr/keylayout/Vendor_1bad_Product_f027.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1bad_Product_f036.kl:system/usr/keylayout/Vendor_1bad_Product_f036.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_1d79_Product_0009.kl:system/usr/keylayout/Vendor_1d79_Product_0009.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_20a0_Product_0004.kl:system/usr/keylayout/Vendor_20a0_Product_0004.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_2378_Product_1008.kl:system/usr/keylayout/Vendor_2378_Product_1008.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
-     $(DEVICE_PATH)/configs/usr/keylayout/Vendor_2836_Product_0001.kl:system/usr/keylayout/Vendor_2836_Product_0001.kl
+	$(DEVICE_PATH)/configs/keylayout/Vendor_1949_Product_0401.kl:system/usr/keylayout/Vendor_1949_Product_0401.kl \
+	$(DEVICE_PATH)/configs/keylayout/Vendor_1949_Product_0402.kl:system/usr/keylayout/Vendor_1949_Product_0402.kl \
+	$(DEVICE_PATH)/configs/keylayout/Vendor_1949_Product_0407.kl:system/usr/keylayout/Vendor_1949_Product_0407.kl \
+	$(DEVICE_PATH)/configs/keylayout/lightning-device.kl.kl:system/usr/keylayout/lightning-device.kl.kl
+
+# Keychars
+PRODUCT_COPY_FILES += \
+	$(DEVICE_PATH)/configs/keychars/lightning-device.kcm:system/usr/keychars/lightning-device.kcm
+
+# IDC
+PRODUCT_COPY_FILES += \
+	$(DEVICE_PATH)/configs/idc/lightning-device.idc:system/usr/idc/lightning-device.idc \
+	$(DEVICE_PATH)/configs/idc/amazon_touch.idc:system/usr/idc/amazon_touch.idc
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
