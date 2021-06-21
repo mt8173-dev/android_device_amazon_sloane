@@ -25,10 +25,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.media.avsync=true
 
-# Zygote it's 64bit
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	ro.zygote=zygote64_32
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     advanced_meta_init.rc \
