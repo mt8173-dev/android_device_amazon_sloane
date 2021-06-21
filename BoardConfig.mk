@@ -1,7 +1,7 @@
 DEVICE_PATH := device/amazon/sloane
 
 # inherit from the proprietary version
--include vendor/amazon/sloane/BoardConfig.mk
+-include vendor/amazon/sloane/BoardConfigVendor.mk
 
 # Headers
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
