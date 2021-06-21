@@ -102,7 +102,7 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/configs/keylayout/Vendor_1949_Product_0401.kl:system/usr/keylayout/Vendor_1949_Product_0401.kl \
 	$(DEVICE_PATH)/configs/keylayout/Vendor_1949_Product_0402.kl:system/usr/keylayout/Vendor_1949_Product_0402.kl \
 	$(DEVICE_PATH)/configs/keylayout/Vendor_1949_Product_0407.kl:system/usr/keylayout/Vendor_1949_Product_0407.kl \
-	$(DEVICE_PATH)/configs/keylayout/lightning-device.kl.kl:system/usr/keylayout/lightning-device.kl.kl
+	$(DEVICE_PATH)/configs/keylayout/lightning-device.kl:system/usr/keylayout/lightning-device.kl
 
 # Keychars
 PRODUCT_COPY_FILES += \
