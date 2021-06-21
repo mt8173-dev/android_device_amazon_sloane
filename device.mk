@@ -11,27 +11,6 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 
-# Fonts / Svox
-$(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
-$(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
-$(call inherit-product-if-exists, frameworks/base/data/fonts/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/dancing-script/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/carrois-gothic-sc/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/coming-soon/fonts.mk)
-$(call inherit-product-if-exists, external/google-fonts/cutive-mono/fonts.mk)
-$(call inherit-product-if-exists, external/lohit-fonts/fonts.mk)
-$(call inherit-product-if-exists, external/noto-fonts/fonts.mk)
-$(call inherit-product-if-exists, external/naver-fonts/fonts.mk)
-$(call inherit-product-if-exists, frameworks/base/data/keyboards/keyboards.mk)
-$(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
--include external/svox/pico/lang/PicoLangDeDeInSystem.mk
--include external/svox/pico/lang/PicoLangEnGBInSystem.mk
--include external/svox/pico/lang/PicoLangEnUsInSystem.mk
--include external/svox/pico/lang/PicoLangEsEsInSystem.mk
--include external/svox/pico/lang/PicoLangFrFrInSystem.mk
--include external/svox/pico/lang/PicoLangItItInSystem.mk
-
 # TV
 PRODUCT_PACKAGES += \
     TvProvider \
