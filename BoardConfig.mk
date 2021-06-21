@@ -48,6 +48,9 @@ TARGET_KERNEL_SOURCE := kernel/amazon/sloane
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 
+# Kernel Modules
+TARGET_KMODULES := true
+
 # 64 Bit Binder Userspace
 TARGET_USES_64_BIT_BINDER := true
 
