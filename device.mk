@@ -18,7 +18,6 @@ PRODUCT_PACKAGES += \
     tv_input.default \
     LeanbackLauncher \
     LeanbackIme \
-    Overscan \
     CMLeanbackCustomizer
 
 # Enable frame-exact AV sync
