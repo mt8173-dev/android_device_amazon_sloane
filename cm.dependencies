@@ -1,13 +1,13 @@
 [
   {
     "remote":       "github",
-    "repository":   "jmpfbmx/android_kernel_amazon_sloane",
+    "repository":   "mt8173-dev/android_kernel_amazon_sloane",
     "target_path":  "kernel/amazon/sloane",
     "revision":     "cm-12.1"
   },
   {
     "remote":       "github",
-    "repository":   "jmpfbmx/android_vendor_amazon_sloane",
+    "repository":   "mt8173-dev/android_vendor_amazon_sloane",
     "target_path":  "vendor/amazon/sloane",
     "revision":     "cm-12.1"
   }
