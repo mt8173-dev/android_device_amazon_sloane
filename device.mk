@@ -99,7 +99,8 @@ PRODUCT_PACKAGES += \
 
 # Shim Libraries
 PRODUCT_PACKAGES += \
-    libshim_gralloc
+    libshim_gralloc \
+    libshim_log
 
 # Keylayout
 PRODUCT_COPY_FILES += \

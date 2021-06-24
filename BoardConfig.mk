@@ -111,7 +111,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Shim Libraries
-TARGET_LDPRELOAD += libshim_gralloc.so
+TARGET_LDPRELOAD += libshim_gralloc.so:libshim_log.so
 
 # OTA
 BLOCK_BASED_OTA := false
