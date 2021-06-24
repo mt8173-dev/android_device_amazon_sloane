@@ -97,6 +97,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.mt8173
 
+# Shim Libraries
+PRODUCT_PACKAGES += \
+    libshim_gralloc
+
 # Keylayout
 PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/configs/keylayout/Vendor_1949_Product_0401.kl:system/usr/keylayout/Vendor_1949_Product_0401.kl \
