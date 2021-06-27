@@ -1,6 +1,9 @@
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_tv.mk)
 
+# Include atv base
+$(call inherit-product, device/google/atv/products/atv_base.mk)
+
 # Inherit from sloane device
 $(call inherit-product, device/amazon/sloane/full_sloane.mk)
 
