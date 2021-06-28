@@ -113,6 +113,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Shim Libraries
 TARGET_LDPRELOAD += libshim_gralloc.so:libshim_log.so
 
+# System Properties
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
+
 # OTA
 BLOCK_BASED_OTA := false
 TARGET_OTA_ASSERT_DEVICE := sloane,AFTVS
