@@ -11,16 +11,16 @@ bin/guiext-server
 etc/powervr.ini
 lib/hw/hwcomposer.mt8173.so
 lib64/hw/hwcomposer.mt8173.so
--lib/libdpframework.so
--lib64/libdpframework.so
+lib/libdpframework.so
+lib64/libdpframework.so
 lib/libgccdemangle.so
 lib64/libgccdemangle.so
 lib/libged.so
 lib64/libged.so
 lib/libgpu_aux.so
 lib64/libgpu_aux.so
--lib/libion_mtk.so
--lib64/libion_mtk.so
+lib/libion_mtk.so
+lib64/libion_mtk.so
 lib/libm4u.so
 lib64/libm4u.so
 lib/libpq_prot.so
@@ -34,6 +34,12 @@ lib64/libperfservicenative.so
 lib64/libaed.so
 lib/libqservice.so
 lib64/libqservice.so
+lib/libgui_ext.so
+lib/libui_ext.so
+lib/libgralloc_extra.so
+lib64/libgui_ext.so
+lib64/libui_ext.so
+lib64/libgralloc_extra.so
 vendor/bin/pvrdebug
 vendor/bin/pvrsrvctl
 vendor/lib/egl/libEGL_POWERVR_ROGUE.so
@@ -85,8 +91,8 @@ bin/nvram_agent_binder
 bin/nvram_daemon
 lib/libcustom_nvram.so
 lib64/libcustom_nvram.so
--lib/libnvram.so
--lib64/libnvram.so
+lib/libnvram.so
+lib64/libnvram.so
 lib/libfile_op.so
 lib64/libfile_op.so
 lib/libnvram_daemon_callback.so
@@ -99,7 +105,6 @@ lib/libnvramagentclient.so
 lib64/libnvramagentclient.so
 
 # DRM (Crypto) - Pinned blobs from karnak-user-6.0-NS6314-2315
-# DRM (Crypto)
 bin/amzn_dha_hmac
 bin/amzn_dha_tool
 bin/amzn_drmprov_check
@@ -171,8 +176,8 @@ lib/libaudiocompensationfilter.so
 lib64/libaudiocompensationfilter.so
 lib/libaudiocomponentengine.so
 lib64/libaudiocomponentengine.so
--lib/libaudiocustparam.so
--lib64/libaudiocustparam.so
+lib/libaudiocustparam.so
+lib64/libaudiocustparam.so
 lib/libaudiodcrflt.so
 lib64/libaudiodcrflt.so
 lib/libaudiosetting.so
