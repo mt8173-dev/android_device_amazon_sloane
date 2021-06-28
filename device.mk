@@ -125,6 +125,13 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/configs/idc/lightning-device.idc:system/usr/idc/lightning-device.idc \
 	$(DEVICE_PATH)/configs/idc/amazon_touch.idc:system/usr/idc/amazon_touch.idc
 
+# Wi-Fi Configs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 
