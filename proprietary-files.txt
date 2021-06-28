@@ -191,6 +191,10 @@ lib/libmtk_drvb.so
 lib64/libmtk_drvb.so
 lib/libcommon_time_client.so
 lib64/libcommon_time_client.so
+lib/libblisrc.so
+lib/libblisrc32.so
+lib64/libblisrc.so
+lib64/libblisrc32.so
 lib/libwebrtc_audio_preprocessing.so
 lib64/libwebrtc_audio_preprocessing.so
 vendor/etc/audio_effects.conf
