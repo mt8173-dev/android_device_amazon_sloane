@@ -83,6 +83,7 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinymix \
     libtinyxml \
+    libtinyalsa \
     libalsautils \
     libaudioroute \
     libaudiospdif
