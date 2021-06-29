@@ -166,7 +166,6 @@ lib64/libthermalservice.so
 bin/audiocmdservice_atci
 etc/mixer_paths.xml
 etc/audio_effects.conf
-etc/audio_policy.conf
 vendor/etc/audio_effects.conf
 lib/hw/audio.primary.mt8173.so
 lib64/hw/audio.primary.mt8173.so
