@@ -1,11 +1,14 @@
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_tv.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Include atv base
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
 # Inherit from sloane device
-$(call inherit-product, device/amazon/sloane/full_sloane.mk)
+$(call inherit-product, device/amazon/sloane/device.mk)
 
 # Bootanimation
 TARGET_SCREEN_WIDTH := 800
