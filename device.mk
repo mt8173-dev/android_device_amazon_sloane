@@ -95,7 +95,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/configs/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
 	$(DEVICE_PATH)/configs/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
-	$(DEVICE_PATH)/configs/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf
+	$(DEVICE_PATH)/configs/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
+	$(DEVICE_PATH)/configs/bluetooth/ble_stack.conf:system/etc/bluetooth/ble_stack.conf \
 
 PRODUCT_COPY_PACKAGES += \
     $(DEVICE_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
