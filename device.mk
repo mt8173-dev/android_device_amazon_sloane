@@ -136,7 +136,8 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi Packages
 PRODUCT_PACKAGES += \
-    wpa_supplicant
+    wpa_supplicant \
+    hostapd
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
