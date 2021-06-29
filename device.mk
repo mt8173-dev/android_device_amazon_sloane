@@ -26,18 +26,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    advanced_meta_init.rc \
     fstab.mt8173 \
-    init-fosflags.sh \
     init.mt8173.rc \
     init.mt8173.usb.rc \
     init.project.rc \
     init.recovery.mt8173.rc \
-    init.ssd.rc \
     init.trace.rc \
-    meta_init.project.rc \
-    meta_init.rc \
-    ueventd.mt8173.rc
+    ueventd.mt8173.rc \
+	ozwpan.sh
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/etc/init-fosflags.sh:system/etc/init.fosflags.sh
@@ -73,6 +69,11 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_PACKAGES += \
 	libion
+
+# Kernel Modules
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/insmod/init.insmod.cfg:system/etc/init.insmod.cfg \
+    $(DEVICE_PATH)/rootdir/etc/init.insmod.sh:system/etc/init.insmod.sh
 
 # Audio
 PRODUCT_PACKAGES += \

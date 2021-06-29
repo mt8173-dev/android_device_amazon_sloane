@@ -1,30 +1,30 @@
-/dev/pvrsrvkm           0766   root         root
-/dev/pvr_sync           0766   root         root
-/dev/ion                0777   root         root
-/dev/trustzone          0660   system       drmrpc
-/dev/mtk_disp_mgr		0660   system		graphics
-/dev/graphics/fb0		0660   system		graphics
-/dev/sw_sync			0660   system		graphics
-/dev/Vcodec             0660   media        system
-/dev/devmap		0444   root	    media
-
+# Graphics
+/dev/pvrsrvkm	0766	root	root
+/dev/pvr_sync	0766	root	root
+/dev/ion	0777	root	root
+/dev/trustzone	0660	system	drmrpc
+/dev/mtk_disp_mgr		0660	system		graphics
+/dev/graphics/fb0		0660	system		graphics
+/dev/sw_sync			0660	system		graphics
+/dev/Vcodec	0660	media	system
+/dev/devmap				0444	root			media
 
 # SMI
-/dev/MTK_SMI            0660   system        media
+/dev/MTK_SMI	0666	system	media
 
-#connectivity start
-/dev/stpbt               0660  bluetooth   radio
-/dev/ttyGS0              0660  bluetooth   radio
+# Connectivity
+/dev/stpbt	0666	bluetooth	bluetooth
+/dev/ttyGS0	0660	bluetooth	radio
+
 # WIFI
-/dev/wmtWifi             0660  system      system
+/dev/wmtWifi	0666	wifi	wifi
 
-#Thermal
-/sys/devices/virtual/thermal/thermal_zone* mode 0660  system system
-/sys/devices/virtual/thermal/thermal_zone* trips 0660  system system
-/sys/devices/virtual/thermal/thermal_zone* policy 0660  system system
-/sys/devices/virtual/thermal/thermal_zone* polling 0660  system system
-/sys/devices/virtual/thermal/thermal_zone* cdevs 0660  system system
-
+# Thermal
+/sys/devices/virtual/thermal/thermal_zone* mode 	0660	system system
+/sys/devices/virtual/thermal/thermal_zone* trips 	0660	system system
+/sys/devices/virtual/thermal/thermal_zone* policy 	0660	system system
+/sys/devices/virtual/thermal/thermal_zone* polling 	0660	system system
+/sys/devices/virtual/thermal/thermal_zone* cdevs 	0660	system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_0_temp 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_0_hyst 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_1_temp 0660 system system
@@ -49,10 +49,8 @@
 /sys/devices/virtual/thermal/thermal_zone* trip_point_10_hyst 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_11_temp 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_11_hyst 0660 system system
-
 /sys/devices/virtual/thermal/cooling_device* cur_state 0660 system system
 /sys/devices/virtual/thermal/cooling_device* levels 0660 system system
 
-# Linux DVB for tv tuners, needs world read/write to allow
-# amazon apps to configure tuners and display their output
-/dev/dvb*  0666   media       media
+# DVB
+/dev/dvb*	0666	media	media

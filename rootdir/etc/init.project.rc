@@ -1,62 +1,59 @@
-# MTK project .rc configure
-
 on init
-    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
-    mkdir /storage/usbotg 0700 root root 
-    mkdir /mnt/sqfs 0771 system system
+	# Storage
+	mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+	mkdir /storage/usbotg 0700 root root 
+	mkdir /mnt/sqfs 0771 system system
 
-    # ACOS_MOD_BEGIN {amazon_logd}
-    mkdir /dev/logd 0770 logd log
-    mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
-    # ACOS_MOD_END {amazon_logd}
+	# Amazon logd
+	mkdir /dev/logd 0770 logd log
+	mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
+	
+	# Wifi Log Levels (metrics)
+	chmod 0775 /system/etc/wifi_log_levels.sh
+	chown root root /system/etc/wifi_log_levels.sh
 
 on post-fs-data
+	# Encrypt phone function
+	setprop vold.post_fs_data_done 1
 
-#
-# Connectivity related device nodes & configuration (begin)
-#
+	# Wi-Fi
+	mkdir /data/misc/wifi 0770 wifi wifi
+	mkdir /data/misc/wifi/sockets 0770 wifi wifi
 
+	mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+	mkdir /data/misc/p2p_supplicant 0770 wifi wifi
+	chown wifi wifi /data/misc/wifi
+	chown wifi wifi /data/misc/wifi/wpa_supplicant.conf
+	chown wifi wifi /data/misc/wifi/p2p_supplicant.conf
+	chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+	chmod 0660 /data/misc/wifi/p2p_supplicant.conf
 
-# WiFi
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
-    chown wifi wifi /data/misc/wifi
-
-#
-# Connectivity related device nodes & configuration (end)
-#
-
-# Encrypt phone function
-    setprop vold.post_fs_data_done 1
+	# WLAN Interface
+	setprop sys.wlan.driver.version "4.2.1.33"
+	setprop sys.wlan.firmware.version "62.E3.108-201507151958____"
+	setprop ro.wlan.vendor "mt"
+	setprop ro.hardware.wlan.vendor "mt"
+	setprop ro.wlan.chip "MT7662"
+	setprop ro.hardware.wlan.chip "MT7662"
+	setprop wifi.interface "wlan0"
+	setprop wifi.direct.multicast 1
+	
+	# Bluetooth
+	mkdir /data/@btmtk 0770 bluetooth net_bt
+	chown bluetooth bluetooth /dev/hid-keyboard
+	chmod 0660 /dev/hid-keyboard
 
 on boot
-    # Refer to http://source.android.com/devices/tech/storage/index.html
-    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
-    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
-    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
-    #           Developers expect data stored in these locations to be available over long periods of time."
-    # Therefore, if the target has the SD card slot in a battery compartment, we need to specify SECONDARY_STORAGE (*** UN-Comment the following command ***)
-    #
-    export SECONDARY_STORAGE /storage/sdcard1
-    export SECONDARY_STORAGE_USB /storage/usbotg
-
+	# Export storages
+	export SECONDARY_STORAGE /storage/sdcard1
+	export SECONDARY_STORAGE_USB /storage/usbotg
 
 on property:wlan.interface.p2p.group=*
-    exec /system/bin/rmmod ozwpan
-    insmod /system/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
-    start ozwpan
+	exec /system/bin/rmmod ozwpan
+	insmod /vendor/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
+	start ozwpan
 
-
-service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
-    class late_start
-    disabled
-
-#
-# Connectivity related services (Begin)
-#
 on property:wlan.driver.status=ok
-        chown system system /sys/kernel/debug/mtwifi/wlan0/fwpath
 	write /sys/kernel/debug/mtwifi/wlan0/nvram "1"
 
 service p2p_supplicant /system/bin/wpa_supplicant \
@@ -87,52 +84,90 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 	disabled
 	oneshot
 
+service dhcpcd_eth0 /system/bin/dhcpcd -A -BK
+	class main
+	disabled
+	oneshot
+
+service dhcpcd_wlan0 /system/bin/dhcpcd -A -BK
+	class main
+	disabled
+	oneshot
+
+service dhcpcd_p2p /system/bin/dhcpcd -A -BK
+	class main
+	disabled
+	oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+	class main
+	disabled
+	oneshot
+
+service iprenew_p2p /system/bin/dhcpcd -n
+	class main
+	disabled
+	oneshot
+
+service mtkbt /system/bin/mtkbt
+	socket bt.int.adp dgram 660 bluetooth net_bt
+	socket bt.a2dp.stream dgram 660 bluetooth net_bt
+	user bluetooth
+	group system net_bt bluetooth net_bt_admin sdcard_rw inet net_admin net_raw vpn net_bt_stack
+	class late_start
+	oneshot
+
+service dhcpcd_bt-pan /system/bin/dhcpcd -A -BK
+	class main
+	disabled
+	oneshot
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+	class late_start
+	disabled
+
 service ethernet /system/bin/ethernet
-    class main
-    user root
-    group system
-    oneshot
+	class main
+	user root
+	group system
+	oneshot
 
 service ozwpan /system/bin/sh ozwpan.sh
-    class late_start
-    user root
-    group root
-    oneshot
+	class late_start
+	user root
+	group root
+	oneshot
 
-service ping_logger /system/etc/ping_logger.sh
-    disabled
-    oneshot
-    user root
+service ping_logger /system/bin/sh /system/etc/ping_logger.sh
+	disabled
+	oneshot
+	user root
 
 on property:debug.ping.logging=on
-    start ping_logger
+	start ping_logger
 
 on property:debug.ping.logging=off
-    stop ping_logger
+	stop ping_logger
 
-# wifi_log_levels metrics service
-service wifi_log_levels /system/etc/wifi_log_levels.sh
-    class late_start
-    user root
-    group root
+service wifi_log_levels /system/bin/sh /system/etc/wifi_log_levels.sh
+	class late_start
+	user root
+	group root
 
-service wifi_gain /system/etc/wifi_gain.sh
-    disabled
-    oneshot
-    user root
+service wifi_gain /system/bin/sh /system/etc/wifi_gain.sh
+	disabled
+	oneshot
+	user root
 
 on property:debug.wifi.gain.modify.antenna=*
-    start wifi_gain
-#
-# Connectivity related services (End)
-#
+	start wifi_gain
 
 service drmkey_backup /system/bin/amzn_drmprov_tool --backup
-    class main
-    user root
-    group system
-    oneshot
-    disabled
+	class main
+	user root
+	group system
+	oneshot
+	disabled
 
 on property:sys.amzn_drm.need_backup=1
-    start drmkey_backup
+	start drmkey_backup
