@@ -40,9 +40,6 @@ PRODUCT_PACKAGES += \
     ueventd.mt8173.rc \
 	ozwpan.sh
 
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/init-fosflags.sh:system/etc/init.fosflags.sh
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
