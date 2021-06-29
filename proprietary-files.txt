@@ -203,6 +203,9 @@ vendor/lib/soundfx/libswdap.so
 
 # Bluetooth
 bin/autobt
+lib/libbt-vendor.so
+lib/libbluetooth_mtk.so
+lib64/libbluetooth_mtk.so
 lib/libbluetooth_mtk_pure.so
 lib64/libbluetooth_mtk_pure.so
 lib/libbluetoothem_mtk.so
