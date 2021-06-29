@@ -363,6 +363,7 @@ public class BluetoothPairingDialog extends DialogActivity {
                     case BluetoothDevice.PAIRING_VARIANT_OOB_CONSENT:
                         instructions = getString(R.string.bluetooth_incoming_pairing_msg,
                                 mDevice.getName());
+						mDevice.setPairingConfirmation(true);
 
                         break;
                     default:
