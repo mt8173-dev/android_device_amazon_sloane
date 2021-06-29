@@ -3,6 +3,9 @@
 #include <string.h>
 #include <unistd.h>
 
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
+
 extern "C" {
     int atrace_marker_fd     = -1;
 
