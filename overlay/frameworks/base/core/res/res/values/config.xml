@@ -87,4 +87,9 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 
+    <!-- Support for Bluetooth LE --> 
+    <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
+
+    <!-- Disable default bluetooth profiles -->
+    <bool name="config_bluetooth_default_profiles">true</bool>
 </resources>
