@@ -14,7 +14,7 @@ DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 # TV
 PRODUCT_PACKAGES += \
     TvProvider \
-    TvSettings \
+    TvSettingsSloane \
     tv_input.default \
     LeanbackLauncher \
     LeanbackIme \

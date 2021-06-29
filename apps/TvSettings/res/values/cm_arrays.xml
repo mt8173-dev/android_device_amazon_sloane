@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Arrays for root access capability -->
+    <string-array name="root_access_entries" translatable="false">
+        <item>@string/root_access_none</item>
+        <item>@string/root_access_apps</item>
+        <item>@string/root_access_adb</item>
+        <item>@string/root_access_all</item>
+    </string-array>
+
+    <string-array name="root_access_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Arrays for update CM recovery -->
+    <string-array name="update_cm_recovery_entries" translatable="false">
+        <item>@string/update_recovery_off_summary</item>
+        <item>@string/update_recovery_on_summary</item>
+    </string-array>
+
+    <string-array name="update_cm_recovery_values" translatable="false">
+        <item>false</item>
+        <item>true</item>
+    </string-array>
+
+    <!-- Arrays for enable terminal -->
+    <string-array name="enable_terminal_entries" translatable="false">
+        <item>@string/disable_terminal_summary</item>
+        <item>@string/enable_terminal_summary</item>
+    </string-array>
+
+    <string-array name="enable_terminal_values" translatable="false">
+        <item>Disabled</item>
+        <item>Enabled</item>
+    </string-array>
+
+    <!-- Defines the shutdown options shown in the reboot dialog. -->
+    <array name="shutdown_reboot_options" translatable="false">
+        <item>@string/reboot_reboot</item>
+        <item>@string/reboot_soft</item>
+        <item>@string/reboot_recovery</item>
+        <item>@string/reboot_bootloader</item>
+    </array>
+
+    <!-- Do not translate. Defines the shutdown actions passed to the kernel.
+         The first item should be empty for regular reboot. -->
+    <string-array name="shutdown_reboot_actions" translatable="false">
+        <item></item>
+        <item>soft_reboot</item>
+        <item>recovery</item>
+        <item>bootloader</item>
+     </string-array>
+</resources>
