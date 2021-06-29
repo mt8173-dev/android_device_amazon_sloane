@@ -182,6 +182,8 @@ lib/libaudiodcrflt.so
 lib64/libaudiodcrflt.so
 lib/libaudiosetting.so
 lib64/libaudiosetting.so
+lib/libaudiospdif.so
+lib64/libaudiospdif.so
 lib/libbessound_hd_mtk.so
 lib64/libbessound_hd_mtk.so
 lib/libbessound_mtk.so

@@ -86,8 +86,7 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libtinyalsa \
     libalsautils \
-    libaudioroute \
-    libaudiospdif
+    libaudioroute
 
 PRODUCT_COPY_PACKAGES += \
     $(DEVICE_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
