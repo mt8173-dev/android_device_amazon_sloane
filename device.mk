@@ -11,11 +11,16 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 
-# TV
+# Custom TV Settings
 PRODUCT_PACKAGES += \
-    TvProvider \
-    TvSettingsSloane \
+    TvSettingsSloane
+
+# TV input
+PRODUCT_PACKAGES += \
     tv_input.default \
+
+# LeanBack
+PRODUCT_PACKAGES += \
     LeanbackLauncher \
     LeanbackIme \
     CMLeanbackCustomizer
