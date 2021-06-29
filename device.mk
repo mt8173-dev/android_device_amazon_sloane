@@ -83,6 +83,7 @@ PRODUCT_PACKAGES += \
     audio_policy.stub \
     audio.r_submix.default \
     audio.btle.default \
+    audio.usb.default \
     libtinycompress \
     libtinymix \
     libtinyxml \
