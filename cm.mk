@@ -20,11 +20,6 @@ PRODUCT_MANUFACTURER := amzn
 PRODUCT_MODEL := Fire TV2
 TARGET_VENDOR := amazn
 
-# Set product device & name
-PRODUCT_BUILD_PROP_OVERRIDES += \
-   TARGET_DEVICE=Fire_TV2 \
-   PRODUCT_NAME=Fire_TV2
-
 # Use the latest approved GMS identifiers unless running a signed build
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=Amazon/full_sloane/sloane:5.1.1/LVY48F/36.6.3.9_user_639566320:user/release-keys \
