@@ -1,47 +1,22 @@
 on init
-	# Storage
-	mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
-	mkdir /storage/usbotg 0700 root root 
-	mkdir /mnt/sqfs 0771 system system
+	# Storages
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root 
+    mkdir /mnt/sqfs 0771 system system
 
-	# Amazon logd
-	mkdir /dev/logd 0770 logd log
-	mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
-	
-	# Wifi Log Levels (metrics)
-	chmod 0775 /system/etc/wifi_log_levels.sh
-	chown root root /system/etc/wifi_log_levels.sh
+    # Logd
+    mkdir /dev/logd 0770 logd log
+    mount tmpfs tmpfs /dev/logd mode=0770,uid=1036,gid=1036,size=512K,context=u:object_r:logd_tmpfs:s0
 
 on post-fs-data
-	# Encrypt phone function
-	setprop vold.post_fs_data_done 1
-
 	# Wi-Fi
-	mkdir /data/misc/wifi 0770 wifi wifi
-	mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
 
-	mkdir /data/misc/wpa_supplicant 0770 wifi wifi
-	mkdir /data/misc/p2p_supplicant 0770 wifi wifi
-	chown wifi wifi /data/misc/wifi
-	chown wifi wifi /data/misc/wifi/wpa_supplicant.conf
-	chown wifi wifi /data/misc/wifi/p2p_supplicant.conf
-	chmod 0660 /data/misc/wifi/wpa_supplicant.conf
-	chmod 0660 /data/misc/wifi/p2p_supplicant.conf
-
-	# WLAN Interface
-	setprop sys.wlan.driver.version "4.2.1.33"
-	setprop sys.wlan.firmware.version "62.E3.108-201507151958____"
-	setprop ro.wlan.vendor "mt"
-	setprop ro.hardware.wlan.vendor "mt"
-	setprop ro.wlan.chip "MT7662"
-	setprop ro.hardware.wlan.chip "MT7662"
-	setprop wifi.interface "wlan0"
-	setprop wifi.direct.multicast 1
-	
-	# Bluetooth
-	mkdir /data/@btmtk 0770 bluetooth net_bt
-	chown bluetooth bluetooth /dev/hid-keyboard
-	chmod 0660 /dev/hid-keyboard
+	# Encrypt phone function
+    setprop vold.post_fs_data_done 1
 
 on boot
 	# Export storages
@@ -50,10 +25,15 @@ on boot
 
 on property:wlan.interface.p2p.group=*
 	exec /system/bin/rmmod ozwpan
-	insmod /vendor/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
+	insmod /system/lib/modules/ozwpan.ko g_net_dev=${wlan.interface.p2p.group}
 	start ozwpan
 
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+	class late_start
+	disabled
+
 on property:wlan.driver.status=ok
+	chown system system /sys/kernel/debug/mtwifi/wlan0/fwpath
 	write /sys/kernel/debug/mtwifi/wlan0/nvram "1"
 
 service p2p_supplicant /system/bin/wpa_supplicant \
@@ -84,48 +64,6 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 	disabled
 	oneshot
 
-service dhcpcd_eth0 /system/bin/dhcpcd -A -BK
-	class main
-	disabled
-	oneshot
-
-service dhcpcd_wlan0 /system/bin/dhcpcd -A -BK
-	class main
-	disabled
-	oneshot
-
-service dhcpcd_p2p /system/bin/dhcpcd -A -BK
-	class main
-	disabled
-	oneshot
-
-service iprenew_wlan0 /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
-
-service iprenew_p2p /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
-
-service mtkbt /system/bin/mtkbt
-	socket bt.int.adp dgram 660 bluetooth net_bt
-	socket bt.a2dp.stream dgram 660 bluetooth net_bt
-	user bluetooth
-	group system net_bt bluetooth net_bt_admin sdcard_rw inet net_admin net_raw vpn net_bt_stack
-	class late_start
-	oneshot
-
-service dhcpcd_bt-pan /system/bin/dhcpcd -A -BK
-	class main
-	disabled
-	oneshot
-
-service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
-	class late_start
-	disabled
-
 service ethernet /system/bin/ethernet
 	class main
 	user root
@@ -138,7 +76,7 @@ service ozwpan /system/bin/sh ozwpan.sh
 	group root
 	oneshot
 
-service ping_logger /system/bin/sh /system/etc/ping_logger.sh
+service ping_logger /system/etc/ping_logger.sh
 	disabled
 	oneshot
 	user root
@@ -149,12 +87,12 @@ on property:debug.ping.logging=on
 on property:debug.ping.logging=off
 	stop ping_logger
 
-service wifi_log_levels /system/bin/sh /system/etc/wifi_log_levels.sh
+service wifi_log_levels /system/etc/wifi_log_levels.sh
 	class late_start
 	user root
 	group root
 
-service wifi_gain /system/bin/sh /system/etc/wifi_gain.sh
+service wifi_gain /system/etc/wifi_gain.sh
 	disabled
 	oneshot
 	user root

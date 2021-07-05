@@ -12,55 +12,21 @@ on init
 	chown system drmrpc /proc/mtk_cmdq
 
 on fs
-	# Mount and resyze everything
-	mount_all /fstab.mt8173
+	mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system noatime wait ro commit=1
 	exec /system/bin/ext4_resize
-
-	# Legacy partition path support
-	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name /dev/block/platform/mtk-msdc.0/by-name
-	
-	# DRM management center
-	chown root system /dev/block/platform/mtk-msdc.0/by-name/KB
-	chmod 0666 /dev/block/platform/mtk-msdc.0/by-name/KB
-	chown root system /dev/block/platform/mtk-msdc.0/by-name/DKB
-	chmod 0666 /dev/block/platform/mtk-msdc.0/by-name/DKB
-
-on early-init
-	# DebugFS
-	mount debugfs debugfs /sys/kernel/debug
-	chmod 0755 /sys/kernel/debug
-	chown system system /sys/kernel/debug
-
-    # Allow writing to the kernel trace log.
-    chmod 0222 /sys/kernel/debug/tracing/trace_marker
-    chmod 0222 /sys/kernel/tracing/trace_marker
+	mount_all /fstab.mt8173
+	mount squashfs loop@/system/sqfs/container.sqfs /mnt/sqfs wait ro context=u:object_r:squashfs_file:s0
 
 on boot
-	# Thermal Services
 	start thermald
 	start thermal
-
-	# Loading kernel modules in background
-	exec /system/bin/sh /system/etc/init.insmod.sh
 
 	# Enable adb over network
 	setprop service.adb.tcp.port 5555
 
-	# Fix permission for telephony
-	chmod 0644 /proc/cmdline
-
-	# Wi-Fi firmware reload path
-	chown wifi wifi /sys/kernel/debug/mtwifi/wlan0/fwpath
-	chmod 0666 /sys/kernel/debug/mtwifi/wlan0/fwpath
-
 on post-fs-data
-	# Preload shim libraries
-	export LD_PRELOAD "libshim_mutexdestroy.so:libshim_log.so:libshim_atomic.so"
-
-	# NVRAM
 	mkdir /data/nvram 2771 root system
-	
-	# DRM services
+	# DRM
 	start prog_idme
 	start rpmb_svc
 	start amzn_drmprov
@@ -76,35 +42,32 @@ on post-fs-data
 	chmod 0660 /sys/class/misc/md32/md32_mobile_log
 	write /sys/class/misc/md32/md32_boot 1
 
-	# dhcp server
+	# DHCP
 	mkdir /data/misc/dhcp 0770 dhcp wifi
 	chown dhcp wifi /data/misc/dhcp
 
-	# dhcpv6 server 
+	# DHCPV6  
 	mkdir /data/misc/wide-dhcpv6 0770 dhcp wifi
 	chown dhcp wifi /data/misc/wide-dhcpv6
 
-	# M4U
+	# Set mlock limit to infinate (for m4u operation)
 	setrlimit 8 -1 -1
 
 	# HDMI
 	chown media system /dev/hdmitx
 	chmod 0666 /dev/hdmitx
-	
+    
 	# LOGO resolution for fast logo
 	chown media system /dev/block/mmcblk0p11
 	chmod 0660 /dev/block/mmcblk0p11
 
-	# DRM
+	# Change key_provisioning
 	mkdir /data/key_provisioning
 	chmod 0770 /data/key_provisioning
 	chown system system /data/key_provisioning
+	
+	# DRM Management Server
 	start kisd
-
-	# PersistBackup
-	mkdir /persistbackup
-	chmod 0771 /persistbackup
-	chown system system /persistbackup
 
 	# For enabling adb for the first boot
 	mkdir /data/hwval 0770 system system
@@ -113,19 +76,15 @@ on post-fs-data
 
 	# Memtrack alignment between FOS devices
 	chown system system /d/ion/heaps/ion_mm_heap
-	chmod 0666 /d/ion/heaps/ion_mm_heap
 
 service kisd /system/bin/kisd
-	user root
-	group system drmrpc
 
 on charger
-	# Execute normal boot
 	mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system ro wait
 	mount ext4 /dev/block/platform/mtk-msdc.0/by-name/userdata /data noatime,nosuid,nodev,nodelalloc, errors=panic
-	start dump-ramdump
+    start dump-ramdump
 
-service pvrsrvctl /vendor/bin/pvrsrvctl --no-module	--start
+service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module  --start
 	class main
 	user root
 	group root
@@ -143,12 +102,15 @@ on property:init.svc.bootanim=stopped
 	write /proc/bootprof "BOOT_Animation:END"
 	start auto_shutdown
 
+service mobile_log_d /system/bin/mobile_log_d
+	class main
+
 service nvram_daemon /system/bin/nvram_daemon
 	class main
 	user root
 	group system
 	oneshot
-
+	
 service NvRAMAgent /system/bin/nvram_agent_binder
 	class main
 	user system
@@ -159,17 +121,10 @@ service auto_shutdown /system/bin/sh /system/bin/auto_shutdown.sh
 	disabled
 	seclabel u:r:shell:s0
 
-service audio-daemon /system/bin/audiocmdservice_atci
-	class main
-	socket atci-audio stream 660 root system
-	user root
-	disabled
-	oneshot
-
 service dhcpcd_bt-pan /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
 	class main
 	user dhcp
-	group net_admin net_raw	
+	group net_admin net_raw       
 	disabled
 	oneshot
 
@@ -256,7 +211,7 @@ service thermal_qa /system/bin/ThermalBenchmarkAutomation.sh
 
 on property:vold.decrypt=trigger_restart_framework
 	start nvram_daemon
-	
+    
 service hdmi /system/bin/hdmi
 	class main
 	user system
@@ -279,12 +234,6 @@ on property:debug.custom_debug.enable=y
 
 on property:sys.boot_completed=1
 	start adb_usb
-	
-on property:persist.ssusb.mode=1
-	write /sys/devices/bus.8/11270000.SSUSB/mode 1
-
-on property:persist.ssusb.mode=0
-	write /sys/devices/bus.8/11270000.SSUSB/mode 0
 
 service thermal_log /system/bin/thermal_log.sh
 	class late_start

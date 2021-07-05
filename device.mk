@@ -35,8 +35,7 @@ PRODUCT_PACKAGES += \
     init.mt8173.rc \
     init.mt8173.usb.rc \
     init.project.rc \
-    init.recovery.mt8173.rc \
-    init.trace.rc \
+    init.ssd.rc \
     ueventd.mt8173.rc \
 	ozwpan.sh
 
