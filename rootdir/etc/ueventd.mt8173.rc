@@ -13,8 +13,8 @@
 /dev/MTK_SMI            0666   system        media
 
 # Connectivity start
-/dev/stpbt              0660  bluetooth   radio
-/dev/ttyGS0             0660  bluetooth   radio
+/dev/stpbt              0660  bluetooth   bluetooth
+/dev/ttyGS0             0660  bluetooth   bluetooth
 
 # Wi-Fi
 /dev/wmtWifi            0660  system      system
