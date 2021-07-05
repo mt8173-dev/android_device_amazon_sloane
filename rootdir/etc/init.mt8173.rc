@@ -19,7 +19,6 @@ on init
 on fs
 	mount_all /fstab.mt8173
 	exec /system/bin/ext4_resize
-	mount squashfs loop@/system/sqfs/container.sqfs /mnt/sqfs wait ro context=u:object_r:squashfs_file:s0
 
 on boot
 	start thermald

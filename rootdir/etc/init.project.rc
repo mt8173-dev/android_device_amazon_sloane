@@ -2,7 +2,6 @@ on init
 	# Storages
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
     mkdir /storage/usbotg 0700 root root 
-    mkdir /mnt/sqfs 0771 system system
 
     # Logd
     mkdir /dev/logd 0770 logd log
