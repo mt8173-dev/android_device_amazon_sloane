@@ -10,14 +10,14 @@
 /dev/devmap				0444   root	    	media
 
 # SMI
-/dev/MTK_SMI            0666   system        media
+/dev/MTK_SMI            0666   system       media
 
 # Connectivity start
-/dev/stpbt              0660  bluetooth   bluetooth
-/dev/ttyGS0             0660  bluetooth   bluetooth
+/dev/stpbt              0660  bluetooth   	bluetooth
+/dev/ttyGS0             0660  bluetooth   	bluetooth
 
 # Wi-Fi
-/dev/wmtWifi            0660  system      system
+/dev/wmtWifi            0660  wifi      	wifi
 
 # Thermal
 /sys/devices/virtual/thermal/thermal_zone* mode 	0660  system system
