@@ -10,7 +10,7 @@
 /dev/devmap				0444   root	    	media
 
 # SMI
-/dev/MTK_SMI            0660   system        media
+/dev/MTK_SMI            0666   system        media
 
 # Connectivity start
 /dev/stpbt              0660  bluetooth   radio
