@@ -97,7 +97,7 @@ LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := wpa/ssl_shim.cpp
+LOCAL_SRC_FILES := wpa/ssl_shim.cpp drm/crypto_shim.cpp
 LOCAL_MODULE := libshim_wpa
 LOCAL_SHARED_LIBRARIES := libssl libcrypto liblog
 LOCAL_MODULE_TAGS := optional
