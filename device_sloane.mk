@@ -125,9 +125,7 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-	libwpa_client \
 	hostapd \
-	wpa_supplicant \
 	lib_driver_cmd_mt76xx \
 	wpa_supplicant.conf \
 	android.hardware.wifi@1.0-service \
