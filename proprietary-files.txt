@@ -86,12 +86,12 @@ lib/libwifidiags_jniwrapper.so:vendor/lib/libwifidiags_jniwrapper.so
 lib64/libwifidiags_jniwrapper.so:vendor/lib64/libwifidiags_jniwrapper.so
 
 # WPA - keep stock, otherwise wifi won't work
-bin/wpa_cli
-bin/wpa_supplicant
-lib/libwpa_client
-lib64/libwpa_client
-lib/libusb.so
-lib64/libusb.so
+bin/wpa_cli:vendor/bin/wpa_cli
+bin/wpa_supplicant:vendor/bin/hw/wpa_supplicant
+lib/libwpa_client.so:vendor/lib/libwpa_client.so
+lib64/libwpa_client.so:vendor/lib64/libwpa_client.so
+lib/libusb.so:vendor/lib/libusb.so
+lib64/libusb.so:vendor/lib64/libusb.so
 
 # NVRAM
 bin/nvram_agent_binder:vendor/bin/nvram_agent_binder
