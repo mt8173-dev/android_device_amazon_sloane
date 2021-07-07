@@ -143,9 +143,7 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi Packages
 PRODUCT_PACKAGES += \
-    wpa_supplicant \
     hostapd \
-    libwpa_client \
     lib_driver_cmd_mt76xx
 
 # call dalvik heap config
