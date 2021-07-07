@@ -168,7 +168,8 @@ PRODUCT_PACKAGES += \
 	libshim_atomic \
 	libshim_mutexdestroy \
 	libshim_callstack \
-	libshim_selinux
+	libshim_selinux \
+	libshim_wpa
 
 # Keyboard
 PRODUCT_PACKAGES += \
