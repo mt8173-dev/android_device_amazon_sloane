@@ -1,0 +1,29 @@
+From 229cfbed66dc91923f009aabd403651149902d6c Mon Sep 17 00:00:00 2001
+From: diego-cr <diegocr@gmail.com>
+Date: Wed, 11 Sep 2019 18:42:55 +0200
+Subject: [PATCH] Patch to get secure video playback
+
+Thanks @julianwi
+
+https://forum.xda-developers.com/showpost.php?p=80221197&postcount=55
+---
+ media/libstagefright/ACodec.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
+index cdeb161f75..130dc18c4c 100644
+--- a/media/libstagefright/ACodec.cpp
++++ b/media/libstagefright/ACodec.cpp
+@@ -784,6 +784,12 @@ status_t ACodec::configureOutputBuffersFromNativeWindow(
+         usage |= GRALLOC_USAGE_PROTECTED;
+     }
+ 
++#define GRALLOC_USAGE_SECURE 0x01000000;
++    if (mFlags & kFlagIsSecure) {
++        usage |= GRALLOC_USAGE_SECURE;
++        ALOGW("ACODEC: use GRALLOC_USAGE_SECURE\n");
++    }
++
+     // Make sure to check whether either Stagefright or the video decoder
+     // requested protected buffers.
+     if (usage & GRALLOC_USAGE_PROTECTED) {
