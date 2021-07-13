@@ -322,6 +322,8 @@ lib/libstagefright_hdcprx.so
 lib64/libstagefright_hdcprx.so
 lib/libvp9dec_sa.ca7.so
 vendor/lib/libstagefright_soft_ddpdec.so
+lib/libstagefrighthw.so
+lib64/libstagefrighthw.so
 
 # Remote
 lib/libamazon_remotes.so
