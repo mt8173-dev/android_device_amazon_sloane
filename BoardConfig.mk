@@ -207,11 +207,7 @@ TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib64/libsrv_um.so|libshim_callstack.so \
 	/system/vendor/lib/hw/keystore.mt8173.so|libshim_log.so \
 	/system/vendor/lib64/hw/keystore.mt8173.so|libshim_log.so \
-	/system/vendor/bin/nandread|libshim_selinux.so \
-	/system/vendor/bin/hw/wpa_supplicant|libshim_wpa.so \
-	/system/vendor/bin/wpa_cli|libshim_wpa.so \
-	/system/vendor/lib/libwpa_supplicant.so|libshim_wpa.so \
-	/system/vendor/lib64/libwpa_supplicant.so|libshim_wpa.so
+	/system/vendor/bin/nandread|libshim_selinux.so
 
 # Device-Specific Headers
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_FOLDER)/include

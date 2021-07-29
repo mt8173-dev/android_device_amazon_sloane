@@ -85,9 +85,13 @@ lib64/libwifidiags.so:vendor/lib64/libwifidiags.so
 lib/libwifidiags_jniwrapper.so:vendor/lib/libwifidiags_jniwrapper.so
 lib64/libwifidiags_jniwrapper.so:vendor/lib64/libwifidiags_jniwrapper.so
 
-# WPA - keep stock, otherwise wifi won't work
+# WPA - keep stock, otherwise wifi won't work 
 bin/wpa_cli:vendor/bin/wpa_cli
-bin/wpa_supplicant:vendor/bin/hw/wpa_supplicant
+bin/wpa_supplicant:vendor/bin/hw/wpa_supplicant|540a6308857e6fece22378f662d7c820fe6d76eb
+lib/libcrypto.so:lib/libcrypto-v22.so
+lib64/libcrypto.so:lib64/libcrypto-v22.so
+lib/libssl.so:lib/libssl-v22.so
+lib64/libssl.so:lib64/libssl-v22.so
 lib/libwpa_client.so:vendor/lib/libwpa_client.so
 lib64/libwpa_client.so:vendor/lib64/libwpa_client.so
 lib/libusb.so:vendor/lib/libusb.so
