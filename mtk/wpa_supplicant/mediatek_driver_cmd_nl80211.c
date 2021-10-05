@@ -10,6 +10,17 @@
  *
  */
 
+#include "includes.h"
+#include <sys/types.h>
+#include <fcntl.h>
+#include <net/if.h>
+#include <netlink/attr.h>
+#include <netlink/handlers.h>
+#include <netlink/genl/genl.h>
+#include <netlink/genl/ctrl.h>
+
+#include "common.h"
+#include "linux_ioctl.h"
 #include "mediatek_driver_nl80211.h"
 #include "wpa_supplicant_i.h"
 #include "config.h"
@@ -128,13 +139,6 @@ static int testmode_sta_statistics_handler(struct nl_msg *msg, void *arg)
     return NL_SKIP;
 }
 
-static void * nl80211_cmd(struct wpa_driver_nl80211_data *drv,
-			  struct nl_msg *msg, int flags, uint8_t cmd)
-{
-	return genlmsg_put(msg, 0, 0, drv->global->nl80211_id,
-			   0, flags, cmd, 0);
-}
-
 static int wpa_driver_nl80211_testmode(void *priv, const u8 *data,
 	                               size_t data_len)
 {
@@ -149,8 +153,6 @@ static int wpa_driver_nl80211_testmode(void *priv, const u8 *data,
 		return -1;
 
 	wpa_printf(MSG_DEBUG, "nl80211: Test Mode buflen = %d", data_len);
-
-    nl80211_cmd(drv, msg, 0, NL80211_CMD_TESTMODE);
 
 	NLA_PUT_U32(msg, NL80211_ATTR_IFINDEX, drv->ifindex);
 	NLA_PUT(msg, NL80211_ATTR_TESTDATA, data_len, data);
@@ -227,7 +229,6 @@ static int wpa_driver_mediatek_set_country(void *priv, const char *alpha2_arg)
 		return -1;
 	}
 	os_memset(&iwr, 0, sizeof(iwr));
-	os_strncpy(iwr.ifr_name, drv->first_bss.ifname, IFNAMSIZ);
 	sprintf(buf,"COUNTRY %s",alpha2_arg);
 	iwr.u.data.pointer = buf;
 	iwr.u.data.length = strlen(buf);

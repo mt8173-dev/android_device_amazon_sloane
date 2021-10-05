@@ -19,6 +19,7 @@
 #ifndef _DRIVER_NL80211_H_
 #define _DRIVER_NL80211_H_
 
+#include <sys/socket.h>
 #include "includes.h"
 #include <sys/ioctl.h>
 #include <sys/types.h>
