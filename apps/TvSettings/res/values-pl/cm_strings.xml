@@ -16,82 +16,46 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">Aktualizacje CyanogenMod</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">Wersja CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Wersja zabezpieczeń Androida</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> krok od włączenia opcji programistycznych.</item>
-    <item quantity="few">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroki od włączenia opcji programistycznych.</item>
-    <item quantity="other">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia opcji programistycznych.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Aktywowałeś opcje programistyczne!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Wystarczy, już jesteś programistą.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Data kompilacji</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Wersja jądra</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">Stan SELinux</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Wyłączony</string>
-  <string name="selinux_status_permissive">Tolerancyjny</string>
-  <string name="selinux_status_enforcing">Narzucający się</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">By rozpocząć korzystanie z CyanogenMod upewnij się, że urządzenie Bluetooth jest w trybie parowania. Urządzenia Nexus mogą to zrobić przez jednoczesne wciśnięcie przycisku home i wstecz.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Dostęp do roota</string>
-  <string name="root_access_warning_title">Przyznać dostęp do roota?</string>
-  <string name="root_access_warning_message">Przyznanie aplikacjom dostępu do uprawień roota jest niebezpieczne i może zagrozić bezpieczeństwu systemu!</string>
-  <string name="root_access_none">Wyłączone</string>
-  <string name="root_access_apps">Tylko aplikacje</string>
-  <string name="root_access_adb">Tylko ADB</string>
-  <string name="root_access_all">Aplikacje i ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Recovery Cyanogen</string>
-  <string name="update_recovery_on_summary">Aktualizuj wraz z aktualizacjami systemu</string>
-  <string name="update_recovery_off_summary">Nie aktualizuj wraz z aktualizacjami systemu</string>
-  <string name="update_recovery_on_warning">UWAGA: Kiedy ta funkcja jest włączona, twoje recovery zostanie zastąpione przez to dołączone do aktualnie działającej wersji systemu.\n\nTwoje recovery będzie aktualizowane wraz z aktualizacjami systemu, pomagając w zapewnieniu kompatybilność z przyszłymi wersjami.\n\nChcesz włączyć tę funkcję?</string>
-  <string name="update_recovery_off_warning">OSTRZEŻENIE: Kiedy ta funkcja jest wyłączona, zainstalowane recovery nie będzie się aktualizowało wraz z aktualizacjami systemu.\n\nPrzyszłe aktualizacje systemu mogą się nie zainstalować przy przestarzałych lub zewnętrznych wersjach recovery.\n\nCzy jesteś pewien, że chcesz wyłączyć tę funkcję?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB przez sieć</string>
-  <string name="adb_over_network_summary">Aktywuj debugowanie TCP/IP przez interfejs sieciowy (Wi\u2011Fi, sieci USB). Ustawienie zostanie zresetowane po ponownym uruchomieniu</string>
-  <string name="adb_over_network_disable_summary">Kliknij, aby wyłączyć debugowanie TCP/IP przez interfejsy sieciowe (Wi\u2011Fi, sieci USB).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">OSTRZEŻENIE: Gdy ADB przez sieć jest włączone, twój telefon jest narażony na intruzów z wszystkich podłączonych sieci!\n\nUżywaj tej funkcji tylko wtedy, gdy korzystasz z zaufanych sieci.\n\nNa pewno chcesz włączyć tę funkcję?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Resetowanie domyślnego ekranu głównego</string>
-  <string name="system_home_settings">Ustawienia ekranu głównego</string>
-  <string name="reset_launcher_title">Resetowanie domyślnego ekranu głównego</string>
-  <string name="reset_launcher_description">Resetując domyślny ekran główny, będzie można wybrać alternatywną aplikację ekranu głównego (np. Trebuchet).\n\nCzy chcesz zresetować domyślną aplikację ekranu głównego?</string>
-  <string name="reset_launcher_tip">Naciśnij przycisk Home, aby wywołać okno wyboru aplikacji ekranu głównego.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Lokalny terminal</string>
-  <string name="enable_terminal_summary">Włącz aplikację terminala</string>
-  <string name="disable_terminal_summary">Wyłącz aplikację terminala</string>
-  <string name="enable_terminal_on">Włączony</string>
-  <string name="enable_terminal_off">Wyłączony</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Zaawansowany restart</string>
-  <string name="advanced_reboot_summary">Zawiera opcję restartu do recovery, bootloadera oraz wykonanie miękkiego restartu</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Uruchom ponownie</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Miękki restart</string>
-  <!-- Display settings -->
-  <string name="system_display">Ekran</string>
-  <string name="system_display_overscan">Dostrajanie</string>
-  <string name="system_display_overscan_description">Skalibruj ekran, aby dopasować go do rozmiaru twojego ekranu.</string>
+    <string name="about_cmupdate_settings_title">Aktualizacje CyanogenMod</string>
+    <string name="about_mod_version">Wersja CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Jesteś o <xliff:g id="step_count">%1$d</xliff:g> krok od włączenia ustawień programisty.</item>
+        <item quantity="few">Jesteś <xliff:g id="step_count">%1$d</xliff:g> kroki od włączenia ustawień programisty.</item>
+        <item quantity="many">Jesteś <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia ustawień programisty.</item>
+        <item quantity="other">Jesteś <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia ustawień programisty.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Aktywowałeś opcje programistyczne!</string>
+    <string name="show_dev_already_cm">Wystarczy, już jesteś programistą.</string>
+    <string name="about_build_date">Data kompilacji</string>
+    <string name="about_kernel_version">Wersja jądra</string>
+    <string name="about_selinux_status">Stan SELinux</string>
+    <string name="selinux_status_disabled">Wyłączony</string>
+    <string name="selinux_status_permissive">Tolerancyjny</string>
+    <string name="selinux_status_enforcing">Narzucający się</string>
+    <string name="accessories_add_bluetooth_inst_cm">By rozpocząć korzystanie z CyanogenMod upewnij się, że urządzenie Bluetooth jest w trybie parowania. Urządzenia Nexus mogą to zrobić przez jednoczesne wciśnięcie przycisku home i wstecz.</string>
+    <string name="root_access">Dostęp do roota</string>
+    <string name="root_access_warning_title">Przyznać dostęp do roota?</string>
+    <string name="root_access_warning_message">Przyznanie aplikacjom dostępu do uprawień roota jest niebezpieczne i może zagrozić bezpieczeństwu systemu!</string>
+    <string name="root_access_none">Wyłączone</string>
+    <string name="root_access_apps">Tylko aplikacje</string>
+    <string name="root_access_adb">Tylko ADB</string>
+    <string name="root_access_all">Aplikacje i ADB</string>
+    <string name="enable_terminal_title">Lokalny terminal</string>
+    <string name="enable_terminal_summary">Włącz terminal, który oferuje dostęp do lokalnej powłoki</string>
+    <string name="system_display">Ekran</string>
+    <string name="system_display_overscan">Dostrajanie</string>
+    <string name="system_display_overscan_description">Skalibruj ekran, aby dopasować go do rozmiaru twojego ekranu.</string>
+    <string name="system_reset_default_home">Resetowanie domyślnego ekranu głównego</string>
+    <string name="system_home_settings">Ustawienia ekranu głównego</string>
+    <string name="reset_launcher_title">Resetowanie domyślnego ekranu głównego</string>
+    <string name="reset_launcher_description">Resetując domyślny ekran główny, będzie można wybrać alternatywną aplikację ekranu głównego (np. Trebuchet).\n\nCzy chcesz zresetować domyślną aplikację ekranu głównego?</string>
+    <string name="reset_launcher_tip">Naciśnij przycisk Home, aby wywołać okno wyboru aplikacji ekranu głównego.</string>
+    <string name="advanced_reboot_title">Zaawansowany restart</string>
+    <string name="advanced_reboot_summary">Zawiera opcję restartu do recovery, bootloadera oraz wykonanie miękkiego restartu</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Miękki restart</string>
+    <string name="adb_over_network">ADB przez sieć</string>
+    <string name="adb_over_network_summary">Aktywuj debugowanie TCP/IP przez interfejs sieciowy (Wi\u2011Fi, sieci USB). Ustawienie zostanie zresetowane po ponownym uruchomieniu</string>
+    <string name="adb_over_network_warning">OSTRZEŻENIE: Gdy ADB przez sieć jest włączone, twój telefon jest narażony na intruzów z wszystkich podłączonych sieci!\n\nUżywaj tej funkcji tylko wtedy, gdy korzystasz z zaufanych sieci.\n\nNa pewno chcesz włączyć tę funkcję?</string>
 </resources>

@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod ನವೀಕರಣೆಗಳು</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod ಆವೃತ್ತಿ</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">ಆಂಡ್ರಾಯ್ಡ್ ಭದ್ರತಾ ಪ್ಯಾಚ್ ಮಟ್ಟ</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">ನೀವು ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಟಿಂಗ್ಸ್ ಸಕ್ರಿಯಗೊಳಿಸಲು <xliff:g id="step_count">%1$d</xliff:g> ಹಂತದಷ್ತು ದೂರವಿದ್ದೀರಿ.</item>
-    <item quantity="other">ನೀವು ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಟಿಂಗ್ಸ್ ಸಕ್ರಿಯಗೊಳಿಸಲು <xliff:g id="step_count">%1$d</xliff:g> ಹಂತಗಳಷ್ಟು ದೂರವಿದ್ದೀರಿ.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">ನೀವು ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಘಿಂಗ್ಸನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದ್ದೀರಿ!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">ಅಗತ್ಯವಿಲ್ಲ, ನೀವು ಈಗಾಗಲೇ ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಟಿಂಗ್ಸನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದ್ದೀರಿ.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">ನಿರ್ಮಾಣ ದಿನಾಂಕ</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">ಕೆರ್ನಲ್ ಆವೃತ್ತಿ</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux ಸ್ಥಿತಿ</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
-  <string name="selinux_status_permissive">ಅನುಮೋದಕ</string>
-  <string name="selinux_status_enforcing">ಕಡ್ಡಾಯವಾದ</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">CyanogenMod ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಬ್ಲೂಟೂತ್ ಸಾಧನ ಜೋಡಿಮಾಡುವ ಮೋಡ್‍ನಲ್ಲಿ ಇದೆಯೇ ಎಂದು ಖಚಿತಪಡಿಸಿ. ನೆಕ್ಸಸ್ ರಿಮೋಟ್‍ಗಾಗಿ ಇದನ್ನು ಬ್ಯಾಕ್ ಮತ್ತು ಹೋಂ ಬಟನ್ ಏಕಕಾಲದಲ್ಲಿ ಒತ್ತುವ ಮೂಲಕ ಮಾಡಬಹುದಾಗಿದೆ.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">ರೂಟ್ ಪ್ರವೇಶ</string>
-  <string name="root_access_warning_title">ರೂಟ್ ಪ್ರವೇಶ ಅನುಮತಿಸು?</string>
-  <string name="root_access_warning_message">ಆಪ್‍ಗಳಿಗೆ ರೂಟ್ ಪ್ರವೇಶಕ್ಕಾಗಿ ವಿನಂತಿಸುವುದನ್ನು ಅನುಮತಿಸುವುದು ಬಹಳ ಅಪಾಯಕಾರಿ ಹಾಗು ನಿಮ್ಮ ಸಿಸ್ಟಂನ ಭದ್ರತೆಯ ಜೊತೆ ರಾಜಿಯಾಗಬಹುದು!</string>
-  <string name="root_access_none">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
-  <string name="root_access_apps">ಆಪ್ಸ್ ಮಾತ್ರ</string>
-  <string name="root_access_adb">ಎಡಿಬಿ ಮಾತ್ರ</string>
-  <string name="root_access_all">ಆಪ್ಸ್ ಮತ್ತು ಎಡಿಬಿ</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen ರಿಕವರಿ</string>
-  <string name="update_recovery_on_summary">ಸಿಸ್ಟಂ ಸವೀಕರಣೆಗಳೊಂದಿಗೆ ನವೀಕರಿಸು</string>
-  <string name="update_recovery_off_summary">ಸಿಸ್ಟಂ ನವೀಕರಣೆಗಳೊಂದಿಗೆ ನವೀಕರಿಸಬೇಡ</string>
-  <string name="update_recovery_on_warning">ಗಮನಿಸಿ: ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ನಿಮ್ಮ ಸ್ಥಾಪಿತವಾಗಿರುವ ರಿಕವರಿಯನ್ನು ಚಲಿಸುತ್ತಿರುವ OSನ ಪ್ರಸ್ತುತ ಆವೃತ್ತಿಯ ಜೊತೆ ಬಂದಿರುವ ರಿಕವರಿಯೊಂದಿಗೆ ಬದಲಾಯಿಸುತ್ತದೆ.\n\nಮುಂದಿನ ಆವೃತ್ತಿಗಳೊಂದಿಗೆ ಖಚಿತವಾಗಿ ಹೊಂದಿಕೊಳ್ಳುವಂತೆ ಸಹಕರಿಸಲು, ನಿಮ್ಮ ರಿಕವರಿಯು ಸಿಸ್ಟಂ ನವೀಕರಣೆಯ ಜೊತೆ ನವೀಕೃತಗೊಳ್ಳುತ್ತಲೇ ಇರುತ್ತದೆ.\n\nನೀವು ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಕ್ಕ್ರಿಯಗೊಳಿಸಲು ಇಷ್ಟಪಡುವಿರಾ?</string>
-  <string name="update_recovery_off_warning">ಎಚ್ಚರಿಕೆ: ಈ ವೈಶಿಷ್ಟ್ಯ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ನಿಮ್ಮ ಸ್ಥಾಪಿತವಾಗಿರುವ ರಿಕವರಿಯು OS ಅಭಿವೃದ್ಧಿಗಳ ಜೊತೆ ನವೀಕರಣೆಗೊಳ್ಳುವುದಿಲ್ಲ.\n\nಮುಂದಿನ OS ನವೀಕರಣೆಗಳು ಹಳತಾದ ಅಥವಾ ಕಸ್ಟಮ್ ರಿಕವರಿಯೊಂದಿಗೆ ಸ್ಥಾಪನೆಯಾಗದಿರಬಹುದು.\n\nನೀವು ನಿಜವಾಗಿಯೂ ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಬಯಸುವಿರಾ?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ನೆಟ್‍ವರ್ಕ್ ಮೇಲೆ ಎಡಿಬಿ</string>
-  <string name="adb_over_network_summary">ನೆಟ್‍ವರ್ಕ್ ಇಂಟರ್ಫೇಸ್ (ವೈ\u2011ಫೈ, ಯುಎಸ್‍ಬಿ ನೆಟ್‍ವರ್ಕ್‍ಗಳು) ಮೇಲಿನಿಂದ ಟಿಸಿಪಿ/ಐಪಿ ಡೀಬಗ್ಗಿಂಗ್ ಸಕ್ರಿಯಗೊಳಿಸಿ. ಈ ಸೆಟ್ಟಿಂಗ್ಸ್ ರಿಬೂಟ್ ಆದಾಗ ಮರುಹೊಂದುತ್ತದೆ</string>
-  <string name="adb_over_network_disable_summary">ನೆಟ್‍ವರ್ಕ್ ಇಂಟರ್ಫೇಸ್ (ವೈ\u2011ಫೈ, ಯುಎಸ್‍ಬಿ ನೆಟ್‍ವರ್ಕ್‍ಗಳು) ಮೇಲಿನಿಂದ ಟಿಸಿಪಿ/ಐಪಿ ಡೀಬಗ್ಗಿಂಗ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಒತ್ತಿ.</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">ಎಚ್ಚರಿಕೆ: ನೆಟ್‍ವರ್ಕ್ ಮೇಲೆ ಎಡಿಬಿ ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ನಿಮ್ಮ ಫೋನ್ ಸಂಪರ್ಕಗೊಂಡ ಎಲ್ಲಾ ನೆಟ್‍ವರ್ಕ್‍ಗಳಲ್ಲಿ ಅತಿಕ್ರಮಣಗಳಿಗಾಗಿ ತೆರೆದಿರುತ್ತದೆ!\n\nನೀವು ವಿಶ್ವಾಸಾರ್ಹ ನೆಟ್‍ವರ್ಕ್‍ಗಳಲ್ಲಿ ಸಂಪರ್ಕಗೊಂಡಾಗ ಮಾತ್ರ ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಉಪಯೋಗಿಸಿ.\n\nನೀವು ನಿಜವಾಗಿಯೂ ಈ ಕಾರ್ಯವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಬಯಸುವಿರಾ?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸು</string>
-  <string name="system_home_settings">ಹೋಮ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
-  <string name="reset_launcher_title">ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸು</string>
-  <string name="reset_launcher_description">ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸುವುದರಿಂದ, ನಿಮಗೆ ಒಂದು ಪರ್ಯಾಯ ಹೋಮ್ ಪರದೆಯನ್ನು ಆರಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ (ಉದಾಹರಣೆಗೆ ಟ್ರೆಬ್ಯುಚೆಟ್).\n\nನೀವು ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸಲು ಇಷ್ಟಪಡುವಿರಾ?</string>
-  <string name="reset_launcher_tip">ಹೋಮ್ ಪರದೆ ಆಯ್ಕೆಯ ಸಂವಾದವನ್ನು ತರಲು ಹೋಮ್ ಬಟನ್‍ನನ್ನು ಒತ್ತಿ.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">ಸ್ಥಳೀಯ ಟರ್ಮಿನಲ್</string>
-  <string name="enable_terminal_summary">ಟರ್ಮಿನಲ್ ಆಪ್ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
-  <string name="disable_terminal_summary">ಟರ್ಮಿನಲ್ ಆಪ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
-  <string name="enable_terminal_on">ಸಕ್ರಿಯಗೊಂಡಿದೆ</string>
-  <string name="enable_terminal_off">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">ಸುಧಾರಿತ ರಿಬೂಟ್</string>
-  <string name="advanced_reboot_summary">ಕುರಿತು ಮೆನುವಿನಲ್ಲಿ ರಿಕವಿರಿ, ಬೂಟ್‍ಲೋಡರ್‍ಗೆ ರಿಬೂಟ್ ಆಗಲು ಅಥವಾ ಸಾಫ್ಟ್ ರಿಬೂಟ್ ನಿರ್ವಹಿಸಲು ಅಯ್ಕೆಗಳನ್ನು ಸೇರಿಸು</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">ರಿಬೂಟ್</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">ರಿಕವರಿ</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">ಬೂಟ್‍ಲೋಡರ್</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">ಸಾಫ್ಟ್ ರಿಬೂಟ್</string>
-  <!-- Display settings -->
-  <string name="system_display">ಪ್ರದರ್ಶನ</string>
-  <string name="system_display_overscan">ಓವರ್‍ಸ್ಕ್ಯಾನ್</string>
-  <string name="system_display_overscan_description">ನಿಮ್ಮ ಪರದೆ ಗಾತ್ರಕ್ಕೆ ಸರಿಹೊಂದಿಸಲು ಪ್ರದರ್ಶನವನ್ನು ಮಾಪನಾಂಕ ಮಾಡಿ.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod ನವೀಕರಣೆಗಳು</string>
+    <string name="about_mod_version">CyanogenMod ಆವೃತ್ತಿ</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">ನೀವು ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಟಿಂಗ್ಸ್ ಸಕ್ರಿಯಗೊಳಿಸಲು <xliff:g id="step_count">%1$d</xliff:g> ಹಂತದಷ್ತು ದೂರವಿದ್ದೀರಿ.</item>
+        <item quantity="other">ನೀವು ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಟಿಂಗ್ಸ್ ಸಕ್ರಿಯಗೊಳಿಸಲು <xliff:g id="step_count">%1$d</xliff:g> ಹಂತಗಳಷ್ಟು ದೂರವಿದ್ದೀರಿ.</item>
+    </plurals>
+    <string name="show_dev_on_cm">ನೀವು ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಘಿಂಗ್ಸನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದ್ದೀರಿ!</string>
+    <string name="show_dev_already_cm">ಅಗತ್ಯವಿಲ್ಲ, ನೀವು ಈಗಾಗಲೇ ಡೆವಲಪ್‍ಮೆಂಟ್ ಸೆಟ್ಟಿಂಗ್ಸನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದ್ದೀರಿ.</string>
+    <string name="about_build_date">ನಿರ್ಮಾಣ ದಿನಾಂಕ</string>
+    <string name="about_kernel_version">ಕೆರ್ನಲ್ ಆವೃತ್ತಿ</string>
+    <string name="about_selinux_status">SELinux ಸ್ಥಿತಿ</string>
+    <string name="selinux_status_disabled">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
+    <string name="selinux_status_permissive">ಅನುಮೋದಕ</string>
+    <string name="selinux_status_enforcing">ಕಡ್ಡಾಯವಾದ</string>
+    <string name="accessories_add_bluetooth_inst_cm">CyanogenMod ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಬ್ಲೂಟೂತ್ ಸಾಧನ ಜೋಡಿಮಾಡುವ ಮೋಡ್‍ನಲ್ಲಿ ಇದೆಯೇ ಎಂದು ಖಚಿತಪಡಿಸಿ. ನೆಕ್ಸಸ್ ರಿಮೋಟ್‍ಗಾಗಿ ಇದನ್ನು ಬ್ಯಾಕ್ ಮತ್ತು ಹೋಂ ಬಟನ್ ಏಕಕಾಲದಲ್ಲಿ ಒತ್ತುವ ಮೂಲಕ ಮಾಡಬಹುದಾಗಿದೆ.</string>
+    <string name="root_access">ರೂಟ್ ಪ್ರವೇಶ</string>
+    <string name="root_access_warning_title">ರೂಟ್ ಪ್ರವೇಶ ಅನುಮತಿಸು?</string>
+    <string name="root_access_warning_message">ಆಪ್‍ಗಳಿಗೆ ರೂಟ್ ಪ್ರವೇಶಕ್ಕಾಗಿ ವಿನಂತಿಸುವುದನ್ನು ಅನುಮತಿಸುವುದು ಬಹಳ ಅಪಾಯಕಾರಿ ಹಾಗು ನಿಮ್ಮ ಸಿಸ್ಟಂನ ಭದ್ರತೆಯ ಜೊತೆ ರಾಜಿಯಾಗಬಹುದು!</string>
+    <string name="root_access_none">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
+    <string name="root_access_apps">ಆಪ್ಸ್ ಮಾತ್ರ</string>
+    <string name="root_access_adb">ಎಡಿಬಿ ಮಾತ್ರ</string>
+    <string name="root_access_all">ಆಪ್ಸ್ ಮತ್ತು ಎಡಿಬಿ</string>
+    <string name="enable_terminal_title">ಸ್ಥಳೀಯ ಟರ್ಮಿನಲ್</string>
+    <string name="enable_terminal_summary">ಸ್ಥಳೀಯ ಶೆಲ್ ಪ್ರವೇಶವನ್ನು ಒದಗಿಸುವ ಟರ್ಮಿನಲ್ ಅಪ್ಲಿಕೇಶನ್ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+    <string name="system_display">ಪ್ರದರ್ಶನ</string>
+    <string name="system_display_overscan">ಓವರ್‍ಸ್ಕ್ಯಾನ್</string>
+    <string name="system_display_overscan_description">ನಿಮ್ಮ ಪರದೆ ಗಾತ್ರಕ್ಕೆ ಸರಿಹೊಂದಿಸಲು ಪ್ರದರ್ಶನವನ್ನು ಮಾಪನಾಂಕ ಮಾಡಿ.</string>
+    <string name="system_reset_default_home">ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸು</string>
+    <string name="system_home_settings">ಹೋಮ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
+    <string name="reset_launcher_title">ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸು</string>
+    <string name="reset_launcher_description">ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸುವುದರಿಂದ, ನಿಮಗೆ ಒಂದು ಪರ್ಯಾಯ ಹೋಮ್ ಪರದೆಯನ್ನು ಆರಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ (ಉದಾಹರಣೆಗೆ ಟ್ರೆಬ್ಯುಚೆಟ್).\n\nನೀವು ಡೀಫಾಲ್ಟ್ ಹೋಮ್ ಪರದೆಯನ್ನು ಮರುಹೊಂದಿಸಲು ಇಷ್ಟಪಡುವಿರಾ?</string>
+    <string name="reset_launcher_tip">ಹೋಮ್ ಪರದೆ ಆಯ್ಕೆಯ ಸಂವಾದವನ್ನು ತರಲು ಹೋಮ್ ಬಟನ್‍ನನ್ನು ಒತ್ತಿ.</string>
+    <string name="advanced_reboot_title">ಸುಧಾರಿತ ರಿಬೂಟ್</string>
+    <string name="advanced_reboot_summary">ಕುರಿತು ಮೆನುವಿನಲ್ಲಿ ರಿಕವಿರಿ, ಬೂಟ್‍ಲೋಡರ್‍ಗೆ ರಿಬೂಟ್ ಆಗಲು ಅಥವಾ ಸಾಫ್ಟ್ ರಿಬೂಟ್ ನಿರ್ವಹಿಸಲು ಅಯ್ಕೆಗಳನ್ನು ಸೇರಿಸು</string>
+    <string name="reboot_recovery_button_label">ರಿಕವರಿ</string>
+    <string name="reboot_bootloader_button_label">ಬೂಟ್‍ಲೋಡರ್</string>
+    <string name="reboot_soft_button_label">ಸಾಫ್ಟ್ ರಿಬೂಟ್</string>
+    <string name="adb_over_network">ನೆಟ್‍ವರ್ಕ್ ಮೇಲೆ ಎಡಿಬಿ</string>
+    <string name="adb_over_network_summary">ನೆಟ್‍ವರ್ಕ್ ಇಂಟರ್ಫೇಸ್ (ವೈ\u2011ಫೈ, ಯುಎಸ್‍ಬಿ ನೆಟ್‍ವರ್ಕ್‍ಗಳು) ಮೇಲಿನಿಂದ ಟಿಸಿಪಿ/ಐಪಿ ಡೀಬಗ್ಗಿಂಗ್ ಸಕ್ರಿಯಗೊಳಿಸಿ. ಈ ಸೆಟ್ಟಿಂಗ್ಸ್ ರಿಬೂಟ್ ಆದಾಗ ಮರುಹೊಂದುತ್ತದೆ</string>
+    <string name="adb_over_network_warning">ಎಚ್ಚರಿಕೆ: ನೆಟ್‍ವರ್ಕ್ ಮೇಲೆ ಎಡಿಬಿ ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ನಿಮ್ಮ ಫೋನ್ ಸಂಪರ್ಕಗೊಂಡ ಎಲ್ಲಾ ನೆಟ್‍ವರ್ಕ್‍ಗಳಲ್ಲಿ ಅತಿಕ್ರಮಣಗಳಿಗಾಗಿ ತೆರೆದಿರುತ್ತದೆ!\n\nನೀವು ವಿಶ್ವಾಸಾರ್ಹ ನೆಟ್‍ವರ್ಕ್‍ಗಳಲ್ಲಿ ಸಂಪರ್ಕಗೊಂಡಾಗ ಮಾತ್ರ ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಉಪಯೋಗಿಸಿ.\n\nನೀವು ನಿಜವಾಗಿಯೂ ಈ ಕಾರ್ಯವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಬಯಸುವಿರಾ?</string>
 </resources>

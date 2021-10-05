@@ -62,6 +62,12 @@
         <intent android:action="android.search.action.SEARCH_SETTINGS" />
     </Preference>
     <Preference
+        android:key="googleSettings">
+        <intent
+            android:action="com.android.settings.action.TV_SETTINGS"
+            android:targetPackage="com.google.android.gms" />
+    </Preference>
+    <Preference
         android:icon="@drawable/ic_settings_texttospeach"
         android:key="speech"
         android:title="@string/system_speech" >

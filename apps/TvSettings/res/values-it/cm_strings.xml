@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">Aggiornamenti CyanogenMod</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">Versione CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Livello patch di sicurezza Android</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Ora sei ad <xliff:g id="step_count">%1$d</xliff:g> passo dall\'attivare le impostazioni di sviluppo.</item>
-    <item quantity="other">Ora sei ad <xliff:g id="step_count">%1$d</xliff:g> passi dall\'attivare le impostazioni di sviluppo.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Hai attivato le impostazioni di sviluppo!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Non è necessario, hai già attivato le impostazioni di sviluppo.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Data build</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Versione kernel</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">Stato SELinux</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Disattivato</string>
-  <string name="selinux_status_permissive">Permissivo</string>
-  <string name="selinux_status_enforcing">Enforcing</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Per iniziare a utilizzare CyanogenMod assicurati di accoppiare il tuo dispositivo bluetooth. Con Nexus Remote puoi farlo premendo indietro e home contemporaneamente.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Accesso root</string>
-  <string name="root_access_warning_title">Permettere l\'accesso come root?</string>
-  <string name="root_access_warning_message">Permettere alle applicazioni di richiedere i permessi di root è estremamente pericoloso e potrebbe compromettere la sicurezza del sistema!</string>
-  <string name="root_access_none">Disattivato</string>
-  <string name="root_access_apps">Solo applicazioni</string>
-  <string name="root_access_adb">Solo ADB</string>
-  <string name="root_access_all">App e ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen recovery</string>
-  <string name="update_recovery_on_summary">Aggiorna con aggiornamenti di sistema</string>
-  <string name="update_recovery_off_summary">Non aggiornare con aggiornamenti di sistema</string>
-  <string name="update_recovery_on_warning">AVVISO: Quando questa funzionalità è attiva, la recovery installata sarà sostituita da una inclusa con la versione corrente del sistema.\n\nLa vostra recovery attuale verrà aggiornata con gli aggiornamenti di sistema, contribuendo a garantire la compatibilità con le future versioni.\n\nAttivare questa funzione?</string>
-  <string name="update_recovery_off_warning">Attenzione: Quando questa funzionalità è disattivata, la recovery installata non verrà aggiornata con il sistema.\n\nFuturi aggiornamenti potrebbero non installarsi con recovery personalizzate o vecchie.\n\nDisattivare questa funzione?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB attraverso la rete</string>
-  <string name="adb_over_network_summary">Attiva il debug TCP/IP attraverso interfacce di rete (Wi\u2011Fi, reti USB). Questa impostazione è ripristinata all\'avvio</string>
-  <string name="adb_over_network_disable_summary">Fare clic per disattivare TCP/IP debug su interfacce di rete (Wi\u2011Fi, reti USB).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">ATTENZIONE: Quando ADB su rete è attivata, il televisore è suscettibile ad intrusioni su tutte le reti connesse! \n\nUtilizzare questa funzionalità solo quando si è connessi su reti attendibili.\n\nAttivare questa funzione?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Reimposta la schermata iniziale predefinita</string>
-  <string name="system_home_settings">Impostazioni Home</string>
-  <string name="reset_launcher_title">Reimposta la schermata iniziale predefinita</string>
-  <string name="reset_launcher_description">Reimpostando la schermata iniziale predefinita, è possibile scegliere una schermata iniziale alternativa (es. Trebuchet).\n\nVuoi reimpostare la schermata iniziale predefinita?</string>
-  <string name="reset_launcher_tip">Premere il tasto home per far apparire la finestra di dialogo per la selezione Home.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Terminale locale</string>
-  <string name="enable_terminal_summary">Attiva app terminale</string>
-  <string name="disable_terminal_summary">Disattiva app terminale</string>
-  <string name="enable_terminal_on">Attivo</string>
-  <string name="enable_terminal_off">Disattivato</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Riavvio avanzato</string>
-  <string name="advanced_reboot_summary">Include opzioni nelle informazioni su menu per il riavvio in recovery, bootloader o eseguire un riavvio veloce</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Riavvia</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Riavvio veloce</string>
-  <!-- Display settings -->
-  <string name="system_display">Display</string>
-  <string name="system_display_overscan">Overscan</string>
-  <string name="system_display_overscan_description">Calibra il display per adattarlo alle dimensioni dello schermo.</string>
+    <string name="about_cmupdate_settings_title">Aggiornamenti CyanogenMod</string>
+    <string name="about_mod_version">Versione CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Ora sei ad <xliff:g id="step_count">%1$d</xliff:g> passo dall\'attivare le impostazioni di sviluppo.</item>
+        <item quantity="other">Ora sei ad <xliff:g id="step_count">%1$d</xliff:g> passi dall\'attivare le impostazioni di sviluppo.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Hai attivato le impostazioni di sviluppo!</string>
+    <string name="show_dev_already_cm">Non è necessario, hai già attivato le impostazioni di sviluppo.</string>
+    <string name="about_build_date">Data build</string>
+    <string name="about_kernel_version">Versione kernel</string>
+    <string name="about_selinux_status">Stato SELinux</string>
+    <string name="selinux_status_disabled">Disattivato</string>
+    <string name="selinux_status_permissive">Permissivo</string>
+    <string name="selinux_status_enforcing">Enforcing</string>
+    <string name="accessories_add_bluetooth_inst_cm">Per iniziare a utilizzare CyanogenMod assicurati di accoppiare il tuo dispositivo bluetooth. Con Nexus Remote puoi farlo premendo indietro e home contemporaneamente.</string>
+    <string name="root_access">Accesso root</string>
+    <string name="root_access_warning_title">Permettere l\'accesso come root?</string>
+    <string name="root_access_warning_message">Permettere alle applicazioni di richiedere i permessi di root è estremamente pericoloso e potrebbe compromettere la sicurezza del sistema!</string>
+    <string name="root_access_none">Disattivato</string>
+    <string name="root_access_apps">Solo applicazioni</string>
+    <string name="root_access_adb">Solo ADB</string>
+    <string name="root_access_all">App e ADB</string>
+    <string name="enable_terminal_title">Terminale locale</string>
+    <string name="enable_terminal_summary">Attiva l\'app Terminale che ti consente di accedere alla shell locale</string>
+    <string name="system_display">Display</string>
+    <string name="system_display_overscan">Overscan</string>
+    <string name="system_display_overscan_description">Calibra il display per adattarlo alle dimensioni dello schermo.</string>
+    <string name="system_reset_default_home">Reimposta la schermata iniziale predefinita</string>
+    <string name="system_home_settings">Impostazioni Home</string>
+    <string name="reset_launcher_title">Reimposta la schermata iniziale predefinita</string>
+    <string name="reset_launcher_description">Reimpostando la schermata iniziale predefinita, è possibile scegliere una schermata iniziale alternativa (es. Trebuchet).\n\nVuoi reimpostare la schermata iniziale predefinita?</string>
+    <string name="reset_launcher_tip">Premere il tasto home per far apparire la finestra di dialogo per la selezione Home.</string>
+    <string name="advanced_reboot_title">Riavvio avanzato</string>
+    <string name="advanced_reboot_summary">Include opzioni nelle informazioni su menu per il riavvio in recovery, bootloader o eseguire un riavvio veloce</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Riavvio veloce</string>
+    <string name="adb_over_network">ADB attraverso la rete</string>
+    <string name="adb_over_network_summary">Attiva il debug TCP/IP attraverso interfacce di rete (Wi\u2011Fi, reti USB). Questa impostazione è ripristinata all\'avvio</string>
+    <string name="adb_over_network_warning">ATTENZIONE: Quando ADB su rete è attivata, il televisore è suscettibile ad intrusioni su tutte le reti connesse! \n\nUtilizzare questa funzionalità solo quando si è connessi su reti attendibili.\n\nAttivare questa funzione?</string>
 </resources>

@@ -16,82 +16,45 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod ažuriranja</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod verzija</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Razina Androidove sigurnosne zakrpe</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Sada ste <xliff:g id="step_count">%1$d </xliff:g> korak od omogućavanja razvojnih postavki.</item>
-    <item quantity="few">Sada ste <xliff:g id="step_count">%1$d </xliff:g> koraka od omogućavanja razvojnih postavki.</item>
-    <item quantity="other">Sada ste <xliff:g id="step_count">%1$d </xliff:g> koraka od omogućavanja razvojnih postavki.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Omogućili ste razvojne postavke!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Nema potrebe, već ste omogućili postavke za razvoj.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Datum izdavanja</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Verzija kernela</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux status</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Onemogućeno</string>
-  <string name="selinux_status_permissive">Dopustivo</string>
-  <string name="selinux_status_enforcing">Provedba</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Da počneš koristiti CyanogenMod uređaji moraju biti upareni Bluetooth-om. Za Nexus Remote ovo je moguće pritiskanjem zajedno natrag i Home gumba.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root pristup</string>
-  <string name="root_access_warning_title">Dopustiti root pristup?</string>
-  <string name="root_access_warning_message">Omogućavanje aplikacijama da traži root pristup je vrlo opasno i može ugroziti sigurnost sustava!</string>
-  <string name="root_access_none">Onemogućeno</string>
-  <string name="root_access_apps">Samo aplikacije</string>
-  <string name="root_access_adb">Samo ADB</string>
-  <string name="root_access_all">Aplikacije i ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen oporavak</string>
-  <string name="update_recovery_on_summary">Nadogradnja sa ažuriranjem sustava</string>
-  <string name="update_recovery_off_summary">Nemoj nadograditi sa ažuriranjem sustava</string>
-  <string name="update_recovery_on_warning">Napomena: Kada je ova značajka omogućena, instalirani oporavak će biti zamijenjen onim koji se nalazi u trenutnoj verziji OS-a.\n\nVaš oporavak će se obnoviti uz nadogradnju sustava, čime se osigurava kompatibilnost s budućim verzijama.\n\nŽelite li omogućiti ovu značajku?</string>
-  <string name="update_recovery_off_warning">Upozorenje: Kada je ova mogućnost onemogućena, instalirani se oporavak neće ažurirati sa OS nadogradnjama.\n\nBuduća OS ažuriranja možda se neće instalirati s zastarjelim ili prilagođenim verzijama oporavka.\n\nŽelite li isključiti ovu mogućnost?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB preko mreže</string>
-  <string name="adb_over_network_summary">Omogući TCP/IP ispravljanje pogrešaka preko mrežnih sučelja (Wi\u2011Fi, USB mreže). Ovo podešavanje se resetira pri restartu</string>
-  <string name="adb_over_network_disable_summary">Dodirni za isključivanje TCP/IP ispravljanje pogrešaka preko mrežnih sučelja (Wi\u2011Fi, USB mreže).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">UPOZORENJE: Kada je omogućen ADB preko mreže, vaš TV je otvoren za upad na svim povezanim mrežama!\n\nKoristite ovu funkciju samo kada ste povezani s pouzdanim mrežama.\n\nDa li zaista želite omogućiti ovu značajku?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Ponovno postavi zadani početni zaslon</string>
-  <string name="system_home_settings">Home postavke</string>
-  <string name="reset_launcher_title">Ponovno postavi zadani početni zaslon</string>
-  <string name="reset_launcher_description">Resetiranjem zadanog početnog zaslona možeš izabrati rezervni početni zaslon (i.e Trebuchet).\n\nŽelite li resetirati zadani početni zaslon?</string>
-  <string name="reset_launcher_tip">Pritisni Home gumb za izbor početnog zaslona.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Lokalni terminal</string>
-  <string name="enable_terminal_summary">Omogući aplikaciju terminala</string>
-  <string name="disable_terminal_summary">Onemogući aplikaciju terminala</string>
-  <string name="enable_terminal_on">Omogućeno</string>
-  <string name="enable_terminal_off">Onemogućeno</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Napredno ponovno pokretanje</string>
-  <string name="advanced_reboot_summary">Uvrsti opcije u izborniku za restart za oporavak, bootloader ili brzo ponovno pokretanje</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Ponovno pokreni</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Način oporavka</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Brzo ponovno pokretanje</string>
-  <!-- Display settings -->
-  <string name="system_display">Prikaz</string>
-  <string name="system_display_overscan">Pretraživanje</string>
-  <string name="system_display_overscan_description">Kalibriraj zaslon kako bi odgovarao veličini zaslona.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod ažuriranja</string>
+    <string name="about_mod_version">CyanogenMod verzija</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Sada ste <xliff:g id="step_count">%1$d </xliff:g> korak od omogućavanja razvojnih postavki.</item>
+        <item quantity="few">Sada ste <xliff:g id="step_count">%1$d </xliff:g> koraka od omogućavanja razvojnih postavki.</item>
+        <item quantity="other">Sada ste <xliff:g id="step_count">%1$d </xliff:g> koraka od omogućavanja razvojnih postavki.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Omogućili ste razvojne postavke!</string>
+    <string name="show_dev_already_cm">Nema potrebe, već ste omogućili postavke za razvoj.</string>
+    <string name="about_build_date">Datum izdavanja</string>
+    <string name="about_kernel_version">Verzija kernela</string>
+    <string name="about_selinux_status">SELinux status</string>
+    <string name="selinux_status_disabled">Onemogućeno</string>
+    <string name="selinux_status_permissive">Dopustivo</string>
+    <string name="selinux_status_enforcing">Provedba</string>
+    <string name="accessories_add_bluetooth_inst_cm">Da počneš koristiti CyanogenMod uređaji moraju biti upareni Bluetooth-om. Za Nexus Remote ovo je moguće pritiskanjem zajedno natrag i Home gumba.</string>
+    <string name="root_access">Root pristup</string>
+    <string name="root_access_warning_title">Dopustiti root pristup?</string>
+    <string name="root_access_warning_message">Omogućavanje aplikacijama da traži root pristup je vrlo opasno i može ugroziti sigurnost sustava!</string>
+    <string name="root_access_none">Onemogućeno</string>
+    <string name="root_access_apps">Samo aplikacije</string>
+    <string name="root_access_adb">Samo ADB</string>
+    <string name="root_access_all">Aplikacije i ADB</string>
+    <string name="enable_terminal_title">Lokalni terminal</string>
+    <string name="enable_terminal_summary">Omogući aplikaciju Terminal koja nudi pristup lokalnoj ljusci</string>
+    <string name="system_display">Prikaz</string>
+    <string name="system_display_overscan">Pretraživanje</string>
+    <string name="system_display_overscan_description">Kalibriraj zaslon kako bi odgovarao veličini zaslona.</string>
+    <string name="system_reset_default_home">Ponovno postavi zadani početni zaslon</string>
+    <string name="system_home_settings">Home postavke</string>
+    <string name="reset_launcher_title">Ponovno postavi zadani početni zaslon</string>
+    <string name="reset_launcher_description">Resetiranjem zadanog početnog zaslona možeš izabrati rezervni početni zaslon (i.e Trebuchet).\n\nŽelite li resetirati zadani početni zaslon?</string>
+    <string name="reset_launcher_tip">Pritisni Home gumb za izbor početnog zaslona.</string>
+    <string name="advanced_reboot_title">Napredno ponovno pokretanje</string>
+    <string name="advanced_reboot_summary">Uvrsti opcije u izborniku za restart za oporavak, bootloader ili brzo ponovno pokretanje</string>
+    <string name="reboot_recovery_button_label">Način oporavka</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Brzo ponovno pokretanje</string>
+    <string name="adb_over_network">ADB preko mreže</string>
+    <string name="adb_over_network_summary">Omogući TCP/IP ispravljanje pogrešaka preko mrežnih sučelja (Wi\u2011Fi, USB mreže). Ovo podešavanje se resetira pri restartu</string>
+    <string name="adb_over_network_warning">UPOZORENJE: Kada je omogućen ADB preko mreže, vaš TV je otvoren za upad na svim povezanim mrežama!\n\nKoristite ovu funkciju samo kada ste povezani s pouzdanim mrežama.\n\nDa li zaista želite omogućiti ovu značajku?</string>
 </resources>

@@ -16,80 +16,43 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">सियानोजेनमोड अद्यतन</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">सियानोजेनमोड संस्करण</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">विकास सेटिंग को सक्षम करने के लिए अब सिर्फ़ <xliff:g id="step_count">%1$d</xliff:g> चरण बाक़ी है।</item>
-    <item quantity="other">विकास सेटिंग को सक्षम करने के लिए अब सिर्फ़ <xliff:g id="step_count">%1$d</xliff:g> चरण बाक़ी हैं।</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">आपने विकास सेटिंग को सक्षम किया है!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">इसकी ज़रूरत नहीं है, आपने पहले ही विकास सेटिंग को सक्षम कर दिया है।</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">बिल्ड तिथि</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">कर्नेल संस्करण</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">एसईलिनक्स स्थिति</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">अक्षम कर दिया गया</string>
-  <string name="selinux_status_permissive">अनुमतिदायक</string>
-  <string name="selinux_status_enforcing">प्रवर्तक</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">सियानोजेनमोड का उपयोग करना शुरू करने के लिए सुनिश्चित करें कि आपका ब्लूटूथ उपकरण जोड़ा बनाने (पेयरिंग) के मोड में है। नेक्सस रिमोट में पीछे और होम को एक साथ दबाकर इस मोड में जाया जाता है।</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">मूल पहुँच</string>
-  <string name="root_access_warning_title">मूल पहुँच की अनुमति दें?</string>
-  <string name="root_access_warning_message">ऐपों को मूल पहूँच का अनुरोध करने की अनुमति देना ख़तरनाक हो सकता है और यह आपकी प्रणाली की सुरक्षा के साथ समझौता कर सकता है।</string>
-  <string name="root_access_none">अक्षम कर दिया गया</string>
-  <string name="root_access_apps">केवल ऐप</string>
-  <string name="root_access_adb">केवल एडीबी</string>
-  <string name="root_access_all">ऐप और एडीबी</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">सियानोजेन रिकवरी</string>
-  <string name="update_recovery_on_summary">सिस्टम अद्यतनों से अद्यतन करें</string>
-  <string name="update_recovery_off_summary">सिस्टम अद्यतनों से अद्यतन नहीं करें</string>
-  <string name="update_recovery_on_warning">सूचना: जब इस सुविधा को सक्षम किया जाता है, आपकी स्थापित रिकवरी को चल रहे प्रचालन तंत्र में शामिल वर्तमान संस्करण से प्रतिस्थापित किया जाएगा।\n\nआपकीरिकवरी को आपके सिस्टम के अद्यतनों के साथ अद्यतित किया जाएगा, ताकि भावी संस्करणों की संगतता बनी रहे।\n\nक्या आप इस सुविधा को सक्षम करना चाहते हैं?</string>
-  <string name="update_recovery_off_warning">चेतावनी: यदि इस सुविधा को अक्षम किया जाए, तो आपकी स्थापित रिकवरी को प्रचालन तंत्र के अद्यतनों के साथ अद्यतित नहीं किया जाएगा।\n\nप्रचालन तंत्र के भावी अद्यतन पुरानी पड़ चुकी या मनपसंद रिकवरी संस्करणों के रहते स्थापित नहीं होंगे।\n\nक्या आप सचमुच इस सुविधा को अक्षम करना चाहते हैं?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">नेटवर्क पर एडीबी</string>
-  <string name="adb_over_network_summary">नेटवर्क इंटरफ़ेसों पर (वाई\u2011फ़ाई, यूएसबी नेटवर्क) नेटवर्क पर टीसीपी/आईपी डीबगिंग को सक्षम करें। यह सेटिंग रीबूट करने पर रीसेट होती है</string>
-  <string name="adb_over_network_disable_summary">नेटवर्क इंटरफ़ेसों पर (वाई\u2011फ़ाई, यूएसबी नेटवर्क) नेटवर्क पर टीसीपी/आईपी डीबगिंग को अक्षम करने के लिए क्लिक करें।</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">चेतावनी: जब नेटवर्क पर एडीबी को सक्षम किया जाता है, सभी कनेक्टेड नेटवर्कों में आपके टीवी में घुसपैठ हो सकती है।\n\nइस सुविधा का उपयोग केवल तब करें जब आप भरोसेमंद नेटवर्कों से जुड़े हैं।\n\nक्या आप इस सुविधा को सचमुच सक्षम करना चाहते हैं?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">डिफ़ॉल्ट होम स्क्रीन को रीसेट करें</string>
-  <string name="system_home_settings">होम सेटिंग</string>
-  <string name="reset_launcher_title">डिफ़ॉल्ट होम स्क्रीन को रीसेट करें</string>
-  <string name="reset_launcher_description">डिफ़ॉल्ट होम स्क्रीन को रीसेट करके आप वैकल्पिक होम स्क्रीन चुन सकेंगे (उदा., ट्रेबुकेट)।\n\nक्या आप डिफ़ॉल्ट होम स्क्रीन को रीसेट करना चाहेंगे?</string>
-  <string name="reset_launcher_tip">होम स्क्रीन चयन संवाद को प्रकट कराने के लिए होम बटन को दबाएँ।</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">स्थानीय टर्मिनल</string>
-  <string name="enable_terminal_summary">टर्मिनल ऐप को सक्षम करें</string>
-  <string name="disable_terminal_summary">टर्मिनल ऐप को अक्षम करें</string>
-  <string name="enable_terminal_on">सक्षम कर दिया गया</string>
-  <string name="enable_terminal_off">अक्षम कर दिया गया</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">उन्नत रीबूट</string>
-  <string name="advanced_reboot_summary">संक्षिप्त परिचय मेनू में रिकवरी या बूटलोडर में रीबूट करने या नरम रीबूट करने के विकल्प  जोड़ें</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">रिबूट</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">रिकवरी</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">बूटलोडर</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">नरम रीबूट</string>
-  <!-- Display settings -->
-  <string name="system_display">डिस्प्ले</string>
-  <string name="system_display_overscan">ओवरस्कैन</string>
-  <string name="system_display_overscan_description">डिस्प्ले को आपके स्क्रीन के आमाप में समाने के लिए अंशांकित करें।</string>
+    <string name="about_cmupdate_settings_title">सियानोजेनमोड अद्यतन</string>
+    <string name="about_mod_version">सियानोजेनमोड संस्करण</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">विकास सेटिंग को सक्षम करने के लिए अब सिर्फ़ <xliff:g id="step_count">%1$d</xliff:g> चरण बाक़ी है।</item>
+        <item quantity="other">विकास सेटिंग को सक्षम करने के लिए अब सिर्फ़ <xliff:g id="step_count">%1$d</xliff:g> चरण बाक़ी हैं।</item>
+    </plurals>
+    <string name="show_dev_on_cm">आपने विकास सेटिंग को सक्षम किया है!</string>
+    <string name="show_dev_already_cm">इसकी ज़रूरत नहीं है, आपने पहले ही विकास सेटिंग को सक्षम कर दिया है।</string>
+    <string name="about_build_date">बिल्ड तिथि</string>
+    <string name="about_kernel_version">कर्नेल संस्करण</string>
+    <string name="about_selinux_status">एसईलिनक्स स्थिति</string>
+    <string name="selinux_status_disabled">अक्षम कर दिया गया</string>
+    <string name="selinux_status_permissive">अनुमतिदायक</string>
+    <string name="selinux_status_enforcing">प्रवर्तक</string>
+    <string name="accessories_add_bluetooth_inst_cm">सियानोजेनमोड का उपयोग करना शुरू करने के लिए सुनिश्चित करें कि आपका ब्लूटूथ उपकरण जोड़ा बनाने (पेयरिंग) के मोड में है। नेक्सस रिमोट में पीछे और होम को एक साथ दबाकर इस मोड में जाया जाता है।</string>
+    <string name="root_access">मूल पहुँच</string>
+    <string name="root_access_warning_title">मूल पहुँच की अनुमति दें?</string>
+    <string name="root_access_warning_message">ऐपों को मूल पहूँच का अनुरोध करने की अनुमति देना ख़तरनाक हो सकता है और यह आपकी प्रणाली की सुरक्षा के साथ समझौता कर सकता है।</string>
+    <string name="root_access_none">अक्षम कर दिया गया</string>
+    <string name="root_access_apps">केवल ऐप</string>
+    <string name="root_access_adb">केवल एडीबी</string>
+    <string name="root_access_all">ऐप और एडीबी</string>
+    <string name="enable_terminal_title">स्थानीय टर्मिनल</string>
+    <string name="system_display">डिस्प्ले</string>
+    <string name="system_display_overscan">ओवरस्कैन</string>
+    <string name="system_display_overscan_description">डिस्प्ले को आपके स्क्रीन के आमाप में समाने के लिए अंशांकित करें।</string>
+    <string name="system_reset_default_home">डिफ़ॉल्ट होम स्क्रीन को रीसेट करें</string>
+    <string name="system_home_settings">होम सेटिंग</string>
+    <string name="reset_launcher_title">डिफ़ॉल्ट होम स्क्रीन को रीसेट करें</string>
+    <string name="reset_launcher_description">डिफ़ॉल्ट होम स्क्रीन को रीसेट करके आप वैकल्पिक होम स्क्रीन चुन सकेंगे (उदा., ट्रेबुकेट)।\n\nक्या आप डिफ़ॉल्ट होम स्क्रीन को रीसेट करना चाहेंगे?</string>
+    <string name="reset_launcher_tip">होम स्क्रीन चयन संवाद को प्रकट कराने के लिए होम बटन को दबाएँ।</string>
+    <string name="advanced_reboot_title">उन्नत रीबूट</string>
+    <string name="advanced_reboot_summary">संक्षिप्त परिचय मेनू में रिकवरी या बूटलोडर में रीबूट करने या नरम रीबूट करने के विकल्प  जोड़ें</string>
+    <string name="reboot_recovery_button_label">रिकवरी</string>
+    <string name="reboot_bootloader_button_label">बूटलोडर</string>
+    <string name="reboot_soft_button_label">नरम रीबूट</string>
+    <string name="adb_over_network">नेटवर्क पर एडीबी</string>
+    <string name="adb_over_network_summary">नेटवर्क इंटरफ़ेसों पर (वाई\u2011फ़ाई, यूएसबी नेटवर्क) नेटवर्क पर टीसीपी/आईपी डीबगिंग को सक्षम करें। यह सेटिंग रीबूट करने पर रीसेट होती है</string>
+    <string name="adb_over_network_warning">चेतावनी: जब नेटवर्क पर एडीबी को सक्षम किया जाता है, सभी कनेक्टेड नेटवर्कों में आपके टीवी में घुसपैठ हो सकती है।\n\nइस सुविधा का उपयोग केवल तब करें जब आप भरोसेमंद नेटवर्कों से जुड़े हैं।\n\nक्या आप इस सुविधा को सचमुच सक्षम करना चाहते हैं?</string>
 </resources>

@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod Updates</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod version</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Android security patch level</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
-    <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling development settings.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">You have enabled development settings!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">No need, you have already enabled development settings.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Build date</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Kernel version</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux status</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Disabled</string>
-  <string name="selinux_status_permissive">Permissive</string>
-  <string name="selinux_status_enforcing">Enforcing</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">To start using CyanogenMod make sure your Bluetooth device is in pairing mode. For Nexus Remote this is done by pressing back and home simultaneously.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root access</string>
-  <string name="root_access_warning_title">Allow root access?</string>
-  <string name="root_access_warning_message">Allowing apps to request root access is very dangerous and could compromise the security of your system!</string>
-  <string name="root_access_none">Disabled</string>
-  <string name="root_access_apps">Apps only</string>
-  <string name="root_access_adb">ADB only</string>
-  <string name="root_access_all">Apps and ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen recovery</string>
-  <string name="update_recovery_on_summary">Update with system updates</string>
-  <string name="update_recovery_off_summary">Don\'t update with system updates</string>
-  <string name="update_recovery_on_warning">NOTICE: When this feature is enabled, your installed recovery will be replaced by one included with the current version of the running OS.\n\nYour recovery will be updated along with upgrades to your system, helping to ensure compatibility with future versions.\n\nWould you like to enable this feature?</string>
-  <string name="update_recovery_off_warning">WARNING: When this feature is disabled, your installed recovery will not be updated with OS upgrades.\n\nFuture OS updates may not install with outdated or custom recovery versions.\n\nDo you really want to disable this feature?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB over network</string>
-  <string name="adb_over_network_summary">Enable TCP/IP debugging over network interfaces (Wi\u2011Fi, USB networks). This setting is reset on reboot</string>
-  <string name="adb_over_network_disable_summary">Click to disable TCP/IP debugging over network interfaces (Wi\u2011Fi, USB networks).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">WARNING: When ADB over network is enabled, your TV is open for intrusions on all connected networks!\n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Reset default home screen</string>
-  <string name="system_home_settings">Home settings</string>
-  <string name="reset_launcher_title">Reset default home screen</string>
-  <string name="reset_launcher_description">By resetting the default home screen, you will be able to choose an alternate home screen (i.e Trebuchet).\n\nWould you like to reset the default home screen?</string>
-  <string name="reset_launcher_tip">Press the home button to bring up the home screen selection dialog.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Local terminal</string>
-  <string name="enable_terminal_summary">Enable terminal app</string>
-  <string name="disable_terminal_summary">Disable terminal app</string>
-  <string name="enable_terminal_on">Enabled</string>
-  <string name="enable_terminal_off">Disabled</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Advanced reboot</string>
-  <string name="advanced_reboot_summary">Include options in the about menu for rebooting into recovery, bootloader or performing a soft reboot</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reboot</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Soft reboot</string>
-  <!-- Display settings -->
-  <string name="system_display">Display</string>
-  <string name="system_display_overscan">Overscan</string>
-  <string name="system_display_overscan_description">Calibrate the display to fit your screen size.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod Updates</string>
+    <string name="about_mod_version">CyanogenMod version</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
+        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling development settings.</item>
+    </plurals>
+    <string name="show_dev_on_cm">You have enabled development settings!</string>
+    <string name="show_dev_already_cm">No need, you have already enabled development settings.</string>
+    <string name="about_build_date">Build date</string>
+    <string name="about_kernel_version">Kernel version</string>
+    <string name="about_selinux_status">SELinux status</string>
+    <string name="selinux_status_disabled">Disabled</string>
+    <string name="selinux_status_permissive">Permissive</string>
+    <string name="selinux_status_enforcing">Enforcing</string>
+    <string name="accessories_add_bluetooth_inst_cm">To start using CyanogenMod make sure your Bluetooth device is in pairing mode. For Nexus Remote this is done by pressing back and home simultaneously.</string>
+    <string name="root_access">Root access</string>
+    <string name="root_access_warning_title">Allow root access?</string>
+    <string name="root_access_warning_message">Allowing apps to request root access is very dangerous and could compromise the security of your system!</string>
+    <string name="root_access_none">Disabled</string>
+    <string name="root_access_apps">Apps only</string>
+    <string name="root_access_adb">ADB only</string>
+    <string name="root_access_all">Apps and ADB</string>
+    <string name="enable_terminal_title">Local terminal</string>
+    <string name="enable_terminal_summary">Enable terminal app that offers local shell access</string>
+    <string name="system_display">Display</string>
+    <string name="system_display_overscan">Overscan</string>
+    <string name="system_display_overscan_description">Calibrate the display to fit your screen size.</string>
+    <string name="system_reset_default_home">Reset default home screen</string>
+    <string name="system_home_settings">Home settings</string>
+    <string name="reset_launcher_title">Reset default home screen</string>
+    <string name="reset_launcher_description">By resetting the default home screen, you will be able to choose an alternate home screen (i.e Trebuchet).\n\nWould you like to reset the default home screen?</string>
+    <string name="reset_launcher_tip">Press the home button to bring up the home screen selection dialog.</string>
+    <string name="advanced_reboot_title">Advanced reboot</string>
+    <string name="advanced_reboot_summary">Include options in the about menu for rebooting into recovery, bootloader or performing a soft reboot</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Soft reboot</string>
+    <string name="adb_over_network">ADB over network</string>
+    <string name="adb_over_network_summary">Enable TCP/IP debugging over network interfaces (Wi\u2011Fi, USB networks). This setting is reset on reboot</string>
+    <string name="adb_over_network_warning">WARNING: When ADB over network is enabled, your TV is open for intrusions on all connected networks!\n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
 </resources>

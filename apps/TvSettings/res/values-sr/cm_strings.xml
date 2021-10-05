@@ -16,82 +16,45 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod ажурирања</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod верзија</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Ниво закрпа сигурности андроида</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Сада си <xliff:g id="step_count">%1$d</xliff:g> корак далеко од омогућавања развојних опција.</item>
-    <item quantity="few">Сада си <xliff:g id="step_count">%1$d</xliff:g> корака далеко од омогућавања развојних опција.</item>
-    <item quantity="other">Сада си <xliff:g id="step_count">%1$d</xliff:g> корака далеко од омогућавања развојних опција.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Омогућио си развојна подешавања!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Нема потребе, развојна подешавања су већ омогућена.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Датум израде</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Верзија кернела</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux статус</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Онемогућено</string>
-  <string name="selinux_status_permissive">Попустљив</string>
-  <string name="selinux_status_enforcing">Извршавање</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Да почнеш користити CyanogenMod уређаји морају бити Bluetooth упарени. За Nexus Remote ово је могуће притискањем заједно главног и назад дугмета.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root приступ</string>
-  <string name="root_access_warning_title">Дозволи root приступ?</string>
-  <string name="root_access_warning_message">Дозвољавање апликацијама да захтевају root приступ је веома опасно и може угрозити безбедност твог система!</string>
-  <string name="root_access_none">Онемогућено</string>
-  <string name="root_access_apps">Само апликације</string>
-  <string name="root_access_adb">Само ADB</string>
-  <string name="root_access_all">Апликације и ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen опоравак</string>
-  <string name="update_recovery_on_summary">Ажурирај са системским ажурирањем</string>
-  <string name="update_recovery_off_summary">Не ажурирај са системским ажурирањем</string>
-  <string name="update_recovery_on_warning">НАПОМЕНА: Када је ова функција омогућена, твој инсталирани опоравак ће бити замењен са једним укљученим у тренутну верзију покренутог OS-а.\n\nТвој опоравак ће бити ажуриран заједно са надоградњом система, помажући да се осигура компатибилност са будућим верзијама.\n\nДа ли желиш да омогућиш ову функцију?</string>
-  <string name="update_recovery_off_warning">УПОЗОРЕЊЕ: Када је ова опција онемогућена, твој инсталирани опоравак неће бити ажуриран са надоградњом OS-а.\n\nБудуће ОС исправке се можда не могу инсталирати са застарелом или прерађеном верзијом опоравка.\n\nДа ли заиста желите да онемогућите ову функцију?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB преко мреже</string>
-  <string name="adb_over_network_summary">Омогући TCP/IP отклањање грешака преко мрежних интерфејса (Wi\u2011Fi, USB мреже). Ово подешавање се ресетује при рестарту</string>
-  <string name="adb_over_network_disable_summary">Додирни да онемогућиш TCP/IP отклањање грешака преко мрежних интерфејса (Wi\u2011Fi, USB мреже).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">УПОЗОРЕЊЕ: Када је омогућена ADB преко мреже, ваш тв је отворен за упад на свим повезаним мрежама!\n\nКористите ову функцију само када сте повезани са поузданим мрежама.\n\nДа ли заиста желите да омогућите ову функцију?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Ресетуј подразумевани главни екран</string>
-  <string name="system_home_settings">Подешавање главног</string>
-  <string name="reset_launcher_title">Ресетуј подразумевани главни екран</string>
-  <string name="reset_launcher_description">Ресетовањем подразумеваног главног екрана можеш изабрати резервни главни екран (нпр. Trebuchet).\n\nДа ли желиш ресетовати подразумевани главни екран?</string>
-  <string name="reset_launcher_tip">Притисни главно дугме да избациш дијалог избора главног екрана.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Локални терминал</string>
-  <string name="enable_terminal_summary">Омогући апликацију терминала</string>
-  <string name="disable_terminal_summary">Онемогући апликацију терминала</string>
-  <string name="enable_terminal_on">Омогућено</string>
-  <string name="enable_terminal_off">Онемогућено</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Напредни рестарт</string>
-  <string name="advanced_reboot_summary">Уврсти опције у менију за рестарт за опоравак, bootloader или обављање рестарта интерфејса</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Рестартуј</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Опоравак</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Рестартуј интерфејс</string>
-  <!-- Display settings -->
-  <string name="system_display">Екран</string>
-  <string name="system_display_overscan">Overscan</string>
-  <string name="system_display_overscan_description">Намештање дисплеја да попуни величину екрана.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod ажурирања</string>
+    <string name="about_mod_version">CyanogenMod верзија</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Сада си <xliff:g id="step_count">%1$d</xliff:g> корак далеко од омогућавања развојних опција.</item>
+        <item quantity="few">Сада си <xliff:g id="step_count">%1$d</xliff:g> корака далеко од омогућавања развојних опција.</item>
+        <item quantity="other">Сада си <xliff:g id="step_count">%1$d</xliff:g> корака далеко од омогућавања развојних опција.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Омогућио си развојна подешавања!</string>
+    <string name="show_dev_already_cm">Нема потребе, развојна подешавања су већ омогућена.</string>
+    <string name="about_build_date">Датум израде</string>
+    <string name="about_kernel_version">Верзија кернела</string>
+    <string name="about_selinux_status">SELinux статус</string>
+    <string name="selinux_status_disabled">Онемогућено</string>
+    <string name="selinux_status_permissive">Попустљив</string>
+    <string name="selinux_status_enforcing">Извршавање</string>
+    <string name="accessories_add_bluetooth_inst_cm">Да почнеш користити CyanogenMod уређаји морају бити Bluetooth упарени. За Nexus Remote ово је могуће притискањем заједно главног и назад дугмета.</string>
+    <string name="root_access">Приступ правима суперкорисника</string>
+    <string name="root_access_warning_title">Омогућити приступ правима суперкорисника?</string>
+    <string name="root_access_warning_message">Добијање права суперкорисника је крајње опасно и може угрозити безбедност вашег система!</string>
+    <string name="root_access_none">Онемогућено</string>
+    <string name="root_access_apps">Само апликације</string>
+    <string name="root_access_adb">Само ADB</string>
+    <string name="root_access_all">Апликације и ADB</string>
+    <string name="enable_terminal_title">Локални терминал</string>
+    <string name="enable_terminal_summary">Омогући апликацију Терминал која нуди приступ локалној љусци</string>
+    <string name="system_display">Екран</string>
+    <string name="system_display_overscan">Overscan</string>
+    <string name="system_display_overscan_description">Намештање дисплеја да попуни величину екрана.</string>
+    <string name="system_reset_default_home">Ресетуј подразумевани главни екран</string>
+    <string name="system_home_settings">Подешавање главног</string>
+    <string name="reset_launcher_title">Ресетуј подразумевани главни екран</string>
+    <string name="reset_launcher_description">Ресетовањем подразумеваног главног екрана можеш изабрати резервни главни екран (нпр. Trebuchet).\n\nДа ли желиш ресетовати подразумевани главни екран?</string>
+    <string name="reset_launcher_tip">Притисни главно дугме да избациш дијалог избора главног екрана.</string>
+    <string name="advanced_reboot_title">Напредни рестарт</string>
+    <string name="advanced_reboot_summary">Уврсти опције у менију за рестарт за опоравак, bootloader или обављање рестарта интерфејса</string>
+    <string name="reboot_recovery_button_label">Опоравак</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Рестартуј интерфејс</string>
+    <string name="adb_over_network">ADB преко мреже</string>
+    <string name="adb_over_network_summary">Омогући TCP/IP отклањање грешака преко мрежних интерфејса (Wi\u2011Fi, USB мреже). Ово подешавање се ресетује при рестарту</string>
+    <string name="adb_over_network_warning">УПОЗОРЕЊЕ: Када је омогућена ADB преко мреже, ваш тв је отворен за упад на свим повезаним мрежама!\n\nКористите ову функцију само када сте повезани са поузданим мрежама.\n\nДа ли заиста желите да омогућите ову функцију?</string>
 </resources>

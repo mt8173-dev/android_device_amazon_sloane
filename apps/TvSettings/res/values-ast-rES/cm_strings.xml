@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">Anovamientos CyanogenMod</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">Versión CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Nivel de parche de seguranza d\'Android</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasu d\'habilitar los axustes de desendolcu.</item>
-    <item quantity="other">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasos d\'habilitar los axustes de desendolcu.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">¡Habilitesti los axustes de desendolcu!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Nun fai falta, yá tán habilitaes les opciones de desendolcu.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Data de construcción</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Versión del kernel</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">Estáu de SELinux</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Deshabilitáu</string>
-  <string name="selinux_status_permissive">Permisivu</string>
-  <string name="selinux_status_enforcing">Obligatoriu</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Pa usar CyanogenMod asegúrate que\'l to preséu Bluetooth ta nel mou empareyamientu. Pal Mandu Nexus esto pue facese primiendo los botones Atrás y Home.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Accesu root</string>
-  <string name="root_access_warning_title">¿Permitir l\'accesu root?</string>
-  <string name="root_access_warning_message">¡Permitir a les aplicaciones solicitar accesu root ye enforma peligroso y pue comprometer la seguranza del sistema!</string>
-  <string name="root_access_none">Deshabilitáu</string>
-  <string name="root_access_apps">Namái aplicaciones</string>
-  <string name="root_access_adb">Namái ADB</string>
-  <string name="root_access_all">Aplicaciones y ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Recovery Cyanogen</string>
-  <string name="update_recovery_on_summary">Anovar colos anovamientos del sistema</string>
-  <string name="update_recovery_off_summary">Nun anovar colos anovamientos del sistema</string>
-  <string name="update_recovery_on_warning">AVISU: Con esta carauterística activada, el recovery instaláu va trocase per ún incluyíu na versión actual del sistema.\n\nEl recovery va anovase xunto con meyores nel sistema, ayudando a garantizar la compatibilidá con versiones futures.\n\n¿Quis activar esta carauterística?</string>
-  <string name="update_recovery_off_warning">AVISU: Cuando esta función tá desactivada, el recovery instaláu nun s\'anueva colos anovamientos del SO.\n\nVersiones futures del SO podríen nun instalase con recoverys non anovaos.\n\n¿Daveres quies deshabilitar esta función?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB sobre rede</string>
-  <string name="adb_over_network_summary">Activar la depuración TCP/IP sobre les interfaces de rede (Wi\u2011Fi, redes USB). Esta configuración reafítase al reaniciar el preséu</string>
-  <string name="adb_over_network_disable_summary">Fai clic pa desactivar la depuración TCP/IP sobre les interfaces de rede (Wi\u2011Fi, redes USB).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">AVISU: Cuando ta habilitáu ADB sobre rede, ¡la to TV ta abierta a intrusiones en toles redes coneutaes!.\n\nUsa esta función namái al tar coneutáu a redes d\'enfotu.\n\n¿Daveres quies activar esta función?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Reafitar la pantalla d\'aniciu por defeutu</string>
-  <string name="system_home_settings">Axustes del aniciu</string>
-  <string name="reset_launcher_title">Reafitar la pantalla d\'aniciu por defeutu</string>
-  <string name="reset_launcher_description">Al reafitar la pantalla d\'aniciu vas poder escoyer una pantalla d\'aniciu alternativa (p.ex Trebuchet).\n\n¿Quies reafitar la pantalla d\'aniciu por defeutu?</string>
-  <string name="reset_launcher_tip">Primi\'l botón d\'aniciu pa qu\'apaez\'l cuadru de diálogu de seleición de pantalla d\'aniciu</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Terminal llocal</string>
-  <string name="enable_terminal_summary">Habilitar l\'app terminal</string>
-  <string name="disable_terminal_summary">Deshabilitar l\'app terminal</string>
-  <string name="enable_terminal_on">Habilitáu</string>
-  <string name="enable_terminal_off">Deshabilitáu</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Reaniciu avanzáu</string>
-  <string name="advanced_reboot_summary">Incluyir opciones nel menú pa reaniciar en mou recovery, bootloader o facer un reaniciu rápidu</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reaniciar</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Cargador d\'arranque</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Reaniciu suave</string>
-  <!-- Display settings -->
-  <string name="system_display">Pantalla</string>
-  <string name="system_display_overscan">Overscan</string>
-  <string name="system_display_overscan_description">Calibra la pantalla p\'axustala al to tamañu de pantalla.</string>
+    <string name="about_cmupdate_settings_title">Anovamientos CyanogenMod</string>
+    <string name="about_mod_version">Versión CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasu d\'habilitar los axustes de desendolcu.</item>
+        <item quantity="other">Tas a <xliff:g id="step_count">%1$d</xliff:g> pasos d\'habilitar los axustes de desendolcu.</item>
+    </plurals>
+    <string name="show_dev_on_cm">¡Habilitesti los axustes de desendolcu!</string>
+    <string name="show_dev_already_cm">Nun fai falta, yá tán habilitaes les opciones de desendolcu.</string>
+    <string name="about_build_date">Data de construcción</string>
+    <string name="about_kernel_version">Versión del kernel</string>
+    <string name="about_selinux_status">Estáu de SELinux</string>
+    <string name="selinux_status_disabled">Deshabilitáu</string>
+    <string name="selinux_status_permissive">Permisivu</string>
+    <string name="selinux_status_enforcing">Obligatoriu</string>
+    <string name="accessories_add_bluetooth_inst_cm">Pa usar CyanogenMod asegúrate que\'l to preséu Bluetooth ta nel mou empareyamientu. Pal Mandu Nexus esto pue facese primiendo los botones Atrás y Home.</string>
+    <string name="root_access">Accesu root</string>
+    <string name="root_access_warning_title">¿Permitir l\'accesu root?</string>
+    <string name="root_access_warning_message">¡Permitir que les aplicaciones soliciten l\'accesu root ye enforma peligroso y pue comprometer la seguranza del to sistema!</string>
+    <string name="root_access_none">Deshabilitáu</string>
+    <string name="root_access_apps">Namái aplicaciones</string>
+    <string name="root_access_adb">Namái ADB</string>
+    <string name="root_access_all">Aplicaciones y ADB</string>
+    <string name="enable_terminal_title">Terminal llocal</string>
+    <string name="enable_terminal_summary">Habilitar aplicación de terminal qu\'ufre accesu a shell llocal</string>
+    <string name="system_display">Pantalla</string>
+    <string name="system_display_overscan">Overscan</string>
+    <string name="system_display_overscan_description">Calibra la pantalla p\'axustala al to tamañu de pantalla.</string>
+    <string name="system_reset_default_home">Reafitar la pantalla d\'aniciu por defeutu</string>
+    <string name="system_home_settings">Axustes del aniciu</string>
+    <string name="reset_launcher_title">Reafitar la pantalla d\'aniciu por defeutu</string>
+    <string name="reset_launcher_description">Al reafitar la pantalla d\'aniciu vas poder escoyer una pantalla d\'aniciu alternativa (p.ex Trebuchet).\n\n¿Quies reafitar la pantalla d\'aniciu por defeutu?</string>
+    <string name="reset_launcher_tip">Primi\'l botón d\'aniciu pa qu\'apaez\'l cuadru de diálogu de seleición de pantalla d\'aniciu</string>
+    <string name="advanced_reboot_title">Reaniciu avanzáu</string>
+    <string name="advanced_reboot_summary">Inclúi opciones nel menú Tocante a pa reaniciar nel recovery, cargador d\'arranque o facer un reaniciu suave</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Cargador d\'arranque</string>
+    <string name="reboot_soft_button_label">Reaniciu suave</string>
+    <string name="adb_over_network">ADB sobre rede</string>
+    <string name="adb_over_network_summary">Activar la depuración TCP/IP sobre les interfaces de rede (Wi\u2011Fi, redes USB). Esta configuración reafítase al reaniciar el preséu</string>
+    <string name="adb_over_network_warning">AVISU: Cuando ta habilitáu ADB sobre rede, ¡la to TV ta abierta a intrusiones en toles redes coneutaes!.\n\nUsa esta función namái al tar coneutáu a redes d\'enfotu.\n\n¿Daveres quies activar esta función?</string>
 </resources>

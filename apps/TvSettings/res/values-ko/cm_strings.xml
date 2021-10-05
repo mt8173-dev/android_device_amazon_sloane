@@ -16,80 +16,43 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod 업데이트</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod 버전</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">안드로이드 보안 패치 수준</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="other">개발자 설정을 활성화하려면 <xliff:g id="step_count">%1$d</xliff:g>회 더 누르십시오.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">개발자 설정이 활성화되었습니다!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">이미 개발자 설정이 활성화되어 있습니다.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">빌드 날짜</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">커널 버전</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux 상태</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">비활성화됨</string>
-  <string name="selinux_status_permissive">허가</string>
-  <string name="selinux_status_enforcing">시행 중</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">CyanogenMod를 사용하려면 블루투스 기기가 페어링 모드인지 확인하세요. Nexus Remote에선 뒤로가기와 홈 버튼을 동시에 누르면 됩니다.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">루트 권한</string>
-  <string name="root_access_warning_title">루트 권한을 허용할까요?</string>
-  <string name="root_access_warning_message">앱이 루트 권한을 요청하도록 허용하는 것은 매우 위험하며, 기기의 보안을 위협할 수 있습니다!</string>
-  <string name="root_access_none">비활성화됨</string>
-  <string name="root_access_apps">애플리케이션만</string>
-  <string name="root_access_adb">ADB 만</string>
-  <string name="root_access_all">애플리케이션과 ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen 리커버리</string>
-  <string name="update_recovery_on_summary">시스템 업데이트와 함께 업데이트 하기</string>
-  <string name="update_recovery_off_summary">시스템 업데이트와 함께 업데이트 하지 않기</string>
-  <string name="update_recovery_on_warning">주의: 이 기능이 활성화되면 기기의 리커버리가 현재의 OS에 포함된 리커버리로 대체됩니다.\n\n기기의 리커버리는 이 후 업데이트의 호환성을 확인하여 시스템 업그레이드와 같이 업데이트될 것입니다.\n\n이 기능을 활성화 하시겠습니까?</string>
-  <string name="update_recovery_off_warning">주의: 이 기능이 비활성화되면 기기의 리커버리는 OS 업그레이드와 함께 업데이트되지 않습니다.\n\n이후 기기의 OS 업데이트는 이전 리커버리나 커스텀 리커버리로는 업데이트되지 않을 수 있습니다.\n\n이 기능을 정말로 비활성화하시겠습니까?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">네트워크를 통한 ADB</string>
-  <string name="adb_over_network_summary">네트워크 인터페이스(Wi\u2011Fi, USB 네트워크)를 통한 TCP/IP 디버깅을 사용합니다. 이 설정은 재부팅 시 초기화됩니다.</string>
-  <string name="adb_over_network_disable_summary">네트워크 인터페이스(Wi\u2011Fi, USB 네트워크)를 통한 TCP/IP 디버깅을 비활성화 하려면 누르세요.</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">경고: 네트워크 ADB 연결이 활성화되면, 당신의 TV가 연결된 모든 네트워크를 통한 위험에 노출됩니다!\n\n신뢰할 수 있는 네트워크에서만 이 연결을 사용하십시오.\n\n정말로 이 기능을 활성화 하시겠습니까?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">기본 홈 화면 초기화</string>
-  <string name="system_home_settings">홈 설정</string>
-  <string name="reset_launcher_title">기본 홈 화면 초기화</string>
-  <string name="reset_launcher_description">기본 홈 화면을 초기화 하면, 다른 홈 화면(예: Trebuchet)을 선택할 수 있습니다. \n\n기본 홈 화면을 초기화 하시겠습니까?</string>
-  <string name="reset_launcher_tip">홈 버튼을 눌러 홈 화면 선택 메뉴를 불러옵니다.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">로컬 터미널</string>
-  <string name="enable_terminal_summary">터미널 앱을 활성화 합니다</string>
-  <string name="disable_terminal_summary">터미널 앱을 비활성화 합니다</string>
-  <string name="enable_terminal_on">활성화됨</string>
-  <string name="enable_terminal_off">비활성화됨</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">고급 재시작</string>
-  <string name="advanced_reboot_summary">정보 메뉴에 복구 모드, 부트로더와 빠른 다시 시작 옵션을 추가합니다</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">다시 시작</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">복구 모드</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">부트로더</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">빠른 다시 시작</string>
-  <!-- Display settings -->
-  <string name="system_display">디스플레이</string>
-  <string name="system_display_overscan">오버스캔</string>
-  <string name="system_display_overscan_description">화면 크기에 맞게 디스플레이 조정합니다.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod 업데이트</string>
+    <string name="about_mod_version">CyanogenMod 버전</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="other">개발자 설정을 활성화하려면 <xliff:g id="step_count">%1$d</xliff:g>회 더 누르세요.</item>
+    </plurals>
+    <string name="show_dev_on_cm">개발자 설정이 활성화되었습니다!</string>
+    <string name="show_dev_already_cm">이미 개발자 설정이 활성화되어 있습니다.</string>
+    <string name="about_build_date">빌드 날짜</string>
+    <string name="about_kernel_version">커널 버전</string>
+    <string name="about_selinux_status">SELinux 상태</string>
+    <string name="selinux_status_disabled">비활성화됨</string>
+    <string name="selinux_status_permissive">허가</string>
+    <string name="selinux_status_enforcing">시행 중</string>
+    <string name="accessories_add_bluetooth_inst_cm">CyanogenMod를 사용하려면 블루투스 기기가 페어링 모드인지 확인하세요. Nexus Remote에선 뒤로가기와 홈 버튼을 동시에 누르면 됩니다.</string>
+    <string name="root_access">루트 권한</string>
+    <string name="root_access_warning_title">루트 권한을 허용할까요?</string>
+    <string name="root_access_warning_message">앱이 루트 권한을 요청하도록 허용하는 것은 매우 위험하며, 기기의 보안을 위협할 수 있습니다!</string>
+    <string name="root_access_none">비활성화됨</string>
+    <string name="root_access_apps">애플리케이션만</string>
+    <string name="root_access_adb">ADB 만</string>
+    <string name="root_access_all">애플리케이션과 ADB</string>
+    <string name="enable_terminal_title">로컬 터미널</string>
+    <string name="enable_terminal_summary">로컬 쉘 엑세스를 제공하는 터미널 앱 사용</string>
+    <string name="system_display">디스플레이</string>
+    <string name="system_display_overscan">오버스캔</string>
+    <string name="system_display_overscan_description">화면 크기에 맞게 디스플레이 조정합니다.</string>
+    <string name="system_reset_default_home">기본 홈 화면 초기화</string>
+    <string name="system_home_settings">홈 설정</string>
+    <string name="reset_launcher_title">기본 홈 화면 초기화</string>
+    <string name="reset_launcher_description">기본 홈 화면을 초기화 하면, 다른 홈 화면(예: Trebuchet)을 선택할 수 있습니다. \n\n기본 홈 화면을 초기화 하시겠습니까?</string>
+    <string name="reset_launcher_tip">홈 버튼을 눌러 홈 화면 선택 메뉴를 불러옵니다.</string>
+    <string name="advanced_reboot_title">고급 재시작</string>
+    <string name="advanced_reboot_summary">정보 메뉴에 복구 모드, 부트로더와 빠른 다시 시작 옵션을 추가합니다</string>
+    <string name="reboot_recovery_button_label">복구 모드</string>
+    <string name="reboot_bootloader_button_label">부트로더</string>
+    <string name="reboot_soft_button_label">빠른 다시 시작</string>
+    <string name="adb_over_network">네트워크를 통한 ADB</string>
+    <string name="adb_over_network_summary">네트워크 인터페이스(Wi\u2011Fi, USB 네트워크)를 통한 TCP/IP 디버깅을 사용합니다. 이 설정은 재부팅 시 초기화됩니다.</string>
+    <string name="adb_over_network_warning">경고: 네트워크 ADB 연결이 활성화되면, 당신의 TV가 연결된 모든 네트워크를 통한 위험에 노출됩니다!\n\n신뢰할 수 있는 네트워크에서만 이 연결을 사용하십시오.\n\n정말로 이 기능을 활성화 하시겠습니까?</string>
 </resources>

@@ -28,16 +28,21 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v7-recyclerview \
     android-support-v13 \
-    android-support-v17-leanback
+    android-support-v17-leanback \
+    org.cyanogenmod.platform.internal
 
 LOCAL_RESOURCE_DIR := \
     $(TOP)/frameworks/support/v17/leanback/res \
+    $(TOP)/frameworks/support/v7/recyclerview/res \
     $(LOCAL_PATH)/res
 
-LOCAL_AAPT_FLAGS := --auto-add-overlay --extra-packages android.support.v17.leanback
+LOCAL_AAPT_FLAGS := --auto-add-overlay \
+    --extra-packages android.support.v17.leanback:android.support.v7.recyclerview
 
 LOCAL_SRC_FILES := \
     $(call all-java-files-under, src) \
     $(call all-Iaidl-files-under, src)
+
+include frameworks/base/packages/SettingsLib/common.mk
 
 include $(BUILD_PACKAGE)

@@ -16,71 +16,36 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <!-- About screen, CyanogenMod version -->
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="other">剩下 <xliff:g id="step_count">%1$d</xliff:g> 步即可啟用開發設定。</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">您已啟用開發設定！</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">不需要，您已經啟用開發設定。</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">組建日期</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">內核版本</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux 狀態</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_permissive">許可</string>
-  <string name="selinux_status_enforcing">強制執行</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root 權限</string>
-  <string name="root_access_warning_title">允許 root 權限？</string>
-  <string name="root_access_warning_message">允許應用程式請求 root 權限十分危險，可能會影響您的系統安全！</string>
-  <string name="root_access_none">已停用</string>
-  <string name="root_access_apps">僅限應用程式</string>
-  <string name="root_access_adb">僅限 ADB</string>
-  <string name="root_access_all">應用程式和 ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen 修復</string>
-  <string name="update_recovery_on_summary">與系統同時更新</string>
-  <string name="update_recovery_off_summary">不要與系統同時更新</string>
-  <string name="update_recovery_on_warning">注意：啟用此功能後，您已安裝的修復模式將會被包含運行系統當前版本的修復模式取代。\n\n您的修復模式將會隨著系統一同更新以確保與未來版本的相容性。\n\n您確定要啟用這個功能？</string>
-  <string name="update_recovery_off_warning">警告：此功能被停用後，您安裝的修復模式將不與運行系統一同更新。\n\n未來的系统更新可能不支援舊版或自訂修復模式版本。\n\n您確定要停用此功能？</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network_summary">啟用透過網絡接口（Wi-Fi、USB 網絡）進行 TCP/IP 偵錯。該設定會在重新啟動後重設</string>
-  <string name="adb_over_network_disable_summary">按下以停用透過網絡接口（Wi\u2011Fi、USB 網絡）進行 TCP/IP 偵錯</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">警告：啟用透過網絡連線 ADB 後，所有已連線的網絡均可能入侵您的電視！\n\n建議您連線到信任的網絡時才使用此功能。\n\n您確定想啟用此功能嗎？</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">重設預設主頁</string>
-  <string name="system_home_settings">主頁設定</string>
-  <string name="reset_launcher_title">重設預設主頁</string>
-  <string name="reset_launcher_description">透過重設預設主頁，您將能夠選擇備用的主頁（即 Trebuchet）。\n\n您確定重設預設主頁？</string>
-  <string name="reset_launcher_tip">按下主頁按鈕，彈出主頁選項對話方塊。</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">本地終端</string>
-  <string name="enable_terminal_on">已啟用</string>
-  <string name="enable_terminal_off">已停用</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">進階重新啟動</string>
-  <string name="advanced_reboot_summary">包括功能表內的選項，可重新啟動至修復模式 (recovery)，啟動載入模式 (bootloader) 或進行軟重新啟動</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">重新啟動</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">修復模式</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">啟動載入程式</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">軟重新啟動</string>
-  <!-- Display settings -->
-  <string name="system_display_overscan">過掃描</string>
-  <string name="system_display_overscan_description">校準顯示器來適合您的螢幕大小。</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="other">剩下 <xliff:g id="step_count">%1$d</xliff:g> 步即可啟用開發設定。</item>
+    </plurals>
+    <string name="show_dev_on_cm">您已啟用開發設定！</string>
+    <string name="show_dev_already_cm">不需要，您已經啟用開發設定。</string>
+    <string name="about_build_date">組建日期</string>
+    <string name="about_kernel_version">內核版本</string>
+    <string name="about_selinux_status">SELinux 狀態</string>
+    <string name="selinux_status_permissive">許可</string>
+    <string name="selinux_status_enforcing">強制執行</string>
+    <string name="root_access">Root 權限</string>
+    <string name="root_access_warning_title">允許 root 權限？</string>
+    <string name="root_access_warning_message">允許應用程式請求 root 權限十分危險，可能會影響您的系統安全！</string>
+    <string name="root_access_none">已停用</string>
+    <string name="root_access_apps">僅限應用程式</string>
+    <string name="root_access_adb">僅限 ADB</string>
+    <string name="root_access_all">應用程式和 ADB</string>
+    <string name="enable_terminal_title">本地終端</string>
+    <string name="system_display_overscan">過掃描</string>
+    <string name="system_display_overscan_description">校準顯示器來適合您的螢幕大小。</string>
+    <string name="system_reset_default_home">重設預設主頁</string>
+    <string name="system_home_settings">主頁設定</string>
+    <string name="reset_launcher_title">重設預設主頁</string>
+    <string name="reset_launcher_description">透過重設預設主頁，您將能夠選擇備用的主頁（即 Trebuchet）。\n\n您確定重設預設主頁？</string>
+    <string name="reset_launcher_tip">按下主頁按鈕，彈出主頁選項對話方塊。</string>
+    <string name="advanced_reboot_title">進階重新啟動</string>
+    <string name="advanced_reboot_summary">包括功能表內的選項，可重新啟動至修復模式 (recovery)，啟動載入模式 (bootloader) 或進行軟重新啟動</string>
+    <string name="reboot_recovery_button_label">修復模式</string>
+    <string name="reboot_bootloader_button_label">啟動載入程式</string>
+    <string name="reboot_soft_button_label">軟重新啟動</string>
+    <string name="adb_over_network_summary">啟用透過網絡接口（Wi-Fi、USB 網絡）進行 TCP/IP 偵錯。該設定會在重新啟動後重設</string>
+    <string name="adb_over_network_warning">警告：啟用透過網絡連線 ADB 後，所有已連線的網絡均可能入侵您的電視！\n\n建議您連線到信任的網絡時才使用此功能。\n\n您確定想啟用此功能嗎？</string>
 </resources>

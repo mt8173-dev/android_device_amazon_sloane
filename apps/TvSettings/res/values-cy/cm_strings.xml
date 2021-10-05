@@ -16,30 +16,48 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <!-- About screen, CyanogenMod version -->
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <!-- About screen, build date -->
-  <!-- About screen, kernel version -->
-  <!-- About screen, SELinux status -->
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <!-- Setting for updating Cyanogen recovery -->
-  <!-- Android debugging over WiFi -->
-  <!-- Warning for Adb over Network -->
-  <!-- Home settings -->
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <!-- Advanced reboot options -->
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <!-- Display settings -->
+    <string name="about_cmupdate_settings_title">Diweddariadau LineageOS</string>
+    <string name="about_mod_version">Fersiwn CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="zero">Rwyt nawr <xliff:g id="step_count">%1$d</xliff:g> camau i ffwrdd o alluogi gosodiadau datblygu.</item>
+        <item quantity="one">Rwyt nawr <xliff:g id="step_count">%1$d</xliff:g> cam i ffwrdd o alluogi gosodiadau datblygu.</item>
+        <item quantity="two">Rwyt nawr <xliff:g id="step_count">%1$d</xliff:g> gam i ffwrdd o alluogi gosodiadau datblygu.</item>
+        <item quantity="few">Rwyt nawr <xliff:g id="step_count">%1$d</xliff:g> cam i ffwrdd o alluogi gosodiadau datblygu.</item>
+        <item quantity="many">Rwyt nawr <xliff:g id="step_count">%1$d</xliff:g> cham i ffwrdd o alluogi gosodiadau datblygu.</item>
+        <item quantity="other">Rwyt nawr <xliff:g id="step_count">%1$d</xliff:g> cam i ffwrdd o alluogi gosodiadau datblygu.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Rwyt wedi galluogi gosodiadau datblygu!</string>
+    <string name="show_dev_already_cm">Dim angen; rwyt eisoes wedi galluogi gosodiadau datblygu.</string>
+    <string name="about_build_date">Dyddiad adeiledd</string>
+    <string name="about_kernel_version">Fersiwn cnewyllyn</string>
+    <string name="about_selinux_status">Statws SELinux</string>
+    <string name="selinux_status_disabled">Analluogwyd</string>
+    <string name="selinux_status_permissive">Caniataol</string>
+    <string name="selinux_status_enforcing">Yn gorfodi</string>
+    <string name="accessories_add_bluetooth_inst_cm">I ddechrau defnyddio LineageOS, sicrha bod dy ddyfais Bluetooth yn y modd paru. Yn Nexus Remote, gwneir hyn wrth wasgu\'r botymau nôl a chartref ar yr un pryd.</string>
+    <string name="root_access">Mynediad craidd</string>
+    <string name="root_access_warning_title">Caniatáu mynediad craidd?</string>
+    <string name="root_access_warning_message">Mae caniatáu i apiau gael mynediad craidd yn hynod beryglus a gall peryglu diogelwch dy ddyfais!</string>
+    <string name="root_access_none">Analluogwyd</string>
+    <string name="root_access_apps">Apiau yn unig</string>
+    <string name="root_access_adb">ADB yn unig</string>
+    <string name="root_access_all">Apiau ac ADB</string>
+    <string name="enable_terminal_title">Terfynell leol</string>
+    <string name="enable_terminal_summary">Galluogi ap terfynell sy\'n cynnig mynediad cragen leol</string>
+    <string name="system_display">Dangosydd</string>
+    <string name="system_display_overscan">Tros-sganio</string>
+    <string name="system_display_overscan_description">Graddio\'r dangosydd i ffitio maint dy sgrin.</string>
+    <string name="system_reset_default_home">Ailosod sgrin gartref rhagosodedig</string>
+    <string name="system_home_settings">Gosodiadau cartref</string>
+    <string name="reset_launcher_title">Ailosod sgrin gartref rhagosodedig</string>
+    <string name="reset_launcher_description">Wrth ailosod y sgrin gartref rhagosodedig, bydd yn bosib dewis sgrin gartref gwahanol (e.e. Trebuchet).\n\nWyt ti am ailosod y sgrin gartref rhagosodedig?</string>
+    <string name="reset_launcher_tip">Gwasga\'r botwm cartref i ddangos y deialog dewisiadau sgrin gartref.</string>
+    <string name="advanced_reboot_title">Ailgychwyn arbennig</string>
+    <string name="advanced_reboot_summary">Cynnwys opsiynau yn y ddewislen ynghylch i ailgychwyn y system, cyflawni ailgychwyn meddal neu ailgychwyn i\'r modd adfer</string>
+    <string name="reboot_recovery_button_label">Modd adfer</string>
+    <string name="reboot_bootloader_button_label">Cychwynnydd y system</string>
+    <string name="reboot_soft_button_label">Ailgychwyn meddal</string>
+    <string name="adb_over_network">ADB dros rwydwaith</string>
+    <string name="adb_over_network_summary">Galluogi dadfygio TCP/IP dros ryngwynebau rhwydwaith (Wi\u2011Fi, rhwydweithiau USB). Mae\'r gosodiad yn cael ei ail-osod wrth ail-gychwyn y ddyfais.</string>
+    <string name="adb_over_network_warning">RHYBUDD: Tra bod ADB dros rwydwaith wedi\'i alluogi, mae dy deledu ar gael ac yn agor i ymyrraeth ar bob rhwydwaith mae wedi cysylltu â nhw!\n\nDefnyddia\'r nodwedd hon dim ond pan wyt wedi cysylltu â rhwydweithiau rwyt yn ymddiried ynddynt.\n\nWyt ti wir eisiau parhau i alluogi\'r nodwedd hon?</string>
 </resources>

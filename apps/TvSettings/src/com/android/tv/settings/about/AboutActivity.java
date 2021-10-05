@@ -16,22 +16,10 @@
 
 package com.android.tv.settings.about;
 
-import com.android.tv.settings.R;
-import com.android.tv.settings.PreferenceUtils;
-import com.android.tv.settings.dialog.old.Action;
-import com.android.tv.settings.dialog.old.ActionAdapter;
-import com.android.tv.settings.dialog.old.ActionFragment;
-import com.android.tv.settings.dialog.old.ContentFragment;
-import com.android.tv.settings.dialog.old.DialogActivity;
-import com.android.tv.settings.name.DeviceManager;
-
 import android.app.ActivityManagerNative;
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.app.IActivityManager;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -39,6 +27,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
@@ -47,19 +36,29 @@ import android.os.SELinux;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
-import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v17.leanback.app.GuidedStepFragment;
+import android.support.v17.leanback.widget.GuidanceStylist;
+import android.support.v17.leanback.widget.GuidedAction;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.widget.ListView;
+import android.view.View;
 import android.widget.Toast;
+
+import com.android.tv.settings.PreferenceUtils;
+import com.android.tv.settings.R;
+import com.android.tv.settings.dialog.Layout;
+import com.android.tv.settings.dialog.SettingsLayoutActivity;
+import com.android.tv.settings.name.DeviceManager;
+
+import cyanogenmod.providers.CMSettings;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -69,24 +68,20 @@ import java.util.regex.Pattern;
 /**
  * Activity which shows the build / model / legal info / etc.
  */
-public class AboutActivity extends DialogActivity implements ActionAdapter.Listener,
-        ActionAdapter.OnFocusListener {
+public class AboutActivity extends SettingsLayoutActivity {
 
     private static final String TAG = "AboutActivity";
 
     /**
      * Action keys for switching over in onActionClicked.
      */
-    private static final String KEY_LEGAL_INFO = "about_legal_info";
-    private static final String KEY_BUILD = "build";
-    private static final String KEY_VERSION = "version";
-    private static final String KEY_REBOOT = "reboot";
-    private static final String KEY_MOD_VERSION = "mod_version";
+    private static final int KEY_BUILD = 0;
+    private static final int KEY_VERSION = 1;
+    private static final int KEY_REBOOT = 2;
+    private static final int KEY_MOD_VERSION = 3;
     private static final String FILENAME_PROC_VERSION = "/proc/version";
     private static final String LOG_TAG = "AboutSettings";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
-    private static final String KEY_ADVANCED_REBOOT = "advanced_reboot";
-    private static final String SOFT_REBOOT = "soft_reboot";
     private static String mRebootReason;
 
     /**
@@ -206,62 +201,6 @@ public class AboutActivity extends DialogActivity implements ActionAdapter.Liste
     }
 
     /**
-     * Build the advanced reboot menu.
-     */
-    private void advancedRebootMenu() {
-        AlertDialog.Builder advancedReboot = new AlertDialog.Builder(
-                this, android.R.style.Theme_Material_Dialog);
-        advancedReboot.setTitle(R.string.advanced_reboot_title);
-        advancedReboot.setItems(com.android.internal.R.array.shutdown_reboot_options,
-           new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int selected) {
-                boolean softReboot = false;
-                String actions[] = getResources().getStringArray(
-                                com.android.internal.R.array.shutdown_reboot_actions);
-                if (selected >= 0 && selected < actions.length) {
-                            mRebootReason = actions[selected];
-                    if (actions[selected].equals(SOFT_REBOOT)) {
-                        doSoftReboot();
-                        return;
-                    } else {
-                        doReboot();
-                    }
-                } else {
-                    mRebootReason = null;
-                    doReboot();
-                }
-            }
-        });
-        advancedReboot.show();
-    }
-
-    private boolean isAdvancedRebootPossible() {
-        boolean advancedRebootEnabled = Settings.Secure.getInt(this.getContentResolver(),
-                Settings.Secure.ADVANCED_REBOOT, 0) != 0;
-
-        return advancedRebootEnabled;
-    }
-
-
-    private void doReboot() {
-            PowerManager pm = (PowerManager)getSystemService(Context.POWER_SERVICE);
-            pm.reboot(mRebootReason);
-    }
-
-    private static void doSoftReboot() {
-        try {
-            final IActivityManager am =
-                  ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
-            if (am != null) {
-                am.restart();
-            }
-        } catch (RemoteException e) {
-            Log.e(TAG, "failure trying to perform soft reboot", e);
-        }
-    }
-
-    /**
      * Intent component to launch PlatLogo Easter egg.
      */
     private static final ComponentName mPlatLogoActivity = new ComponentName("android",
@@ -275,36 +214,26 @@ public class AboutActivity extends DialogActivity implements ActionAdapter.Liste
     private int mDeveloperClickCount;
     private PreferenceUtils mPreferenceUtils;
     private Toast mToast;
-    private int mSelectedIndex;
-    private long[] mHits = new long[3];
+    private final long[] mHits = new long[3];
     private int mHitsIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPreferenceUtils = new PreferenceUtils(this);
-        setContentAndActionFragments(ContentFragment.newInstance(
-                        getString(R.string.about_preference), null, null, R.drawable.ic_settings_about,
-                        getResources().getColor(R.color.icon_background)),
-                ActionFragment.newInstance(getActions()));
-        mSelectedIndex = 0;
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mDeveloperClickCount = 0;
+        mDeviceNameLayoutGetter.refreshView();
     }
 
     @Override
-    public void onActionFocused(Action action) {
-        mSelectedIndex = getActions().indexOf(action);
-    }
-
-    @Override
-    public void onActionClicked(Action action) {
-        final String key = action.getKey();
-        if (TextUtils.equals(key, KEY_BUILD)) {
+    public void onActionClicked(Layout.Action action) {
+        final int key = action.getId();
+        if (key == KEY_BUILD) {
             mDeveloperClickCount++;
             if (!mPreferenceUtils.isDeveloperEnabled()) {
                 int numLeft = NUM_DEVELOPER_CLICKS - mDeveloperClickCount;
@@ -322,15 +251,7 @@ public class AboutActivity extends DialogActivity implements ActionAdapter.Liste
                     showToast(getString(R.string.show_dev_already_cm));
                 }
             }
-        } else if (TextUtils.equals(key, KEY_VERSION)) {
-            mHits[mHitsIndex] = SystemClock.uptimeMillis();
-            mHitsIndex = (mHitsIndex + 1) % mHits.length;
-            if (mHits[mHitsIndex] >= SystemClock.uptimeMillis() - 500) {
-                Intent intent = new Intent();
-                intent.setComponent(mPlatLogoActivity);
-                startActivity(intent);
-            }
-        } else if (TextUtils.equals(key, KEY_MOD_VERSION)) {
+        } else if (key == KEY_MOD_VERSION) {
             mHits[mHitsIndex] = SystemClock.uptimeMillis();
             mHitsIndex = (mHitsIndex + 1) % mHits.length;
             if (mHits[mHitsIndex] >= SystemClock.uptimeMillis() - 500) {
@@ -339,16 +260,20 @@ public class AboutActivity extends DialogActivity implements ActionAdapter.Liste
                 intent.setComponent(mPlatLogoActivity);
                 startActivity(intent);
             }
-        } else if (TextUtils.equals(key, KEY_LEGAL_INFO)) {
-            ArrayList<Action> actions = getLegalActions();
-            setContentAndActionFragments(ContentFragment.newInstance(
-                    getString(R.string.about_legal_info), null, null),
-                    ActionFragment.newInstance(actions));
-        } else if (TextUtils.equals(key, KEY_REBOOT)) {
-            PowerManager pm = (PowerManager)getSystemService(Context.POWER_SERVICE);
-            pm.reboot(null);
-        } else if (TextUtils.equals(key, KEY_ADVANCED_REBOOT)) {
-            advancedRebootMenu();
+        } else if (key == KEY_VERSION) {
+            mHits[mHitsIndex] = SystemClock.uptimeMillis();
+            mHitsIndex = (mHitsIndex + 1) % mHits.length;
+            if (mHits[mHitsIndex] >= SystemClock.uptimeMillis() - 500) {
+                Intent intent = new Intent();
+                intent.setComponent(mPlatLogoActivity);
+                startActivity(intent);
+            }
+        } else if (key == KEY_REBOOT) {
+            final Fragment f = new RebootConfirmFragment();
+            getFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, f)
+                    .addToBackStack(null)
+                    .commit();
         } else {
             Intent intent = action.getIntent();
             if (intent != null) {
@@ -363,85 +288,66 @@ public class AboutActivity extends DialogActivity implements ActionAdapter.Liste
         }
     }
 
-    private ArrayList<Action> getLegalActions() {
-        ArrayList<Action> actions = new ArrayList<Action>();
-        actions.add(new Action.Builder()
-                .intent(systemIntent(SETTINGS_LEGAL_LICENSE_INTENT_ACTION))
-                .title(getString(R.string.about_legal_license))
-                .build());
-        actions.add(new Action.Builder()
-                .intent(systemIntent(SETTINGS_LEGAL_TERMS_OF_SERVICE))
-                .title(getString(R.string.about_terms_of_service))
-                .build());
+    private final Layout.LayoutGetter mDeviceNameLayoutGetter = new Layout.LayoutGetter() {
+        @Override
+        public Layout get() {
+            return new Layout().add(new Layout.Action.Builder(getResources(),
+                    new Intent(SETTINGS_DEVICE_NAME_INTENT_ACTION))
+                    .title(R.string.device_name)
+                    .description(DeviceManager.getDeviceName(AboutActivity.this))
+                    .build());
+        }
+    };
 
-        return actions;
-    }
+    @Override
+    public Layout createLayout() {
+        final Resources res = getResources();
 
-    private ArrayList<Action> getActions() {
-        ArrayList<Action> actions = new ArrayList<Action>();
-        Intent cmupdaterIntent = new Intent();
+        final Layout.Header header = new Layout.Header.Builder(res)
+                .icon(R.drawable.ic_settings_about)
+                .title(R.string.about_preference)
+                .build();
+
+        final Intent cmupdaterIntent = new Intent();
         cmupdaterIntent.setComponent(mCmupdaterActivity);
         cmupdaterIntent.setAction(SETTINGS_CM_UPDATER_ACTION);
         cmupdaterIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        actions.add(new Action.Builder()
-                .key("cmupdate")
-                .title(getString(R.string.about_cmupdate_settings_title))
-                .intent(cmupdaterIntent)
-                .enabled(true)
+
+        header.add(new Layout.Action.Builder(res, cmupdaterIntent)
+                .title(R.string.about_cmupdate_settings_title)
                 .build());
-        actions.add(new Action.Builder()
-                .key("name")
-                .title(getString(R.string.device_name))
-                .description(DeviceManager.getDeviceName(this))
-                .intent(new Intent(SETTINGS_DEVICE_NAME_INTENT_ACTION))
+        header.add(mDeviceNameLayoutGetter);
+        header.add(new Layout.Action.Builder(res, KEY_REBOOT)
+                .title(R.string.restart_button_label)
                 .build());
-        if (!isAdvancedRebootPossible()) {
-            actions.add(new Action.Builder()
-                    .key(KEY_REBOOT)
-                    .title(getString(R.string.restart_button_label))
-                    .build());
-        } else {
-            actions.add(new Action.Builder()
-                    .key(KEY_ADVANCED_REBOOT)
-                    .title(getString(R.string.advanced_reboot_title))
-                    .build());
-        }
-        actions.add(new Action.Builder()
-                .key(KEY_LEGAL_INFO)
-                .title(getString(R.string.about_legal_info))
-                .build());
-        Intent adsIntent = new Intent();
+        header.add(new Layout.Header.Builder(res)
+                .title(R.string.about_legal_info)
+                .build()
+                .add(new Layout.Action.Builder(res,
+                        systemIntent(SETTINGS_LEGAL_LICENSE_INTENT_ACTION))
+                        .title(R.string.about_legal_license)
+                        .build())
+                .add(new Layout.Action.Builder(res, systemIntent(SETTINGS_LEGAL_TERMS_OF_SERVICE))
+                        .title(R.string.about_terms_of_service)
+                        .build()));
+
+        final Intent adsIntent = new Intent();
         adsIntent.setPackage(SETTINGS_ADS_ACTIVITY_PACKAGE);
         adsIntent.setAction(SETTINGS_ADS_ACTIVITY_ACTION);
         adsIntent.addCategory(Intent.CATEGORY_DEFAULT);
-        List<ResolveInfo> resolveInfos = getPackageManager().queryIntentActivities(adsIntent,
+        final List<ResolveInfo> resolveInfos = getPackageManager().queryIntentActivities(adsIntent,
                 PackageManager.MATCH_DEFAULT_ONLY);
         if (!resolveInfos.isEmpty()) {
-            // Launch the phone ads id activity.
-            actions.add(new Action.Builder()
-                    .key("ads")
-                    .title(getString(R.string.about_ads))
-                    .intent(adsIntent)
-                    .enabled(true)
+            header.add(new Layout.Action.Builder(res, adsIntent)
+                    .title(R.string.about_ads)
                     .build());
         }
-        actions.add(new Action.Builder()
-                .key("model")
-                .title(getString(R.string.about_model))
+
+        header.add(new Layout.Status.Builder(res)
+                .title(R.string.about_model)
                 .description(Build.MODEL)
                 .build());
-        actions.add(new Action.Builder()
-                .key(KEY_MOD_VERSION)
-                .title(getString(R.string.about_mod_version))
-                .description(getDisplayVersion())
-                .enabled(true)
-                .build());
-        actions.add(new Action.Builder()
-                .key(KEY_VERSION)
-                .title(getString(R.string.about_version))
-                .description(Build.VERSION.RELEASE)
-                .enabled(true)
-                .build());
+
         String patch = Build.VERSION.SECURITY_PATCH;
         if (!TextUtils.isEmpty(patch)) {
             try {
@@ -452,51 +358,43 @@ public class AboutActivity extends DialogActivity implements ActionAdapter.Liste
             } catch (ParseException e) {
                 // broken parse; fall through and use the raw string
             }
-            actions.add(new Action.Builder()
-                    .key("security_patch")
-                    .title(getString(R.string.security_patch))
+            header.add(new Layout.Status.Builder(res)
+                    .title(R.string.security_patch)
                     .description(patch)
                     .build());
         }
-        actions.add(new Action.Builder()
-                .key("serial")
-                .title(getString(R.string.about_serial))
+
+        header.add(new Layout.Action.Builder(res, KEY_MOD_VERSION)
+                .title(R.string.about_mod_version)
+                .description(getDisplayVersion())
+                .build());
+        header.add(new Layout.Action.Builder(res, KEY_VERSION)
+                .title(R.string.about_version)
+                .description(Build.VERSION.RELEASE)
+                .build());
+        header.add(new Layout.Status.Builder(res)
+                .title(R.string.about_serial)
                 .description(Build.SERIAL)
                 .build());
-        actions.add(new Action.Builder()
-                .key("kernel_version")
+        header.add(new Layout.Status.Builder(res)
                 .title(getString(R.string.about_kernel_version))
                 .description(getFormattedKernelVersion())
-                .multilineDescription(true)
                 .build());
-        actions.add(new Action.Builder()
-                .key("build_date")
+        header.add(new Layout.Status.Builder(res)
                 .title(getString(R.string.about_build_date))
                 .description(getBuildDate())
                 .build());
-        actions.add(new Action.Builder()
-                .key(KEY_BUILD)
-                .title(getString(R.string.about_build))
+        header.add(new Layout.Action.Builder(res, KEY_BUILD)
+                .title(R.string.about_build)
                 .description(Build.DISPLAY)
-                .enabled(true)
                 .build());
         if (!SystemProperties.get(PROPERTY_SELINUX_STATUS).equals("")) {
-            actions.add(new Action.Builder()
-                    .key("selinux_status")
+            header.add(new Layout.Status.Builder(res)
                     .title(getString(R.string.about_selinux_status))
                     .description(getSelinuxStatus())
                     .build());
         }
-        return actions;
-    }
-
-    private void displayFragment(Fragment fragment) {
-        getFragmentManager()
-            .beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .replace(android.R.id.content, fragment)
-            .addToBackStack(null)
-            .commit();
+        return new Layout().breadcrumb(getString(R.string.header_category_device)).add(header);
     }
 
     private void showToast(String toastString) {
@@ -523,5 +421,91 @@ public class AboutActivity extends DialogActivity implements ActionAdapter.Liste
             }
         }
         return null;  // No system image package found.
+    }
+
+    private boolean isAdvancedRebootPossible() {
+        boolean advancedRebootEnabled = CMSettings.Secure.getInt(this.getContentResolver(),
+                CMSettings.Secure.ADVANCED_REBOOT, 0) != 0;
+
+        return advancedRebootEnabled;
+    }
+
+    private static void doSoftReboot() {
+        try {
+            final IActivityManager am =
+                  ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
+            if (am != null) {
+                am.restart();
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "failure trying to perform soft reboot", e);
+        }
+    }
+
+    public class RebootConfirmFragment extends GuidedStepFragment {
+
+        private static final int ACTION_RESTART = 1;
+        private static final int ACTION_REBOOT_SOFT = 2;
+        private static final int ACTION_REBOOT_RECOVERY = 3;
+        private static final int ACTION_REBOOT_BOOTLOADER = 4;
+
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            setSelectedActionPosition(1);
+        }
+
+        @Override
+        public @NonNull GuidanceStylist.Guidance onCreateGuidance(Bundle savedInstanceState) {
+            return new GuidanceStylist.Guidance(
+                    getString(R.string.system_reboot_confirm),
+                    "",
+                    getString(R.string.about_preference),
+                    getActivity().getDrawable(R.drawable.ic_settings_warning)
+                    );
+        }
+
+        @Override
+        public void onCreateActions(@NonNull List<GuidedAction> actions,
+                Bundle savedInstanceState) {
+            actions.add(new GuidedAction.Builder()
+                    .title(getString(R.string.restart_button_label))
+                    .id(ACTION_RESTART)
+                    .build());
+            if (isAdvancedRebootPossible()) {
+                actions.add(new GuidedAction.Builder()
+                        .title(getString(R.string.reboot_soft_button_label))
+                        .id(ACTION_REBOOT_SOFT)
+                        .build());
+                actions.add(new GuidedAction.Builder()
+                        .title(getString(R.string.reboot_recovery_button_label))
+                        .id(ACTION_REBOOT_RECOVERY)
+                        .build());
+                actions.add(new GuidedAction.Builder()
+                        .title(getString(R.string.reboot_bootloader_button_label))
+                        .id(ACTION_REBOOT_BOOTLOADER)
+                        .build());
+            }
+            actions.add(new GuidedAction.Builder()
+                    .title(getString(android.R.string.cancel))
+                    .build());
+        }
+
+        @Override
+        public void onGuidedActionClicked(GuidedAction action) {
+            PowerManager pm =
+                    (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
+            if (action.getId() == ACTION_RESTART) {
+                pm.reboot(null);
+            } else if (action.getId() == ACTION_REBOOT_SOFT)  {
+                doSoftReboot();
+            } else if (action.getId() == ACTION_REBOOT_RECOVERY)  {
+                pm.reboot(PowerManager.REBOOT_RECOVERY);
+            } else if (action.getId() == ACTION_REBOOT_BOOTLOADER)  {
+                pm.reboot(getString(R.string.reboot_bootloader_reason));
+            } else {
+                getFragmentManager().popBackStack();
+            }
+        }
     }
 }

@@ -16,80 +16,43 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">การอัปเดตรุ่น CyanogenMod</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">รุ่นของ CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">ระดับการปรับปรุงความปลอดภัยของ Android</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="other">คุณเหลืออีก <xliff:g id="step_count">%1$d</xliff:g> ขั้นตอนก่อนจะเปิดใช้การตั้งค่าการพัฒนา</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">คุณเปิดใช้งานการตั้งค่าการพัฒนาแล้ว!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">ไม่จำเป็น คุณได้เปิดใช้งานการตั้งค่าการพัฒนาแล้ว</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">วันที่สร้าง</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">รุ่นเคอร์เนล</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">สถานะ SELinux</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">ปิดการใช้งานแล้ว</string>
-  <string name="selinux_status_permissive">ตามการอนุญาต</string>
-  <string name="selinux_status_enforcing">การบังคับใช้</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">เพื่อเริ่มใช้ CyanogenMod กรุณาตรวจสอบให้แน่ใจว่าอุปกรณ์บลูทูธของคุณอยู่ในใหมดการจับคู่ สำหรับรีโมท Nexus ให้ทำโดยกดปุ่มกลับและปุ่มหน้าหลักพร้อมกัน</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">สิทธิผู้ดูแลระบบ</string>
-  <string name="root_access_warning_title">ให้สิทธิผู้ดูแลระบบหรือไม่</string>
-  <string name="root_access_warning_message">การอนุญาติให้แอปเข้าถึงสิทธิผู้ดูแลระบบถือว่าอันตรายมากและอาจส่งผลเสียหายต่อความปลอดภัยสำหรับระบบของคุณ!</string>
-  <string name="root_access_none">ปิดใช้งานแล้ว</string>
-  <string name="root_access_apps">แอปเท่านั้น</string>
-  <string name="root_access_adb">ADB เท่านั้น</string>
-  <string name="root_access_all">แอปและ ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen recovery</string>
-  <string name="update_recovery_on_summary">อัปเดตด้วยการอัปเดตระบบ</string>
-  <string name="update_recovery_off_summary">ไม่อัปเดตด้วยการอัปเดตระบบ</string>
-  <string name="update_recovery_on_warning">หมายเหตุ: เมื่อเปิดใช้งานคุณสมบัตินี้ การกู้คืนที่ติดตั้งจะถูกเขียนทับด้วยการกู้คืนซึ่งรวมถึงรุ่นปัจจุบันที่ปฏิบัติงานระบบ OS\n\nการกู้คืนจะได้รับการอัปเดตไปพร้อมกับการอัพเกรดระบบ เพื่อช่วยให้สามารถรองรับรุ่นต่อไปในอนาคต\n\nต้องการใช้คุณสมบัตินี้หรือไม่</string>
-  <string name="update_recovery_off_warning">คำเตือน: เมื่อปิดการใช้งานคุณสมบัตินี้ จะทำการกู้คืนที่ติดตั้งไว้ไม่ได้รับการอัปเดตไปพร้อมกับการอัพเกรดระบบปฏิบัติการ\n\nซึ่งอาจทำให้การอัปเดตระบบปฏิบัติการในอนาคตไม่ติดตั้งรุ่นการกู้คืนที่ตกรุ่นหรือที่กำหนดเอง\n\n ต้องการปิดคุณสมบัตินี้แน่นอนหรือไม่</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB บนเครือข่าย</string>
-  <string name="adb_over_network_summary">เปิดแก้ไขข้อบกพร่องผ่าน TCP/IP โดยใช้อินเตอร์เฟซเครือข่าย (Wi\u2011Fi เครือข่าย USB) การตั้งค่านี้จะรีเซ็ตเมื่อเริ่มระบบใหม่</string>
-  <string name="adb_over_network_disable_summary">คลิกเพื่อปิดการแก้ไขข้อบกพร่องของ TCP/IP โดยใช้อินเตอร์เฟซเครือข่าย (Wi\u2011Fi เครือข่าย USB)</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">คำเตือน: เมื่อเปิดใช้งาน ADB บนเครือข่าย TV ของคุณจะเปิดรับการโจมตีจากทุกเครือข่ายที่เชื่อมต่อ\n\nใช้คุณลักษณะนี้เฉพาะเมื่อคุณเชื่อมต่อกับเครือข่ายที่ไว้ใจได้เท่านั้น\n\nต้องการเปิดใช้งานฟังก์ชันนี้หรือไม่</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">รีเซ็ตหน้าจอหลักเริ่มต้น</string>
-  <string name="system_home_settings">การตั้งค่าหน้าจอหลัก</string>
-  <string name="reset_launcher_title">รีเซ็ตหน้าจอหลักเริ่มต้น</string>
-  <string name="reset_launcher_description">ด้วยการรีเซ็ตหน้าจอหลักเริ่มต้น คุณสามารถเลือกหน้าจอหลักแทนที่ได้ (เช่น Trebuchet)\n\n ต้องการรีเซ็ตหน้าจอหลักหรือไม่</string>
-  <string name="reset_launcher_tip">แตะปุ่มหลักเพื่อแสดงข้อความการเลือกหน้าจอหลัก</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">เทอร์มินัลในเครื่อง</string>
-  <string name="enable_terminal_summary">เปิดใช้แอปเทอร์มินัล</string>
-  <string name="disable_terminal_summary">ปิดการใช้แอปเทอร์มินัล</string>
-  <string name="enable_terminal_on">เปิด</string>
-  <string name="enable_terminal_off">ปิด</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">เริ่มระบบใหม่แบบขั้นสูง</string>
-  <string name="advanced_reboot_summary">รวมตัวเลือกในเมนู เกี่ยวกับ สำหรับการเริ่มระบบแบบ recovery booloader หรือการเริ่มระบบแบบซอฟต์รีบู๊ต</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">เริ่มระบบใหม่</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">เริ่มระบบแบบซอฟต์รีบู๊ต</string>
-  <!-- Display settings -->
-  <string name="system_display">แสดง</string>
-  <string name="system_display_overscan">โอเวอร์สแกน</string>
-  <string name="system_display_overscan_description">ปรับเทียบจอแสดงผลให้เหมาะสมกับขนาดหน้าจอ</string>
+    <string name="about_cmupdate_settings_title">การอัปเดตรุ่น CyanogenMod</string>
+    <string name="about_mod_version">รุ่นของ CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="other">คุณเหลืออีก <xliff:g id="step_count">%1$d</xliff:g> ขั้นตอนก่อนจะเปิดใช้การตั้งค่าการพัฒนา</item>
+    </plurals>
+    <string name="show_dev_on_cm">คุณเปิดใช้งานการตั้งค่าการพัฒนาแล้ว!</string>
+    <string name="show_dev_already_cm">ไม่จำเป็น คุณได้เปิดใช้งานการตั้งค่าการพัฒนาแล้ว</string>
+    <string name="about_build_date">วันที่สร้าง</string>
+    <string name="about_kernel_version">รุ่นเคอร์เนล</string>
+    <string name="about_selinux_status">สถานะ SELinux</string>
+    <string name="selinux_status_disabled">ปิดการใช้งานแล้ว</string>
+    <string name="selinux_status_permissive">ตามการอนุญาต</string>
+    <string name="selinux_status_enforcing">การบังคับใช้</string>
+    <string name="accessories_add_bluetooth_inst_cm">เพื่อเริ่มใช้ CyanogenMod กรุณาตรวจสอบให้แน่ใจว่าอุปกรณ์บลูทูธของคุณอยู่ในใหมดการจับคู่ สำหรับรีโมท Nexus ให้ทำโดยกดปุ่มกลับและปุ่มหน้าหลักพร้อมกัน</string>
+    <string name="root_access">สิทธิผู้ดูแลระบบ</string>
+    <string name="root_access_warning_title">ให้สิทธิผู้ดูแลระบบหรือไม่</string>
+    <string name="root_access_warning_message">การอนุญาติให้แอปเข้าถึงสิทธิผู้ดูแลระบบถือว่าอันตรายมากและอาจส่งผลเสียหายต่อความปลอดภัยสำหรับระบบของคุณ!</string>
+    <string name="root_access_none">ปิดใช้งานแล้ว</string>
+    <string name="root_access_apps">แอปเท่านั้น</string>
+    <string name="root_access_adb">ADB เท่านั้น</string>
+    <string name="root_access_all">แอปและ ADB</string>
+    <string name="enable_terminal_title">เทอร์มินัลในเครื่อง</string>
+    <string name="enable_terminal_summary">เปิดใช้งานแอปเทอร์มินอลเพื่อเข้่าถึง shell</string>
+    <string name="system_display">แสดง</string>
+    <string name="system_display_overscan">โอเวอร์สแกน</string>
+    <string name="system_display_overscan_description">ปรับเทียบจอแสดงผลให้เหมาะสมกับขนาดหน้าจอ</string>
+    <string name="system_reset_default_home">รีเซ็ตหน้าจอหลักเริ่มต้น</string>
+    <string name="system_home_settings">การตั้งค่าหน้าจอหลัก</string>
+    <string name="reset_launcher_title">รีเซ็ตหน้าจอหลักเริ่มต้น</string>
+    <string name="reset_launcher_description">ด้วยการรีเซ็ตหน้าจอหลักเริ่มต้น คุณสามารถเลือกหน้าจอหลักแทนที่ได้ (เช่น Trebuchet)\n\n ต้องการรีเซ็ตหน้าจอหลักหรือไม่</string>
+    <string name="reset_launcher_tip">แตะปุ่มหลักเพื่อแสดงข้อความการเลือกหน้าจอหลัก</string>
+    <string name="advanced_reboot_title">เริ่มระบบใหม่แบบขั้นสูง</string>
+    <string name="advanced_reboot_summary">รวมตัวเลือกในเมนู เกี่ยวกับ สำหรับการเริ่มระบบแบบ recovery booloader หรือการเริ่มระบบแบบซอฟต์รีบู๊ต</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">เริ่มระบบแบบซอฟต์รีบู๊ต</string>
+    <string name="adb_over_network">ADB บนเครือข่าย</string>
+    <string name="adb_over_network_summary">เปิดแก้ไขข้อบกพร่องผ่าน TCP/IP โดยใช้อินเตอร์เฟซเครือข่าย (Wi\u2011Fi เครือข่าย USB) การตั้งค่านี้จะรีเซ็ตเมื่อเริ่มระบบใหม่</string>
+    <string name="adb_over_network_warning">คำเตือน: เมื่อเปิดใช้งาน ADB บนเครือข่าย TV ของคุณจะเปิดรับการโจมตีจากทุกเครือข่ายที่เชื่อมต่อ\n\nใช้คุณลักษณะนี้เฉพาะเมื่อคุณเชื่อมต่อกับเครือข่ายที่ไว้ใจได้เท่านั้น\n\nต้องการเปิดใช้งานฟังก์ชันนี้หรือไม่</string>
 </resources>

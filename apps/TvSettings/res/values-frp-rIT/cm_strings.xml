@@ -18,7 +18,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- CM Updater -->
   <!-- About screen, CyanogenMod version -->
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
@@ -30,16 +29,14 @@
   <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
   <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
   <!-- Setting title for root access -->
-  <!-- Setting for updating Cyanogen recovery -->
-  <!-- Android debugging over WiFi -->
-  <!-- Warning for Adb over Network -->
-  <!-- Home settings -->
   <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
+  <!-- Display settings -->
+  <!-- Home settings -->
   <!-- Advanced reboot options -->
   <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
   <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
   <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
   <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <!-- Display settings -->
+  <!-- Android debugging over WiFi -->
+  <!-- Warning for Adb over Network -->
 </resources>

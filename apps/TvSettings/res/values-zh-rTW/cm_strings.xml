@@ -16,80 +16,43 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod 更新</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod 版本</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Android 的安全修補程式級別</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="other">剩下 <xliff:g id="step_count">%1$d</xliff:g> 步即可啟用開發設定。</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">您已啟用開發設定！</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">不需要，您已經啟用開發設定。</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">編譯日期</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">核心版本</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux 狀態</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">已停用</string>
-  <string name="selinux_status_permissive">權限</string>
-  <string name="selinux_status_enforcing">強制</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">在使用 CyanogenMod 前，請確保藍牙裝置處於配對模式。對於 Nexus 遙控器，同時按下 [返回] 和 [主螢幕] 按鍵即可完成。</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root 權限</string>
-  <string name="root_access_warning_title">是否允許 root 權限？</string>
-  <string name="root_access_warning_message">允許應用程式請求 root 權限十分危險，可能會影響您的系統安全！</string>
-  <string name="root_access_none">已停用</string>
-  <string name="root_access_apps">僅限應用程式</string>
-  <string name="root_access_adb">僅限 ADB</string>
-  <string name="root_access_all">應用程式和 ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen recovery</string>
-  <string name="update_recovery_on_summary">與系統同時更新</string>
-  <string name="update_recovery_off_summary">不要與系統同時更新</string>
-  <string name="update_recovery_on_warning">注意：啟用此功能後，您已安裝的 Recovery 將會被現在所執行之系統所包含的取代。\n\n您的 Recovery 將會隨著系統一起更新以確保與未來版本的相容性。\n\n您確定要啟用這個功能嗎？</string>
-  <string name="update_recovery_off_warning">警告：此功能被停用後，您安裝的 Recovery 將不隨著一起更新。\n\n未來的系统更新可能不支援舊版或自制 Recovery。\n\n您確定要停用此功能嗎？</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">透過網路 ADB </string>
-  <string name="adb_over_network_summary">啟用透過網路介面 (Wi\u2011Fi、USB 網路) 進行 TCP/IP 偵錯。該設定會在重新啟動後重設</string>
-  <string name="adb_over_network_disable_summary">按下即可停用透過網路介面 (Wi\u2011Fi、USB 網路) 進行 TCP/IP 偵錯</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">警告：啟用透過網路 ADB 後，所有已連線的網路均可能入侵您的電視！\n\n建議您連線到信任的網路時才使用此功能。\n\n您確定想啟用此功能嗎？</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">重設預設的主螢幕</string>
-  <string name="system_home_settings">主螢幕設定</string>
-  <string name="reset_launcher_title">重設預設主螢幕</string>
-  <string name="reset_launcher_description">透過重設預設主螢幕，將能夠選擇備用的主螢幕 (即 Trebuchet)。\n\n確定重設預設主螢幕嗎？</string>
-  <string name="reset_launcher_tip">按下主螢幕鍵，彈出主螢幕選項對話方塊。</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">本地終端</string>
-  <string name="enable_terminal_summary">啟用終端應用程式</string>
-  <string name="disable_terminal_summary">停用終端程式</string>
-  <string name="enable_terminal_on">已啟用</string>
-  <string name="enable_terminal_off">已停用</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">進階重新啟動</string>
-  <string name="advanced_reboot_summary">包括選單內的選項，可重新啟動至 Recovery、Bootloader 或進行軟體重新啟動</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">重新啟動</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">軟體重新啟動</string>
-  <!-- Display settings -->
-  <string name="system_display">顯示</string>
-  <string name="system_display_overscan">過掃描</string>
-  <string name="system_display_overscan_description">校準顯示器來配合螢幕大小。</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod 更新</string>
+    <string name="about_mod_version">CyanogenMod 版本</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="other">剩下 <xliff:g id="step_count">%1$d</xliff:g> 步即可啟用開發設定。</item>
+    </plurals>
+    <string name="show_dev_on_cm">您已啟用開發設定！</string>
+    <string name="show_dev_already_cm">不需要，您已經啟用開發設定。</string>
+    <string name="about_build_date">編譯日期</string>
+    <string name="about_kernel_version">核心版本</string>
+    <string name="about_selinux_status">SELinux 狀態</string>
+    <string name="selinux_status_disabled">已停用</string>
+    <string name="selinux_status_permissive">權限</string>
+    <string name="selinux_status_enforcing">強制</string>
+    <string name="accessories_add_bluetooth_inst_cm">在使用 CyanogenMod 前，請確保藍牙裝置處於配對模式。對於 Nexus 遙控器，同時按下 [返回] 和 [主畫面] 按鍵即可完成。</string>
+    <string name="root_access">Root 權限</string>
+    <string name="root_access_warning_title">允許 root 權限？</string>
+    <string name="root_access_warning_message">允許應用程式請求 root 權限十分危險，可能會影響您的系統安全！</string>
+    <string name="root_access_none">已停用</string>
+    <string name="root_access_apps">僅限應用程式</string>
+    <string name="root_access_adb">僅限 ADB</string>
+    <string name="root_access_all">應用程式和 ADB</string>
+    <string name="enable_terminal_title">本地終端</string>
+    <string name="enable_terminal_summary">啟用終端應用程式，提供本機 shell 存取</string>
+    <string name="system_display">顯示</string>
+    <string name="system_display_overscan">過掃描</string>
+    <string name="system_display_overscan_description">校準顯示器來配合螢幕大小。</string>
+    <string name="system_reset_default_home">重設預設的主畫面</string>
+    <string name="system_home_settings">主畫面設定</string>
+    <string name="reset_launcher_title">重設預設主畫面</string>
+    <string name="reset_launcher_description">透過重設預設主畫面，將能夠選擇備用的主畫面 (即 Trebuchet)。\n\n確定重設預設主畫面嗎？</string>
+    <string name="reset_launcher_tip">按下主畫面鍵，彈出主畫面選項對話方塊。</string>
+    <string name="advanced_reboot_title">進階重新啟動</string>
+    <string name="advanced_reboot_summary">包括選單內的選項，可重新啟動至 Recovery、Bootloader 或進行軟體重新啟動</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">軟體重新啟動</string>
+    <string name="adb_over_network">透過網路 ADB </string>
+    <string name="adb_over_network_summary">啟用透過網路介面 (Wi\u2011Fi、USB 網路) 進行 TCP/IP 偵錯。該設定會在重新啟動後重設</string>
+    <string name="adb_over_network_warning">警告：啟用透過網路 ADB 後，所有已連線的網路均可能入侵您的電視！\n\n建議您連線到信任的網路時才使用此功能。\n\n您確定想啟用此功能嗎？</string>
 </resources>

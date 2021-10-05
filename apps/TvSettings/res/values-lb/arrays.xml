@@ -15,149 +15,57 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Wi-Fi settings -->
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <skip></skip>
-  <!-- Wi-Fi settings. The status messages when the network is unknown. -->
-  <string-array name="wifi_status">
-    <!-- Status message of Wi-Fi when it is idle. -->
-    <item></item>
-    <!-- Status message of Wi-Fi when it is scanning. -->
-    <item>Scan leeft\u2026</item>
-    <!-- Status message of Wi-Fi when it is connecting. -->
-    <item>Gëtt connectéiert\u2026</item>
-    <!-- Status message of Wi-Fi when it is authenticating. -->
-    <item>Authentifizéierung\u2026</item>
-    <!-- Status message of Wi-Fi when it is obtaining IP address. -->
-    <item>IP-Adress gëtt ofgeruff\u2026</item>
-    <!-- Status message of Wi-Fi when it is connected. -->
-    <item>Verbonnen</item>
-    <!-- Status message of Wi-Fi when it is suspended. -->
-    <item>Ugehalen</item>
-    <!-- Status message of Wi-Fi when it is disconnecting. -->
-    <item>Connectioun gëtt getrennt\u2026</item>
-    <!-- Status message of Wi-Fi when it is disconnected. -->
-    <item>Deconnectéiert</item>
-    <!-- Status message of Wi-Fi when it is a failure. -->
-    <item>Net erfollegräich</item>
-    <!-- Status message of Wi-Fi when it is blocked. -->
-    <item>Blockéiert</item>
-    <!-- Status message of Wi-Fi when connectiong is being verified. -->
-    <item>Schlecht Internetconnectioun gëtt temporär ignoréiert</item>
-  </string-array>
-  <!-- Match this with the order of NetworkInfo.DetailedState. -->
-  <skip></skip>
-  <!-- Wi-Fi settings. The status messages when the network is known. -->
-  <string-array name="wifi_status_with_ssid">
-    <!-- Status message of Wi-Fi when it is idle. -->
-    <item></item>
-    <!-- Status message of Wi-Fi when it is scanning. -->
-    <item>Scan leeft\u2026</item>
-    <!-- Status message of Wi-Fi when it is connecting to a network. -->
-    <item>Connectioun mat <xliff:g id="network_name">%1$s</xliff:g> gëtt hiergestallt\u2026</item>
-    <!-- Status message of Wi-Fi when it is authenticating with a network. -->
-    <item>Authentifizéierung mat <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-    <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
-    <item>IP-Adress gëtt fir <xliff:g id="network_name">%1$s</xliff:g> ofgeruff\u2026</item>
-    <!-- Status message of Wi-Fi when it is connected to a network. -->
-    <item>Connectéiert mat <xliff:g id="network_name">%1$s</xliff:g></item>
-    <!-- Status message of Wi-Fi when it is suspended. -->
-    <item>Ugehalen</item>
-    <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
-    <item>Connectioun mat <xliff:g id="network_name">%1$s</xliff:g> gëtt getrennt\u2026</item>
-    <!-- Status message of Wi-Fi when it is disconnected. -->
-    <item>Deconnectéiert</item>
-    <!-- Status message of Wi-Fi when it is a failure. -->
-    <item>Net erfollegräich</item>
-    <!-- Status message of Wi-Fi when it is blocked. -->
-    <item>Blockéiert</item>
-    <!-- Status message of Wi-Fi when connectiong is being verified. -->
-    <item>Schlecht Internetconnectioun gëtt temporär ignoréiert</item>
-  </string-array>
-  <!-- Display settings.  The delay in inactivity before the daydream starts. -->
-  <string-array name="sleep_timeout_entries">
-    <item>5 Minutten</item>
-    <item>10 Minutten</item>
-    <item>15 Minutten</item>
-    <item>30 Minutten</item>
-    <item>1 Stonn</item>
-  </string-array>
-  <!-- Do not translate. -->
-  <!-- Display settings.  The delay after the daydream starts when the screen goes off. -->
-  <string-array name="screen_off_timeout_entries">
-    <item>30 Minutten</item>
-    <item>1 Stonn</item>
-    <item>3 Stonnen</item>
-    <item>6 Stonnen</item>
-    <item>12 Stonnen</item>
-    <item>Ni</item>
-  </string-array>
-  <!-- Do not translate. -->
-  <!-- Titles for debug overdraw preference. [CHAR LIMIT=35] -->
-  <string-array name="debug_hw_overdraw_entries">
-    <item>Aus</item>
-    <item>Iwwerschneidungsberäicher uweisen</item>
-    <item>Iwwerschneidungszieler uweisen</item>
-  </string-array>
-  <!-- Values for debug overdraw preference. -->
-  <!-- Titles for HDMI optimization preference values [CHAR LIMIT=60] -->
-  <string-array name="hdmi_optimization_entries">
-    <item>Bescht Opléisung</item>
-    <item>Bescht Framerate</item>
-  </string-array>
-  <!-- Values for HDMI optimization preference values DO NOT TRANSLATE -->
-  <string-array name="hdmi_optimization_values">
-    <item>Max</item>
-    <item>1080p</item>
-  </string-array>
-  <!-- Titles for captioning typeface preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_typeface_selector_titles">
-    <item>Standard</item>
-    <item>Ouni Serifen</item>
-    <item>Ouni Serifen (kondenséiert)</item>
-    <item>Ouni Serifen (net-proportional)</item>
-    <item>Mat Serifen</item>
-    <item>Mat Serifen (net-proportional)</item>
-    <item>Lässeg</item>
-    <item>Kursiv</item>
-    <item>Kleng Groussbuschtawen</item>
-  </string-array>
-  <!-- Values for captioning typeface preference. -->
-  <!-- Titles for captioning font size preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_font_size_selector_titles">
-    <item>Ganz kleng</item>
-    <item>Kleng</item>
-    <item>Normal</item>
-    <item>Grouss</item>
-    <item>Ganz grouss</item>
-  </string-array>
-  <!-- Values for captioning font size preference. -->
-  <!-- Titles for captioning character edge type preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_edge_type_selector_titles">
-    <item>Keen</item>
-    <item>Kontur</item>
-    <item>Schiet</item>
-    <item>Erhéicht</item>
-    <item>Verdéift</item>
-  </string-array>
-  <!-- Values for captioning character edge type preference. -->
-  <!-- Titles for captioning color preference. -->
-  <!-- Index to id mapping for captioning color preference. -->
-  <!-- Titles for captioning opacity preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_opacity_selector_titles">
-    <item>25 %</item>
-    <item>50 %</item>
-    <item>75 %</item>
-    <item>100 %</item>
-  </string-array>
-  <!-- Values for captioning opacity preference. -->
-  <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_preset_selector_titles">
-    <item>Wäiss op Schwaarz</item>
-    <item>Schwaarz op Wäiss</item>
-    <item>Giel op Schwaarz</item>
-    <item>Giel op Blo</item>
-    <item>Personaliséiert</item>
-  </string-array>
-  <!-- Values for captioning text style preset preference. -->
+    <string-array name="sleep_timeout_entries">
+        <item>5 Minutten</item>
+        <item>10 Minutten</item>
+        <item>15 Minutten</item>
+        <item>30 Minutten</item>
+        <item>1 Stonn</item>
+    </string-array>
+    <string-array name="screen_off_timeout_entries">
+        <item>30 Minutten</item>
+        <item>1 Stonn</item>
+        <item>3 Stonnen</item>
+        <item>6 Stonnen</item>
+        <item>12 Stonnen</item>
+        <item>Ni</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Standard</item>
+        <item>Ouni Serifen</item>
+        <item>Ouni Serifen (kondenséiert)</item>
+        <item>Ouni Serifen (net-proportional)</item>
+        <item>Mat Serifen</item>
+        <item>Mat Serifen (net-proportional)</item>
+        <item>Lässeg</item>
+        <item>Kursiv</item>
+        <item>Kleng Groussbuschtawen</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Ganz kleng</item>
+        <item>Kleng</item>
+        <item>Normal</item>
+        <item>Grouss</item>
+        <item>Ganz grouss</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Keen</item>
+        <item>Kontur</item>
+        <item>Schiet</item>
+        <item>Erhéicht</item>
+        <item>Verdéift</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25 %</item>
+        <item>50 %</item>
+        <item>75 %</item>
+        <item>100 %</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Wäiss op Schwaarz</item>
+        <item>Schwaarz op Wäiss</item>
+        <item>Giel op Schwaarz</item>
+        <item>Giel op Blo</item>
+        <item>Personaliséiert</item>
+    </string-array>
 </resources>

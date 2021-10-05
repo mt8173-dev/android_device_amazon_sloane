@@ -16,82 +16,39 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">„CyanogenMod“ atnaujinimai</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">„CyanogenMod“ versija</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">„Android“ saugos pataisos lygis</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniu toliau įgalinant kūrėjo parinktys.</item>
-    <item quantity="few">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsniais toliau įgalinant kūrėjo parinktys.</item>
-    <item quantity="other">Jūs esate <xliff:g id="step_count">%1$d</xliff:g> žingsnių toliau įgalinant kūrėjo parinktys.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Jūs įgalinote kūrėjo parinktys!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Nereikia, jūs jau įgalinote kūrėjo parinktys.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Surinkimo data</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">„Kernel“ versija</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">„SELinux“ būsena</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Neleidžiama</string>
-  <string name="selinux_status_permissive">Leistina</string>
-  <string name="selinux_status_enforcing">Vykdoma</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Kad pradėtumėte naudotis „CyanogenMod“ įsitikinkite, kad jūsų „Bluetooth“ įrenginys yra susiejimo režime. „Nexus Remote“ tai atliekama paspaudus atgal ir pagrindinį vienu metu.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">„Root“ prieiga</string>
-  <string name="root_access_warning_title">Leisti „Root“ prieigą?</string>
-  <string name="root_access_warning_message">Leisti programoms prašyti „Root“ prieigos yra labai pavojinga, tai gali pakenkti jūsų sistemos saugumui!</string>
-  <string name="root_access_none">Neleidžiama</string>
-  <string name="root_access_apps">Tik programos</string>
-  <string name="root_access_adb">Tik „Android“ derinimas</string>
-  <string name="root_access_all">Programos ir „Android“ derinimas</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">„Cyanogen“ atkūrimo programa</string>
-  <string name="update_recovery_on_summary">Atnaujinti su sistemos atnaujinimais</string>
-  <string name="update_recovery_off_summary">Neatnaujinti su sistemos atnaujinimais</string>
-  <string name="update_recovery_on_warning">PRANEŠIMAS: Kai ši funkcija yra įgalinta, jūsų įdiegta atkūrimo programa bus pakeista kartu su dabartinės versijos OS.\n\nJūsų atkūrimo programa bus atnaujinta kartu su sistemos atnaujinimais, padedant užtikrinti suderinamumą su būsimomis versijomis.\n\nAr norėtumėte įgalinti šią funkciją?</string>
-  <string name="update_recovery_off_warning">ĮSPĖJIMAS: Kai ši funkcija yra neleidžiama,\n\nJūsų atkūrimo programa nebus atnaujinta kartu su OS atnaujinimais.\n\nAteityje OS atnaujinimai negalės būti įdiegti su pasenusia ar tinkinta atkūrimo programos versija.\n\nAr tikrai norite neleisti šios funkcijos?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">„Android“ derinimas per tinklą</string>
-  <string name="adb_over_network_summary">Įgalinti TCP / IP derinimą per tinklą („Wi-Fi“, USB tinklai). Šis nustatymas nustatomas iš naujo, paleidimo iš naujo metu</string>
-  <string name="adb_over_network_disable_summary">Paspauskite, kad neleistumėte TCP / IP derinimo per tinklą („Wi-Fi“, USB tinklai).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">ISPĖJIMAS: Kai „Android“ derinimas per tinklą yra įgalintas, jūsų TV yra atviras įsibrovimams iš visų prijungtų tinklų!\n\nNaudokite šią funkciją tik tada, kai esate prisijungę prie patikimų tinklų.\n\nAr tikrai norite įgalinti šią funkciją?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Nustatyti iš naujo numatytąjį pagrindinį ekraną</string>
-  <string name="system_home_settings">Pagrindinio nustatymai</string>
-  <string name="reset_launcher_title">Nustatyti iš naujo numatytąjį pagrindinį ekraną</string>
-  <string name="reset_launcher_description">Nustatant iš naujo numatytąjį pagrindinį ekraną, jums bus suteikta galimybė pasirinkti alternatyvų pagrindinį ekraną (t.y. Trebuchet).\n\nAr noėtumėte iš naujo nustatyti pagrindinį ekraną?</string>
-  <string name="reset_launcher_tip">Paspauskite pagrindinį mygtuką, kad pamatytumėte pagrindinio ekrano pasirinkimo dialogą.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Vietinis terminalas</string>
-  <string name="enable_terminal_summary">Įgalinti terminalo programą</string>
-  <string name="disable_terminal_summary">Neleisti terminalo programos</string>
-  <string name="enable_terminal_on">Įgalinta</string>
-  <string name="enable_terminal_off">Neleidžiama</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Išplėstinis paleidimas iš naujo</string>
-  <string name="advanced_reboot_summary">Įtraukti parinktys į apie meniu dėl paleidimo iš naujo į atkūrimo režimą, „Bootloader“ arba atlikti OS paleidimą iš naujo</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Paleisti iš naujo</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Atkūrimo režimas</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Paleisti iš naujo OS</string>
-  <!-- Display settings -->
-  <string name="system_display">Rodymas</string>
-  <string name="system_display_overscan">Kalibravimas</string>
-  <string name="system_display_overscan_description">Kalibruoti ekraną, kad atitiktų jūsų ekrano dydį.</string>
+    <string name="about_cmupdate_settings_title">„CyanogenMod“ atnaujinimai</string>
+    <string name="about_mod_version">„CyanogenMod“ versija</string>
+    <string name="show_dev_on_cm">Jūs įgalinote kūrėjo parinktys!</string>
+    <string name="show_dev_already_cm">Nereikia, jūs jau įgalinote kūrėjo parinktys.</string>
+    <string name="about_build_date">Surinkimo data</string>
+    <string name="about_kernel_version">„Kernel“ versija</string>
+    <string name="about_selinux_status">„SELinux“ būsena</string>
+    <string name="selinux_status_disabled">Neleidžiama</string>
+    <string name="selinux_status_permissive">Leistina</string>
+    <string name="selinux_status_enforcing">Vykdoma</string>
+    <string name="accessories_add_bluetooth_inst_cm">Kad pradėtumėte naudotis „CyanogenMod“ įsitikinkite, kad jūsų „Bluetooth“ įrenginys yra susiejimo režime. „Nexus Remote“ tai atliekama paspaudus atgal ir pagrindinį vienu metu.</string>
+    <string name="root_access">„Root“ prieiga</string>
+    <string name="root_access_warning_title">Leisti „Root“ prieigą?</string>
+    <string name="root_access_warning_message">Leisti programoms prašyti „Root“ prieigos yra labai pavojinga, tai gali pakenkti jūsų sistemos saugumui!</string>
+    <string name="root_access_none">Neleidžiama</string>
+    <string name="root_access_apps">Tik programos</string>
+    <string name="root_access_adb">Tik „Android“ derinimas</string>
+    <string name="root_access_all">Programos ir „Android“ derinimas</string>
+    <string name="enable_terminal_title">Vietinis terminalas</string>
+    <string name="system_display">Rodymas</string>
+    <string name="system_display_overscan">Kalibravimas</string>
+    <string name="system_display_overscan_description">Kalibruoti ekraną, kad atitiktų jūsų ekrano dydį.</string>
+    <string name="system_reset_default_home">Nustatyti iš naujo numatytąjį pagrindinį ekraną</string>
+    <string name="system_home_settings">Pagrindinio nustatymai</string>
+    <string name="reset_launcher_title">Nustatyti iš naujo numatytąjį pagrindinį ekraną</string>
+    <string name="reset_launcher_description">Nustatant iš naujo numatytąjį pagrindinį ekraną, jums bus suteikta galimybė pasirinkti alternatyvų pagrindinį ekraną (t.y. Trebuchet).\n\nAr noėtumėte iš naujo nustatyti pagrindinį ekraną?</string>
+    <string name="reset_launcher_tip">Paspauskite pagrindinį mygtuką, kad pamatytumėte pagrindinio ekrano pasirinkimo dialogą.</string>
+    <string name="advanced_reboot_title">Išplėstinis paleidimas iš naujo</string>
+    <string name="advanced_reboot_summary">Įtraukti parinktys į apie meniu dėl paleidimo iš naujo į atkūrimo režimą, „Bootloader“ arba atlikti OS paleidimą iš naujo</string>
+    <string name="reboot_recovery_button_label">Atkūrimo režimas</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Paleisti iš naujo OS</string>
+    <string name="adb_over_network">„Android“ derinimas per tinklą</string>
+    <string name="adb_over_network_summary">Įgalinti TCP / IP derinimą per tinklą („Wi-Fi“, USB tinklai). Šis nustatymas nustatomas iš naujo, paleidimo iš naujo metu</string>
+    <string name="adb_over_network_warning">ISPĖJIMAS: Kai „Android“ derinimas per tinklą yra įgalintas, jūsų TV yra atviras įsibrovimams iš visų prijungtų tinklų!\n\nNaudokite šią funkciją tik tada, kai esate prisijungę prie patikimų tinklų.\n\nAr tikrai norite įgalinti šią funkciją?</string>
 </resources>

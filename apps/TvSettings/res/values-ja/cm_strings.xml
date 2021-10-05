@@ -16,80 +16,43 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenModアップデート</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenModバージョン</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Androidセキュリティパッチレベル</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="other">開発者向けオプションが有効になるまであと<xliff:g id="step_count">%1$d</xliff:g>ステップです。</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">開発者向けオプションが有効になりました。</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">必要ありません、開発者向けオプションは既に有効になっています。</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">ビルド日時</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">カーネルバージョン</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinuxのステータス</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">無効</string>
-  <string name="selinux_status_permissive">Permissive</string>
-  <string name="selinux_status_enforcing">Enforcing</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">CyanogenModの使用を開始するには、お使いのBluetoothデバイスがペアリングモードになっていることを確認して下さい。Nexus Playerのリモコンでは、戻るボタンとホームボタンを同時に押すとペアリングモードになります。</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">ルートアクセス</string>
-  <string name="root_access_warning_title">ルートアクセスを許可しますか？</string>
-  <string name="root_access_warning_message">ルートアクセスのリクエストをアプリに許可することは非常に危険で、システムのセキュリティが損なわれる可能性があります。</string>
-  <string name="root_access_none">無効</string>
-  <string name="root_access_apps">アプリのみ</string>
-  <string name="root_access_adb">ADBのみ</string>
-  <string name="root_access_all">アプリとADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogenリカバリー</string>
-  <string name="update_recovery_on_summary">システムアップデートと一緒にアップデートする</string>
-  <string name="update_recovery_off_summary">システムアップデートと一緒にアップデートしない</string>
-  <string name="update_recovery_on_warning">注意: この機能を有効にすると、インストールされているリカバリーは実行しているOSの現在のバージョンに含まれるリカバリーに変更されます。\n\nリカバリーがシステムのアップグレードと同時にアップデートされるので、今後のバージョンとの互換性の確保に繋がります。\n\nこの機能を有効にしますか？</string>
-  <string name="update_recovery_off_warning">警告: この機能を無効にすると、インストールされているリカバリーはOSのアップグレードと同時にはアップデートされなくなります。\n\nカスタムリカバリーバージョンが古いと、今後のOSアップデートがインストールできない恐れがあります。\n\nこの機能を本当に無効にしますか？</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ネットワーク経由のADB</string>
-  <string name="adb_over_network_summary">ネットワークインターフェース（Wi\u2011Fi、USBネットワーク）経由でのTCP/IPデバッグを有効にします。この設定は再起動時にリセットされます。</string>
-  <string name="adb_over_network_disable_summary">クリックしてネットワークインターフェース（Wi\u2011Fi、USBネットワーク）経由でのTCP/IPデバッグを無効にします。</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">警告: ネットワーク経由のADBが有効になっているとき、携帯電話は接続しているすべてのネットワーク上で侵入に対して無防備になります。\n\n信頼できるネットワーク接続しているときにのみ、この機能を使用してください。\n\nこの機能を本当に有効にしますか？</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">デフォルトのホーム画面をリセット</string>
-  <string name="system_home_settings">ホームの設定</string>
-  <string name="reset_launcher_title">デフォルトのホーム画面をリセット</string>
-  <string name="reset_launcher_description">デフォルトのホーム画面をリセットすると、別のホーム画面を選択できるようになります（例: Trebuchet）。\n\nデフォルトのホーム画面をリセットしますか？</string>
-  <string name="reset_launcher_tip">ホームボタンを押すとホーム画面の選択ダイアログを表示します。</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">ローカルターミナル</string>
-  <string name="enable_terminal_summary">ターミナルアプリを有効にする</string>
-  <string name="disable_terminal_summary">ターミナルアプリを無効にする</string>
-  <string name="enable_terminal_on">有効</string>
-  <string name="enable_terminal_off">無効</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">再起動のオプション</string>
-  <string name="advanced_reboot_summary">リカバリーまたはブートローダへの再起動や、ソフトリブートを実行するオプションを情報のメニューに含める</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">再起動</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">リカバリー</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">ブートローダ</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">ソフトリブート</string>
-  <!-- Display settings -->
-  <string name="system_display">ディスプレイ</string>
-  <string name="system_display_overscan">オーバースキャン</string>
-  <string name="system_display_overscan_description">画面サイズに合うように表示を調整します。</string>
+    <string name="about_cmupdate_settings_title">LineageOS アップデート</string>
+    <string name="about_mod_version">LineageOS バージョン</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="other">開発者向けオプションが有効になるまであと<xliff:g id="step_count">%1$d</xliff:g>ステップです。</item>
+    </plurals>
+    <string name="show_dev_on_cm">開発者向けオプションが有効になりました。</string>
+    <string name="show_dev_already_cm">必要ありません、開発者向けオプションは既に有効になっています。</string>
+    <string name="about_build_date">ビルド日時</string>
+    <string name="about_kernel_version">カーネルバージョン</string>
+    <string name="about_selinux_status">SELinuxのステータス</string>
+    <string name="selinux_status_disabled">無効</string>
+    <string name="selinux_status_permissive">Permissive</string>
+    <string name="selinux_status_enforcing">Enforcing</string>
+    <string name="accessories_add_bluetooth_inst_cm">LineageOS の使用を開始するには、お使いの Bluetooth デバイスがペアリングモードになっていることを確認して下さい。Nexus Player のリモコンでは、戻るボタンとホームボタンを同時に押すとペアリングモードになります。</string>
+    <string name="root_access">ルートアクセス</string>
+    <string name="root_access_warning_title">ルートアクセスを許可しますか？</string>
+    <string name="root_access_warning_message">ルートアクセスのリクエストをアプリに許可することは非常に危険で、システムのセキュリティが損なわれる可能性があります。</string>
+    <string name="root_access_none">無効</string>
+    <string name="root_access_apps">アプリのみ</string>
+    <string name="root_access_adb">ADBのみ</string>
+    <string name="root_access_all">アプリとADB</string>
+    <string name="enable_terminal_title">ローカルターミナル</string>
+    <string name="enable_terminal_summary">ローカルシェルアクセスを提供するターミナルアプリを有効にする</string>
+    <string name="system_display">ディスプレイ</string>
+    <string name="system_display_overscan">オーバースキャン</string>
+    <string name="system_display_overscan_description">画面サイズに合うように表示を調整します。</string>
+    <string name="system_reset_default_home">デフォルトのホーム画面をリセット</string>
+    <string name="system_home_settings">ホームの設定</string>
+    <string name="reset_launcher_title">デフォルトのホーム画面をリセット</string>
+    <string name="reset_launcher_description">デフォルトのホーム画面をリセットすると、別のホーム画面を選択できるようになります（例: Trebuchet）。\n\nデフォルトのホーム画面をリセットしますか？</string>
+    <string name="reset_launcher_tip">ホームボタンを押すとホーム画面の選択ダイアログを表示します。</string>
+    <string name="advanced_reboot_title">再起動のオプション</string>
+    <string name="advanced_reboot_summary">リカバリーまたはブートローダへの再起動や、ソフトリブートを実行するオプションを情報のメニューに含める</string>
+    <string name="reboot_recovery_button_label">リカバリー</string>
+    <string name="reboot_bootloader_button_label">ブートローダ</string>
+    <string name="reboot_soft_button_label">ソフトリブート</string>
+    <string name="adb_over_network">ネットワーク経由のADB</string>
+    <string name="adb_over_network_summary">ネットワークインターフェース（Wi\u2011Fi、USBネットワーク）経由でのTCP/IPデバッグを有効にします。この設定は再起動時にリセットされます。</string>
+    <string name="adb_over_network_warning">警告: ネットワーク経由のADBが有効になっているとき、端末は接続しているすべてのネットワーク上で侵入に対して無防備になります。\n\n信頼できるネットワーク接続しているときにのみ、この機能を使用してください。\n\nこの機能を本当に有効にしますか？</string>
 </resources>

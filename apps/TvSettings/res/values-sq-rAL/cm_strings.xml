@@ -16,30 +16,29 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <!-- About screen, CyanogenMod version -->
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <!-- About screen, build date -->
-  <!-- About screen, kernel version -->
-  <!-- About screen, SELinux status -->
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <!-- Setting for updating Cyanogen recovery -->
-  <!-- Android debugging over WiFi -->
-  <!-- Warning for Adb over Network -->
-  <!-- Home settings -->
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <!-- Advanced reboot options -->
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <!-- Display settings -->
+    <string name="about_cmupdate_settings_title">Përditësime të CyanogenMod</string>
+    <string name="about_mod_version">Versioni i CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Ju jeni edhe <xliff:g id="step_count">%1$d</xliff:g> hap larg aktivizimit të parametrave të zhvillimit.</item>
+        <item quantity="other">Ju jeni edhe <xliff:g id="step_count">%1$d</xliff:g> hap larg aktivizimit të parametrave të zhvillimit.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Ju keni aktivizuar parametrat e zhvillimit!</string>
+    <string name="show_dev_already_cm">Nuk ka më nevojë të shtypni! Parametrat e zhvillimit janë të aktivizuara.</string>
+    <string name="about_build_date">Data e ndërtimit</string>
+    <string name="about_kernel_version">Versioni i kernelit</string>
+    <string name="accessories_add_bluetooth_inst_cm">Për të përdorur CyanogenMod, sigurohu që pajisja juaj Bluetooth të jetë në profilin e çiftëzimit. Për Nexus Remote, kjo mund të kryhet duke shtypur njëkohësisht butonat Prapa dhe Home.</string>
+    <string name="root_access">Aksesi Root</string>
+    <string name="root_access_warning_title">Dëshiron të lejosh aksesin Root?</string>
+    <string name="root_access_none">I çaktivizuar</string>
+    <string name="root_access_apps">Vetëm aplikacionet</string>
+    <string name="root_access_adb">Vetëm ADB</string>
+    <string name="root_access_all">Aplikacionet dhe ADB</string>
+    <string name="system_home_settings">Parametrat e Home</string>
+    <string name="advanced_reboot_title">Rindezjet e përparuara</string>
+    <string name="advanced_reboot_summary">Përfshi në menu opsionet për t\'u rindezur në Recovery, Bootloader, ose për rindezje të shpejtë</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Rindezje e shpejtë</string>
+    <string name="adb_over_network">ADB mbi rrjet</string>
+    <string name="adb_over_network_summary">Aktivizo debugimin TCP/IP mbi ndërfaqet e rrjetit (Wi\u2011Fi, rrjetet USB). Ky parametër do të çaktivizohet gjatë rindezjes</string>
 </resources>

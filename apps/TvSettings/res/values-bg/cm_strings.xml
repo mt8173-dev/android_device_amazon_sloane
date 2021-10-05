@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">Системни актуализации</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">Версия на CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Актуализация на сигурноста</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Вече сте на <xliff:g id="step_count">%1$d </xliff:g> крачка от включването на \"Опции на програмиста\".</item>
-    <item quantity="other">Вече сте на <xliff:g id="step_count">%1$d </xliff:g> крачки от включването на \"Опции на програмиста\".</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Включихте менюто \"Опции на програмиста\"!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Вие вече сте включили менюто \"Опции на програмиста\".</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Дата на изграждане</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Версия на ядрото</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux статус</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Изключено</string>
-  <string name="selinux_status_permissive">Толерантен</string>
-  <string name="selinux_status_enforcing">Прилагане на</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">За да започнете да използвате CyanogenMod уверете се, че вашето Bluetooth устройство е в режим на сдвояване. За Nexus Remote това става като натиснете бутоните назад и начало едновременно.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Администраторски достъп</string>
-  <string name="root_access_warning_title">Разрешаване на администраторски достъп?</string>
-  <string name="root_access_warning_message">Разрешаването на приложения да придобиват администраторски достъп е много опасно и може да застраши сигурността на вашата система!</string>
-  <string name="root_access_none">Изключен</string>
-  <string name="root_access_apps">Само за приложения</string>
-  <string name="root_access_adb">Само за ADB</string>
-  <string name="root_access_all">За приложения и ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Режим за възстановяване на Cyanogen</string>
-  <string name="update_recovery_on_summary">Актуализация със система за актуализации</string>
-  <string name="update_recovery_off_summary">Не актуализирай със система за актуализации</string>
-  <string name="update_recovery_on_warning">Забележка: Когато тази функция е активна, вашият режим за възстановяване ще бъде заменен с включения в текущата версия на операционната система.\n\nВашия режима за възстановяване ще се актуализира заедно с ъпгрейдите на вашата система, за да се гарантира съвместимост с бъдещите версии.\n\nИскате ли да активирате тази функция?</string>
-  <string name="update_recovery_off_warning">Предупреждение: Когато тази функция е забранена, вашия режима за възстановяване няма да бъде актуализиран с актуализациите на операционната система.\n\nБъдещи актуализации на операционната система не могат да се инсталират с остарели или потребителски режими за възстановяване.\n\nНаистина ли искате да забраните тази функция?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB чрез мрежата</string>
-  <string name="adb_over_network_summary">Разреши TCP/IP откриване на грешки през мрежови интерфейси (Wi\u2011Fi, USB мрежи). Тази настройка се нулира при рестартиране</string>
-  <string name="adb_over_network_disable_summary">Кликнете за да изключите TCP/IP грешки на мрежови интерфейси (Wi\u2011Fi USB мрежи).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">Предупреждение: Когато ADB по мрежата е разрешен, телефонът ви е отворен за проникване от всички свързани мрежи! \n\nИзползвай тази функция, само когато сте свързан с надеждни мрежи.\n\nНаистина ли искате да разрешите тази функция?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Възстанови начален екран по подразбиране</string>
-  <string name="system_home_settings">Настройки начален екран</string>
-  <string name="reset_launcher_title">Възстанови начален екран по подразбиране</string>
-  <string name="reset_launcher_description">От възстановяване на начален екран на по подразбиране ще успеете да изберете алтернативен начален екран (т.е. Trebuchet).\n\nСигурни ли сте, че искате да възстановите по подразбиране начален екран?</string>
-  <string name="reset_launcher_tip">Натиснете бутона за начало да изведете диалогов прозорец за избор на начален екран.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Местен терминал</string>
-  <string name="enable_terminal_summary">Разреши терминално приложение</string>
-  <string name="disable_terminal_summary">Забрани терминално приложение</string>
-  <string name="enable_terminal_on">Разрешено</string>
-  <string name="enable_terminal_off">Изключено</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Рестартиране за напреднали</string>
-  <string name="advanced_reboot_summary">Включва разширени възможности за рестартиране, като режим на Възстановяване, рестартиране на Буутлоудъра и Софтуерно рестартиране</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Рестартиране</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Режим на възстановяване</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Буутлоудър</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Софтуерно рестартиране</string>
-  <!-- Display settings -->
-  <string name="system_display">Дисплей</string>
-  <string name="system_display_overscan">Сканиране отново</string>
-  <string name="system_display_overscan_description">Калибриране на дисплея, за да се побере размера на вашия екран.</string>
+    <string name="about_cmupdate_settings_title">Системни актуализации</string>
+    <string name="about_mod_version">Версия на CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Вече сте на <xliff:g id="step_count">%1$d </xliff:g> крачка от включването на \"Опции на програмиста\".</item>
+        <item quantity="other">Вече сте на <xliff:g id="step_count">%1$d </xliff:g> крачки от включването на \"Опции на програмиста\".</item>
+    </plurals>
+    <string name="show_dev_on_cm">Включихте менюто \"Опции на програмиста\"!</string>
+    <string name="show_dev_already_cm">Вие вече сте включили менюто \"Опции на програмиста\".</string>
+    <string name="about_build_date">Дата на изграждане</string>
+    <string name="about_kernel_version">Версия на ядрото</string>
+    <string name="about_selinux_status">SELinux статус</string>
+    <string name="selinux_status_disabled">Изключено</string>
+    <string name="selinux_status_permissive">Толерантен</string>
+    <string name="selinux_status_enforcing">Прилагане на</string>
+    <string name="accessories_add_bluetooth_inst_cm">За да започнете да използвате CyanogenMod уверете се, че вашето блутуут устройство е в режим на сдвояване. За Nexus Remote това става като натиснете бутоните назад и начало едновременно.</string>
+    <string name="root_access">Администраторски достъп</string>
+    <string name="root_access_warning_title">Разрешаване на администраторски достъп?</string>
+    <string name="root_access_warning_message">Разрешаването на приложения да придобиват администраторски достъп е много опасно и може да застраши сигурността на вашата система!</string>
+    <string name="root_access_none">Изключен</string>
+    <string name="root_access_apps">Само за приложения</string>
+    <string name="root_access_adb">Само за ADB</string>
+    <string name="root_access_all">За приложения и ADB</string>
+    <string name="enable_terminal_title">Местен терминал</string>
+    <string name="enable_terminal_summary">Активиране на приложение терминал, което предлага местен достъп</string>
+    <string name="system_display">Дисплей</string>
+    <string name="system_display_overscan">Сканиране отново</string>
+    <string name="system_display_overscan_description">Калибриране на дисплея, за да се побере размера на вашия екран.</string>
+    <string name="system_reset_default_home">Възстанови начален екран по подразбиране</string>
+    <string name="system_home_settings">Настройки начален екран</string>
+    <string name="reset_launcher_title">Възстанови начален екран по подразбиране</string>
+    <string name="reset_launcher_description">От възстановяване на начален екран на по подразбиране ще успеете да изберете алтернативен начален екран (т.е. Trebuchet).\n\nСигурни ли сте, че искате да възстановите по подразбиране начален екран?</string>
+    <string name="reset_launcher_tip">Натиснете бутона за начало да изведете диалогов прозорец за избор на начален екран.</string>
+    <string name="advanced_reboot_title">Рестартиране за напреднали</string>
+    <string name="advanced_reboot_summary">Включва разширени възможности за рестартиране, като режим на Възстановяване, рестартиране на Буутлоудъра и Софтуерно рестартиране</string>
+    <string name="reboot_recovery_button_label">Режим на възстановяване</string>
+    <string name="reboot_bootloader_button_label">Буутлоудър</string>
+    <string name="reboot_soft_button_label">Софтуерно рестартиране</string>
+    <string name="adb_over_network">ADB чрез мрежата</string>
+    <string name="adb_over_network_summary">Разреши TCP/IP откриване на грешки през мрежови интерфейси (Wi\u2011Fi, USB мрежи). Тази настройка се нулира при рестартиране</string>
+    <string name="adb_over_network_warning">Предупреждение: Когато ADB по мрежата е разрешен, телефонът ви е отворен за проникване от всички свързани мрежи! \n\nИзползвай тази функция, само когато сте свързан с надеждни мрежи.\n\nНаистина ли искате да разрешите тази функция?</string>
 </resources>

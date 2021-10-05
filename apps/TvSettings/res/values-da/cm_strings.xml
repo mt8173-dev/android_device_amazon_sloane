@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod-opdateringer</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod-version</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Android sikkerhedsniveau for rettelser</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Du er nu <xliff:g id="step_count">%1$d</xliff:g> skridt fra at aktivere Indstillinger for udviklere.</item>
-    <item quantity="other">Du er nu <xliff:g id="step_count">%1$d</xliff:g> skridt væk fra at aktivere Indstillinger for udviklere.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Du har aktiveret Instillinger for udviklere!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Du behøver ikke gøre dette. Du har allerede aktiveret Indstillinger for udviklere.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Kørselsdato</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Kernesystem</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux status</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Deaktiveret</string>
-  <string name="selinux_status_permissive">Tilladt</string>
-  <string name="selinux_status_enforcing">Tvinge</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">For at begynde at bruge CyanogenMod skal du sikre dig at din Bluetooth-enhed er i parringstilstand. For Nexus Fjernbetjening gøres dette ved at trykke på tilbage og hjem på samme tid.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root-adgang</string>
-  <string name="root_access_warning_title">Tillad root-adgang?</string>
-  <string name="root_access_warning_message">At tillade applikationer at anmode om root-adgang er meget farligt og kan kompromittere dit systems sikkerhed!</string>
-  <string name="root_access_none">Deaktiveret</string>
-  <string name="root_access_apps">Kun apps</string>
-  <string name="root_access_adb">Kun ADB</string>
-  <string name="root_access_all">Apps og ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen recovery</string>
-  <string name="update_recovery_on_summary">Opdatér med systemopdateringer</string>
-  <string name="update_recovery_off_summary">Opdatér ikke med systemopdateringer</string>
-  <string name="update_recovery_on_warning">BEMÆRK: Når denne funktion er aktiveret, vil din installerede \'recovery\' blive erstattet af en der er inkluderet i den aktuelle version af styresystemet.\n\nDin \'recovery\' opdateres sammen med opdateringer til styresystemet, hvilket sikrer kompatibilitet med fremtidige versioner.\n\nVil du aktivere denne funktion?</string>
-  <string name="update_recovery_off_warning">ARVARSEL: Med denne funktion slået fra, vil din \'recovery\' ikke blive opdateret sammen med styresystemet.\n\nFremtidige opdateringer til styresystemet kan måske ikke installeres med en forældet \'recovery\'\n\nVil du virkelig slå denne funktion fra?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB via netværk</string>
-  <string name="adb_over_network_summary">Aktivér TCP/IP fejlretning for netværksenheder (Wi\u2011Fi, USB-netværk). Denne indstilling nulstilles ved genstart</string>
-  <string name="adb_over_network_disable_summary">Klik for at deaktivere TCP/IP-fejlretning over netværksgrænseflader (Wi\u2011Fi, USB-netværk).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">Advarsel: Når ADB over netværket er aktiveret, er telefonen åben for indtrængen på alle forbundne netværk! \n\nBrug kun denne funktion, når du er tilsluttet et netværk, du stoler på.\n\nØnsker du virkelig at aktivere denne funktion?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Nulstil standard startskærmen</string>
-  <string name="system_home_settings">Startskærmsindstillinger</string>
-  <string name="reset_launcher_title">Nulstil standard startskærmen</string>
-  <string name="reset_launcher_description">Ved at nulstille standard startskærmen, vil du kunne vælge en alternativ startskærm (dvs. Trebuchet).\n\nVil du gerne nulstille standard startskærmen?</string>
-  <string name="reset_launcher_tip">Tryk på startknappen for at vise dialogboksen for valg af startskærm.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Lokal terminal</string>
-  <string name="enable_terminal_summary">Aktivér terminal-app</string>
-  <string name="disable_terminal_summary">Deaktivér terminal-app</string>
-  <string name="enable_terminal_on">Aktiveret</string>
-  <string name="enable_terminal_off">Deaktiveret</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Avanceret genstart</string>
-  <string name="advanced_reboot_summary">Inkluderer indstillinger i menuen om for genstart til recovery, bootloader eller udføre en blød genstart</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Genstart</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Blød genstart</string>
-  <!-- Display settings -->
-  <string name="system_display">Visning</string>
-  <string name="system_display_overscan">Overscan</string>
-  <string name="system_display_overscan_description">Kalibrér skærmen så den passer til din skærmstørrelse.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod-opdateringer</string>
+    <string name="about_mod_version">CyanogenMod-version</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Du er nu <xliff:g id="step_count">%1$d</xliff:g> skridt fra at aktivere Indstillinger for udviklere.</item>
+        <item quantity="other">Du er nu <xliff:g id="step_count">%1$d</xliff:g> skridt væk fra at aktivere Indstillinger for udviklere.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Du har aktiveret Instillinger for udviklere!</string>
+    <string name="show_dev_already_cm">Du behøver ikke gøre dette. Du har allerede aktiveret Indstillinger for udviklere.</string>
+    <string name="about_build_date">Kørselsdato</string>
+    <string name="about_kernel_version">Kernesystem</string>
+    <string name="about_selinux_status">SELinux status</string>
+    <string name="selinux_status_disabled">Deaktiveret</string>
+    <string name="selinux_status_permissive">Tilladt</string>
+    <string name="selinux_status_enforcing">Tvinge</string>
+    <string name="accessories_add_bluetooth_inst_cm">Sørg for at din Bluetooth-enhed er i parringstilstand, for at begynde at bruge CyanogenMod. For Nexus-Remote gøres dette ved at trykke på tilbage og hjem samtidigt.</string>
+    <string name="root_access">Root-adgang</string>
+    <string name="root_access_warning_title">Tillad root-adgang?</string>
+    <string name="root_access_warning_message">At tillade applikationer at anmode om root-adgang er meget farligt og kan kompromittere dit systems sikkerhed!</string>
+    <string name="root_access_none">Deaktiveret</string>
+    <string name="root_access_apps">Kun apps</string>
+    <string name="root_access_adb">Kun ADB</string>
+    <string name="root_access_all">Apps og ADB</string>
+    <string name="enable_terminal_title">Lokal terminal</string>
+    <string name="enable_terminal_summary">Aktiver terminal app, som tilbyder lokal shell adgang</string>
+    <string name="system_display">Visning</string>
+    <string name="system_display_overscan">Overscan</string>
+    <string name="system_display_overscan_description">Kalibrér skærmen så den passer til din skærmstørrelse.</string>
+    <string name="system_reset_default_home">Nulstil standard startskærmen</string>
+    <string name="system_home_settings">Startskærmsindstillinger</string>
+    <string name="reset_launcher_title">Nulstil standard startskærmen</string>
+    <string name="reset_launcher_description">Ved at nulstille standard-hjemmeskærmen, vil du være i stand til at vælge en alternativ hjemmeskærm (f.kes. Trebuchet).\n\nVil du nulstille standard-hjemmeskærmen?</string>
+    <string name="reset_launcher_tip">Tryk på startknappen for at vise dialogboksen for valg af startskærm.</string>
+    <string name="advanced_reboot_title">Avanceret genstart</string>
+    <string name="advanced_reboot_summary">Inkluderer indstillinger i menuen om for genstart til recovery, bootloader eller udføre en blød genstart</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Blød genstart</string>
+    <string name="adb_over_network">ADB via netværk</string>
+    <string name="adb_over_network_summary">Aktivér TCP/IP fejlretning for netværksenheder (Wi\u2011Fi, USB-netværk). Denne indstilling nulstilles ved genstart</string>
+    <string name="adb_over_network_warning">Advarsel: Når ADB over netværket er aktiveret, er telefonen åben for indtrængen på alle forbundne netværk! \n\nBrug kun denne funktion, når du er tilsluttet et netværk, du stoler på.\n\nØnsker du virkelig at aktivere denne funktion?</string>
 </resources>

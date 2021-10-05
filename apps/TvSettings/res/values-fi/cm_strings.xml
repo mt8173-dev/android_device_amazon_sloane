@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod-päivitykset</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod-versio</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Android suojauskorjauksen taso</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Kehittäjäasetukset otetaan käyttöön <xliff:g id="step_count">%1$d</xliff:g> vaiheen päästä.</item>
-    <item quantity="other">Kehittäjäasetukset otetaan käyttöön <xliff:g id="step_count">%1$d</xliff:g> vaiheen päästä.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Kehittäjäasetukset on nyt käytössä!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Olet jo ottanut kehittäjäasetukset käyttöön.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Luontipäivä</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Kernel-versio</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux-tila</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Pois käytöstä</string>
-  <string name="selinux_status_permissive">Salliva</string>
-  <string name="selinux_status_enforcing">Täytäntöönpano</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Käyttääksesi CyanogenModia, varmista että Bluetooth-laite on yhdistämistilassa. Nexus-kaukosäädintä käyttäen tämä tapahtuu painamalla Takaisin- ja Kotinäppäintä samanaikaisesti.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root-oikeudet</string>
-  <string name="root_access_warning_title">Ota root-oikeudet käyttöön?</string>
-  <string name="root_access_warning_message">Root-oikeuksien käyttöönotto on erittäin vaarallista ja voi vahingoittaa laitettasi!</string>
-  <string name="root_access_none">Pois käytöstä</string>
-  <string name="root_access_apps">Vain sovellukset</string>
-  <string name="root_access_adb">Vain ADB</string>
-  <string name="root_access_all">Sovellukset ja ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen Recovery</string>
-  <string name="update_recovery_on_summary">Päivitä järjestelmäpäivitysten yhteydessä</string>
-  <string name="update_recovery_off_summary">Älä päivitä järjestelmäpäivitysten yhteydessä</string>
-  <string name="update_recovery_on_warning">HUOMAUTUS: Kun tämä toiminto on käytössä, asennettu Recovery-tila korvataan nykyisen käyttöjärjestelmän versiolla.\n\nRecovery-tila päivitetään yhdessä järjestelmäpäivitysten kanssa, varmistaaksemme yhteensopivuuden tulevien versioiden kanssa\n\nHaluatko ottaa toiminnon käyttöön?</string>
-  <string name="update_recovery_off_warning">VAROITUS: Kun toiminto on poistettu käytöstä, asennettua Recovery-tilaa ei päivitetä järjestelmäpäivtysten kanssa.\n\nTulevat järjestelmäpäivitykset eivät välttämättä asennu vanhentuneissa tai mukautetuissa Recovery-tiloissa.\n\nHaluatko varmasti poistaa tämän toiminnon käytöstä?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB verkon yli</string>
-  <string name="adb_over_network_summary">Salli TCP/IP virheenkorjaus verkon yli (Wi\u2011Fi\u2011, USB\u2011verkot). Tämä asetus nollataan uudelleenkäynnistyksen yhteydessä</string>
-  <string name="adb_over_network_disable_summary">Paina tästä poistaaksesi TCP/IP virheenkorjauksen verkon yli pois käytöstä (Wi\u2011FI\u2011, USB-verkot).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">VAROITUS: Kun ADB verkon yli on käytössä, laitteesi on vapaa hyökkäyksille kaikissa verkoissa!\n\nKäytä tätä ominaisuutta vain luotettavassa verkossa.\n\nHaluatko varmasti ottaa ominaisuuden käyttöön?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Palauta oletuskotinäyttö</string>
-  <string name="system_home_settings">Koti-asetukset</string>
-  <string name="reset_launcher_title">Palauta oletuskotinäyttö</string>
-  <string name="reset_launcher_description">Palauttamalla oletuskotinäyttöön, voit valita vaihtoehtoisen kotinäytön (eli Trebuchetin).\n\nHaluatko palauttaa oletuskotinäytön?</string>
-  <string name="reset_launcher_tip">Paina kotinäppäintä avataksesi kotinäytön valintaikkunan.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Paikallinen pääte</string>
-  <string name="enable_terminal_summary">Ota päätesovellus käyttöön</string>
-  <string name="disable_terminal_summary">Poista päätesovellus käytöstä</string>
-  <string name="enable_terminal_on">Käytössä</string>
-  <string name="enable_terminal_off">Pois käytöstä</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Edistynyt uudelleenkäynnistys</string>
-  <string name="advanced_reboot_summary">Sisällytä käynnistysvalikkoon vaihtoehdot käynnistää Recovery- ja Bootloader-tilaan sekä pelkän ohjelmiston uudelleenkäynnistykseen</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Käynnistä uudelleen</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery-tila</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader-tila</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Käynnistä uudelleen (soft)</string>
-  <!-- Display settings -->
-  <string name="system_display">Näyttö</string>
-  <string name="system_display_overscan">Overscan</string>
-  <string name="system_display_overscan_description">Kalibroi näyttö sopimaan näyttösi kokoon.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod-päivitykset</string>
+    <string name="about_mod_version">CyanogenMod-versio</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Kehittäjäasetukset otetaan käyttöön <xliff:g id="step_count">%1$d</xliff:g> vaiheen päästä.</item>
+        <item quantity="other">Kehittäjäasetukset otetaan käyttöön <xliff:g id="step_count">%1$d</xliff:g> vaiheen päästä.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Kehittäjäasetukset on nyt käytössä!</string>
+    <string name="show_dev_already_cm">Olet jo ottanut kehittäjäasetukset käyttöön.</string>
+    <string name="about_build_date">Luontipäivä</string>
+    <string name="about_kernel_version">Kernel-versio</string>
+    <string name="about_selinux_status">SELinux-tila</string>
+    <string name="selinux_status_disabled">Pois käytöstä</string>
+    <string name="selinux_status_permissive">Salliva</string>
+    <string name="selinux_status_enforcing">Täytäntöönpano</string>
+    <string name="accessories_add_bluetooth_inst_cm">Käyttääksesi CyanogenModia, varmista että Bluetooth-laite on yhdistämistilassa. Nexus-kaukosäädintä käyttäen tämä tapahtuu painamalla Takaisin- ja Kotinäppäintä samanaikaisesti.</string>
+    <string name="root_access">Root-oikeudet</string>
+    <string name="root_access_warning_title">Ota root-oikeudet käyttöön?</string>
+    <string name="root_access_warning_message">Root-oikeuksien käyttöönotto on erittäin vaarallista ja voi vahingoittaa laitettasi!</string>
+    <string name="root_access_none">Pois käytöstä</string>
+    <string name="root_access_apps">Vain sovellukset</string>
+    <string name="root_access_adb">Vain ADB</string>
+    <string name="root_access_all">Sovellukset ja ADB</string>
+    <string name="enable_terminal_title">Paikallinen pääte</string>
+    <string name="enable_terminal_summary">Ota pääte-sovellus käyttöön käyttääksesi paikallista komentoriviä</string>
+    <string name="system_display">Näyttö</string>
+    <string name="system_display_overscan">Overscan</string>
+    <string name="system_display_overscan_description">Kalibroi näyttö sopimaan näyttösi kokoon.</string>
+    <string name="system_reset_default_home">Palauta oletuskotinäyttö</string>
+    <string name="system_home_settings">Koti-asetukset</string>
+    <string name="reset_launcher_title">Palauta oletuskotinäyttö</string>
+    <string name="reset_launcher_description">Palauttamalla oletuskotinäyttöön, voit valita vaihtoehtoisen kotinäytön (eli Trebuchetin).\n\nHaluatko palauttaa oletuskotinäytön?</string>
+    <string name="reset_launcher_tip">Paina kotinäppäintä avataksesi kotinäytön valintaikkunan.</string>
+    <string name="advanced_reboot_title">Edistynyt uudelleenkäynnistys</string>
+    <string name="advanced_reboot_summary">Sisällytä käynnistysvalikkoon vaihtoehdot käynnistää Recovery- ja Bootloader-tilaan sekä pelkän ohjelmiston uudelleenkäynnistykseen</string>
+    <string name="reboot_recovery_button_label">Recovery-tila</string>
+    <string name="reboot_bootloader_button_label">Bootloader-tila</string>
+    <string name="reboot_soft_button_label">Käynnistä uudelleen (soft)</string>
+    <string name="adb_over_network">ADB verkon yli</string>
+    <string name="adb_over_network_summary">Salli TCP/IP virheenkorjaus verkon yli (Wi\u2011Fi\u2011, USB\u2011verkot). Tämä asetus nollataan uudelleenkäynnistyksen yhteydessä</string>
+    <string name="adb_over_network_warning">VAROITUS: Kun ADB verkon yli on käytössä, laitteesi on vapaa hyökkäyksille kaikissa verkoissa!\n\nKäytä tätä ominaisuutta vain luotettavassa verkossa.\n\nHaluatko varmasti ottaa ominaisuuden käyttöön?</string>
 </resources>

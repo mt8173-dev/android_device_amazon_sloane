@@ -39,5 +39,12 @@
             android:targetClass="com.android.tv.settings.system.SecurityActivity"
             android:targetPackage="com.android.tv.settings" />
     </Preference>
+    <Preference
+        android:icon="@drawable/ic_settings_diagnostic"
+        android:key="usageAndDiag"
+        android:title="@string/system_diagnostic" >
+        <intent
+            android:action="com.google.android.gsf.notouch.USAGE_AND_DIAGNOSTICS_SETTING" />
+    </Preference>
 
 </PreferenceScreen>

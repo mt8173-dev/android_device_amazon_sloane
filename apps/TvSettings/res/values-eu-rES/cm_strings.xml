@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod eguneraketak</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod bertsioa</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Android segurtasun adabaki maila</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Garapen ezarpenak gaitzeko urrats <xliff:g id="step_count">%1$d</xliff:g>era zaude.</item>
-    <item quantity="other">Garapen ezarpenak gaitzeko <xliff:g id="step_count">%1$d</xliff:g> urratsetara zaude.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Garapen ezarpenak gaitu dituzu!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Ez da behar, aurretik gaitu dituzu garapen ezarpenak.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Konpilatze data</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Kernelaren bertsioa</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux egoera</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Ezgaituta</string>
-  <string name="selinux_status_permissive">Permisiboa</string>
-  <string name="selinux_status_enforcing">Betearazten</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">CyanogeMod erabiltzen hasteko egiaztatu zure Bluetooth gailua lotzeko moduan dagoela. Nexus Remote gailuan atzea eta hasiera botoiak aldi berean sakatuz egiten da hau.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Root sarbidea</string>
-  <string name="root_access_warning_title">Baimendu root sarbidea?</string>
-  <string name="root_access_warning_message">Aplikazioek root sarbide eskaerak egitea baimentzeak gailuaren segurtasuna arriskuan jar dezake!</string>
-  <string name="root_access_none">Ezgaituta</string>
-  <string name="root_access_apps">Aplikazioak bakarrik</string>
-  <string name="root_access_adb">ADB bakarrik</string>
-  <string name="root_access_all">Aplikazioak eta ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen berreskuratzea</string>
-  <string name="update_recovery_on_summary">Eguneratu sistema eguneraketekin</string>
-  <string name="update_recovery_off_summary">Ez eguneratu sistema eguneraketekin</string>
-  <string name="update_recovery_on_warning">OHARRA: Ezaugarri hau gaitzean, instalatutako berreskuratze irudia oraingo sistema eragilearen bertsio bera duen batekin ordeztuko da.\n\nZure berreskuratze irudia sistemaren eguneraketekin batera eguneratuko da, etorkizuneko bertsioekin bateragarritasuna bermatzea lagunduz.\n\nEzaugarri hau gaitu nahi duzu?</string>
-  <string name="update_recovery_off_warning">KONTUZ: Ezaugarri hau ezgaitzean, instalatutako berreskuratze irudia ez da eguneratuko sistema eragilearekin batera.\n\nEtorkizuneko sistema eragilearen eguneraketak agian ezin izango dira instalatu zaharkitutako edo pertsonalizatutako berreskuratze irudietan.\n\n Ziur ezaugarri hau ezgaitu nahi duzula?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">Sare gaineko ADB</string>
-  <string name="adb_over_network_summary">Gaitu sare interfaze gaineko TCP/IP arazketa (Wi\u2011Fi, USB sareak). Ezarpen hau gailua berrabiaraztean leheneratzen da</string>
-  <string name="adb_over_network_disable_summary">Sakatu sare interfazeen gaineko TCP/IP arazketa ezgaitzeko (Wi\u2011Fi, USB sareak).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">KONTUZ: Sare gaineko ADB gaituta badago, zure telebistak kanpo erasoak jaso ditzake konektatutako sare guztietatik!\n\n Erabili ezaugarri hau soilik konfiantzako sareetara konektatuta zaudenean.\n\nEzaugarri hau gaitu nahi duzu?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Berrezarri hasiera-pantaila lehenetsia</string>
-  <string name="system_home_settings">Hasiera pantailako ezarpenak</string>
-  <string name="reset_launcher_title">Berrezarri hasiera-pantaila lehenetsia</string>
-  <string name="reset_launcher_description">Lehenetsitako hasiera-pantaila berrezarriz, ordezko hasiera-pantaila bat hautatu ahal izango duzu (ad. Trebuchet).\n\nHasiera-pantaila berrezarri nahi duzu?</string>
-  <string name="reset_launcher_tip">Sakatu hasiera botoia hasiera-pantaila aukeratzeko elkarrizketa dialogoa ateratzeko.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Tokiko terminala</string>
-  <string name="enable_terminal_summary">Gaitu terminal aplikazioa</string>
-  <string name="disable_terminal_summary">Ezgaitu terminal aplikazioa</string>
-  <string name="enable_terminal_on">Gaituta</string>
-  <string name="enable_terminal_off">Ezgaituta</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Berrabiatze aurreratua</string>
-  <string name="advanced_reboot_summary">Erakutsi berreskuratzera abiatzeko, abiarazlera abiatzeko, edo berrabiatze leuna burutzeko aukerak berrabiatu menuan</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Berrabiarazi</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Berreskuratzea</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Abiarazlea</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Berrabiatze leuna</string>
-  <!-- Display settings -->
-  <string name="system_display">Pantaila</string>
-  <string name="system_display_overscan">Irudiak pantaila gainditzen du</string>
-  <string name="system_display_overscan_description">Kalibratu irudia pantailan sartu dadin.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod eguneraketak</string>
+    <string name="about_mod_version">CyanogenMod bertsioa</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Garatzaileen aukerak gaitzeko urrats <xliff:g id="step_count">%1$d</xliff:g>era zaude.</item>
+        <item quantity="other">Garatzaileen aukerak gaitzeko <xliff:g id="step_count">%1$d</xliff:g> urratsetara zaude.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Garatzaileen aukerak gaitu dituzu!</string>
+    <string name="show_dev_already_cm">Ez da behar, aurretik gaitu dituzu garatzaileen aukerak.</string>
+    <string name="about_build_date">Konpilatze data</string>
+    <string name="about_kernel_version">Kernelaren bertsioa</string>
+    <string name="about_selinux_status">SELinux egoera</string>
+    <string name="selinux_status_disabled">Ezgaituta</string>
+    <string name="selinux_status_permissive">Permisiboa</string>
+    <string name="selinux_status_enforcing">Betearazten</string>
+    <string name="accessories_add_bluetooth_inst_cm">CyanogeMod erabiltzen hasteko egiaztatu zure Bluetooth gailua lotzeko moduan dagoela. Nexus Remote gailuan atzea eta hasiera botoiak aldi berean sakatuz egiten da hau.</string>
+    <string name="root_access">Root sarbidea</string>
+    <string name="root_access_warning_title">Baimendu root sarbidea?</string>
+    <string name="root_access_warning_message">Aplikazioek root sarbide eskaerak egitea baimentzeak gailuaren segurtasuna arriskuan jar dezake!</string>
+    <string name="root_access_none">Ezgaituta</string>
+    <string name="root_access_apps">Aplikazioak bakarrik</string>
+    <string name="root_access_adb">ADB bakarrik</string>
+    <string name="root_access_all">Aplikazioak eta ADB</string>
+    <string name="enable_terminal_title">Tokiko terminala</string>
+    <string name="enable_terminal_summary">Gaitu tokiko shell sarbidea eskaintzen duen terminal aplikazioa</string>
+    <string name="system_display">Pantaila</string>
+    <string name="system_display_overscan">Irudiak pantaila gainditzen du</string>
+    <string name="system_display_overscan_description">Kalibratu irudia pantailan sartu dadin.</string>
+    <string name="system_reset_default_home">Berrezarri hasiera-pantaila lehenetsia</string>
+    <string name="system_home_settings">Hasiera pantailako ezarpenak</string>
+    <string name="reset_launcher_title">Berrezarri hasiera-pantaila lehenetsia</string>
+    <string name="reset_launcher_description">Lehenetsitako hasiera-pantaila berrezarriz, ordezko hasiera-pantaila bat hautatu ahal izango duzu (ad. Trebuchet).\n\nHasiera-pantaila berrezarri nahi duzu?</string>
+    <string name="reset_launcher_tip">Sakatu hasiera botoia hasiera-pantaila aukeratzeko elkarrizketa dialogoa ateratzeko.</string>
+    <string name="advanced_reboot_title">Berrabiatze aurreratua</string>
+    <string name="advanced_reboot_summary">Erakutsi berreskuratzera abiatzeko, abiarazlera abiatzeko, edo berrabiatze leuna burutzeko aukerak berrabiatu menuan</string>
+    <string name="reboot_recovery_button_label">Berreskuratzea</string>
+    <string name="reboot_bootloader_button_label">Abiarazlea</string>
+    <string name="reboot_soft_button_label">Berrabiatze leuna</string>
+    <string name="adb_over_network">Sare gaineko ADB</string>
+    <string name="adb_over_network_summary">Gaitu sare interfaze gaineko TCP/IP arazketa (Wi\u2011Fi, USB sareak). Ezarpen hau gailua berrabiaraztean leheneratzen da</string>
+    <string name="adb_over_network_warning">KONTUZ: Sare gaineko ADB gaituta badago, zure telebistak kanpo erasoak jaso ditzake konektatutako sare guztietatik!\n\n Erabili ezaugarri hau soilik konfiantzako sareetara konektatuta zaudenean.\n\nEzaugarri hau gaitu nahi duzu?</string>
 </resources>

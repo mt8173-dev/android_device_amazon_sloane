@@ -16,85 +16,48 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">تحديثات CyanogenMod</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">إصدار CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">مستوى حزمة أمان Android</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="zero">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوة من تمكين خيارات المطور.</item>
-    <item quantity="one">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
-    <item quantity="two">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
-    <item quantity="few">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
-    <item quantity="many">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
-    <item quantity="other">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوة من تمكين خيارات المطور.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">قمت بتمكين خيارات المطورين!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">لا داعي، لقد قمت بالفعل بتمكين خيارات المطورين.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">تاريخ الإصدار</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">إصدار Kernel</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">حالة SELinux</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">معطل</string>
-  <string name="selinux_status_permissive">متساهل</string>
-  <string name="selinux_status_enforcing">فرض</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">لبدء استخدام CyanogenMod احرص على أن يكون جهازك المزود بخاصية البلوتوث في وضع الإقران. وبالنسبة لNexus Remote يتم ذلك بالضغط على زر العودة والصفحة الرئيسية في نفس الوقت.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">الوصول إلى root</string>
-  <string name="root_access_warning_title">السماح بالوصول إلى root؟</string>
-  <string name="root_access_warning_message">السماح للتطبيقات بطلب الوصول إلى root أمر خطير جداً، ويمكن أن يعرض أمن نظامك للخطر!</string>
-  <string name="root_access_none">معطل</string>
-  <string name="root_access_apps">التطبيقات فقط</string>
-  <string name="root_access_adb">ADB فقط</string>
-  <string name="root_access_all">التطبيقات و ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">استعادة Cyanogen</string>
-  <string name="update_recovery_on_summary">تحديث بتحديثات النظام</string>
-  <string name="update_recovery_off_summary">لا تقم بالتحديث بتحديثات النظام</string>
-  <string name="update_recovery_on_warning">ملحوظة: عندما يتم تمكين هذه الميزة، سيتم استبدال النسخة المستعادة المثبتة بأخرى مضمنة مع الإصدار الحالي من برنامج التشغيل العامل.\n\nوسيتم تحديث نسختك المستعادة مع ترقيات النظام، مما يساعد على ضمان التوافق مع الإصدارات المستقبلية. \n\nهل ترغب في تمكين هذه الميزة؟</string>
-  <string name="update_recovery_off_warning">تحذير: عندما يتم تعطيل هذه الميزة، لن يتم تحديث نسختك المستعادة المثبتة بترقيات النظام.\n\n كما أن ترقيات نظام التشغيل الجديدة قد لا يمكن تثبيتها مع النسخ المستعادة القديمة أو المخصصة. \n\nهل ترغب في تعطيل هذه الميزة؟</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB عبر الشبكة</string>
-  <string name="adb_over_network_summary">تمكين تنقيح أخطاء TCP/IP عبر واجهات شبكة الاتصال (Wi\u2011Fi وUSB). يُعاد تعيين هذا الإعداد عند إعادة التشغيل</string>
-  <string name="adb_over_network_disable_summary">انقر لتعطيل تنقيح الأخطاء عبر TCP/IP عبر واجهات شبكة الاتصال (Wi\u2011Fi وUSB).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">تحذير: عند تمكين ADB عبر الشبكة، يصبح تلفازك عرضة للتطفل على جميع شبكات المتصل بها!\n\nاستخدم هذه الميزة فقط عندما تكون متصلاً بشبكات موثوق بها.\n\nهل تريد حقا تمكين هذه الوظيفة؟</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">إعادة تعيين الشاشة الرئيسية الافتراضية</string>
-  <string name="system_home_settings">الإعدادات الرئيسية</string>
-  <string name="reset_launcher_title">إعادة تعيين الشاشة الرئيسية الافتراضية</string>
-  <string name="reset_launcher_description">عند إعادة تعيين الشاشة الرئيسية الافتراضية، ستكون قادراً على اختيار شاشة رئيسية بديلة (أي Trebuchet).\n\nهل ترغب في إعادة تعيين الشاشة الرئيسية الافتراضية؟</string>
-  <string name="reset_launcher_tip">اضغط على زر الرئيسية لإظهار مربع حوار اختيار الشاشة الرئيسية.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">المحطة الطرفية المحلية</string>
-  <string name="enable_terminal_summary">تمكين التطبيق الطرفي</string>
-  <string name="disable_terminal_summary">تعطيل التطبيق الطرفي</string>
-  <string name="enable_terminal_on">تمكين</string>
-  <string name="enable_terminal_off">تعطيل</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">إعادة التشغيل المتقدم</string>
-  <string name="advanced_reboot_summary">تشمل خيارات في قائمة حول لإعادة التشغيل الى recovery أوbootloader أو إجراء إعادة تشغيل ناعمة</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">إعادة التشغيل</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">إعادة تشغيل ناعمة</string>
-  <!-- Display settings -->
-  <string name="system_display">عرض</string>
-  <string name="system_display_overscan"> الخروج عن إطار الشاشة </string>
-  <string name="system_display_overscan_description">معايرة شاشة العرض لتتناسب مع حجم شاشتك.</string>
+    <string name="about_cmupdate_settings_title">تحديثات CyanogenMod</string>
+    <string name="about_mod_version">إصدار CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="zero">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوة من تمكين خيارات المطور.</item>
+        <item quantity="one">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
+        <item quantity="two">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
+        <item quantity="few">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
+        <item quantity="many">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوات من تمكين خيارات المطور.</item>
+        <item quantity="other">أنت الآن على بُعد <xliff:g id="step_count">%1$d</xliff:g> خطوة من تمكين خيارات المطور.</item>
+    </plurals>
+    <string name="show_dev_on_cm">قمت بتمكين خيارات المطورين!</string>
+    <string name="show_dev_already_cm">لا داعي، لقد قمت بالفعل بتمكين خيارات المطورين.</string>
+    <string name="about_build_date">تاريخ الإصدار</string>
+    <string name="about_kernel_version">إصدار Kernel</string>
+    <string name="about_selinux_status">حالة SELinux</string>
+    <string name="selinux_status_disabled">معطل</string>
+    <string name="selinux_status_permissive">متساهل</string>
+    <string name="selinux_status_enforcing">فرض</string>
+    <string name="accessories_add_bluetooth_inst_cm">لبدء استخدام CyanogenMod احرص على أن يكون جهازك المزود بخاصية البلوتوث في وضع الإقران. وبالنسبة لNexus Remote يتم ذلك بالضغط على زر العودة والصفحة الرئيسية في نفس الوقت.</string>
+    <string name="root_access">الوصول إلى root</string>
+    <string name="root_access_warning_title">السماح بالوصول إلى root؟</string>
+    <string name="root_access_warning_message">السماح للتطبيقات بطلب الوصول إلى root أمر خطير جداً، ويمكن أن يعرض أمن نظامك للخطر!</string>
+    <string name="root_access_none">معطل</string>
+    <string name="root_access_apps">التطبيقات فقط</string>
+    <string name="root_access_adb">ADB فقط</string>
+    <string name="root_access_all">التطبيقات و ADB</string>
+    <string name="enable_terminal_title">المحطة الطرفية المحلية</string>
+    <string name="enable_terminal_summary">تمكين التطبيق الطرفية الذي يوفر الوصول إلى الهيكل المحلي</string>
+    <string name="system_display">عرض</string>
+    <string name="system_display_overscan"> الخروج عن إطار الشاشة </string>
+    <string name="system_display_overscan_description">معايرة شاشة العرض لتتناسب مع حجم شاشتك.</string>
+    <string name="system_reset_default_home">إعادة تعيين الشاشة الرئيسية الافتراضية</string>
+    <string name="system_home_settings">الإعدادات الرئيسية</string>
+    <string name="reset_launcher_title">إعادة تعيين الشاشة الرئيسية الافتراضية</string>
+    <string name="reset_launcher_description">عند إعادة تعيين الشاشة الرئيسية الافتراضية، ستكون قادراً على اختيار شاشة رئيسية بديلة (أي Trebuchet).\n\nهل ترغب في إعادة تعيين الشاشة الرئيسية الافتراضية؟</string>
+    <string name="reset_launcher_tip">اضغط على زر الرئيسية لإظهار مربع حوار اختيار الشاشة الرئيسية.</string>
+    <string name="advanced_reboot_title">إعادة التشغيل المتقدم</string>
+    <string name="advanced_reboot_summary">تشمل خيارات في قائمة حول لإعادة التشغيل الى وضع الإسترداد او وضع البوتلودر أو إجراء إعادة تشغيل سريع</string>
+    <string name="reboot_recovery_button_label">الإسترداد</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">إعادة تشغيل ناعمة</string>
+    <string name="adb_over_network">ADB عبر الشبكة</string>
+    <string name="adb_over_network_summary">تمكين تنقيح أخطاء TCP/IP عبر واجهات شبكة الاتصال (Wi\u2011Fi وUSB). يُعاد تعيين هذا الإعداد عند إعادة التشغيل</string>
+    <string name="adb_over_network_warning">تحذير: عند تمكين ADB عبر الشبكة، يصبح تلفازك عرضة للتطفل على جميع شبكات المتصل بها!\n\nاستخدم هذه الميزة فقط عندما تكون متصلاً بشبكات موثوق بها.\n\nهل تريد حقا تمكين هذه الوظيفة؟</string>
 </resources>

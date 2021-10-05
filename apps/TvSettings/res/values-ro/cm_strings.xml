@@ -16,74 +16,45 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">Actualizări CyanogenMod</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">Versiune CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Nivelul actualizărilor de securitate Android</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Ești la <xliff:g id="step_count">%1$d</xliff:g> pas distanță de a activa opțiunile de dezvoltator.</item>
-    <item quantity="few">Ești la <xliff:g id="step_count">%1$d</xliff:g> pași distanță de a activa opțiunile de dezvoltator.</item>
-    <item quantity="other">Ești la <xliff:g id="step_count">%1$d</xliff:g> pași distanță de a activa opțiunile de dezvoltator.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Ați deblocat setările de dezvoltator!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Nu este nevoie, deja ai deblocat setările de dezvoltator.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Dată compilare</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Versiune nucleu</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">Starea SELinux</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Dezactivat</string>
-  <string name="selinux_status_permissive">Permisiv</string>
-  <string name="selinux_status_enforcing">Impusă</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Pentru a începe utilizarea CyanogenMod asigurați-vă că dispozitivul dvs. Bluetooth este în modul împerechere. Pentru telecomanda Nexus, acest lucru este posibil prin apăsarea simultană a tastelor Înapoi și Acasă.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Acces root</string>
-  <string name="root_access_warning_title">Permite acces la root?</string>
-  <string name="root_access_warning_message">Permisiunea ca aplicațiile să ceară acces root este foarte periculoasă și poate compromite securitatea sistemului dumneavoastră!</string>
-  <string name="root_access_none">Dezactivat</string>
-  <string name="root_access_apps">Doar aplicații</string>
-  <string name="root_access_adb">Doar ADB</string>
-  <string name="root_access_all">Aplicații și ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen recovery</string>
-  <string name="update_recovery_on_summary">Actualizare odată cu actualizări de sistem</string>
-  <string name="update_recovery_off_summary">Nu se actualizează cu actualizările sistemului</string>
-  <string name="update_recovery_on_warning">ANUNȚ: Când această funcție este pornită, modul de recuperare instalat va fi înlocuit de cel oferit de versiunea curenta a SO-ul ce rulează.\n\nModul de recuperare va fi actualizat împreună cu actualizările sistemului dvs. ajutând la asigurarea compatibilității cu versiuniile viitoare.\n\nDoriți să activați această funcție?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB prin rețea</string>
-  <string name="adb_over_network_summary">Activează depanarea TCP/IP prin interfețele de rețea (Wi\u2011Fi, rețele USB). Această setare este restaurată la repornire</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">AVERTISMENT: Când ADB prin rețea este activat, TV-ul dvs. este deschis pentru acces de pe toate rețelele conectate.\n\nFolosiți această funcție doar atunci când sunteți conectat la rețele de încredere.\n\nSunteți sigur că doriți să activați această funcție?</string>
-  <!-- Home settings -->
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Terminal local</string>
-  <string name="enable_terminal_summary">Activare aplicație terminal</string>
-  <string name="disable_terminal_summary">Dezactivare aplicație terminal</string>
-  <string name="enable_terminal_on">Activat</string>
-  <string name="enable_terminal_off">Dezactivat</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Repornire avansată</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Repornire</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recuperare</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Repornirea sistemului</string>
-  <!-- Display settings -->
-  <string name="system_display">Afișare</string>
-  <string name="system_display_overscan">Supra scanare</string>
-  <string name="system_display_overscan_description">Calibrați afișajul pentru a se potrivi la dimensiunea ecranului.</string>
+    <string name="about_cmupdate_settings_title">Actualizări CyanogenMod</string>
+    <string name="about_mod_version">Versiune CyanogenMod</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Ești la <xliff:g id="step_count">%1$d</xliff:g> pas distanță de a activa opțiunile de dezvoltator.</item>
+        <item quantity="few">Ești la <xliff:g id="step_count">%1$d</xliff:g> pași distanță de a activa opțiunile de dezvoltator.</item>
+        <item quantity="other">Ești la <xliff:g id="step_count">%1$d</xliff:g> pași distanță de a activa opțiunile de dezvoltator.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Ați deblocat setările de dezvoltator!</string>
+    <string name="show_dev_already_cm">Nu este nevoie, deja ai deblocat setările de dezvoltator.</string>
+    <string name="about_build_date">Dată compilare</string>
+    <string name="about_kernel_version">Versiune kernel</string>
+    <string name="about_selinux_status">Starea SELinux</string>
+    <string name="selinux_status_disabled">Dezactivat</string>
+    <string name="selinux_status_permissive">Permisiv</string>
+    <string name="selinux_status_enforcing">Impusă</string>
+    <string name="accessories_add_bluetooth_inst_cm">Pentru a începe utilizarea CyanogenMod asigurați-vă că dispozitivul dvs. Bluetooth este în modul împerechere. Pentru telecomanda Nexus, acest lucru este posibil prin apăsarea simultană a tastelor Înapoi și Acasă.</string>
+    <string name="root_access">Acces root</string>
+    <string name="root_access_warning_title">Permite acces la root?</string>
+    <string name="root_access_warning_message">Permisiunea ca aplicațiile să ceară acces root este foarte periculoasă și poate compromite securitatea sistemului dumneavoastră!</string>
+    <string name="root_access_none">Dezactivat</string>
+    <string name="root_access_apps">Doar aplicații</string>
+    <string name="root_access_adb">Doar ADB</string>
+    <string name="root_access_all">Aplicații și ADB</string>
+    <string name="enable_terminal_title">Terminal local</string>
+    <string name="enable_terminal_summary">Activați aplicația terminal care oferă acces la shell local</string>
+    <string name="system_display">Afișare</string>
+    <string name="system_display_overscan">Supra scanare</string>
+    <string name="system_display_overscan_description">Calibrați afișajul pentru a se potrivi la dimensiunea ecranului.</string>
+    <string name="system_reset_default_home">Resetați ecranul de start implicit</string>
+    <string name="system_home_settings">Setări acasă</string>
+    <string name="reset_launcher_title">Resetați ecranul de start implicit</string>
+    <string name="reset_launcher_description">Prin resetarea ecranului de start implicit, veți putea alege un ecran de start alternativ (de exemplu, Trebuchet).\n\nAți dori să reiniţializaţi ecranul de start implicit?</string>
+    <string name="reset_launcher_tip">Apăsați butonul acasă pentru a deschide dialogul selecției ecranului de start.</string>
+    <string name="advanced_reboot_title">Repornire avansată</string>
+    <string name="advanced_reboot_summary">Include opțiuni în meniul Despre pentru repornirea în recovery, bootloader sau efectuarea unei reporniri soft</string>
+    <string name="reboot_recovery_button_label">Recuperare</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Repornirea sistemului</string>
+    <string name="adb_over_network">ADB prin rețea</string>
+    <string name="adb_over_network_summary">Activează depanarea TCP/IP prin interfețele de rețea (Wi\u2011Fi, rețele USB). Această setare este restaurată la repornire</string>
+    <string name="adb_over_network_warning">AVERTISMENT: Când ADB prin rețea este activat, TV-ul dvs. este deschis pentru acces de pe toate rețelele conectate.\n\nFolosiți această funcție doar atunci când sunteți conectat la rețele de încredere.\n\nSunteți sigur că doriți să activați această funcție?</string>
 </resources>

@@ -16,81 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">CyanogenMod frissítések</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">CyanogenMod verzió</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Android biztonsági javítási szint</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one"><xliff:g id="step_count">%1$d</xliff:g> lépésre van attól, hogy engedélyezze a fejlesztői beállításokat.</item>
-    <item quantity="other"><xliff:g id="step_count">%1$d</xliff:g> lépésre van attól, hogy engedélyezze a fejlesztői beállításokat.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Sikeresen engedélyezte a fejlesztői beállításokat!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Már korábban engedélyezte a fejlesztői beállításokat.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Build dátuma</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Kernel verzió</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">SELinux állapota</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Letiltva</string>
-  <string name="selinux_status_permissive">Megengedve</string>
-  <string name="selinux_status_enforcing">Kényszerítve</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">CyanogenMod használatához a Bluetooth eszköze párosítási módban kell legyen. Nexus Remote esetén a vissza és a kezdőlap gombok egyidejű nyomása.</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Rendszergazda hozzáférés</string>
-  <string name="root_access_warning_title">Engedélyezi a rendszergazdai hozzáférést?</string>
-  <string name="root_access_warning_message">Veszélyes rendszergazda jogosultságot adni az alkalmazásoknak, és veszélyeztetheti a rendszere biztonságát!</string>
-  <string name="root_access_none">Letiltva</string>
-  <string name="root_access_apps">Csak alkalmazások</string>
-  <string name="root_access_adb">Csak ADB</string>
-  <string name="root_access_all">Alkalmazások és ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Cyanogen recovery</string>
-  <string name="update_recovery_on_summary">Frissítés a rendszerfrissítésekkel</string>
-  <string name="update_recovery_off_summary">Ne frissüljön a rendszerfrissítésekkel</string>
-  <string name="update_recovery_on_warning">FIGYELEM: Ha ezen funkció aktiválva van, a telepített recovery le lesz cserélve a jelenleg futó operációs rendszerének megfelelően.\n\nA recovery együtt lesz frissítve a rendszerrel, ezáltal biztosítva a kompatibilitást a jövőbeli verziókkal.\n\nBiztosan aktiválja a funkciót?</string>
-  <string name="update_recovery_off_warning">FIGYELEM: Ha ez a funkció ki van kapcsolva, a telepített recovery nem le lesz cserélve a jelenleg futó operációs rendszerének megfelelően.\n\nAz újabb operációs rendszer frissítések lehet, hogy nem támogatják a régi recovery verziókat.\n\nBiztosan inaktiválja a funkciót?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">ADB hálózaton keresztül</string>
-  <string name="adb_over_network_summary">Engedélyezi a TCP/IP hibakeresést hálózati eszközön keresztül (Wi\u2011Fi, USB hálózatok). Újraindítás után alaphelyzetbe áll vissza</string>
-  <string name="adb_over_network_disable_summary">Ide kattintva letilthatja a TCP/IP hibakeresést hálózati eszközön keresztül (Wi\u2011Fi, USB hálózatok).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">VIGYÁZAT: Ha a funkció engedélyezve van, a TV-je nyitva áll bármilyen behatolásra az összes kapcsolódó hálózaton keresztül!\n\nCsak biztonságos hálózatra csatlakozva érdemes engedélyezni.\n\nBiztosan engedélyezni szeretné?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Alapértelmezett kezdőképernyő visszaállítása</string>
-  <string name="system_home_settings">Kezdőlap beállítások</string>
-  <string name="reset_launcher_title">Alapértelmezett kezdőképernyő visszaállítása</string>
-  <string name="reset_launcher_description">Az alapértelmezett indító visszaállításával egy másik indítót választhat (pl. Trebuchet).\n\nSzeretné visszaállítani az alapértelmezett indítót?</string>
-  <string name="reset_launcher_tip">Nyomja meg a kezdőlap gombot az indító kiválasztási párbeszédpanel megjelenítéséhez.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Helyi terminál</string>
-  <string name="enable_terminal_summary">Engedélyezi a terminál alkalmazást</string>
-  <string name="disable_terminal_summary">Letiltja a terminál alkalmazást</string>
-  <string name="enable_terminal_on">Engedélyezve</string>
-  <string name="enable_terminal_off">Letiltva</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Speciális újraindítás</string>
-  <string name="advanced_reboot_summary">Tartalmazza a további újraindítási lehetőségeket (recovery, bootloader, lágy újraindítás)</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Újraindítás</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Lágy újraindítás</string>
-  <!-- Display settings -->
-  <string name="system_display">Megjelenítés</string>
-  <string name="system_display_overscan">Túlpásztázás</string>
-  <string name="system_display_overscan_description">Kijelző kalibrálása, hogy illeszkedjen a képernyő méretéhez.</string>
+    <string name="about_cmupdate_settings_title">CyanogenMod frissítések</string>
+    <string name="about_mod_version">CyanogenMod verzió</string>
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one"><xliff:g id="step_count">%1$d</xliff:g> lépésre van attól, hogy engedélyezze a fejlesztői beállításokat.</item>
+        <item quantity="other"><xliff:g id="step_count">%1$d</xliff:g> lépésre van attól, hogy engedélyezze a fejlesztői beállításokat.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Sikeresen engedélyezte a fejlesztői beállításokat!</string>
+    <string name="show_dev_already_cm">Már korábban engedélyezte a fejlesztői beállításokat.</string>
+    <string name="about_build_date">Build dátuma</string>
+    <string name="about_kernel_version">Kernel verzió</string>
+    <string name="about_selinux_status">SELinux állapota</string>
+    <string name="selinux_status_disabled">Letiltva</string>
+    <string name="selinux_status_permissive">Megengedve</string>
+    <string name="selinux_status_enforcing">Kényszerítve</string>
+    <string name="accessories_add_bluetooth_inst_cm">CyanogenMod használatához a Bluetooth eszköze párosítási módban kell legyen. Nexus Remote esetén a vissza és a kezdőlap gombok egyidejű nyomása.</string>
+    <string name="root_access">Rendszergazda hozzáférés</string>
+    <string name="root_access_warning_title">Engedélyezi a rendszergazdai hozzáférést?</string>
+    <string name="root_access_warning_message">Veszélyes rendszergazda jogosultságot adni az alkalmazásoknak, és veszélyeztetheti a rendszere biztonságát!</string>
+    <string name="root_access_none">Letiltva</string>
+    <string name="root_access_apps">Csak alkalmazások</string>
+    <string name="root_access_adb">Csak ADB</string>
+    <string name="root_access_all">Alkalmazások és ADB</string>
+    <string name="enable_terminal_title">Helyi terminál</string>
+    <string name="enable_terminal_summary">Engedélyezi a terminál alkalmazást, amely a helyi shell hozzáférést biztosítja</string>
+    <string name="system_display">Megjelenítés</string>
+    <string name="system_display_overscan">Túlpásztázás</string>
+    <string name="system_display_overscan_description">Kijelző kalibrálása, hogy illeszkedjen a képernyő méretéhez.</string>
+    <string name="system_reset_default_home">Alapértelmezett kezdőképernyő visszaállítása</string>
+    <string name="system_home_settings">Kezdőlap beállítások</string>
+    <string name="reset_launcher_title">Alapértelmezett kezdőképernyő visszaállítása</string>
+    <string name="reset_launcher_description">Az alapértelmezett indító visszaállításával egy másik indítót választhat (pl. Trebuchet).\n\nSzeretné visszaállítani az alapértelmezett indítót?</string>
+    <string name="reset_launcher_tip">Nyomja meg a kezdőlap gombot az indító kiválasztási párbeszédpanel megjelenítéséhez.</string>
+    <string name="advanced_reboot_title">Speciális újraindítás</string>
+    <string name="advanced_reboot_summary">Tartalmazza a további újraindítási lehetőségeket (recovery, bootloader, lágy újraindítás)</string>
+    <string name="reboot_recovery_button_label">Recovery</string>
+    <string name="reboot_bootloader_button_label">Bootloader</string>
+    <string name="reboot_soft_button_label">Lágy újraindítás</string>
+    <string name="adb_over_network">ADB hálózaton keresztül</string>
+    <string name="adb_over_network_summary">Engedélyezi a TCP/IP hibakeresést hálózati eszközön keresztül (Wi\u2011Fi, USB hálózatok). Újraindítás után alaphelyzetbe áll vissza</string>
+    <string name="adb_over_network_warning">VIGYÁZAT: Ha a funkció engedélyezve van, a TV-je nyitva áll bármilyen behatolásra az összes kapcsolódó hálózaton keresztül!\n\nCsak biztonságos hálózatra csatlakozva érdemes engedélyezni.\n\nBiztosan engedélyezni szeretné?</string>
 </resources>

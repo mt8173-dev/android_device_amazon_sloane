@@ -16,82 +16,40 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- CM Updater -->
-  <string name="about_cmupdate_settings_title">Абнаўленні CyanogenMod</string>
-  <!-- About screen, CyanogenMod version -->
-  <string name="about_mod_version">Версія CyanogenMod</string>
-  <!-- About screen, status item label  [CHAR LIMIT=60] -->
-  <string name="security_patch">Абнаўленне сістэмы бяспекі</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Застаўся <xliff:g id="step_count">%1$d</xliff:g> крок для ўлучэння налад для распрацоўнікаў.</item>
-    <item quantity="few">Засталося <xliff:g id="step_count">%1$d</xliff:g> кроку для ўлучэння налад для распрацоўнікаў.</item>
-    <item quantity="other">Засталося <xliff:g id="step_count">%1$d</xliff:g> крокаў для ўлучэння налад для распрацоўнікаў.</item>
-  </plurals>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-  <string name="show_dev_on_cm">Налады для распрацоўнікаў улучаны!</string>
-  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-  <string name="show_dev_already_cm">Не патрэбна, налады для распрацоўнікаў ужо ўлучаны.</string>
-  <!-- About screen, build date -->
-  <string name="about_build_date">Дата зборкі</string>
-  <!-- About screen, kernel version -->
-  <string name="about_kernel_version">Вэрсія ядра</string>
-  <!-- About screen, SELinux status -->
-  <string name="about_selinux_status">Рэжым SELinux</string>
-  <!-- These statuses are displayed when a device was built with SE Android supoprt.
-    These are displayed by the settings app in the about section. -->
-  <string name="selinux_status_disabled">Адключаны</string>
-  <string name="selinux_status_permissive">Дазваляльны</string>
-  <string name="selinux_status_enforcing">Прымусовы</string>
-  <!-- Description text for bluetooth device pairing instructions. [CHAR LIMIT=150] -->
-  <string name="accessories_add_bluetooth_inst_cm">Для пачатку выкарыстання CyanogenMod пераканаецеся, што Bluetooth-прылада знаходзіцца ў рэжыме спалучэння. На Nexus Remote гэта робіцца адначасным націскам кнопак \"Назад\" і \"Дамоў\".</string>
-  <!-- Title for Set CM in System Settings Developer options [CHAR LIMIT=50] -->
-  <!-- Setting title for root access -->
-  <string name="root_access">Рэжым суперкарыстальніка</string>
-  <string name="root_access_warning_title">Дазволіць выкарыстанне Суперкарыстальніка?</string>
-  <string name="root_access_warning_message">Выкарыстанне дадаткамі праў суперкарыстальніка можа быць вельмі небяспечным і ставіць пад пагрозу бяспеку вашай прылады!</string>
-  <string name="root_access_none">Вымкнуты</string>
-  <string name="root_access_apps">Толькі для дадаткаў</string>
-  <string name="root_access_adb">Толькі для ADB</string>
-  <string name="root_access_all">Для дадаткаў і ADB</string>
-  <!-- Setting for updating Cyanogen recovery -->
-  <string name="update_recovery_title">Рэжым аднаўлення Cyanogen</string>
-  <string name="update_recovery_on_summary">Перазапісваць падзел Recovery пры ўсталёўцы абнаўленняў</string>
-  <string name="update_recovery_off_summary">Не перазапісваць пры абнаўленні сістэмы</string>
-  <string name="update_recovery_on_warning">Калі гэта функцыя ўлучана, усталяваная прашыўка рэжыму аднаўлення будзе перазапісана той, якая адпавядае бягучай версіі АС.\n\nРэжым аднаўлення будзе абнаўляцца разам з абнаўленнямі сістэмы, забяспечваючы сумяшчальнасць з будучымі версіямі.\n\nУключыць выкарыстанне гэтай функцыі?</string>
-  <string name="update_recovery_off_warning">Калі гэта функцыя адключана, прашыўка рэжыму аднаўлення заўсёды будзе заставацца нязменнай.\n\nні якія абнаўленні АС могуць не ўсталёўвацца пры выкарыстанні састарэлых ці карыстацкіх версій падзелу Recovery.\n\nАдключыць выкарыстанне гэтай функцыі?</string>
-  <!-- Android debugging over WiFi -->
-  <string name="adb_over_network">Адладка па сетцы</string>
-  <string name="adb_over_network_summary">Уключыць рэжым адладкі праз сеткавыя інтэрфейсы (Wi\u2011Fi і USB-сеткі). Адладка адключаецца пры перазагрузцы прылады</string>
-  <string name="adb_over_network_disable_summary">Абярыце, каб адключыць адладку праз сеткавыя інтэрфейсы (Wi\u2011Fi і USB-сеткі).</string>
-  <!-- Warning for Adb over Network -->
-  <string name="adb_over_network_warning">УВАГА: калі ўключана адладка па сетцы, прылада адкрыта для некантралюемага доступу з усіх падлучаных сетак!\n\nСкарыстайце гэту функцыю толькі тады, калі вы падлучаны да давераных сетак.\n\nВы сапраўды хочаце ўключыць гэту функцыю?</string>
-  <!-- Home settings -->
-  <string name="system_reset_default_home">Скід хатняга экрана</string>
-  <string name="system_home_settings">Хатні экран</string>
-  <string name="reset_launcher_title">Скід хатняга экрана</string>
-  <string name="reset_launcher_description">Гэта дзеянне дазволіць усталяваць іншы дадатак (прыкладам, Trebuchet) у якасці хатняга экрана.\n\nВыканаць скід?</string>
-  <string name="reset_launcher_tip">Націсніце кнопку «Дамоў», каб выклікаць дыялог выбару хатняга экрана.</string>
-  <!-- Setting that enables the terminal app. [CHAR LIMIT=32] -->
-  <string name="enable_terminal_title">Убудаваны тэрмінал</string>
-  <string name="enable_terminal_summary">Тэрмінал улучаны</string>
-  <string name="disable_terminal_summary">Тэрмінал вымкнуты</string>
-  <string name="enable_terminal_on">Улучаны</string>
-  <string name="enable_terminal_off">Вымкнуты</string>
-  <!-- Advanced reboot options -->
-  <string name="advanced_reboot_title">Варыянты перазагрузкі</string>
-  <string name="advanced_reboot_summary">Паказваць дадатковыя опцыі перазагрузкі прылады ў загрузчык, рэжым аднаўлення ці перазапуску інтэрфейсу ў меню \"Пра прыладу\"</string>
-  <!-- Reboot menu -->
-  <!-- Button to reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Перазагрузка</string>
-  <!-- Button to reboot the device into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Рэжым аднаўлення</string>
-  <!-- Button to reboot the device into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Загрузчык</string>
-  <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_soft">Перазапуск інтэрфейсу</string>
-  <!-- Display settings -->
-  <string name="system_display">Экран</string>
-  <string name="system_display_overscan">Разгортка</string>
-  <string name="system_display_overscan_description">Налада адлюстравання згодна бачнай вобласці экрана.</string>
+    <string name="about_cmupdate_settings_title">Абнаўленні CyanogenMod</string>
+    <string name="about_mod_version">Версія CyanogenMod</string>
+    <string name="show_dev_on_cm">Налады для распрацоўнікаў улучаны!</string>
+    <string name="show_dev_already_cm">Не патрэбна, налады для распрацоўнікаў ужо ўлучаны.</string>
+    <string name="about_build_date">Дата зборкі</string>
+    <string name="about_kernel_version">Вэрсія ядра</string>
+    <string name="about_selinux_status">Рэжым SELinux</string>
+    <string name="selinux_status_disabled">Адключаны</string>
+    <string name="selinux_status_permissive">Дазваляльны</string>
+    <string name="selinux_status_enforcing">Прымусовы</string>
+    <string name="accessories_add_bluetooth_inst_cm">Для пачатку выкарыстання CyanogenMod пераканаецеся, што Bluetooth-прылада знаходзіцца ў рэжыме спалучэння. На Nexus Remote гэта робіцца адначасным націскам кнопак \"Назад\" і \"Дамоў\".</string>
+    <string name="root_access">Рэжым суперкарыстальніка</string>
+    <string name="root_access_warning_title">Дазволіць выкарыстанне Суперкарыстальніка?</string>
+    <string name="root_access_warning_message">Выкарыстанне дадаткамі праў суперкарыстальніка можа быць вельмі небяспечным і ставіць пад пагрозу бяспеку вашай прылады!</string>
+    <string name="root_access_none">Вымкнуты</string>
+    <string name="root_access_apps">Толькі для дадаткаў</string>
+    <string name="root_access_adb">Толькі для ADB</string>
+    <string name="root_access_all">Для дадаткаў і ADB</string>
+    <string name="enable_terminal_title">Убудаваны тэрмінал</string>
+    <string name="enable_terminal_summary">Уключэнне прыкладання тэрмінала, якое прапануе доступ да лакальнай абалонкі</string>
+    <string name="system_display">Экран</string>
+    <string name="system_display_overscan">Разгортка</string>
+    <string name="system_display_overscan_description">Налада адлюстравання згодна бачнай вобласці экрана.</string>
+    <string name="system_reset_default_home">Скід хатняга экрана</string>
+    <string name="system_home_settings">Хатні экран</string>
+    <string name="reset_launcher_title">Скід хатняга экрана</string>
+    <string name="reset_launcher_description">Гэта дзеянне дазволіць усталяваць іншы дадатак (прыкладам, Trebuchet) у якасці хатняга экрана.\n\nВыканаць скід?</string>
+    <string name="reset_launcher_tip">Націсніце кнопку «Дамоў», каб выклікаць дыялог выбару хатняга экрана.</string>
+    <string name="advanced_reboot_title">Варыянты перазагрузкі</string>
+    <string name="advanced_reboot_summary">Паказваць дадатковыя опцыі перазагрузкі прылады ў загрузчык, рэжым аднаўлення ці перазапуску інтэрфейсу ў меню \"Пра прыладу\"</string>
+    <string name="reboot_recovery_button_label">Рэжым аднаўлення</string>
+    <string name="reboot_bootloader_button_label">Загрузчык</string>
+    <string name="reboot_soft_button_label">Перазапуск інтэрфейсу</string>
+    <string name="adb_over_network">Адладка па сетцы</string>
+    <string name="adb_over_network_summary">Уключыць рэжым адладкі праз сеткавыя інтэрфейсы (Wi\u2011Fi і USB-сеткі). Адладка адключаецца пры перазагрузцы прылады</string>
+    <string name="adb_over_network_warning">УВАГА: калі ўключана адладка па сетцы, прылада адкрыта для некантралюемага доступу з усіх падлучаных сетак!\n\nСкарыстайце гэту функцыю толькі тады, калі вы падлучаны да давераных сетак.\n\nВы сапраўды хочаце ўключыць гэту функцыю?</string>
 </resources>
