@@ -2,6 +2,7 @@
 SBC Example PLC ANSI-C Source Code
 File: sbcplc.c
 *************************************************************/
+#include <stdlib.h>
 #include <math.h>
 //#include "sbc.h"
 #include "sbcplc.h"

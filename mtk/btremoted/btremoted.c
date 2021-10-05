@@ -21,6 +21,7 @@
 #include "sbcplc.h"
 #include "btremoted.h"
 #include <cutils/sockets.h>
+#include <unistd.h>
 
 #ifdef _METRICS
 #include <limits.h>
