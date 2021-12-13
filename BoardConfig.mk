@@ -112,7 +112,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Shim Libraries
-TARGET_LDPRELOAD += libshim_gralloc.so:libshim_log.so:libshim_audio.so
+TARGET_LDPRELOAD += libshim_gralloc.so:libshim_log.so:libshim_audio.so:libshim_ui.so
 
 # System Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop

@@ -117,7 +117,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_gralloc \
     libshim_log \
-    libshim_audio
+    libshim_audio \
+    libshim_ui
 
 # Keylayout
 PRODUCT_COPY_FILES += \
