@@ -21,6 +21,9 @@ on init
 	chown system drmrpc /proc/mtk_cmdq
 
 on fs
+	# Legacy partition path support
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name /dev/block/platform/mtk-msdc.0/by-name
+
 	mount_all /fstab.mt8173
 	exec /system/bin/ext4_resize
 
